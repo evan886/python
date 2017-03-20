@@ -1,0 +1,14 @@
+<html>
+<title>Main</title>
+
+<body>
+<h1>Main Page</h1>
+<hr/>
+
+{% for blog in entries %}
+	<b>{{ blog.title }}</b><br />
+	{{ blog.content }}<p />
+{% endfor %}
+
+</body>
+</html>

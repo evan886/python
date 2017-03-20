@@ -1,0 +1,13 @@
+
+chapter 2
+python -O -m pyfile
+-O 生成优化代码
+
+
+chapter 2 
+
+一条语句写在多行
+print \
+"hey evan"
+
+2.3.4全局变量 

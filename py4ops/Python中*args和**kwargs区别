@@ -1,0 +1,63 @@
+当函数的参数不确定时，可以使用*args 和**kwargs，*args 没有key值，**kwargs有key值。还是直接来代码吧，废话少说
+
+def fun_var_args(farg, *args):
+     print "arg:", farg
+     for value in args:
+     print "another arg:", value
+         
+
+result:
+In [6]: fun_var_args(1, "two", 3) # *args可以当作可容纳多个变量组成的list
+arg: 1
+another arg: two
+another arg: 3
+
+
+**kwargs:
+
+ def fun_var_kwargs(farg, **kwargs):
+         print "arg:", farg
+         for key in kwargs:
+             print "another keyword arg: %s: %s" % (key, kwargs[key])
+         
+
+# myarg2和myarg3被视为key， 
+#感觉**kwargs可以当作容纳多个key和value的dictionary
+In [8]: fun_var_kwargs(farg=1, myarg2="two", myarg3=3) 
+arg: 1
+another keyword arg: myarg2: two
+another keyword arg: myarg3: 3
+
+
+也可以用下面的形式
+
+*args的另外一种方式
+In [11]: def fun_var_args_call(arg1, arg2, arg3):
+   ....:         print "arg1:", arg1
+   ....:         print "arg2:", arg2
+   ....:         print "arg3:", arg3
+   ....:      
+
+In [12]: args = ["two", 3] #list
+
+In [13]: fun_var_args_call(1, *args)
+arg1: 1
+arg2: two
+arg3: 3
+
+
+**kwargs的另外一种方式
+In [25]: def fun_var_args_call(arg1, arg2, arg3):
+   ....:         print "arg1:", arg1
+   ....:         print "arg2:", arg2
+   ....:         print "arg3:", arg3
+   ....:      
+
+In [26]: kwargs = {"arg3": 3, "arg2": "two"} # dictionary
+
+In [27]: fun_var_args_call(1, **kwargs)
+arg1: 1
+arg2: two
+arg3: 3
+
+

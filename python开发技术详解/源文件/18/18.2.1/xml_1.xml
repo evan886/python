@@ -1,0 +1,15 @@
+<?xml version=’1.0’ encoding=’utf-8’ standalone=’no’ ?>
+<goods>
+    <shirt>
+        <name>Helen</name>
+        <size>170</size>
+        <quantity>10</quantity>
+        <color>black</color>
+    </shirt>
+    <shirt>
+        <name>First</name>
+        <size>175</size>
+        <quantity>9</quantity>
+        <color>white</color>
+    </shirt>
+<goods>

@@ -1,0 +1,50 @@
+
+
+
+
+[root@dkm-server mon]# zabbix_agentd  -t "mysql_repl[/tmp/mysql.sock]"
+mysql_repl[/tmp/mysql.sock]                   [m|ZBX_NOTSUPPORTED] [Unsupported item key.]
+
+
+
+
+
+python操作mysql数据库
+http://www.runoob.com/python/python-mysql.html
+
+###下午是成功连接的 
+
+
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+"""
+[root@dkm-server mon]# python c
+Database version : 5.6.32-log 
+
+"""
+
+import MySQLdb
+
+# 打开数据库连接
+db = MySQLdb.connect(host='localhost',user='root',passwd='dkmwebmysql!q$EWQ23FD23',unix_socket='/tmp/mysql.sock' )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# 使用execute方法执行SQL语句
+cursor.execute("SELECT VERSION()")
+
+# 使用 fetchone() 方法获取一条数据库。
+data = cursor.fetchone()
+
+print "Database version : %s " % data
+
+# 关闭数据库连接
+db.close()
+
+
+
+使用MySQL
+http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001391435131816c6a377e100ec4d43b3fc9145f3bb8056000

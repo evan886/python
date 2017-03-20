@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "stderr.py", line 13, in <module>
+    raise Exception, t + " 异常信息"  
+Exception: 2008-02-24 19:46:06 异常信息
+Traceback (most recent call last):
+  File "stderr.py", line 13, in <module>
+    raise Exception, t + " 异常信息"  
+Exception: 2008-02-24 19:46:17 异常信息

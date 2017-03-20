@@ -1,0 +1,1563 @@
+源码下载
+http://www.apress.com/programming/python/9781590599822
+#+-------------------------------------------------------+
+#|     第1章              |        基础知识
+#+-------------------------------------------------------+
+http://mirrors.sohu.com/python/
+里面不单单有 src 还有 chm的手册呢 
+wget -c http://mirrors.sohu.com/python/2.5/Python-2.5.tar.bz2
+  tar xvf Python-2.5.tar.bz2 
+  cd Python-2.5
+  ./configure --prefix=/usr/local/python25
+  make -j2 && make install
+  
+  [root@centos5 Python-2.5]# /usr/local/python25/bin/python
+Python 2.5 (r25:51908, Apr 26 2013, 21:54:19) 
+[GCC 4.1.2 20080704 (Red Hat 4.1.2-52)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+
+#+-------------------------------------------------------+
+#|     第2章        | 列表和元组
+#+-------------------------------------------------------+
+最重要的序列是 列表和元组 ，还有字符串等一共6种内建的序列
+
+#列表用 []; 元组用 (); 字典用{}
+In [68]: ed=['evan',36]
+
+In [69]: ed
+Out[69]: ['evan', 36]
+
+``````
+序列也可以包含其它序列
+In [73]: john=['joh sim',50]
+
+In [74]: data=[ed,john]
+
+In [75]: data
+Out[75]: [['evan', 36], ['joh sim', 50]]
+``````
+
+2.2.1索引
+最后一个元素是-1 
+In [76]: gree='hello'
+
+In [77]: gree[0]
+Out[77]: 'h'
+In [79]: gree[-1]
+Out[79]: 'o'
+
+In [80]: 'hello'[1]
+Out[80]: 'e'
+
+#####
+#!/usr/bin/python
+months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+
+endings = ['st','nd','rd'] + 17 * ['th'] \
+        + ['st','nd','rd'] + 7 * ['th'] \
+        + ['st']
+        
+year   = raw_input('Year: ')
+month  = raw_input('Month (1-12): ')
+day     = raw_input('Day (1-31): ')
+
+month_number = int(month)
+day_number = int(day)
+
+##因为下标从0开始
+month_name = months[month_number-1]
+ordinal = day + endings[day_number-1]
+
+print month_name + ' ' + ordinal + ' ,' + year
+
+##结果        
+Year:  2013
+Month (1-12): 1
+Day (1-31): 1
+January 1st , 2013        
+
+
+####
+2.2.2 分片
+ 索引从0开始数，第一个索引是提取的，包含在分片内，而第二个索引是不包含在分片内的，就像 30这个并不在结果里面 
+                                              32 
+In [4]: tag = '<a href="http://www.python.org">Python web site</a>'
+
+In [5]: tag[9:30]
+Out[5]: 'http://www.python.org'
+
+In [6]: tag[32:-4] #32到结尾，除去最后4个
+Out[6]: 'Python web site'
+
+In [7]: nu=[1,2,3,4,5,6,7,8,9,10]
+In [8]: nu[7:10]
+Out[8]: [8, 9, 10]
+
+In [10]: nu[-3:-1]
+Out[10]: [8, 9]
+##分片中左边的索引比右边的晚出现在序列中（这里是 倒数第3个比第1个晚出现），结果就是一个空的序列
+In [11]: nu[-3:0]
+Out[11]: []
+
+如果分片所得部分包括序列结尾的元素，那么，只要置空最后一个索引即可
+In [13]: nu[-3:]
+Out[13]: [8, 9, 10]
+
+In [12]: nu[-3]
+Out[12]: 8
+
+
+同理 可反过来用
+In [14]: nu[:3]
+Out[14]: [1, 2, 3]
+
+两个索引置空，是复制整个列表
+In [15]: nu[:]
+Out[15]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+步长，这例子步长为2
+In [16]: nu[0:10:2]
+Out[16]: [1, 3, 5, 7, 9]
+
+每4个元素中的第一个提取
+In [18]: nu[::4]
+Out[18]: [1, 5, 9]
+
+注意 步长不能为0,因为那样不会向下执行，但可以负数，表示从右到左提取元素
+
+In [29]: nu[0:10]
+Out[29]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+In [30]: nu[10:0:-2]
+Out[30]: [10, 8, 6, 4, 2]
+
+In [31]: nu[10:0:]
+Out[31]: []
+
+#10要先于0而出 所以空
+In [32]: nu[0:10:-2]
+Out[32]: []
+
+2,3 2.4
+序列相加和乘法
+
+In [36]: 'evan' *2
+Out[36]: 'evanevan'
+In [37]: [None] * 2
+Out[37]: [None, None]
+
+2.2.5 成员资格
+
+2.3
+
+2.3.1 list function #，因字符串不能被修改，有时根据字符串创建列表 很有用
+In [1]: list('hello')
+Out[1]: ['h', 'e', 'l', 'l', 'o']
+
+2.3.2 基本的列表操作
+1,改变列表:元素赋值
+In [2]: x=[1,1]
+In [3]: x[1]=2
+In [4]: x
+Out[4]: [1, 2]
+2,删除元素
+In [5]: del x[1]
+
+3,分片赋值
+In [7]: name=list('Perl')
+
+In [8]: name
+Out[8]: ['P', 'e', 'r', 'l']
+
+In [9]: name[2:]=list('ar')
+
+In [10]: name
+Out[10]: ['P', 'e', 'a', 'r']
+
+
+In [11]: num=[1,5]
+In [13]: num[0:1]
+Out[13]: [1]
+
+In [14]: num[0:2]
+Out[14]: [1, 5]
+
+#第一个元素到第一个元素之间 当然是空啦
+In [15]: num[1:1]
+Out[15]: []
+
+In [16]: num[1:1]=[2,3,4]
+
+In [17]: num
+Out[17]: [1, 2, 3, 4, 5]
+
+In [18]: num[1:4]=[]
+
+In [19]: num
+Out[19]: [1, 5]
+
+2.3.3 列表方法 
+方法是一个与某些对象有紧密联系的函数，一般来说方法调用
+对象.方法(参数)
+1. append
+In [19]: num
+Out[19]: [1, 5]
+In [21]: num.append(4)
+
+In [22]: num
+Out[22]: [1, 5, 4]
+
+2.count
+In [22]: num
+Out[22]: [1, 5, 4]
+
+In [23]: num.count(5)
+Out[23]: 1
+
+3.extend 末尾追加另一个序列中的多个值
+In [28]: a=[1,2,3]
+In [29]: b=[4,5,6]
+In [30]: a.extend(b)
+In [31]: a
+Out[31]: [1, 2, 3, 4, 5, 6]
+
+4.index 
+In [39]: a=['1','2']
+
+In [40]: a.index('1')
+Out[40]: 0
+
+5.insert
+In [1]: num=[1,2,3,4,5,6,7]
+
+In [2]: num.insert(3,'four')
+
+In [3]: num
+Out[3]: [1, 2, 3, 'four', 4, 5, 6, 7]
+
+6.pop 移除列表中的一个元素，默认是最后一个
+In [4]: x=[1,2,]
+In [5]: x.pop()
+Out[5]: 2
+In [6]: x
+Out[6]: [1]
+In [7]: x.pop(0)
+Out[7]: 1
+In [8]: x
+Out[8]: []
+
+LIFO:Last In First Out
+FIFO:First In First Out
+
+7.remove
+In [11]: x=['1','2',]
+
+In [12]: x.remove('1')
+
+In [13]: x
+Out[13]: ['2']
+
+In [14]: x.remove('11') #不存在的会 报错
+
+8.reverser
+In [15]: x=['1','2',]
+
+In [16]: x.reverse()
+
+In [17]: x
+Out[17]: ['2', '1']
+
+
+9.sort #会改变原来的列表
+
+要一个排序好的列表副本，但又保留原有的列表不变 
+
+#注意 错误做法，因为sort 修改了x却返回了空值，不像pop 会有返回值，最后得到的是已排序的x以及值为None的 y
+In [18]: x
+Out[18]: ['2', '1']
+In [19]: y=x.sort() #简单把x赋值给y是没用的，这样让x and y 都指向同一个列表了
+In [21]: print y
+None
+
+#正确做法
+x=['2', '1']
+In [22]: y=x[:]  #得到包含了x所有元素的分片，有效率的复制整个列表的方法
+In [23]: y.sort()
+In [24]: x
+Out[24]: ['2', '1']
+In [25]: y
+Out[25]: ['1', '2']
+
+另一个获取已排序的列表副本的正确做法  sorted function
+
+In [31]: x=['2','1',]
+
+In [32]: y=sorted(x)
+
+In [33]: x
+Out[33]: ['2', '1']
+
+In [34]: y
+Out[34]: ['1', '2']
+
+
+10.高级排序
+
+In [40]: cmp(42,32)
+Out[40]: 1
+
+In [41]: cmp(42,52)
+Out[41]: -1
+
+In [42]: cmp(42,42)
+Out[42]: 0
+
+
+2.4 元组
+也是一种序列，不过元组不能修改，当然 str也是不能改的
+
+元组创建 大部分时候是通过圆括号() ，里面使用逗号分隔， 前面的列表是用[] ,后面的dict 用 {}
+
+2.4.1 tuple 函数，类似于list   以一个序列作参数并把它转换成元组，如果本身是元组，则原样返回
+
+*********************************************************
+
+#+-------------------------------------------------------+
+#|     第3章          |use str 2013.07-16
+#+-------------------------------------------------------+
+更多  str相关的基础知识 第一章中的  str p19-25 笔记也暂时就放在这里好了，所有 str 在一起嘛
+单引号 和 双引号
+
+1.11.2 拼接str 最好用上  +
+In [47]: "hey" + "evan"
+Out[47]: 'heyevan'
+
+1.11.3 字符串表示  str and repr
+
+简而言之，str repr and 反引号是将python 值转换为str的 3种方法， 函数str 让str更容易阅读， 而后面两个 则转为合法的python表达式
+
+1.11.4 input adn raw_input
+input 比较笨，假设用户输入的是合法的str 如果你没有 ' or " 括起来 可能就报错了，而raw_input 会把所有的输入当作原始数据(raw data),然后将其放到字符串中
+总结 应该尽量使用 raw_input
+
+In [55]: input("")
+"ddd"
+Out[55]: 'ddd'
+In [54]: input("")
+ddd #err 
+
+1.11.5  long str  原始str and Uincode
+
+1.long str 可以用 """ is a long str """
+
+2原始str
+不用 \转义，直接用 r,原字符串以r 开头 ，当然，原始字符串末尾的字符不能是\; 如果一定要 \结尾，那就只能是单独作为一个 str来处理
+In [62]: print r"c:\now" '\\'
+c:\now\
+
+In [60]: print r"c:\now"
+c:\now
+
+3. Uincode 字符串
+使用u前缀，类似于前面的 原始str
+
+字符串格式化操作符 %
+
+%s 部分称为转换说明符 标记要插入转换值的位置 s表示格式化为 str 后面的 % 右边表示要被格式化的值
+
+print 'this year %s is not a leap year' % thisyear
+this year 2013 is not a leap year
+print ("%s %s %s" %( "字串"，(元组),{dir})) etc）
+
+字符串格式化值的另一个方法是 模板字符串
+
+3.3 字符串格式化 完整版 @这个没作笔记在这里呢 有空看p46
+
+3.4字符串方法
+3.4.1 find  #并返回所在位置
+
+3.4.2 join  只能是str ，不能是列表
+seq=[1,3] #数字列表 不能用 join 
+
+In [6]: seq=['1','3']
+In [7]: sep='+'
+In [8]: sep.join(seq)
+Out[8]: '1+3'
+
+3.4.3 lower 特别在处理用户的输入时很好用呢
+In [9]: 'Ab'.lower()
+Out[9]: 'ab'
+
+
+In [10]: name='Evan'
+In [11]: names=['evan']
+In [12]: if name.lower() in names: print 'found it'
+found it
+
+3.4.4 replace  相当于 gedit 查找并替换
+In [14]: 'this is evan'.replace('is', 'are')
+Out[14]: 'thare are evan'
+
+3.4.5 split  join的逆方法 将str分割序列
+In [17]: evan
+Out[17]: '1+3'
+In [18]: evan.split('+')
+Out[18]: ['1', '3']
+
+
+3.4.6 strip  返回去除两侧(不包括内部)空格的字符串  和lower方法一起可以对用户输入很方便
+In [6]: ' df '.strip()
+Out[6]: 'df'
+也可以指定要去除的字符，但只能删除两侧的
+
+3.4.7 translate 
+
+*********************************************************
+%%%%%%%%
+总结   [列表，] (元组) {字典}
+列表可修改，而元组,str 不可以
+元组创建 大部分时候是通过圆括号() ，里面使用逗号分隔， 前面的列表是用[] ,后面的dict 用 {}
+#+-------------------------------------------------------+
+#|     第4章          |dict  2013.07-12   2015.02.05pm-
+#+-------------------------------------------------------+
+
+4.1 tel number cat not us 整数 而用字符串 因为0开头在python 里面是8进制的，这样就没办法表达0开头的10进制电话号码
+4.2.1 dict 函数 
+创建字典的两种方法
+1）d={'x':1,'y':2}
+2）dict(seq)  用（键，值）对（或映射和关键字参数）建立字典
+In [1]: items = [('name','gumby'),('age',42)]
+
+In [2]: d = dict(items)
+
+In [3]: d
+Out[3]: {'age': 42, 'name': 'gumby'}
+
+In [4]: d['name']
+Out[4]: 'gumby'
+
+##也可通过关键字参数来创建字典
+In [5]: d = dict(name='evan',age=27)
+
+In [6]: d
+Out[6]: {'age': 27, 'name': 'evan'}
+
+*****************
+evan@evan-laptop:~/pytest/12$ python p
+Name: be
+phone number(p) or address(a)?p
+be 's phone number is 9341.
+
+#!/usr/bin/python
+people = {
+	'al': {
+	   'phone':'2341',
+	   'addr': 'foo drie 23'
+    },
+	'be': {
+	   'phone':'9341',
+	   'addr': 'bar  drie 23'
+    },
+	'cecil': {
+	   'phone':'32541',
+	   'addr': 'car  drie 23'
+    }
+}
+labels = {
+	'phone': 'phone number',
+	'addr': 'address'
+}
+name = raw_input('Name: ')
+request = raw_input('phone number(p) or address(a)?')
+if request == 'p': key ='phone'
+if request == 'a': key ='addr'
+if name in people: print "%s 's %s is %s." % \
+	(name, labels[key], people[name][key])
+#if name in people: print "%s 's %s is %s." %(name, labels[key], people[name][key])
+*****************
+1.clear
+In [5]: d_d=d.clear
+
+2.copy
+In [8]: x={'username': 'admin','machines' : ['foo','bar','baz']}
+
+In [9]: y=x.copy()
+
+In [10]: y['username']='mlh'
+
+In [13]: y['machines'].remove('bar')
+
+In [14]: y
+Out[14]: {'machines': ['foo', 'baz'], 'username': 'mlh'}
+
+In [15]: x
+Out[15]: {'machines': ['foo', 'baz'], 'username': 'admin'}
+
+ 副本中替换值时 原始字典不受影响，但修改某个值， 原始的也会变，就像 remove
+如果怕这情况，请用深复制(deep copy)
+In [18]: from copy import deepcopy
+
+In [19]: d={}
+
+In [20]: d['names']=['alfred','bertrand']
+
+In [21]: c=d.copy()
+
+In [22]: dc=deepcopy(d)
+
+In [23]: d['names'].append('clive')
+
+In [24]: c
+Out[24]: {'names': ['alfred', 'bertrand', 'clive']}
+
+In [25]: dc
+Out[25]: {'names': ['alfred', 'bertrand']}
+
+******************
+3,fromkeys
+
+××××××××××××××××××××
+4.get 
+
+不会像print 一样访问不存在时会会报错
+In [27]: print d['name']
+KeyError: 'name'
+In [29]: print d.get('name')
+None
+
+evan@evan-laptop:~/pytest/12$ cat get 
+#!/usr/bin/python
+people = {
+	'al': {
+	   'phone':'2341',
+	   'addr': 'foo drie 23'
+    },
+	'be': {
+	   'phone':'9341',
+	   'addr': 'bar  drie 23'
+    },
+	'cecil': {
+	   'phone':'32541',
+	   'addr': 'car  drie 23'
+    }
+}
+labels = {
+	'phone': 'phone number',
+	'addr': 'address'
+}
+name = raw_input('Name: ')
+request = raw_input('phone number(p) or address(a)?')
+key = request
+if request == 'p': key ='phone'
+if request == 'a': key ='addr'
+person=people.get(name,{})
+label=labels.get(key,key)
+result=person.get(key,'not available')
+
+print "%s 's %s is %s ." %(name,label,result)
+#if name in people: print "%s 's %s is %s." % \
+#	(name, labels[key], people[name][key])
+#if name in people: print "%s 's %s is %s." %(name, labels[key], people[name][key])
+	
+evan@evan-laptop:~/pytest/12$ python get 
+Name: be
+phone number(p) or address(a)?p
+be 's phone number is 9341 .
+evan@evan-laptop:~/pytest/12$ python get 
+Name: gumby
+phone number(p) or address(a)?batt
+gumby 's batt is not available .
+
+××××××××××××××××××××
+
+5.has_key
+6.items and iteritems  (返回迭代器)
+7.keys and iterkeys
+8.pop
+获得对应键的值，然后 key-val 从dict中移除
+In [31]: d={'x':1,'y':2}
+
+In [32]: d.pop('x')
+Out[32]: 1
+
+In [33]: d
+Out[33]: {'y': 2}
+
+9.popitem
+popitem方法类似于list.pop 后者会弹出列表last元素，但popitem弹出随机项
+In [42]: d={'x':1,'y':2}
+
+In [43]: d.popitem()
+Out[43]: ('y', 2)
+
+In [44]: d
+Out[44]: {'x': 1}
+
+10.setdefault
+获得与给定键相关联的值
+
+11.update  ,提供的会添加到旧字典中 x add to d 相同的键会覆盖，以x的为准
+In [49]: d={'x':1,'y':2}
+
+In [50]: x={'z':3,'b':36}
+
+In [51]: d.update(x)
+
+In [52]: d
+Out[52]: {'b': 36, 'x': 1, 'y': 2, 'z': 3}
+
+12.values and itervalues 
+
+%%%%%%%%
+总结   [列表，] (元组) {字典}
+列表可修改，而元组,str 不可以
+元组创建 大部分时候是通过圆括号() ，里面使用逗号分隔， 前面的列表是用[] ,后面的dict 用 {}
+ps 元组 用逗号分隔一些值就算自动创建元组了
+
+#+-------------------------------------------------------+
+#|     第 5章  |条件、循环和其它语句
+#+-------------------------------------------------------+
+
+5.1 print import 
+
+5.1.1 使用逗号输出
+#打印多个表达式
+In [1]: print 'name','evan'
+name evan
+
+In [2]: name='evan'
+In [3]: age='28'
+
+In [6]: print name,age
+evan 28
+#这个会在,前加入空格，解决方面是+
+In [7]: print name,',',age
+evan , 28
+
+In [8]: print name+',',age
+evan, 28
+
+5.1.2
+import somedule
+from somedule import somefunction
+'''
+
+5.2赋值魔法
+
+5.2.1 序列解包，  记住 所解包的序列中的元素数量必和放置=左边的变量数量完全一致
+In [9]: x,y,z=1,2,3
+In [10]: print x,y,z
+1 2 3
+
+其实就是
+In [13]: val=1,2,3
+In [14]: val
+Out[14]: (1, 2, 3)
+In [15]: x,y,z=val
+
+#交换两个 或者更多个变量
+In [17]: x,y=y,x
+
+In [18]: print x,y,z
+2 1 3
+
+5.2.2 链式赋值
+x=y=somefunction()
+#等效
+x=somefunction()
+x=y
+
+5.2.3 增量赋值
+类似于 x+=1  *,/,% 
+
+
+5.3  语句块   缩进 建议 4个空格
+
+5.4 条件和条件语句
+5.4.1 bool 也就是真假值
+
+In [23]: True
+Out[23]: True
+In [21]: False
+Out[21]: False
+
+5.4.2 条件执行 and if   5.4.3 else 子句  
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# 将 /home/evan/pytest 记录到两个文件中
+name = raw_input('What is u name?')
+if name.endswith('evan'):
+    print 'hello ,evan' 
+else:
+    print 'hey who you are'
+
+5.4.4 elif 子句
+if num >0:
+   print ''
+elif num <0:
+   print ''
+else:
+   print 'the num is zero'
+ 
+5.4.6 更复杂的条件
+1.比较运算符
+2,相等运算符
+3,is :同一运算符  判定同一性质而不是相等性 
+警告 ：== 判定两个对象相等， is判定是否等同（同一对象）
+
+In [26]: x=y=[1]
+In [27]: z=[1]
+In [28]: x == y
+Out[28]: True
+In [29]: x is y
+Out[29]: True
+In [30]: x is z
+Out[30]: False
+
+In [31]: x = [1,2,3]
+
+In [32]: y = [2,4]
+
+In [33]: x is not y
+Out[33]: True
+In [35]: del x[2]
+
+In [36]: y[1]=1
+
+In [37]: y
+Out[37]: [2, 1]
+
+In [38]: y.reverse()
+
+
+4 in 成员资格
+5 str and 序列比较
+6布尔运算符
+ and or not
+
+5.4.7 断言  不太明白呢
+
+5.5 循环
+
+5.5.1 while 
+#!/usr/bin/python
+name = ''
+while not name or name.isspace():
+    name=raw_input('please enter u name: ')
+print 'hey %s' % name
+
+
+5.5.2 for
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+words=['this','is']
+for word in words:
+    print word
+
+num=[0,1,2,3]
+for no in num:
+    print no
+
+# 1到100 ，不包括上限 这例子的101 ,如果下限是0 可以不写range(101)
+for no in range(1,101):
+    print no
+
+xrange 相似于range
+
+
+5.5.3 循环遍历字典元素 
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+d = {'x':1, 'y':2}
+for key in d:
+    print key,'corresponds to', d[key]
+
+5.5.4 一些迭代工具 
+1并行迭代
+#!/usr/bin/python
+name = ['evan','nick']
+ages = [28,27]
+for i in range(len(name)):
+    print name[i],'is',ages[i], 'years old'
+
+In [1]: name = ['evan','nick']
+In [2]: ages = [28,27]
+In [3]: zip(name,ages)
+Out[3]: [('evan', 28), ('nick', 27)]
+
+#zip 可以应付不等长的序列 这里建议用 xrange
+In [4]: zip(range(5),xrange(100))
+Out[4]: [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+
+In [5]: zip(range(5),xrange(6))
+Out[5]: [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+In [6]: zip(xrange(5),xrange(6))
+Out[6]: [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+
+2编号迭代 不太懂
+#!/usr/bin/python
+strings="xxx"
+index = 0
+for  string in strings:
+    if 'xxx' in string:
+        string[index] = '[centos]'
+        print strings
+index += 1
+#print strings
+
+3翻转和排序迭代
+reversed sorted 
+
+5.5.5跳出循环
+
+1 break  这个比较常用
+evan@evan-laptop:~/pytest/19$ python break 
+81
+evan@evan-laptop:~/pytest/19$ cat break 
+#!/usr/bin/python
+from math import sqrt
+for n in range(99,0,-1):
+    root = sqrt(n)
+    if root == int(root):
+        print n
+        break
+#负数步长  反向迭代
+
+2 continue 路过剩余的循环体，但是不结束循环
+
+3 while True/break 
+
+ python while
+please a word:w
+the word w
+please a word:
+evan@evan-laptop:~/pytest/20$ 
+evan@evan-laptop:~/pytest/20$ cat while 
+#!/usr/bin/python
+word = raw_input('please enter a word:')
+while word:
+    print 'the word ' + word
+    word = raw_input('please a word:')
+
+
+##下面这个可是改良版本哦  有中文时 一定要加上 UTF-8 不然常常会报错的
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+while True:
+    word = raw_input('please enter a word:')
+    if not word: break
+     #处理word:
+    print 'the word was' + word
+
+5.5.6 循环中的else 语句
+
+#这里第一个 不包括81 因为100内最大的平方数是81
+#!/usr/bin/python
+from math import sqrt
+for n in range(99,81,-1):
+    root = sqrt(n)
+    if root == int(root):
+        print n
+        break
+else:
+    print "did not find it"
+
+evan@evan-laptop:~/pytest/20$ python 1
+did not find it
+
+#!/usr/bin/python
+from math import sqrt
+for n in range(99,80,-1):
+    root = sqrt(n)
+    if root == int(root):
+        print n
+        break
+else:
+    print "did not find it"
+
+evan@evan-laptop:~/pytest/20$ python 1
+81
+
+
+5.6列表推导式  轻量级循环
+
+##range(10)中 每个x的平方数
+In [1]: [x*x for x in range(10)]
+Out[1]: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+5.7.1  空语句 pass
+
+5.7.2 del 删除
+#删除x并不影响y因为删除的只是名称
+In [2]: x=["e"]
+In [3]: y=x
+In [4]: del x
+In [5]: y
+Out[5]: ['e']
+
+5.7.3   exec-只是执行   eval-会计算结果
+
+In [7]: exec "print 'hey'"
+hey
+
+In [14]: eval(raw_input("enter an expresio"))
+enter an expresio 2+8
+Out[14]: 10
+
+
+#+-------------------------------------------------------+
+#|     第 6章                 |抽象
+#+-------------------------------------------------------+
+6.3 函数创建
+callable 
+
+最简单的函数创建 嘻嘻
+
+In [1]: def hello(name):
+   ...:     return 'hello, ' + name + '!'
+   ...: print hello('evan')
+   ...: 
+hello, evan!
+
+>>> print hello('eva')
+helloeva!
+
+***
+In [1]: fibs=[0,1]
+In [2]: for i in range(8):
+  ...:     fibs.append(fibs[-2] + fibs[-1])
+
+In [3]: fibs
+Out[3]: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+
+#!/usr/bin/python
+fibs=[0,1]
+num = raw_input('How many FIB number do you want?')
+for i in range(num-2):
+    fibs.append(fibs[-2] + fibs[-1])
+print fibs 
+
+
+#!/usr/bin/python
+def fibs(num):
+    result = [0,1]
+#num = raw_input('How many FIB number do you want?')
+    for i in range(num-2):
+         result.append(result[-2] + result[-1])
+    return result
+
+print fibs(10) #要print 不然不能显示出结果，除非单独拿出来运行
+
+evan@evan-laptop:~/pytest/23$ python  1
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+
+6.3.1 记录函数
+给函数写文档
+1,加入注释 # 
+2,直接写上字符串 文档字符串
+
+
+In [2]: def square(x):
+   ...:     'Calclates the square of the number x.'
+   ...:     return x*x
+
+In [3]: square.__doc__
+Out[3]: 'Calclates the square of the number x.'
+
+__doc__  
+
+help(square)
+
+*******
+6.3.1 并非真正函数的函数 30130802
+In [1]: def test():
+   ...:     print 'this pr'
+   ...:     return 
+   ...: print '2'
+   ...: 
+2
+
+In [2]: x = test()
+this pr
+
+In [3]: x
+
+In [4]: 
+
+In [4]: print x
+None
+
+可见，所有 function都有返回值得 当不要要返回时，就返回None 
+
+6.4 参数魔法
+
+In [2]: def try_to(n):
+    n = 'Mr.Gumby'
+   ...:     
+
+In [3]: name = 'Mrs. Entity'
+
+In [4]: try_to(name)
+
+In [5]: name
+Out[5]: 'Mrs. Entity'
+
+ps: 函数在内部把参数重绑定(赋值)的时候,函数外面的变量不会受影响 也就是所谓的 local scope 局部作用域
+
+##上面那个工作方式类似如下
+name = 'Mrs. Entity'
+n = name # 传参数
+n = 'Mr Gumby' #函数内部完成
+name
+Mrs. Entity
+
+
+注意 
+字符串 (and 数字和元组) 是不可变的,也就是不能被修改,只能被覆盖
+
+1.为什么我想要修改参数
+Python中zip()函数
+定义：zip([iterable, ...])
+zip()是Python的一个内建函数，它接受一系列可迭代的对象作为参数，将对象中对应的元素打包成一个个tuple（元组），然后返回由这些tuples组成的list（列表）。若传入参数的长度不等，则返回list的长度和参数中长度最短的对象相同。利用*号操作符，可以将list unzip（解压），看下面的例子就明白了：
+
+>>> a = [1,2,3]
+>>> b = [4,5,6]
+>>> c = [4,5,6,7,8]
+>>> zipped = zip(a,b)
+[(1, 4), (2, 5), (3, 6)]
+>>> zip(a,c)
+[(1, 4), (2, 5), (3, 6)]
+>>> zip(*zipped)
+[(1, 2, 3), (4, 5, 6)]
+
+6.4.3 关键字参数和默认值
+
+
+
+#+-------------------------------------------------------+
+#|     第 7章                 |更加抽象
+#+-------------------------------------------------------+
+
+绑定到对象特性上的func称为方法 method
+
+7.2
+类 -- 一种对象 所有的对象都属于某一个类 叫类的实例 instance
+
+p120
+其实python 并没有真正的私有化支持
+__  方法变为私有(从外部无法访问)
+但是其实还是有办法可以访问的 
+所以无论_  __ 都只是为了强调自己的私有特性而已
+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+#+-------------------------------------------------------+
+#|     第 8章          | exception
+#+-------------------------------------------------------+
+
+In [1]: 1/0
+---------------------------------------------------------------------------
+ZeroDivisionError                         Traceback (most recent call last)
+<ipython-input-1-05c9758a9c21> in <module>()
+----> 1 1/0
+
+ZeroDivisionError: integer division or modulo by zero
+
+raise
+In [2]: raise Exception
+---------------------------------------------------------------------------
+Exception                                 Traceback (most recent call last)
+<ipython-input-2-fca2ab0ca76b> in <module>()
+----> 1 raise Exception
+
+Exception: 
+
+
+#列出异常类
+In [3]: import exceptions
+
+In [4]: dir(exceptions)
+Out[4]: 
+['ArithmeticError',
+ 'AssertionError',s
+ 'AttributeError',
+
+
+
+8.3 捕捉异常
+
+8.5 用一个块捕捉两个异常s
+
+#!/usr/bin/python
+## 不是数数字,或者除数为0都会被捕捉
+try:
+    x = input('enter a first number:')
+    y = input('enter the second number:')
+
+    print x/y
+    
+except (ZeroDivisionError, TypeError,NameErrot):
+        print 'U number wer bogus....'
+
+evan@evan-laptop:~/pytest/16$ python 1
+enter a first number:1
+enter the second number:0
+Traceback (most recent call last):
+  File "1", line 8, in <module>
+    except (ZeroDivisionError, TypeError,NameErrot):
+NameError: name 'NameErrot' is not defined
+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 10章              |充电时刻
+#+-------------------------------------------------------+
+
+10.1 模块
+In [2]: import math
+In [3]: math.sin(0)
+Out[3]: 0.0
+
+10.1.1 模块是程序
+evan@evan-laptop:~$ cat hello.py 
+print "hello,world"
+
+
+In [3]: import  sys
+#这个书里面有的,我竟然去google 看书不给细心啊       
+In [4]: sys.path.append('/home/evan/python')
+
+In [5]: import hello
+hello,world
+
+再次导入,例如执行上面的命令,什么都不会发生,因为 import-only-once
+#下面这两个方法没试过
+在LINUX下的/ETC目錄中,找到bashrc, 在最後一行中加入”export PYTHONPATH=你要設定的路徑” 重啟,OK!!
+更简单的就是在运行期临时加上路径，修改 sys.path[0]=路径 就可以
+
+10.1.2 模块用于定义
+
+2.模块中增加测试代码
+if __name__ == '__main__':test()
+
+10.1.3.让你的模块可用
+
+1.模块放在python找得到的位置,
+In [1]: import sys, pprint
+
+In [2]: pprint.pprint(sys.path)
+['',
+ '/usr/local/bin',
+ '/usr/lib/python2.7',
+ '/usr/lib/python2.7/plat-linux2',
+ '/usr/lib/python2.7/lib-tk',
+ '/usr/lib/python2.7/lib-old',
+ '/usr/lib/python2.7/lib-dynload',
+ '/usr/local/lib/python2.7/dist-packages',
+ '/usr/lib/python2.7/dist-packages',
+ '/usr/lib/python2.7/dist-packages/PIL',
+ '/usr/lib/python2.7/dist-packages/gst-0.10',
+ '/usr/lib/python2.7/dist-packages/gtk-2.0',
+ '/usr/lib/pymodules/python2.7',
+***
+ '/usr/local/lib/python2.7/dist-packages/IPython/extensions']
+
+2.告诉编译器去哪里找,个人感觉这个更加不错
+
+vi .bashrc
+export PYTHONPATH=$PYTHONPATH:~/pytest
+
+10.2 探究模块
+In [1]: import copy
+
+不要直接 dir(copy)
+#不以_开头的名字的列表
+In [3]: [ n for n in dir(copy) if not n.startswith('_')]
+Out[3]: 
+['Error',
+ 'PyStringMap',
+ 'copy',
+ 'deepcopy',
+ 'dispatch_table',
+ 'error',
+ 'name',
+ 't',
+ 'weakref']
+
+__all__ 变量
+In [5]: copy.__all__
+Out[5]: ['Error', 'copy', 'deepcopy']
+
+
+10.2.2 help
+
+help(copy.copy)
+
+10.2.3 文档
+http://docs.python.org/
+http://docs.python.org/2/library/
+http://www.ostools.net/apidocs/apidoc?api=python2.7.3
+In [7]: print range.__doc__
+range([start,] stop[, step]) -> list of integers
+
+Return a list containing an arithmetic progression of integers.
+range(i, j) ret
+
+
+10.2.4 使用源码
+
+In [8]: print copy.__file__
+/usr/lib/python2.7/copy.pyc
+
+从上面可知 源码是
+/usr/lib/python2.7/copy.py
+
+
+10.3 标准库 : 一些最爱
+
+10.3.1 sys
+
+
+
+
+10.3.5 time
+
+>>> import time
+>>> time.asctime()
+'Wed Oct  9 17:10:17 2013'
+>>> 
+
+
+argument
+生词本
+去背诵
+英 [ˈɑ:gjumənt] 美 [ˈɑrɡjəmənt]
+n.争论，争吵； 论据； [数]幅
+
+对了 以前在上班时搞的python例子哪里去了呢
+有空要拿出来 温习加深一下嘛
+
+
+#+-------------------------------------------------------+
+#|     第11 章              | 文件和素材
+#+-------------------------------------------------------+
+11.1 打开文件
+open(...)
+    open(name[, mode[, buffering]]) -> file object
+
+In [11]: f = open(r'/home/evan/1')
+
+f = open('/home/evan/1','w')
+
+
+In [1]: cat 1
+#!/bin/bash
+ls  /home/evan/
+
+In [2]: f = open('/home/evan/1','w')
+
+In [3]: f.write('hello,')
+
+In [4]: f.write('world')
+
+In [5]: f.close()
+
+In [6]: cat 1
+hello,world
+
+
+In [7]: f = open('/home/evan/1','r')
+
+In [8]: f.read(4)
+Out[8]: 'hell'
+#读取剩下的文件
+In [9]: f.read()
+Out[9]: 'o,world'
+
+'r'是默认的,所以可以省略
+
+11.2.2 管道输出 看了,但没上机
+cat file | python file.py |sort
+
+11.2.5使用基本文件方法
+
+read(n):
+read():
+readline():
+readlines():
+writelines():
+
+
+
+#+-------------------------------------------------------+
+#|     第12 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第13 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第14 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第15 章                 |
+#+-------------------------------------------------------+
+#+-------------------------------------------------------+
+#|     第16 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 17章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第18 章       |打包
+#+-------------------------------------------------------+
+setup.py and hello.py 
+
+from distutils.core import setup
+
+setup(name='Hello',
+      version='1.0',
+      description='A simple example',
+      author='Magnus Lie Hetland',
+      py_modules=['hello'])
+
+evan@evan-laptop:~/pytest/15$ python setup.py 
+usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+   or: setup.py --help [cmd1 cmd2 ...]
+   or: setup.py --help-commands
+   or: setup.py cmd --help
+
+error: no commands supplied
+
+evan@evan-laptop:~/pytest/15$ python setup.py build
+running build
+running build_py
+creating build
+creating build/lib.linux-x86_64-2.7
+copying hello.py -> build/lib.linux-x86_64-2.7
+evan@evan-laptop:~/pytest/15$ ls 
+build  hello.py  setup.py
+
+
+evan@evan-laptop:~/pytest/15$ python setup.py install
+running install
+running build
+running build_py
+running install_lib
+copying build/lib.linux-x86_64-2.7/hello.py -> /usr/local/lib/python2.7/dist-packages
+error: /usr/local/lib/python2.7/dist-packages/hello.py: Permission denied
+
+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+#+-------------------------------------------------------+
+#|     第 20章                 |
+#+-------------------------------------------------------+
+
+#这个讲项目讲得很不错
+http://blog.csdn.net/miaoyunzexiaobao/article/details/43088495
+
+
+
+
+In [1]: a=[1,2,3]
+
+In [2]: def lines(arg):
+   ...:     for line in arg:yield line
+   ...:     
+
+In [4]: for i in lines(a):
+   ...:     print i
+   ...:     
+1
+2
+3
+
+In [5]: def lines(arg):
+    for line in arg:yield line
+   ...:     yield '\n'
+   ...:     
+
+In [6]: for i in lines(a):
+    print i
+   ...:     
+1
+2
+3
+
+
+
+In [7]: 
+
+可见 lines生成器的作用为在文件的最后追加一个空行 yield '\n'
+
+
+
+day2
+http://blog.csdn.net/miaoyunzexiaobao/article/details/43114555
+evan@evankali:~/pytest$ cat lines 
+#!/usr/bin/python
+import sys
+def lines(file):
+    for line in file: yield line
+    yield '\n'
+
+for i in lines(sys.stdin):
+    if i:
+        print i
+        print '---'
+
+
+evan@evankali:~/pytest$ cat input.txt 
+hello  
+  
+how are you  
+how do you do  
+  
+fine 
+
+
+
+
+
+
+st$ python lines  < input.txt >   output.txt
+
+evan@evankali:~/pytest$ cat output.txt 
+hello  
+
+---
+  
+
+---
+how are you  
+
+---
+how do you do  
+
+---
+  
+
+---
+fine 
+
+---
+
+
+---
+解析 
+首先，test_input.txt实际上是一个list：
+
+[python] view plain copy
+test_input = ['hello\n','\n','how areyou\n','how do you do\n','\n','fine']  
+
+先打印’hello\n’，然后换行，然后打印‘---’，再打印’\n’，再换行，再打印‘---’。。。
+所以 看起来 两个 --- 在一起了 
+
+
+
+
+
+
+
+
+生成器blocks：
+evan@evankali:~/pytest$ py  util.py 
+hello
+---
+how are you
+how do you do
+---
+fine
+---
+evan@evankali:~/pytest$ cat util.py 
+#!/usr/bin/python
+def lines(file):
+    for line in file: yield line
+    yield '\n'
+
+def blocks(file):
+    block = []
+    for line in lines(file):
+        if line.strip():
+            block.append(line)
+        elif block:
+            yield ''.join(block).strip()
+            block = []
+
+test_input = ['hello\n','\n','how are you\n','how do you do\n','\n','fine']  
+for i in blocks(test_input):
+    if i: 
+        print i 
+        print '---'
+
+strip()的功能为删除字符串中的’\n’等空白字符（只删除首尾的！！！，中间的不删，比如’\nhello\nhello’.strip()，返回的结果为’hello\nhello），并返回结果。append为再之后添加，’’.join的意思是将block中的各元素用’’连接起来,返回连接后的字符串.
+
+执行流程：
+
+首先是line = ’hello\n’，lines.strip()为True，经过if后，block的值为’hello\n’。之后line = ’\n’，if中的line.strip()返回的是False，进入elif，block的值是’hello\n’，返回hello并置空block。之后line = ‘how are you\n’，if中判断为True，block为’how are you\n’，再然后line = ‘how do you do\n’，if中判断仍为True，此时block为：[‘how are you\n’,’how do youdo\n’]，再之后line = ‘\n’，if中判断为False，进入elif，’’.join(block)执行后返回的值为’how are you\nhow do youdo\n’，执行strip()后返回’how are you\nhow do you do’(这里要注意，strip()只删除字符串首尾的空白字符，不会删除字符串中间的)：
+
+
+
+
+
+
+
+Python之sys模块小探
+http://5ydycm.blog.51cto.com/115934/304324
+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+
+
+#+-------------------------------------------------------+
+#|     第 章                 |
+#+-------------------------------------------------------+

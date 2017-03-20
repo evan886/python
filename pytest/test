@@ -1,0 +1,21 @@
+**http://wiki.linuxchina.net/index.php?title=分类:python | python
+**http://wiki.linuxchina.net/index.php?title=分类:shell | shell
+**http://wiki.linuxchina.net/index.php?title=分类:Mysql | mysql
+**http://wiki.linuxchina.net/index.php?title=分类:linux | linux
+
+**http://wiki.linuxchina.net/index.php?title=分类:nginx| nginx
+**http://wiki.linuxchina.net/index.php?title=分类:php | php
+**http://wiki.linuxchina.net/index.php?title=分类:monitor| mointor
+
+
+**http://www.linuxchina.net  | linuxchina.net
+
+
+find $DATADIR -type f -mtime +10 |xargs rm -rf
+
+保留30天
+find ./ -type f -mtime +29 |xargs rm -rf
+
+
+
+multiprocessing是要比fork更高级的库了，使用multiprocessing可以更加轻松的实现多进程程序。multiprocessing也提供了很多进程同步和进程通信的方法。

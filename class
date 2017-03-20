@@ -1,0 +1,118 @@
+
+
+
+In [1]: class evan:
+   ...:     def get(self):
+   ...:         print 2
+   ...:         
+
+In [3]: my = evan()
+
+In [5]: print my.get()
+2
+None
+
+
+####
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+
+import MySQLdb
+import sys
+
+class check_mysql_slave:
+    def __int__(self):
+        self.dbhost = 'localhost'
+        self.dbuser = 'root'
+        self.dbpass = '23'
+        self.dbport = 3306
+        self.sock = "/tmp/mysql.sock"
+
+        self.conn=MySQLdb.connect(unix_socket=self.sock)
+        self.cursor=self.conn.cursor(cursorclass  = MySQLdb.cursors.DictCursor)
+        self.sql = 'show slave status'
+        self.cursor.execute(self.sql)
+        self.data = self.cursor.fetchall()
+        self.io = self.data[0] ['Slave_IO_Runnig']
+        self.sql = self.data[0] ['Slave_SQL_Runnig']
+        self.conn.close()
+
+    def get_io_status(self):
+        if self.io == 'Yes':
+            return 1
+        else:
+            return 0
+
+    def get_sql_status(self):
+        if self.sql == 'Yes':
+            return 1
+        else:
+            return 0
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print "Usage: %s [io|sql]" % sys.argv[0]
+        sys.exit(1)
+    mysql = check_mysql_slave()
+    if sys.argv[1] == "io":
+        print mysql.get_io_status()
+        print 'io ok'
+    elif sys.argv[1] == "sql":
+        print mysql.get_sql_status()
+        print 'sql ok'
+
+
+
+
+
+##手工测试 
+In [4]:  mysql = check_mysql_slave()
+  File "<ipython-input-4-1c724e98a831>", line 1
+    mysql = check_mysql_slave()
+    ^
+IndentationError: unexpected indent
+
+If you want to paste code into IPython, try the %paste and %cpaste magic functions.
+
+In [5]: my = check_mysql_slave()
+
+In [6]: print my.get_io_status()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-6-354abd232365> in <module>()
+----> 1 print my.get_io_status()
+
+<ipython-input-3-67dc8ca78f55> in get_io_status(self)
+     15         self.conn.close()
+     16     def get_io_status(self):
+---> 17         if self.io == 'Yes':
+     18             return 1
+     19         else:
+
+AttributeError: check_mysql_slave instance has no attribute 'io'
+
+
+
+
+
+
+
+[root@dkm-server mon]# python  check_mysql_slave.py  io
+Traceback (most recent call last):
+  File "check_mysql_slave.py", line 43, in <module>
+    print mysql.get_io_status()
+  File "check_mysql_slave.py", line 26, in get_io_status
+    if self.io == 'Yes':
+AttributeError: check_mysql_slave instance has no attribute 'io'
+
+
+
+
+
+
+
+
+
+
+

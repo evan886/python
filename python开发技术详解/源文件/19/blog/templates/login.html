@@ -1,0 +1,17 @@
+<html>
+<title>Login Page</title>
+<body>
+{% if not username %}
+<form method="post" action="/login/">
+    Username：<input type="text" name="username" value=""><br/>
+	Password：<input type="password" name="password" value="">
+    <input type="submit" value="Login">
+</form>
+{% else %}
+{{ username }} is log out！<br/>
+<form method="post" action="/logout/">
+	<input type="submit" value="Logout">
+</form>
+{% endif %}
+</body>
+</html>

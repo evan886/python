@@ -1,0 +1,51 @@
+
+Chapter 6 
+
+6.5.2
+
+In [1]: min('A3')
+Out[1]: '3'
+
+In [2]: min('AC')
+Out[2]: 'A'
+
+enumerate
+
+In [3]: s ="foobar"
+In [4]: for i, t in enumerate(s):
+   ...:     print i, t
+   ...:     
+0 f
+1 o
+2 o
+3 b
+4 a
+5 r
+
+zip 
+
+In [5]: s, t = 'foa', 'obr'
+In [6]: zip(s,t)
+Out[6]: [('f', 'o'), ('o', 'b'), ('a', 'r')]
+
+
+6.5.3 字符串类型函数
+
+In [6]: pyinput= raw_input("enter ")
+enter evan
+
+In [7]: pyinput
+Out[7]: 'evan'
+#py里面没有C风格的结束字符nul ,你输入多少个字符，len 就返回的就是多少
+In [8]: len(pyinput)
+Out[8]: 4
+
+str() and unicode()
+这两个是工厂函数，就是说产生所对应的类型的对象。
+
+p120-121
+
+
+Python核心编程第9章练习题9.4
+http://gunner.me/archives/851
+

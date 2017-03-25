@@ -1,0 +1,171 @@
+== chapter 1  入门==
+Django
+https://zh.wikipedia.org/wiki/Django
+
+===django安装=== 
+
+doc
+https://docs.djangoproject.com/en/1.8/releases/1.8/
+
+https://docs.djangoproject.com/en/1.8/topics/install/#installing-official-release
+
+#https://www.djangoproject.com/download/
+sudo apt-get install python-pip
+
+#来个LTS的 1.8 就这个了 2017.03.22pm
+sudo  pip install Django
+(sudo) pip install Django==1.8 或者 pip install Django==1.7.6
+
+
+#kali 2016  这个太新了 不要 
+root@evanpc:/home/evan/dkm/ssh#  pip install Django 
+Collecting Django
+  Downloading Django-1.10.6-py2.py3-none-any.whl (6.8MB)
+
+
+
+In [1]: import django
+
+In [11]: django.VERSION
+Out[11]: (1, 8, 0, 'final', 0)
+
+我们会遇到这样的情况，有的项目需要 Django 1.5, 有的项目需要 Django 1.8，每个项目依赖不同，但是还要运行在同一个电脑或服务器上，应该怎么办呢？ 
+
+用 virtualenv 可以做到！参见 Python 三大神器第二部分：http://www.ziqiangxuetang.com/python/pip-virtualenv-fabric.html
+
+
+ mvc
+
+http://djangobook.py3k.cn/chapter01/
+=== 创建一个项目 ===
+/usr/local/bin/django-admin.py
+
+在当前目录创建一个 mysite 目录
+django-admin.py  startproject mysite
+sudo apt install tree -y 
+evan@evanpc:~/python/django$ tree mysite/
+mysite/
+├── manage.py
+└── mysite
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+models.py 文件主要用一个 Python 类来描述数据表。称为 模型(model) 。 运用这个类,你可以通过简单的 Python 的代码来创建、检索、更新、删除 数据库中的记录而无需写一条又一条的 SQL 语句。
+这些文件是：
+
+外层的mysite/根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字。
+manage.py：一个命令行工具，可以使你用多种方式对Django项目进行交互。 你可以在django-admin和manage.py中读到关于manage.py的所有细节。
+内层的mysite/目录是你的项目的真正的Python包。它是你导入任何东西时将需要使用的Python包的名字（例如 mysite.urls）。
+mysite/__init__.py：一个空文件，它告诉Python这个目录应该被看做一个Python包。 （如果你是一个Python初学者，关于包的更多内容请阅读Python的官方文档）。
+mysite/settings.py：该Django 项目的设置/配置。Django 设置 将告诉你这些设置如何工作。
+mysite/urls.py：该Django项目的URL声明；你的Django站点的“目录”。 你可以在URL 转发器 中阅读到关于URL的更多内容。
+mysite/wsgi.py：用于你的项目的与WSGI兼容的Web服务器入口。 更多细节请参见如何利用WSGI进行部署。
+
+ __init__.py :让 Python 把该目录当成一个开发包 (即一组模块)所需的文件。
+ manage.py :一种命令行工具,可让你以多种方式与该 Django 项目进行交互。
+ settings.py :该 Django 项目的设置或配置。
+ urls.py :该 Django 项目的 URL 声明,即 Django 所支撑站点的内容列表
+
+==== 数据库的建立= ===
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+http://www.cnblogs.com/wendoudou/p/mysql.html
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'djangodb',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+    }
+}
+
+
+没报错则成功！
+evan@evanpc:~/python/django/mysite$ python manage.py shell
+Python 2.7.13 (default, Jan 19 2017, 14:48:08) 
+
+In [1]: from django.db import connection
+In [2]:  cursor = connection.cursor()
+
+===== 开发服务器=====
+进入外层 mysite 目录并运行 python manage.py runserver
+
+evan@evanpc:~/python/django$ cd mysite/
+evan@evanpc:~/python/django/mysite$ python manage.py runserver
+Performing system checks...
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+Django version 1.10.6, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+尽管对于开发来说,这个开发服务器非常得棒,但一定要打消在产品级环境中使用该服务器 的念头。在同一时间,该服务器只能可靠地处理一次单个请求,并且没有进行任何类型的安 全审计。发布站点前,请参阅第 20 章了解如何部署 Django 
+
+更改主机或端口
+默认情况下, runserver 命令在 8000 端口启动开发服务器,且只监听本机连接。要想要 更改服务器端口的话,可将端口作为命令行参数传入: python manage.py runserver 8080
+还可以改变服务器监听的 IP 地址。要和其他开发人员共享同一开发站点的话,该功能特别 有用。下面的命令:
+python manage.py runserver 0.0.0.0:8080
+
+=== 创建模型 ===
+项目 vs. 应用
+项目和应用之间有什么不同？ 应用是一个Web应用程序，它完成具体的事项 —— 比如一个博客系统、一个存储公共档案的数据库或者一个简单的投票应用。 项目是一个特定网站中相关配置和应用的集合。一个项目可以包含多个应用。一个应用可以运用到多个项目中去。
+
+你的应用可以放在Python path上的任何位置。在本教程中，我们将在你的manage.py文件同级目录创建我们的投票应用，以便可以将它作为顶层模块导入，而不是mysite的子模块。
+确保你在与manage.py相同的目录下，并且键入以下命令来创建你的应用： 
+$ python manage.py startapp polls
+
+
+evan@evanpc:~/python/django/mysite$ tree  polls/
+polls/
+├── admin.py
+├── __init__.py
+├── migrations
+│   └── __init__.py
+├── models.py
+├── tests.py
+└── views.py
+
+## pro
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+
+django/mysite$ python manage.py makemigrations polls
+Migrations for 'polls':
+  0001_initial.py:
+    - Create model Choice
+    - Create model Question
+    - Add field question to choice
+
+
+== 编写你的第一个Django应用，第2部分 ==
+
+== chapter3 动态网页基础==
+
+=== 第一份视图:动态内容 ===
+
+=== 将 URL 映射到视图 ===
+
+如果对了解 Python 搜索路径值感兴趣,可以启动 Python 交互式解释程序,输入 import sys ,接着输入 print sys.path 。
+
+
+https://docs.djangoproject.com/en/1.8/
+http://python.usyiyi.cn/django/topics/forms/index.html
+
+
+
+
+
+http://www.ziqiangxuetang.com/django/django-tutorial.html
+
+forms 我直接用bootstrap的，很简单，就一句话
+{% bootstrap_form form layout='horizontal' %}
+【冒泡】1203606699(1203606699) 2015/12/18 16:10:40
+它自动帮你解释成html的语句

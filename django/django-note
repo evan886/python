@@ -16,14 +16,7 @@ sudo apt-get install python-pip
 sudo  pip install Django
 (sudo) pip install Django==1.8 或者 pip install Django==1.7.6
 
-
 #kali 2016  这个太新了 不要 
-root@evanpc:/home/evan/dkm/ssh#  pip install Django 
-Collecting Django
-  Downloading Django-1.10.6-py2.py3-none-any.whl (6.8MB)
-
-
-
 In [1]: import django
 
 In [11]: django.VERSION
@@ -52,6 +45,13 @@ mysite/
     ├── urls.py
     └── wsgi.py
 models.py 文件主要用一个 Python 类来描述数据表。称为 模型(model) 。 运用这个类,你可以通过简单的 Python 的代码来创建、检索、更新、删除 数据库中的记录而无需写一条又一条的 SQL 语句。
+
+view.py 文件的 latest_books() 函数中包含了该页的业务层逻辑。这个函数叫做 视图(view) 。
+
+urls.py 指出了什么样的 URL 调用什么的视图,在这个例子中 /latest/ URL 将会调用 latest_books() 这个函数
+
+latest_books.html 是 html 模板,它描述了这个页面的设计是如何的。
+
 这些文件是：
 
 外层的mysite/根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字。
@@ -85,11 +85,9 @@ DATABASES = {
     }
 }
 
-
 没报错则成功！
 evan@evanpc:~/python/django/mysite$ python manage.py shell
 Python 2.7.13 (default, Jan 19 2017, 14:48:08) 
-
 In [1]: from django.db import connection
 In [2]:  cursor = connection.cursor()
 
@@ -132,6 +130,7 @@ polls/
 ├── tests.py
 └── views.py
 
+===激活模型=== 
 ## pro
 You have unapplied migrations; your app may not work properly until they are applied.
 Run 'python manage.py migrate' to apply them.
@@ -143,15 +142,91 @@ Migrations for 'polls':
     - Create model Choice
     - Create model Question
     - Add field question to choice
+    
+一个命令可以运行这些迁移文件并自动管理你的数据库模式 —— 它叫做migrate，我们一会儿会用到它 —— 但是首先，让我们看一下迁移行为将会执行哪些SQL语句。sqlmigrate命令接收迁移文件的名字并返回它们的SQL语句：
+
+$ python manage.py sqlmigrate polls 0001
+
+python manage.py migrate
 
 
-== 编写你的第一个Django应用，第2部分 ==
+修改你的模型（在models.py文件中）。
+运行python manage.py makemigrations ，为这些修改创建迁移文件
+运行python manage.py migrate ，将这些改变更新到数据库中。
+	    
+===玩转API===
+python manage.py shell
+
+
+== chapter2 编写你的第一个Django应用，第2部分 ==
+=== 创建一个管理员用户===
+python manage.py createsuperuser
+
+=== 启动开发服务器===
+ python manage.py runserver 0.0.0.0:80  # or
+sudo python manage.py runserver 192.168.1.158:80
+
+http://192.168.1.158/admin/
+===进入管理站点===
+你将看到几类可编辑的内容：groups和users。 它们是由django.contrib.auth提供的，这个认证框架集成在Django中。
+
+=== 让poll应用在管理站点中可编辑===
+只需要做一件事：我们需要告诉管理站点Question 对象要有一个管理界面。 要做这件事，需要打开polls/admin.py文件，把它编辑成这样：
+polls/admin.py
+
+from django.contrib import admin
+from .models import Question
+admin.site.register(Question)
+
+
+==== 探索管理站点的功能====
+
+==== 自定义管理表单====
+
+
+
+
+
 
 == chapter3 动态网页基础==
 
 === 第一份视图:动态内容 ===
 
 === 将 URL 映射到视图 ===
+
+
+
+
+
+
+
+django 后台中文界面
+在setting.py
+#LANGUAGE_CODE = 'en-us'
+改为
+LANGUAGE_CODE = 'zh-hans'
+
+
+让 DJANGO 的 ADMIN 界面显示中文
+https://www.huangwenchao.com.cn/2014/02/django-tip-2.html
+
+
+
+django-bootstrap3  这个没搞定呢
+https://django-bootstrap3.readthedocs.io/en/latest/installation.html
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 如果对了解 Python 搜索路径值感兴趣,可以启动 Python 交互式解释程序,输入 import sys ,接着输入 print sys.path 。
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
-
+# yum install MySQL-python
 import MySQLdb
 import sys
 

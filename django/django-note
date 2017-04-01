@@ -30,6 +30,11 @@ Out[11]: (1, 8, 0, 'final', 0)
  mvc
 
 http://djangobook.py3k.cn/chapter01/
+
+
+Django-admin-bootstrap
+https://wiki.linuxchina.net/index.php?title=Django-admin-bootstrap
+
 === 创建一个项目 ===
 /usr/local/bin/django-admin.py
 

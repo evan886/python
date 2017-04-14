@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/topics/install/#installing-official-releas
 #https://www.djangoproject.com/download/
 sudo apt-get install python-pip
 
+====1 pip 安装====
 #来个LTS的 1.8 就这个了 2017.03.22pm
 sudo  pip install Django
 (sudo) pip install Django==1.8 或者 pip install Django==1.7.6
@@ -22,6 +23,14 @@ In [1]: import django
 In [11]: django.VERSION
 Out[11]: (1, 8, 0, 'final', 0)
 
+====2 easy_install 安装====
+安装 setuptools
+yum install setuptools
+
+完成之后，就可以使用 easy_install 命令安装 django
+easy_install django
+
+==== 注意====
 我们会遇到这样的情况，有的项目需要 Django 1.5, 有的项目需要 Django 1.8，每个项目依赖不同，但是还要运行在同一个电脑或服务器上，应该怎么办呢？ 
 
 用 virtualenv 可以做到！参见 Python 三大神器第二部分：http://www.ziqiangxuetang.com/python/pip-virtualenv-fabric.html
@@ -217,10 +226,40 @@ https://www.huangwenchao.com.cn/2014/02/django-tip-2.html
 
 
 
-django-bootstrap3  这个没搞定呢
-https://django-bootstrap3.readthedocs.io/en/latest/installation.html
 
 
+
+== note from  runoob   ==
+== Django 创建第一个项目==
+
+=== Django 管理工具 ===
+
+evan@evanpc:~/python/django/mysite$ tree 
+.
+├── manage.py    一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互
+├── mysite
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── settings.py
+│   ├── settings.py~
+│   ├── settings.pyc
+│   ├── settings.pyy
+│   ├── settings.pyY
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   ├── wsgi.py
+│   └── wsgi.pyc
+
+目录说明：
+ manage.py: 一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互。
+__init__.py: 一个空文件，告诉 Python 该目录是一个 Python 包。
+settings.py: 该 Django 项目的设置/配置。
+urls.py: 该 Django 项目的 URL 声明; 一份由 Django 驱动的网站"目录"。
+wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。
+
+
+=== 视图和 URL 配置===
 
 
 

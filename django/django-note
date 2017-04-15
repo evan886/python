@@ -7,6 +7,73 @@ https://zh.wikipedia.org/wiki/Django
 doc
 https://docs.djangoproject.com/en/1.8/releases/1.8/
 
+
+*各种发行版本
+
+
+FreeBSD
+
+There are two options:
+
+To add the package: pkg install py-django
+To install the port: cd /usr/ports/www/py-django/ && make install clean
+For recent changes ​http://www.freshports.org/www/py-django/
+
+
+https://code.djangoproject.com/wiki/Distributions
+
+ sudo pkg install mysql57-server
+
+
+也可以源码 下载  
+
+https://www.djangoproject.com/download/
+fetch https://www.djangoproject.com/m/releases/1.8/Django-1.8.18.tar.gz
+tar xvf Django-1.8.18.tar.gz &&	cd Django-1.8.18  && 	python setup.py install
+
+mysql 
+This is the mysql CLIENT without the server.
+for complete server and client, please install databases/mysql57-server
+
+* * * * * * * * * * * * * * * * * * * * * * * *
+Message from mysql57-server-5.7.17_4:
+*****************************************************************************
+
+Remember to run mysql_upgrade the first time you start the MySQL server
+after an upgrade from an earlier version.
+
+Initial password for first time use of MySQL is saved in $HOME/.mysql_secret
+ie. when you want to use "mysql -u root -p" first you should see password
+in /root/.mysql_secret
+
+MySQL57 has a default %%ETCDIR%%/my.cnf,
+remember to replace it wit your own
+or set `mysql_optfile="$YOUR_CNF_FILE` in rc.conf
+
+ You must reset your password using ALTER USER statement before executing this statement.
+
+安装完mysql 之后，登陆以后，不管运行任何命令，总是提示这个
+
+step 1: SET PASSWORD = PASSWORD('__love$u');
+
+step 2: ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;
+
+step 3: flush privileges;
+
+完成以上三步退出再登，使用新设置的密码就行了，以上除了红色的自己修改成新密码外，其他原样输入即可
+
+参考1: https://dev.mysql.com/doc/refman/5.6/en/alter-user.html
+
+参考2: http://dev.mysql.com/doc/refman/5.7/en/password-expiration-policy.html
+
+参考3: http://stackoverflow.com/questions/33467337/reset-mysql-root-password-using-alter-user-statement-after-install-on-mac
+
+
+
+
+
+
+
 https://docs.djangoproject.com/en/1.8/topics/install/#installing-official-release
 
 #https://www.djangoproject.com/download/
@@ -85,6 +152,8 @@ mysite/wsgi.py：用于你的项目的与WSGI兼容的Web服务器入口。 更�
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 http://www.cnblogs.com/wendoudou/p/mysql.html
+
+https://docs.djangoproject.com/en/1.8/ref/databases/#mysql-notes
 
 
 DATABASES = {

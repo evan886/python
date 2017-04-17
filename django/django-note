@@ -10,19 +10,14 @@ https://docs.djangoproject.com/en/1.8/releases/1.8/
 
 *各种发行版本
 
-
 FreeBSD
-
 There are two options:
-
 To add the package: pkg install py-django
 To install the port: cd /usr/ports/www/py-django/ && make install clean
 For recent changes ​http://www.freshports.org/www/py-django/
 
-
 https://code.djangoproject.com/wiki/Distributions
-
- sudo pkg install mysql57-server
+sudo pkg install mysql57-server
 
 
 也可以源码 下载  

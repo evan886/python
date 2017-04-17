@@ -142,7 +142,7 @@ DATABASES = {
 #LANGUAGE_CODE = 'zh-hans'
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'PRC'
 
 USE_I18N = True
 

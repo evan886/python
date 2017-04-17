@@ -1,3 +1,4 @@
+view-->tool windows -->terminal
 == chapter 1  入门==
 Django
 https://zh.wikipedia.org/wiki/Django
@@ -79,6 +80,8 @@ sudo apt-get install python-pip
 sudo  pip install Django
 (sudo) pip install Django==1.8 或者 pip install Django==1.7.6
 
+python -c "import django; print(django.get_version())"
+
 #kali 2016  这个太新了 不要 
 In [1]: import django
 
@@ -105,6 +108,8 @@ http://djangobook.py3k.cn/chapter01/
 
 Django-admin-bootstrap
 https://wiki.linuxchina.net/index.php?title=Django-admin-bootstrap
+
+== chapter1  Writing your first Django app, part 1==
 
 === 创建一个项目 ===
 /usr/local/bin/django-admin.py
@@ -225,15 +230,72 @@ Migrations for 'polls':
 
 $ python manage.py sqlmigrate polls 0001
 
+sqlmigrate命令并不会在你的数据库上真正运行迁移文件 —— 它只是把Django 认为需要的SQL打印在屏幕上以让你能够看到。 这对于检查Django将要进行的数据库操作或者你的数据库管理员需要这些SQL脚本是非常有用的。
+
+如果有兴趣，你还可以运行python manage.py check；它会检查你的项目中的模型是否存在问题，而不用执行迁移或者接触数据库。
+
+现在，再次运行migrate以在你的数据库中创建模型所对应的表：
 python manage.py migrate
 
 
 修改你的模型（在models.py文件中）。
 运行python manage.py makemigrations ，为这些修改创建迁移文件
 运行python manage.py migrate ，将这些改变更新到数据库中。
+
+阅读django-admin 的文档来了解manage.py 工具能做的所有事情。
+http://python.usyiyi.cn/translate/django_182/ref/django-admin.html
+
 	    
 ===玩转API===
+
+http://python.usyiyi.cn/translate/django_182/intro/tutorial02.html
+不太明白
+
+
 python manage.py shell
+
+Once you’re in the shell, explore the database API:
+http://python.usyiyi.cn/translate/django_182/topics/db/queries.html
+
+>>> from polls.models import Question, Choice   # Import the model classes we just wrote.
+
+# No questions are in the system yet.
+>>> Question.objects.all()
+[]
+
+# Create a new Question.
+# Support for time zones is enabled in the default settings file, so
+# Django expects a datetime with tzinfo for pub_date. Use timezone.now()
+# instead of datetime.datetime.now() and it will do the right thing.
+>>> from django.utils import timezone
+>>> q = Question(question_text="What's new?", pub_date=timezone.now())
+
+# Save the object into the database. You have to call save() explicitly.
+>>> q.save()
+
+# Now it has an ID. Note that this might say "1L" instead of "1", depending
+# on which database you're using. That's no biggie; it just means your
+# database backend prefers to return integers as Python long integer
+# objects.
+>>> q.id
+1
+
+# Access model field values via Python attributes.
+>>> q.question_text
+"What's new?"
+>>> q.pub_date
+datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=<UTC>)
+
+# Change values by changing the attributes, then calling save().
+>>> q.question_text = "What's up?"
+>>> q.save()
+
+# objects.all() displays all the questions in the database.
+>>> Question.objects.all()
+[<Question: Question object>]
+
+
+
 
 
 == chapter2 编写你的第一个Django应用，第2部分 ==
@@ -259,18 +321,67 @@ admin.site.register(Question)
 
 ==== 探索管理站点的功能====
 
-==== 自定义管理表单====
+
+=== 自定义管理表单===
+
+你没有写多少代码，却得到了这一切。 只需使用admin.site.register(Question)注册Question模型，Django就能构造一个默认的表单表示。通常，你会想要自定义管理界面中表单的外观和功能。 你可以通过在注册对象的时候告知Django一些你想要的选项来完成。
+
+让我们通过对编辑表单上的字段重新排序来看一下它是如何工作的。 将admin.site.register(Question)行替换成：
+polls/admin.py
+
+from django.contrib import admin
+
+from .models import Question
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['pub_date', 'question_text']
+
+admin.site.register(Question, QuestionAdmin)
+
+无论何时，当你需要修改一个对象的管理选项的话，就按照这样的步骤来做：创建一个模型管理对象（class），然后把该对象（class名）作为第二个参数传入admin.site.register()。
+
+上面那特定的更改，使得“Publication date”字段排在“Question”字段前面：
+
+
+===添加关联对象==
+值得一看哦
+
+===自定义管理界面中的变更列表===
+
+===自定义管理站点的外观===
+http://python.usyiyi.cn/translate/django_182/intro/tutorial02.html
 
 
 
 
 
 
-== chapter3 动态网页基础==
+== chapter3 编写你的第一个Django应用，第3部分=
 
-=== 第一份视图:动态内容 ===
+http://python.usyiyi.cn/translate/django_182/intro/tutorial03.html
+
+Django使用叫做‘URLconfs’的配置来为URL匹配视图。 一个URLconf负责使用正则表达式将URL模式匹配到视图。
+
+本教程提供URLconfs使用过程中的基本指令，更多信息请参考django.core.urlresolvers。
+http://python.usyiyi.cn/translate/django_182/ref/urlresolvers.html#module-django.core.urlresolvers
+
+
+
+=== 编写你的第一个视图 ===
+
+
+==== url() 参数：regex====
+====url() 参数：view====
+====url() 参数：name====
+
+===编写更多的视图 ===
+编写拥有实际功能的视图¶
+
+
 
 === 将 URL 映射到视图 ===
+
+
 
 
 

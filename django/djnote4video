@@ -1,0 +1,54 @@
+==01.Django的安 ==
+
+settings.py
+
+TIME_ZONE='Asia/Shanghai' 
+LANGUAGE_COOD='zh-cn'
+
+
+
+INSTLLED_APPS
+
+'blog',
+
+urls.py
+
+url(r'^blog/index/$','blog.views.index'),
+
+
+django startapp blog  # INSTLLED_APPS 里面的对应 上
+
+ 
+vim blog/views.py
+
+from django.http import HttpResponse
+def index(req):
+    return HttpResponse('<h1>hellow welcome </h1>')
+
+python manage.py runserver 
+
+
+127.0.0.1:8000/blog/index/
+
+
+
+== install uwsgi==
+
+前几天 yum 的结果是不能和nignx 合作成功，而pip 又出错 ，其实直接源码就好了嘛  我那么笨 
+
+wget -c https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz
+tar zxvf uwsgi-0.9.9.2.tar.gz
+cd uwsgi-0.9.9.2
+make -f Makefile.Py26 #指定你python的版本,如果你的python是2.7 就应该是 make -f Makefile.Py27
+cp uwsgi /usr/sbin/uwsgi
+
+
+
+Nginx+uWSGI部署Django 应用
+http://www.oschina.net/question/54100_30386
+
+https://uwsgi-docs.readthedocs.io/en/latest/Download.html
+
+
+[[category:django]]
+

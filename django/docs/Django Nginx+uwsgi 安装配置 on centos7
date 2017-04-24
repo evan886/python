@@ -1,0 +1,685 @@
+
+nginx+uwsgi+python2.7 on centos6
+
+os 64位的CentOS 6.8 py2.7
+环境搭建
+
+
+==安装基础开发包==
+Centos 下安装步骤如下：
+yum groupinstall "Development tools"
+
+
+<pre>
+yum groupinstall "Development tools"
+yum install zlib-devel bzip2-devel pcre-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel
+
+# yum install  python-devel  zlib-devel   zlib-devel gcc    bzip2-devel pcre-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel openssl
+</pre>
+
+==升级python 2.7 ==
+<pre>
+1.update python2.7
+#wget http://mirrors.sohu.com/python/2.7.6/Python-2.7.6.tar.xz
+wget http://mirrors.sohu.com/python/2.7.8/Python-2.7.8.tar.xz
+tar xvf Python-2.7.8.tar.xz  &&  cd Python-2.7.8
+./configure --prefix=/usr/local/python27
+ make -j4  && make install
+/usr/local/python27/bin/python2.7
+2. mv /usr/bin/python /usr/bin/python2.6bak
+ln -s /usr/local/python27/bin/python2.7 /usr/bin/python
+#这个是对全局有效果的
+
+3.解决系统python软链接指向python2.7版本后，yum不能正常工作
+方法：
+vi /usr/bin/yum
+将文本编辑显示的第一行
+#!/usr/bin/python修改为#!/usr/bin/python2.6，保存修改即可
+
+python -V
+
+https://wiki.linuxchina.net/index.php?title=How_to_install_python2.7_on_centos6.x
+
+另外还需要安装 python 工具需要的额外软件包 SSL, bz2, zlib
+yum install -y zlib-devel bzip2-devel openssl-devel xz-libs wget
+</pre>
+
+== update pip and setuptools==
+<pre>
+
+##这个要先有py2.7 然后就成功  我用了这个 
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+
+find / -name "pip*"
+
+/usr/local/python27/bin/pip
+
+ln -s /usr/local/python27/bin/pip /usr/bin/pip
+ 
+如果有老的pip 就先 bak一下 ，然后 和
+
+#这个我没用呢 
+git clone https://github.com/pypa/setuptools.git
+cd  setuptools/ && python  setup.py  install
+#cd  setuptools/command && python  setup.py  install
+wget https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz
+tar xvf pip-9.0.1.tar.gz && cd pip-9.0.1/
+sudo python setup.py install 
+
+
+#MySQL-python
+#wget -c https://pypi.python.org/packages/a5/e9/51b544da85a36a68debe7a7091f068d802fc515a3a202652828c73453cad/MySQL-python-1.2.5.zip#md5=654f75b302db6ed8dc5a898c625e030c
+wget -c https://pypi.python.org/packages/a5/e9/51b544da85a36a68debe7a7091f068d802fc515a3a202652828c73453cad/MySQL-python-1.2.5.zip
+
+unzip MySQL-python-1.2.5.zip 
+cd MySQL-python-1.2.5  && python setup.py  install
+
+
+#安装PCRE 如果没有安装的话  下载并解压 ，当然 我是自己打了包 yum的
+
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
+tar zxvf pcre-8.37.tar.gz
+编译安装
+cd pcre-8.37
+./configure
+make && make install
+安装完成后可以查看版本号pcre-config --version
+</pre>
+
+==安装Nginx==
+自己的yum 或者源码  (一定要不能有 --without-http_uwsgi_module)
+
+==安装 uwsgi ==
+<pre>
+
+介绍
+uWSGI是一个Web服务器，它实现了WSGI协议、uwsgi、http等协议。Nginx中HttpUwsgiModule的作用是与uWSGI服务器进行交换。
+要注意 WSGI / uwsgi / uWSGI 这三个概念的区分。
+WSGI看过前面小节的同学很清楚了，是一种通信协议。
+uwsgi是一种线路协议而不是通信协议，在此常用于在uWSGI服务器与其他网络服务器的数据通信。
+而uWSGI是实现了uwsgi和WSGI两种协议的Web服务器。
+uwsgi协议是一个uWSGI服务器自有的协议，它用于定义传输信息的类型（type of information），每一个uwsgi packet前4byte为传输信息类型描述，它与WSGI相比是两样东西。
+
+安装uWSGI 
+pip install uwsgi
+
+# /usr/local/python27/bin/uwsgi  要自己加path  这个安装后 发现不了呀  应该是加path就行了 
+echo 'export PATH=/usr/local/python27/bin/:$PATH' >>/etc/profile && source /etc/profile
+
+uwsgi --plugin python --http-socket :8001 --wsgi-file test.py
+
+#yum install uwsgi #版本为   2.0.14-11.el6 epel 
+#不是 yum 而是pip 的 这个应该不用吧 
+#yum install uwsgi-plugin-python
+
+uwsgi:https://pypi.python.org/pypi/uWSGI
+uwsgi 参数详解：http://uwsgi-docs.readthedocs.org/en/latest/Options.html
+
+uwsgi --version    # 查看 uwsgi 版本
+测试 uwsgi 是否正常：
+新建 test.py 文件，内容如下：
+def application(env, start_response):
+	start_response('200 OK', [('Content-Type','text/html')])
+	return "Hello World"
+然后在终端运行：
+uwsgi --http :8001 --wsgi-file test.py
+
+</pre>
+==安装Django==
+<pre>
+# yum install MySQL-python -y  #在前面用了 pip 安装了 
+ pip install Django==1.8.18
+
+#或者下载源码安装 
+wget --no-check-certificate -c https://www.djangoproject.com/m/releases/1.8/Django-1.8.18.tar.gz
+tar xvf Django-1.8.18.tar.gz  &&  cd Django-1.8.18  && python setup.py install
+
+Installing django-admin.py script to /usr/local/python27/bin
+Installing django-admin script to /usr/local/python27/bin
+
+ 
+测试 django 是否正常，运行：
+python -c "import django; print(django.get_version())"
+django-admin.py startproject  dj
+cd dj
+python2.7 manage.py runserver 0.0.0.0:8002
+在浏览器内输入：http://127.0.0.1:8002，检查django是否运行正常。
+
+
+直接配置为mysql 
+ 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'django',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+    }
+}
+ 
+</pre>
+
+== 配置uwsgi nginx ==
+<pre>
+ln -s  /usr/local/python27/bin/uwsgi  /usr/sbin/uwsgi
+
+#vim /data/apps/nginx/conf/hosts/dj.conf
+
+cat > /data/apps/nginx/conf/hosts/dj.conf   << EOF
+# Django project  
+server {
+        listen  80;
+        server_name dj.com;
+	  charset utf-8;
+        access_log /data/logs/nginx/dj.access.log;
+	#allow 113.108.232.32/28;
+	#deny all;
+#	 日志文件统一记录在uwsgi日志文件 /data/logs/uwsgi/django.gop.yy.com.access.log 
+#        index Index.php index.php index.htm index.html;
+#	 图片不能用nginx缓存，不然会显示不出静态图片、css、js这些
+        location ~ ^(.*)\/\.svn\/ {
+            deny all;
+        }
+        location / {
+            include    uwsgi_params;
+            uwsgi_pass  127.0.0.1:9005;
+            uwsgi_param UWSGI_CHDIR  /data/www/dj/;  #django的代码放的路径
+            uwsgi_param UWSGI_SCRIPT uwsgi;  #django的代码的resource_wsgi.py文件
+        }
+}
+EOF
+
+#vim  /data/www/dj/uwsgi.py
+
+cat > /data/www/dj/uwsgi.py   << EOF
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+# Author: 
+# 
+# Date : 2017/02/21
+# 说明：resource资源管理系统在生成环境的启动配置文件，使用nginx + uwsgi 进行访问 resource资源管理系统
+
+import os
+import django
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dj.settings'  
+import django.core.handlers.wsgi 
+
+if django.VERSION < 1.7:
+    from django.core.handlers.wsgi import WSGIHandler
+    application = WSGIHandler()
+else:
+    from django.core.wsgi import get_wsgi_application
+    application = get_wsgi_application()
+    
+EOF    
+
+##这个配置文件 其实应该可以 试一下放到 /etc/uwsgi/  但是502 
+#vim  /data/www/dj/uwsgi.xml
+
+cat > /data/www/dj/uwsgi.xml << EOF
+<uwsgi>  
+  <socket>127.0.0.1:9005</socket>  
+  <listen>200</listen>  
+  <master>true</master>  
+  <pidfile>/data/logs/uwsgi/uwsgi.pid</pidfile>  
+  <processes>8</processes>  
+
+  <module>dj.wsgi</module>   
+  <profiler>true</profiler>  
+  <memory-report>true</memory-report>  
+  <enable-threads>true</enable-threads>  
+  <logdate>True</logdate>  
+  <limit-as>6048</limit-as>  
+  <daemonize>/data/logs/uwsgi/uwsgi.access.log</daemonize>  
+</uwsgi>
+
+EOF 
+
+
+#还不太明白 为什么 很多时候写成个是 Internal Server Error   --- no python application found, check your startup logs for errors ---
+  <module>dj.uwsgi</module>
+
+# 参考 yum 的启动脚本 然后 改为uwsgi 用户 启动会比较 安全
+mkdir -p   /data/logs/uwsgi ; chown -R uwsgi:uwsgi /data/logs/uwsgi
+
+#vim /etc/sysctl.conf
+cat >  /etc/sysctl.conf <<EOF
+net.core.somaxconn = 2048 
+
+EOF
+
+sysctl -p
+
+#vi /etc/init.d/uwsgi
+cat > /etc/init.d/uwsgi << EOF
+#!/bin/sh
+##yum 安装的启动脚本
+# uwsgi - this script starts and stops the uwsgi emperor
+#
+# chkconfig:   - 85 15
+# description: Fast, self-healing, application container server
+# processname: uwsgi
+# config:      /etc/uwsgi.ini
+# config:      /etc/uwsgi.d
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+PROG=/usr/sbin/uwsgi
+OWNER=uwsgi
+NAME=uwsgi
+DESC="Fast, self-healing, application container server"
+DAEMON_OPTS="--xml /data/www/dj/uwsgi.xml --daemonize/data/logs/uwsgi/uwsgi.access.log  --plugin python"
+
+[ -f /etc/sysconfig/uwsgi ] && . /etc/sysconfig/uwsgi
+
+lockfile=/var/lock/subsys/uwsgi
+
+start () {
+  echo -n "Starting $NAME $DESC: "
+  daemon $PROG $DAEMON_OPTS
+  retval=$?
+  echo
+  [ $retval -eq 0 ] && touch $lockfile
+  return $retval
+}
+
+stop () {
+  echo -n "Stopping $NAME $DESC: "
+  # uWSGI docs say INT is a gentler way to stop
+  killproc $PROG -INT
+  retval=$?
+  echo
+  [ $retval -eq 0 ] && rm -f $lockfile
+  return $retval
+}
+
+reload () {
+  echo "Reloading $NAME" 
+  killproc $PROG -HUP
+  RETVAL=$?
+  echo
+}
+
+restart () {
+    stop
+    start
+}
+
+rh_status () {
+  status $PROG
+}
+
+rh_status_q() {
+  rh_status >/dev/null 2>&1
+}
+
+case "$1" in
+  start)
+    rh_status_q && exit 0
+    $1
+    ;;
+  stop)
+    rh_status_q || exit 0
+    $1
+    ;;
+  restart)
+    $1
+    ;;
+  reload)
+    rh_status_q || exit 7
+    $1
+    ;;
+  status)
+    rh_status
+    ;;
+  condrestart|try-restart)
+    rh_status_q || exit 0
+    restart
+    ;;
+  *)  
+    echo "Usage: $0 {start|stop|restart|condrestart|try-restart|reload|status}" >&2
+    exit 2
+    ;;
+esac
+exit 0
+
+EOF
+
+
+#*****************************
+
+cat > /etc/init.d/uwsgi << EOF
+
+#!/bin/bash  
+# chkconfig: 2345 55 25   pip 的用这个启动脚本先 
+# Description: Startup script for uwsgi webserver on Debian. Place in /etc/init.d and  
+# run 'update-rc.d -f uwsgi defaults', or use the appropriate command on your  
+# distro. For CentOS/Redhat run: 'chkconfig --add uwsgi'  
+
+### BEGIN INIT INFO  
+# Provides:			 uwsgi  
+# Required-Start:	 $all  
+# Required-Stop:	  $all  
+# Default-Start:	  2 3 4 5  
+# Default-Stop:		0 1 6  
+# Short-Description: starts the uwsgi web server  
+# Description:		 starts uwsgi using start-stop-daemon  
+### END INIT INFO  
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/python27/bin/  
+NAME=uwsgi 
+#NAME=resource_uwsgi 
+DAEMON=/usr/sbin/uwsgi  
+#CONFIGFILE=/etc/uwsgi/$NAME.xml
+CONFIGFILE=/data/www/dj/$NAME.xml
+PIDFILE=/data/logs/uwsgi/$NAME.pid  
+SCRIPTNAME=/etc/init.d/$NAME  
+
+set -e  
+[ -x "$DAEMON" ] || exit 0  
+
+do_start() {  
+   [ -f "$PIDFILE" ] && echo -en "uwsgi already running!! \n" && exit 0
+   $DAEMON $CONFIGFILE && echo -en "uwsgi running is ok!! \n"
+}  
+
+do_stop() {  
+   $DAEMON --stop $PIDFILE || echo -en "uwsgi not running!! \n"  
+   rm -f $PIDFILE  
+   echo "Stop $NAME is ok!!"  
+}  
+
+do_reload() {  
+   [ ! -f "$PIDFILE" ] && echo -en "uwsgi not running!! \n" && exit 0
+   $DAEMON --reload $PIDFILE || echo -en "uwsgi can't reload!! \n"  
+}  
+
+do_status() {  
+   ps aux|grep -v grep |grep $DAEMON || echo -en "uwagi not running!!"   
+}  
+
+case "$1" in  
+ status)  
+   do_status  
+ ;;  
+ start)  
+   do_start  
+ ;;  
+ stop)  
+   do_stop  
+ ;;  
+ reload|graceful)  
+   do_reload  
+ ;; 
+ restart)  
+   do_stop
+   sleep 2
+   do_start  
+ ;;  
+ *)  
+   echo "Usage: $SCRIPTNAME {start|stop|reload}" >&2  
+   exit 3  
+ ;;  
+esac  
+
+exit 0
+
+EOF
+
+mkdir -p /data/logs/uwsgi
+
+
+#vim /data/www/dj/uwsgi.py
+
+cat > /data/www/dj/uwsgi.py << EOF
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+# Author: 
+# 
+# Date : 2017/02/21
+# 说明：resource资源管理系统在生成环境的启动配置文件，使用nginx + uwsgi 进行访问 resource资源管理系统
+
+import os
+import django
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dj.settings'  
+import django.core.handlers.wsgi 
+
+if django.VERSION < 1.7:
+    from django.core.handlers.wsgi import WSGIHandler
+    application = WSGIHandler()
+else:
+    from django.core.wsgi import get_wsgi_application
+    application = get_wsgi_application()
+
+EOF 
+
+
+#vim /data/www/dj/uwsgi.xml
+cat > /data/www/dj/uwsgi.xml << EOF
+<uwsgi>  
+  <socket>127.0.0.1:9005</socket>  
+  <listen>200</listen>  
+  <master>true</master>  
+  <pidfile>/data/logs/uwsgi/uwsgi.pid</pidfile>  
+  <processes>8</processes>  
+  <!-- <module>dj.resource_uwsgi:application</module>  -->
+  <module>dj.uwsgi:application</module>  
+  <profiler>true</profiler>  
+  <memory-report>true</memory-report>  
+  <enable-threads>true</enable-threads>  
+  <logdate>True</logdate>  
+  <limit-as>6048</limit-as>  
+  <daemonize>/data/logs/uwsgi/uwsgi.access.log</daemonize>  
+</uwsgi>
+
+EOF 
+</pre>
+
+
+
+== 知识拓展== 
+<pre>
+uwsgi参数说明
+
+[uwsgi]
+uid = nginx #使用nginx用户和组
+gid = nginx
+chdir = /usr/local/myapp #指定项目目录
+module = myapp.wsgi #加载myapp/wsgi.py这个模块
+master = true  #启动主进程。
+processes = 2 #启动2个工作进程
+listen = 120 #设置socket的监听队列大小（默认：100）
+socket = /test/myapp.sock#指定socket文件
+socket = 127.0.0.1:8080
+pidfile = /var/run/uwsgi.pid #指定pid文件
+vacuum = true #当服务器退出的时候自动删除unixsocket文件和pid文件。
+enable-threads = true #允许用内嵌的语言启动线程。这将允许你在app程序中产生一个子线程
+buffer-size = 32768 #设置用于uwsgi包解析的内部缓存区大小为64k。默认是4k。
+  
+reload-mercy = 8 #设置在平滑的重启（直到接收到的请求处理完才重启）一个工作子进程中，等待这个工作结束的最长秒数。这个配置会使在平滑地重启工作子进程中，如果工作进程结束时间超过了8秒就会被强行结束（忽略之前已经接收到的请求而直接结束）
+max-requests = 5000 #为每个工作进程设置请求数的上限。当一个工作进程处理的请求数达到这个值，那么该工作进程就会被回收重用（重启）。你可以使用这个选项来默默地对抗内存泄漏
+limit-as = 256 #通过使用POSIX/UNIX的setrlimit()函数来限制每个uWSGI进程的虚拟内存使用数。这个配置会限制uWSGI的进程占用虚拟内存不超过256M。如果虚拟内存已经达到256M，并继续申请虚拟内存则会使程序报内存错误，本次的http请求将返回500错误。
+harakiri = 60 #一个请求花费的时间超过了这个harakiri超时时间，那么这个请求都会被丢弃，并且当前处理这个请求的工作进程会被回收再利用（即重启）
+daemonize= /var/log/myapp_uwsgi.log # 使进程在后台运行，并将日志打到指定的日志文件或者udp服务器
+
+
+
+[root@rpmbuild demosite]# cat /etc/uwsgi9090.ini 
+[uwsgi]
+socket = 127.0.0.1:9090
+master = true         //主进程
+vhost = true          //多站模式
+no-site = true        //多站模式时不设置入口模块和文件
+workers = 2           //子进程数
+reload-mercy = 10     
+vacuum = true         //退出、重启时清理文件
+max-requests = 1000   
+limit-as = 512
+buffer-size = 30000
+pidfile = /var/run/uwsgi9090.pid    
+daemonize = /data/logs/uwsgi9090.log
+
+
+
+安装Python包管理
+#这个我没用呢 
+easy_install 包 https://pypi.python.org/pypi/distribute
+安装步骤:
+cd ~
+wget https://pypi.python.org/packages/source/d/distribute/distribute-0.6.49.tar.gz
+tar xf distribute-0.6.49.tar.gz
+cd distribute-0.6.49
+python2.7 setup.py install
+easy_install --version
+
+wget -c https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz#md5=35f01da33009719497f01a4ba69d63c9
+
+
+Pip安装和使用
+https://wiki.linuxchina.net/index.php?title=Pip%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8
+
+rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum install -y python-pip
+
+
+为uwsgi配置多个站点
+
+为了让多个站点共享一个uwsgi服务，必须把uwsgi运行成虚拟站点：去掉“-w myapp”加上”–vhost”：
+
+uwsgi -s :9090 -M -p 4 -t 30 --limit-as 128 -R 10000 -d uwsgi.log --vhost 
+然后必须配置virtualenv，virtualenv是Python的一个很有用的虚拟环境工具，这样安装：
+
+apt-get install Python-setuptools  
+easy_install virtualenv 
+然后设置一个/多个app基准环境：
+
+快速部署Python应用：Nginx+uWSGI配置详解
+http://developer.51cto.com/art/201010/229615_all.htm
+
+</pre>
+
+
+== 常见故障==
+<pre>
+
+*问题1 
+[20/Apr/2017 03:27:30] "GET / HTTP/1.1" 500 59
+Traceback (most recent call last):
+  File "/usr/local/python27/lib/python2.7/wsgiref/handlers.py", line 85, in run
+    self.result = application(self.environ, self.start_response)
+  File "/usr/local/python27/lib/python2.7/site-packages/Django-1.8.18-py2.7.egg/django/contrib/staticfiles/handlers.py", line 63, in __call__
+    return self.application(environ, start_response)
+
+http://192.168.1.240:8002/
+A server error occurred.  Please contact the administrator.
+
+DisallowedHost: Invalid HTTP_HOST header: '192.168.2.228:8002'. You may need to add u'192.168.2.228' to ALLOWED_HOSTS.
+[20/Apr/2017 04:32:02] "GET /favicon.ico HTTP/1.1" 500 59
+
+添加  u'192.168.2.228' 到  ALLOWED_HOSTS = [u'192.168.1.240']
+然后就好了  所以出错 还是要看log 和相关输出 去goolge 不一定能找到原因 ，要靠自己哦 
+
+
+*问题 2 
+Mon Apr 24 13:47:42 2017 - --- no python application found, check your startup logs for errors ---
+{address space usage: 185823232 bytes/177MB} {rss usage: 5353472 bytes/5MB} [pid: 21738|app: -1|req: -1/2] 119.130.229.219 () {46 vars in 724 bytes} [Mon Apr 24 13:47:42 2017] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+
+
+vim  uwsgi.xml
+
+ <module>dj.uwsgi</module>  改为 
+  <module>dj.wsgi</module>   
+
+
+==参考==
+
+Nginx+uwsgi+python2.6 on centos6
+
+https://wiki.linuxchina.net/index.php?title=Nginx%2Buwsgi%2Bpython2.6_on_centos6#.E5.87.86.E5.A4.87.E5.BC.80.E5.A7.8B
+
+
+How To Serve Django Applications with uWSGI and Nginx on CentOS 7
+https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-centos-7
+
+
+http://blog.csdn.net/huanbia/article/details/54630180
+
+
+How to use Django with uWSGI
+https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/uwsgi/
+
+
+五步教你实现使用Nginx+uWSGI+Django方法部署Django程序(上)
+http://www.python88.com/topic/101/
+
+
+Python/WSGI 应用快速入门
+http://uwsgi-docs-cn.readthedocs.io/zh_CN/latest/WSGIquickstart.html
+
+
+https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html
+
+uWSGI
+http://docs.jinkan.org/docs/flask/deploying/uwsgi.html
+
+
+FastCGI
+http://docs.jinkan.org/docs/flask/deploying/fastcgi.html
+
+欢迎使用 Flask
+http://docs.jinkan.org/docs/flask/index.html
+
+nginx uwsgi wsgi django 这些东西究竟是什么关系
+http://blog.csdn.net/u014761344/article/details/40146597
+
+uWSGI 服务器的 uwsgi 协议究竟用在何处
+https://www.zhihu.com/question/46945479
+
+
+你应该使用 Nginx + UWSGI、
+http://www.admin10000.com/document/2348.html
+
+
+http://www.ziqiangxuetang.com/django/django-tutorial.html
+
+
+How To Serve Django Applications with uWSGI and Nginx on Ubuntu 16.04
+https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
+
+
+
+http://chenx1242.blog.51cto.com/10430133/1904804
+参考资料：http://xiaorui.cc/2017/02/16/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3uwsgi%E5%92%8Cgunicorn%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E4%B8%8A/
+
+http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+
+Centos升级Python 2.7.12并安装最新pip
+https://blog.fazero.me/2016/10/13/centos-update-python/
+
+Python/WSGI 应用快速入门
+http://uwsgi-docs-cn.readthedocs.io/zh_CN/latest/WSGIquickstart.html
+
+
+0. 记录Uwsgi与Django成功勾搭的始末
+http://chenx1242.blog.51cto.com/10430133/1906056
+
+
+基于nginx和uWSGI在Ubuntu上部署Django
+http://www.jianshu.com/p/e6ff4a28ab5a#
+
+nginx + uwsgi + Django 应用部署
+http://tchuairen.blog.51cto.com/3848118/1831281
+
+nignx部署django
+http://www.cnblogs.com/forilen/p/4242052.html
+
+
+　[[category:django]] 　[[category:python]]

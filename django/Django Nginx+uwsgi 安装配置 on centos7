@@ -1,0 +1,31 @@
+
+
+Django Nginx+uwsgi 安装配置 on centos7
+
+
+安装pip 
+
+wget https://bootstrap.pypa.io/get-pip.py
+python  get-pip.py
+
+
+
+pip install Django==1.8.18
+
+
+#centos7 也是这样哦 
+A server error occurred.  Please contact the administrator.
+
+
+DisallowedHost: Invalid HTTP_HOST header: '192.168.2.228:8002'. You may need to add u'192.168.2.228' to ALLOWED_HOSTS.
+[20/Apr/2017 04:32:02] "GET /favicon.ico HTTP/1.1" 500 59
+
+然后就好了 
+
+
+How To Serve Django Applications with uWSGI and Nginx on CentOS 7
+
+
+u'192.168.1.240'
+
+python  manage.py runserver 0.0.0.0:8002

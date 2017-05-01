@@ -15,7 +15,7 @@ urls.py
 
 url(r'^blog/index/$','blog.views.index'),
 
-
+django startproject csvt
 django startapp blog  # INSTLLED_APPS 里面的对应 上
 
  
@@ -34,6 +34,39 @@ python manage.py runserver
 
 
 02. 模板加载 
+
+bluefish 
+
+blog/templates/index.html
+
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+def index(req):
+    t = loader,get_template('index.html')
+    c = Context({}) 
+    return HttpResponse(t.render(c))
+    return HttpResponse('<h1>hellow welcome </h1>')
+
+
+
+#升级 
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+’‘’
+def index(req):
+    t = loader,get_template('index.html')
+    c = Context({}) 
+    return HttpResponse(t.render(c))
+    return HttpResponse('<h1>hellow welcome </h1>')
+‘’‘
+
+def index(req):
+    return render_to_response('index.html',{})
 
 
 

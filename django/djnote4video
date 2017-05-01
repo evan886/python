@@ -32,6 +32,12 @@ python manage.py runserver
 
 
 
+
+02. 模板加载 
+
+
+
+
 == install uwsgi==
 
 前几天 yum 的结果是不能和nignx 合作成功，而pip 又出错 ，其实直接源码就好了嘛  我那么笨 

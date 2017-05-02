@@ -503,7 +503,7 @@ wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目
 
 
 ==************************
-== note from 自强学堂==
+== note from 自强学堂 start ==
 
 on the zqxt_views dir
 
@@ -651,6 +651,167 @@ forloop.parentloop
 </ul>
 
 实例五，模板上得到视图对应的网址：
+还可以使用 as 语句将内容取别名（相当于定义一个变量），多次使用（但视图名称到网址转换只进行了一次）
+
+{% url 'some-url-name' arg arg2 as the_url %}
+
+<a href="{{ the_url }}">链接到：{{ the_url }}</a>
+
+
+实例六，模板中的逻辑操作：
+
+6.1、   ==, !=, >=, <=, >, < 这些比较都可以在模板中使用
+
+
+
+实例七，模板中 获取当前网址，当前用户等：
+
+完整的内容参考官方文档
+https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
+
+
+http://www.ziqiangxuetang.com/django/django-template2.html
+
+
+
+Django 模型（数据库）
+
+
+
+
+我们来同步一下数据库
+
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+
+
+新建一个对象的方法有以下几种：
+
+    Person.objects.create(name=name,age=age)
+
+    p = Person(name="WZ", age=23)
+
+    p.save()
+
+    p = Person(name="TWZ")
+
+    p.age = 23
+
+    p.save()
+
+    Person.objects.get_or_create(name="WZT", age=23)
+
+    这种方法是防止重复很好的方法，但是速度要相对慢些，返回一个元组，第一个为Person对象，第二个为True或False, 新建时返回的是True, 已经存在时返回False.
+
+
+获取对象有以下方法：
+
+    Person.objects.all()
+
+    Person.objects.all()[:10] 切片操作，获取10个人，不支持负索引，切片可以节约内存
+
+    Person.objects.get(name=name)
+
+
+    get是用来获取一个对象的，如果需要获取满足条件的一些人，就要用到filter
+
+    Person.objects.filter(name="abc") # 等于Person.objects.filter(name__exact="abc") 名称严格等于 "abc" 的人
+
+    Person.objects.filter(name__iexact="abc") # 名称为 abc 但是不区分大小写，可以找到 ABC, Abc, aBC，这些都符合条件
+
+
+    Person.objects.filter(name__contains="abc") # 名称中包含 "abc"的人
+
+    Person.objects.filter(name__icontains="abc") #名称中包含 "abc"，且abc不区分大小写
+
+
+    Person.objects.filter(name__regex="^abc") # 正则表达式查询
+
+    Person.objects.filter(name__iregex="^abc")# 正则表达式不区分大小写
+
+
+    filter是找出满足条件的，当然也有排除符合某条件的
+
+    Person.objects.exclude(name__contains="WZ") # 排除包含 WZ 的Person对象
+
+    Person.objects.filter(name__contains="abc").exclude(age=23) # 找出名称含有abc, 但是排除年龄是23岁的
+
+
+参考文档：
+
+Django models 官方教程: https://docs.djangoproject.com/en/dev/topics/db/models/
+
+Fields相关官方文档：https://docs.djangoproject.com/en/dev/ref/models/fields/
+
+
+
+
+
+Django 自定义Field
+http://www.ziqiangxuetang.com/django/django-custom-field.html
+
+写在models.py 还没看呢 有空要回头看一下哦
+
+
+
+Django 数据表更改
+http://www.ziqiangxuetang.com/django/django-schema-migration.html
+
+
+
+Django 1.7.x 和后来的版本：
+Django 1.7.x 及以后的版本集成了 South 的功能，在修改models.py了后运行：
+
+python manage.py makemigrations
+python manage.py migrate
+
+这两行命令就会对我们的models.py 进行检测，自动发现需要更改的，应用到数据库中去
+
+
+#不错哦 还可以 恢复到随便一个以前的版本
+Django 的第三方 app South 就是专门做数据库表结构自动迁移工作，Jacob Kaplan-Moss 曾做过一次调查，South 名列最受欢迎的第三方 app。事实上，它现在已经俨然成为 Django 事实上的数据库表迁移标准，很多第三方 app 都会带 South migrations 脚本，Django 1.7 中集成了 South 的功能。
+
+1, 安装South
+
+(sudo) pip install South
+
+
+2. 使用方法
+
+一个好的程序使用起来必定是简单的，South和它的宗旨一样，使用简单。只需要简单几步，针对已经建好model和创建完表的应用。
+
+
+把south加入到settings.py中的INSTALL_APPS中
+
+# Application definition
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'blog',
+    'south',
+)
+
+修改好后运行一次 python manage.py syncdb，Django会新建一个 south_migrationhistory 表，用来记录数据表更改(Migration)的历史纪录。
+
+
+
+
+
+
+=== Django QuerySet API ===
+http://www.ziqiangxuetang.com/django/django-queryset-api.html
+
+
+
+
+
+
 
 
 
@@ -661,7 +822,8 @@ forloop.parentloop
 正则表达式 http://www.ziqiangxuetang.com/regexp/regexp-tutorial.html
 Python正则表达式。 http://www.ziqiangxuetang.com/python/python-reg-expressions.html
 
-== note from 自强学堂==
+
+== note from 自强学堂 the end ==
 
 
 如果对了解 Python 搜索路径值感兴趣,可以启动 Python 交互式解释程序,输入 import sys ,接着输入 print sys.path 。

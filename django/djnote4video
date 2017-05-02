@@ -69,8 +69,45 @@ def index(req):
     return render_to_response('index.html',{})
 
 
+==03. 模板变量==
+06 min
+
+模板变量 ： {} 括起来的
+
+blog/templates/index.html
+<title > {title}</title>
+
+<h1> hello {user}</h1>
 
 
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+#变量定义
+def index(req):
+    return render_to_response('index.html',{'title': my blog, 'user':evan})
+
+
+
+
+
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+#变量定义
+def index(req):
+    user = {'name':'tom', 'age':23, 'sex':'male'}
+    return render_to_response('index.html','user':user)
+
+
+blog/templates/index.html
+<title > {title}</title>
+
+<h1> hello {user.name}</h1>
 == install uwsgi==
 
 前几天 yum 的结果是不能和nignx 合作成功，而pip 又出错 ，其实直接源码就好了嘛  我那么笨 

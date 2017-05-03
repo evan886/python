@@ -505,6 +505,32 @@ wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目
 ==************************
 == note from 自强学堂 start ==
 
+==Django 简介==
+http://www.ziqiangxuetang.com/django/django-intro.html
+
+urls.py
+网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。
+
+views.py
+处理用户发出的请求，从urls.py中对应过来, 通过渲染templates中的网页可以将显示内容，比如登陆后的用户名，用户请求的数据，输出到网页。
+
+models.py
+与数据库操作相关，存入或读取数据时用到这个，当然用不到数据库的时候 你可以不使用。
+
+forms.py
+表单，用户在浏览器上输入数据提交，对数据的验证工作以及输入框的生成等工作，当然你也可以不使用。
+
+templates 文件夹
+views.py 中的函数渲染templates中的Html模板，得到动态内容的网页，当然可以用缓存来提高速度。
+
+admin.py
+后台，可以用很少量的代码就拥有一个强大的后台。
+
+settings.py
+Django 的设置，配置文件，比如 DEBUG 的开关，静态文件的位置等。
+
+
+
 on the zqxt_views dir
 
 
@@ -802,17 +828,133 @@ INSTALLED_APPS = (
 
 
 
-
+这两个还没学 20170503
 
 === Django QuerySet API ===
 http://www.ziqiangxuetang.com/django/django-queryset-api.html
 
 
+Django QuerySet 进阶
+http://www.ziqiangxuetang.com/django/django-queryset-advance.html
+
+
+
+==Django 后台==
+http://www.ziqiangxuetang.com/django/django-admin.html
+
+后面很多还没看 有空再好好学习一下哦 20170503pm
+
+
+与后台相关文件：每个app中的 admin.py 文件与后台相关。
+
+
+下面示例是做一个后台添加博客文章的例子：
+一，新建一个 名称为 zqxt_admin 的项目
+django-admin.py startproject zqxt_admin
+
+二，新建一个 叫做 blog 的app
+# 进入 zqxt_admin 文件夹
+cd zqxt_admin
+# 创建 blog 这个 app
+python manage.py startapp blog
 
 
 
 
 
+
+
+提示：INSTALLED_APPS 是一个元组，每次加入新的app的时候，在后面都加一个逗号，这是一个好习惯
+
+
+
+创建管理员
+python manage.py createsuperuser
+
+admin database is dj
+
+所以推荐定义 Model 的时候 写一个 __unicode__ 函数(或 __str__函数)
+
+
+
+
+
+技能提升：如何兼容python2.x和python3.x呢？
+
+python_2_unicode_compatible 会自动做一些处理去适应python不同的版本，本例中的 unicode_literals 可以让python2.x 也像 python3 那个处理 unicode 字符，以便有更好地兼容性。
+
+
+
+Django 1.7 及以上用以下命令来同步数据库表的更改
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+
+
+
+
+
+==Django 表单==
+http://www.ziqiangxuetang.com/django/django-forms.html
+
+
+
+mkidr uapp/templates
+
+
+
+
+
+
+
+view #防止乱码
+
+#-*- coding:utf-8 -*-
+import  sys
+from django.shortcuts import render
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+
+
+
+
+
+
+
+
+
+
+文章有中文时乱码
+问了一下大家 再自己google  一下  尝试一下 手工 set utf8 cratedatabase is ok now
+
+CREATE DATABASE my_database CHARACTER SET utf8;
+
+
+http://stackoverflow.com/questions/6681831/setting-django-mysql-site-to-use-utf-8
+
+
+
+
+
+/usr/local/lib/python2.7/dist-packages/django/db/backends/mysql/base.py:124: Warning: Incorrect string value: '\xE6\xAA\xB6\xE5\xB9\xB2...' for column 'content' at row 1
+  return self.cursor.execute(query, args)
+
+
+
+
+
+
+
+
+
+
+Django 国际化
+http://www.ziqiangxuetang.com/django/django-internationalization.html
 
 
 
@@ -821,6 +963,12 @@ http://www.ziqiangxuetang.com/django/django-queryset-api.html
 
 正则表达式 http://www.ziqiangxuetang.com/regexp/regexp-tutorial.html
 Python正则表达式。 http://www.ziqiangxuetang.com/python/python-reg-expressions.html
+
+
+
+
+
+
 
 
 == note from 自强学堂 the end ==

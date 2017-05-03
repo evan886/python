@@ -906,8 +906,8 @@ mkidr uapp/templates
 
 
 
-
-
+#urls.py 要写成这 样才行 但是好像 没有算出结果来  没显示
+url(r'^add/$','blog.views.index', name='index'),
 
 
 view #防止乱码
@@ -933,6 +933,8 @@ sys.setdefaultencoding('utf-8')
 问了一下大家 再自己google  一下  尝试一下 手工 set utf8 cratedatabase is ok now
 
 CREATE DATABASE my_database CHARACTER SET utf8;
+
+CREATE DATABASE djforms CHARACTER SET utf8;
 
 
 http://stackoverflow.com/questions/6681831/setting-django-mysql-site-to-use-utf-8

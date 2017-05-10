@@ -898,7 +898,17 @@ python manage.py migrate
 
 
 ==Django 表单==
+
+不知为什么 不成功 有空再看看
 http://www.ziqiangxuetang.com/django/django-forms.html
+
+
+
+第二节，使用 Django 的 表单 (forms)
+#20170510
+
+
+
 
 
 
@@ -950,13 +960,42 @@ http://stackoverflow.com/questions/6681831/setting-django-mysql-site-to-use-utf-
 
 
 
-
-
-
-
-
 Django 国际化
 http://www.ziqiangxuetang.com/django/django-internationalization.html
+
+
+
+
+
+==Django 配置==
+http://www.ziqiangxuetang.com/django/django-settings.html
+
+ALLOWED_HOSTS = ['*.besttome.com','www.ziqiangxuetang.com']
+ALLOWED_HOSTS 允许你设置哪些域名可以访问，即使在 Apache 或 Nginx 等中绑定了，这里不允许的话，也是不能访问的。
+当 DEBUG=False 时，这个为必填项，如果不想输入，可以用 ALLOW_HOSTS = ['*'] 来允许所有的。
+
+
+== Django 静态文件 ==
+
+
+
+== Django 部署(Apache)==
+
+跳过 暂时不看
+
+== Django 部署(nginx)==
+
+跳过 暂时不看
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -996,4 +1035,11 @@ forms 我直接用bootstrap的，很简单，就一句话
 
 
 
+Python Web 框架，第 1 部分: 使用 Django 和 Python 开发 Web 站点
 
+https://www.ibm.com/developerworks/cn/linux/l-django/index.html#ibm-pcon
+
+
+
+
+django web 开发指南 chapter 2  P64

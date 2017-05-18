@@ -198,6 +198,82 @@ localhost:8900/blog/index/
 == 04.Django模板标签之条件标签if和循环标签for   ==
 
 
+vim blog/templates/index.html
+<title > {title}</title>
+
+<body>
+{% if user %}
+    <li>  name : {{user.name}} </li>
+
+{% else %}
+用户不存在
+
+{% endif %}
+
+
+{% for book in book_list  %}
+<li> {{book}} </li>
+{% endfor %}
+
+
+{% for k in user %}
+<li> {{k}}</li>
+{% endfor %}
+
+
+#上面三行变成
+{% for k, v in user %}
+<li> {{k}}</li>
+
+#序号
+<li> {{forloop.counter}}.{{k}}:{{v}}</li>
+{% endfor %}
+
+</body>
+
+
+
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+
+class Person(object):
+    def __init__(self,name,age,sex):
+    self.name = name
+    self.age = age
+    self.sex = sex
+    def say(self);
+        return  "I am " + self.name
+#变量定义
+def index(req):
+    #user = {'name':'tom', 'age':23, 'sex':'male'}
+    user = Person('max',33,'male')
+    book_list = [ 'python','java','php','web']
+
+    return render_to_response('index.html',{'title':'my page','user':user,'book_lisst':book_list)
+# 用户不存在 ,在最后面要添加 'user':user 回来
+    return render_to_response('index.html',{'title':'my page','book_lisst':book_list, 'user':user)
+
+
+
+Built-in template tags and filters
+
+Boolean operators
+https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
+
+
+
+
+localhost:8900/blog/index/
+
+
+
+
+== 05.Django地址映射配置urlconfig ==
+
+
 
 
 == install uwsgi==

@@ -1,22 +1,31 @@
 ==01.Django的安 ==
+在当前目录创建一个 mysite 目录
+django-admin.py  startproject mysite
+
+django-admin.py  startproject csvt01
+
 
 settings.py
 
 TIME_ZONE='Asia/Shanghai' 
-LANGUAGE_COOD='zh-cn'
+LANGUAGE_COOD='zh-hans'
 
 
+settings.py
 
 INSTLLED_APPS
 
 'blog',
 
+
+
 urls.py
 
 url(r'^blog/index/$','blog.views.index'),
 
-django startproject csvt
-django startapp blog  # INSTLLED_APPS 里面的对应 上
+django-admin.py startproject csvt
+cd  csvt01
+django-admin.py  startapp blog  # INSTLLED_APPS 里面的对应 上
 
  
 vim blog/views.py
@@ -29,6 +38,10 @@ python manage.py runserver
 
 
 127.0.0.1:8000/blog/index/
+
+hellow welcome
+
+
 
 
 

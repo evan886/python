@@ -628,7 +628,7 @@ Django 模板查找机制： Django 查找模板的过程是在每个 app 的 te
 
 ==Django 模板进阶==
 http://www.ziqiangxuetang.com/django/django-template2.html
-
+https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
 
 实例二，讲解了基本的 for 循环 和 List内容的显示
 
@@ -700,7 +700,10 @@ http://www.ziqiangxuetang.com/django/django-template2.html
 
 
 
-Django 模型（数据库）
+==Django 模型（数据库）==
+http://code.ziqiangxuetang.com/django/django-models.html
+https://docs.djangoproject.com/en/1.8/topics/db/models/
+
 
 
 
@@ -766,7 +769,7 @@ python manage.py migrate
 
 参考文档：
 
-Django models 官方教程: https://docs.djangoproject.com/en/dev/topics/db/models/
+Django models 官方教程: https://docs.djangoproject.com/en/1.8/topics/db/models/
 
 Fields相关官方文档：https://docs.djangoproject.com/en/dev/ref/models/fields/
 

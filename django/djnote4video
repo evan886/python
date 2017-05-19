@@ -1,4 +1,5 @@
 ==01.Django的安 ==
+##20170519pm pass
 在当前目录创建一个 mysite 目录
 django-admin.py  startproject mysite
 
@@ -46,7 +47,7 @@ hellow welcome
 
 
 
-02. 模板加载 
+==02. 模板加载 ==
 
 bluefish 
 

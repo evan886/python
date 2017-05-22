@@ -83,7 +83,7 @@ sudo apt-get install python-pip
 ====1 pip 安装====
 #来个LTS的 1.8 就这个了 2017.03.22pm
 sudo  pip install Django
-(sudo) pip install Django==1.8 或者 pip install Django==1.7.6
+sudo pip install Django==1.8 或者 pip install Django==1.7.6
 
 python -c "import django; print(django.get_version())"
 

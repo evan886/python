@@ -45,12 +45,33 @@ hellow welcome
 
 
 
+# on frebsd 11 没成功所以 借用家里 kali 
+- No module named _sqlite3 -
+It is solved by stand the port ----------
+
+
+cd /usr/ports/databases/py-sqlite3
+sudo make install clean
+
+
+I have the problem in FreeBSD 8.1:
+
+after this one can see:
+
+OK ----------
+'>>>' import sqlite3 -----
+'>>>' sqlite3.apilevel -----
+'2.0'
+
 
 
 ==02. 模板加载 ==
 
-bluefish 
 
+sudo python manage.py runserver 192.168.1.103:80
+
+bluefish 
+mkdir blog/templates/
 blog/templates/index.html
 
 vim blog/views.py
@@ -84,6 +105,8 @@ def index(req):
 
 
 ==03. 模板变量==
+sudo python manage.py runserver 192.168.1.103:80
+
 06 min
 
 模板变量 ： {} 括起来的

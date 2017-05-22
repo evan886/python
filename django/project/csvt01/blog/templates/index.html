@@ -1,14 +1,16 @@
 <html>
-<title > {title}</title>
+<title > {{title}}</title>
 
 <body>
 
 <h1> hello {{user.name}}</h1>
 <li> age : {{user.age}}</li>
 <li>sex :{{user.sex}} </li>
-
-{{book_list}}
-
-
+<div> the  {{user.name}} say : {{user.say}}  </li>
+<li>{{book_list}}</li>
+<li>{{book_list.0}}</li>
+<li>{{book_list.1}}</li>
+<li>{{book_list.2}}</li>
+<li>{{book_list.3}}</li>
 </body>
 </html>

@@ -111,7 +111,7 @@ def index(req):
 
 
 ==03. 模板变量==
-这个还没重新看了 作代码
+pass 20170523
 sudo python manage.py runserver 192.168.1.103:80
 
 
@@ -156,10 +156,10 @@ def index(req):
 
 #拿出字典中的数据 
 vim blog/templates/index.html
-<title > {title}</title>
+<title > {{title}}</title>
 
-<h1> hello {user.name}</h1>
-<li> age : {user.age}</li>
+<h1> hello {{user.name}}</h1>
+<li> age : {{user.age}}</li>
 
 
 localhost:8900/blog/index/
@@ -191,7 +191,7 @@ hello {'age': 23, 'name': 'tom', 'sex': 'male'}
 
 #拿出字典中的数据 
 vim blog/templates/index.html
-<title > {title}</title>
+<title > {{title}}</title>
 
 <h1> hello {{user.name}}</h1>
 <li> age : {{user.age}}</li>
@@ -247,28 +247,46 @@ sex :male
 #拿出字典中的数据 
 vim blog/templates/index.html
 <html>
-<title > {title}</title>
+<title > {{title}}</title>
 
 <body>
 
 <h1> hello {{user.name}}</h1>
 <li> age : {{user.age}}</li>
 <li>sex :{{user.sex}} </li>
-
 <div> the  {{user.name}} say : {{user.say}}  </li>
-
-{{book_list}}
-{{book_list.0}}
-{{book_list.1}}
-{{book_list.2}}
-{{book_list.3}}
+<li>{{book_list}}</li>
+<li>{{book_list.0}}</li>
+<li>{{book_list.1}}</li>
+<li>{{book_list.2}}</li>
+<li>{{book_list.3}}</li>
 </body>
 </html>
 
 
-localhost:8900/blog/index/
+http://192.168.1.103/blog/index/
+
+hello max
+
+age : 33
+sex :male
+the max say : I am max
+['python', 'java', 'php', 'web']
+python
+java
+php
+web
+
+总结
+可以在模板上传递集基本类型  字典   对象
+
+传递的变量可以为
 
 == 04.Django模板标签之条件标签if和循环标签for   ==
+start
+
+sudo python manage.py runserver 192.168.1.103:80
+
 
 
 vim blog/templates/index.html

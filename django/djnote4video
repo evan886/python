@@ -114,14 +114,20 @@ def index(req):
 这个还没重新看了 作代码
 sudo python manage.py runserver 192.168.1.103:80
 
-06 min
+
 
 模板变量 ： {} 括起来的
 
 blog/templates/index.html
-<title > {title}</title>
+<html>
+<title > {{title}}</title>
+<body>
 
-<h1> hello {user}</h1>
+
+<h1> hello {{user}}</h1>
+    
+</body>
+</html>
 
 
 vim blog/views.py
@@ -129,9 +135,10 @@ vim blog/views.py
 from django.http import HttpResponse
 from django.template import loader, Context
 from django.shortcuts import render_to_response
-#变量定义
+
+
 def index(req):
-    return render_to_response('index.html',{'title': my blog, 'user':evan})
+    return render_to_response('index.html',{'title': 'my blog', 'user':'evan'})
 
 
 
@@ -145,7 +152,7 @@ from django.shortcuts import render_to_response
 #变量定义
 def index(req):
     user = {'name':'tom', 'age':23, 'sex':'male'}
-    return render_to_response('index.html',{'title':'my page','user':user)
+    return render_to_response('index.html',{'title':'my page','user':user})
 
 #拿出字典中的数据 
 vim blog/templates/index.html
@@ -178,13 +185,19 @@ def index(req):
     book_list = [ 'python','java','php','web']
     return render_to_response('index.html',{'title':'my page','user':user,'book_lisst':book_list)
 
+http://192.168.1.103/blog/index/
+hello {'age': 23, 'name': 'tom', 'sex': 'male'}
+
+
 #拿出字典中的数据 
 vim blog/templates/index.html
 <title > {title}</title>
 
-<h1> hello {user.name}</h1>
-<li> age : {user.age}</li>
+<h1> hello {{user.name}}</h1>
+<li> age : {{user.age}}</li>
 <li>sex :{{user.sex}} </li>
+
+
 
 {{book_list}}
 {{book_list.0}}
@@ -201,30 +214,45 @@ localhost:8900/blog/index/
 #改进版本3 使用对象 
 vim blog/views.py
 
-from django.http import HttpResponse
-from django.template import loader, Context
+#-*- coding:utf-8 -*-
+#from django.http import HttpResponse
+#from django.template import loader, Context
 from django.shortcuts import render_to_response
 
 class Person(object):
     def __init__(self,name,age,sex):
-    self.name = name
-    self.age = age
-    self.sex = sex
-    def say(self);
+        self.name = name
+        self.age = age
+        self.sex = sex
+    def say(self):
         return  "I am " + self.name
 #变量定义
 def index(req):
     #user = {'name':'tom', 'age':23, 'sex':'male'}
-    user = Person('max',33,'male')
+    user = Person ('max',33,'male')
     book_list = [ 'python','java','php','web']
-    return render_to_response('index.html',{'title':'my page','user':user,'book_lisst':book_list)
+    return render_to_response('index.html',{'title':'my page','user':user,'book_list':book_list})
+    
+http://192.168.1.103/blog/index/
+
+hello max
+
+age : 33
+sex :male
+['python', 'java', 'php', 'web']
+
+12 min    
+    
 
 #拿出字典中的数据 
 vim blog/templates/index.html
+<html>
 <title > {title}</title>
 
-<h1> hello {user.name}</h1>
-<li> age : {user.age}</li>
+<body>
+
+<h1> hello {{user.name}}</h1>
+<li> age : {{user.age}}</li>
 <li>sex :{{user.sex}} </li>
 
 <div> the  {{user.name}} say : {{user.say}}  </li>
@@ -235,6 +263,7 @@ vim blog/templates/index.html
 {{book_list.2}}
 {{book_list.3}}
 </body>
+</html>
 
 
 localhost:8900/blog/index/

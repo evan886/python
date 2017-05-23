@@ -3,6 +3,18 @@
 
 <body>
 
+{% if user %}
+    <li>  name : {{user.name}} </li>
+
+{% else %}
+用户不存在
+
+{% endif %}
+
+
+
+
+
 <h1> hello {{user.name}}</h1>
 <li> age : {{user.age}}</li>
 <li>sex :{{user.sex}} </li>

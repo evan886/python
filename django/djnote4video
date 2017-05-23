@@ -285,6 +285,8 @@ web
 == 04.Django模板标签之条件标签if和循环标签for   ==
 start
 
+04:20
+
 sudo python manage.py runserver 192.168.1.103:80
 
 

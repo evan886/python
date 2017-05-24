@@ -282,13 +282,12 @@ web
 
 传递的变量可以为
 
-== 04.Django模板标签之条件标签if和循环标签for   ==
-start
 
-04:20
+
+== 04.Django模板标签之条件标签if和循环标签for   ==
+pass 20170524
 
 sudo python manage.py runserver 192.168.1.103:80
-
 
 
 vim blog/templates/index.html
@@ -313,6 +312,15 @@ vim blog/templates/index.html
 <li> {{k}}</li>
 {% endfor %}
 
+http://127.0.0.1:8000/blog/index/
+python
+java
+php
+web
+age
+name
+sex
+
 
 #上面三行变成
 {% for k, v in user %}
@@ -323,6 +331,16 @@ vim blog/templates/index.html
 {% endfor %}
 
 </body>
+
+{% for k,v in user.items %}
+<li> {{k}}:{{v}}</li>
+{% endfor %}
+age:23
+name:tom
+sex:male
+
+
+https://docs.djangoproject.com/en/1.8/ref/templates/language/#templates
 
 
 
@@ -357,10 +375,7 @@ Boolean operators
 https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
 
 
-
-
 localhost:8900/blog/index/
-
 
 
 

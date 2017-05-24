@@ -19,9 +19,8 @@
 
 {% for k, v in user %}
 <li> {{k}}</li>
-{% endfor %}
 
-{% for k,v in user.items %}
+
 <li> {{k}}:{{v}}</li>
 {% endfor %}
 

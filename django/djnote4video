@@ -380,6 +380,7 @@ localhost:8900/blog/index/
 
 
 == 05.Django地址映射配置urlconfig ==
+pass 20170525
 
 位置参数 关键字参数
 

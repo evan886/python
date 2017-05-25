@@ -381,6 +381,99 @@ localhost:8900/blog/index/
 
 == 05.Django地址映射配置urlconfig ==
 
+位置参数 关键字参数
+
+csvt01/urls.py
+
+
+from blog.views import index
+#可以 直接
+url(r'^blog/index/$',index),
+
+或者 不过版本为1.8之前
+
+urlpatterns = patterns('blog.views',
+
+ url(r'^blog/index/$','index'),
+
+ ###
+ urlpatterns = patterns('blog.views',
+
+ url(r'^blog/index/\d{2}/$','index'),
+
+
+
+
+url(r'^blog/index/\d{2}/$','blog.views.index'),
+
+#这样都可以访问 RE嘛
+http://127.0.0.1:8000/blog/index/12/
+http://127.0.0.1:8000/blog/index/34/
+
+vim urls.py
+url(r'^blog/index/(?P<id>\d{2}/$','blog.views.index'),
+vim blog/views.py
+#变量定义
+#def index(req):
+def index(req,id):
+    user = {'name':'tom', 'age':23, 'sex':'male'}
+    #user = Person ('evan',33,'male')
+    book_list = [ 'python','java','php','web']
+    return render_to_response('index.html',{'title':'my page','user':user,'book_list':book_list,'id':id})
+
+vim index.html
+
+id : {{id}}
+
+
+http://127.0.0.1:8000/blog/index/34
+Exception Type:	ImproperlyConfigured
+Exception Value:
+"^blog/index/(?P<id>\d{2}/$" is not a valid regular expression: unbalanced parenthesis
+
+
+
+url(r'^blog/index/(d{2}/$','blog.views.index'),
+
+
+vim blog/views.py
+#变量定义
+#def index(req):
+def index(req,parm):
+    user = {'name':'tom', 'age':23, 'sex':'male'}
+    #user = Person ('evan',33,'male')
+    book_list = [ 'python','java','php','web']
+    return render_to_response('index.html',{'title':'my page','user':user,'book_list':book_list,'id':parm})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

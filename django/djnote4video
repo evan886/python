@@ -452,6 +452,32 @@ def index(req,parm):
 
 
 
+== 06.如何使用Django模板  ==
+
+05.00
+
+django-admin.py  startproject  csvt02
+cd csvt02
+django-admin.py  startapp blog
+
+vim settings.py
+
+INSTALLED_APPS = (
+     'blog',
+
+mkdir  blog/templates
+
+vim blog/views.py
+
+from django.shortcuts import render
+from  django.template import  loader, Context
+from django.http import HttpResponse
+# Create your views here.
+def index(req):
+    t =loader.get_template('index.html')
+
+
+vim index.html
 
 
 

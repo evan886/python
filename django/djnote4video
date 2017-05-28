@@ -574,9 +574,20 @@ hellow evan02
 在家用 ECLIPSE 这样就不会不idea 目录冲突了  
 
 
-== ==
+== 07.在Django中使用数据库（1.mp4 ==
+02:00
+
+/etc/init.d/mysql start 
+
+rpm -qa | grep MySQL-python 
+
+In [1]: import MySQLdb
+
+In [2]: 
 
 
+
+突然觉得看视频学习django 有点好玩呢 
 
 
 

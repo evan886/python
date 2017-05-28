@@ -453,8 +453,8 @@ def index(req,parm):
 
 
 == 06.如何使用Django模板  ==
+pass 20170529
 
-13：20
 
 django-admin.py  startproject  csvt02
 cd csvt02
@@ -512,6 +512,9 @@ http://192.168.1.103/index/
 hellow html index
 
 结合ipython 
+
+ipython  manage.py shell
+ on kali can not open  that 
 
 
 第一种是生成 
@@ -571,6 +574,7 @@ hellow evan02
 在家用 ECLIPSE 这样就不会不idea 目录冲突了  
 
 
+== ==
 
 
 
@@ -590,23 +594,4 @@ hellow evan02
 
 
 
-== install uwsgi==
-
-前几天 yum 的结果是不能和nignx 合作成功，而pip 又出错 ，其实直接源码就好了嘛  我那么笨 
-
-wget -c https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz
-tar zxvf uwsgi-0.9.9.2.tar.gz
-cd uwsgi-0.9.9.2
-make -f Makefile.Py26 #指定你python的版本,如果你的python是2.7 就应该是 make -f Makefile.Py27
-cp uwsgi /usr/sbin/uwsgi
-
-
-
-Nginx+uWSGI部署Django 应用
-http://www.oschina.net/question/54100_30386
-
-https://uwsgi-docs.readthedocs.io/en/latest/Download.html
-
-
-[[category:django]]
 

@@ -454,7 +454,7 @@ def index(req,parm):
 
 == 06.如何使用Django模板  ==
 
-05.00
+13：20
 
 django-admin.py  startproject  csvt02
 cd csvt02
@@ -467,22 +467,63 @@ INSTALLED_APPS = (
 
 mkdir  blog/templates
 
+vi urls.py 
+
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+
+    # url(r'^$', 'csvt02.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^index/$','blog.views.index'),
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+********
 vim blog/views.py
 
 from django.shortcuts import render
 from  django.template import  loader, Context
 from django.http import HttpResponse
 # Create your views here.
+
 def index(req):
     t =loader.get_template('index.html')
+    c = Context({'uname':'evan'})
+    html=t.render(c)
+    return HttpResponse(html)
+  
 
 
 vim index.html
+<html>
+<title > {{title}}</title>
+
+<body>
+<h1>hellow html index </h1>
+</body>
+</html>
 
 
 
+http://192.168.1.103/index/
+
+hellow html index
 
 
+
+下面是使用模板的第二种方法 
+
+
+ ipython  manage.py shell
+ 
+ 
+
+
+记得在公司用PYCHARM 
+
+在家用 ECLIPSE 这样就不会不idea 目录冲突了  
 
 
 

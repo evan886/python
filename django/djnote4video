@@ -575,7 +575,7 @@ hellow evan02
 
 
 == 07.在Django中使用数据库（1.mp4 ==
-02:00
+07:00
 
 /etc/init.d/mysql start 
 
@@ -585,6 +585,31 @@ In [1]: import MySQLdb
 
 In [2]: 
 
+
+
+
+ django-admin.py  startproject csvt03
+ cd csvt03
+ django-admin.py  startapp  blog
+
+create database csvt default charset = utf8; 
+
+https://docs.djangoproject.com/en/1.8/ref/databases/#mysql-notes
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'djangodb',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+    }
+}
+
+
+vim models.py
 
 
 突然觉得看视频学习django 有点好玩呢 

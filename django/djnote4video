@@ -511,15 +511,60 @@ http://192.168.1.103/index/
 
 hellow html index
 
+结合ipython 
 
 
+第一种是生成 
 下面是使用模板的第二种方法 
 
+Template类  直接生成 
 
- ipython  manage.py shell
- 
- 
+ vim index.html
+ <body>
+<h1>hellow  {{uname}} </h1>
+</body>
 
+vim urls.py
+    url(r'^index1/$','blog.views.index1'),
+    
+vim views.py
+from django.shortcuts import render
+from  django.template import  loader, Context, Template
+from django.http import HttpResponse
+# Create your views here.
+
+def index(req):
+    t =loader.get_template('index.html')
+    c = Context({'uname':'evan'})
+    #html=t.render(c)
+    #return HttpResponse(html)
+    return HttpResponse(t.render(c))
+
+def index1(req):
+    t = Template('<h1>hello {{uname}}</h1>')
+    c = Context({'uname':'csvt'})
+    return HttpResponse(t.render(c))
+    
+        
+http://192.168.1.103/index1/
+hello csvt
+
+
+ 
+第三种方法么 全部在一起了
+
+from django.shortcuts import render, render_to_response
+
+def index2(req):
+   return  render_to_response('index.html',{'uname':'csvt02'})
+    
+vim views.py 
+    url(r'^index2/$','blog.views.index2'),
+    
+http://192.168.1.103/index2/
+hellow evan02
+
+    
 
 记得在公司用PYCHARM 
 

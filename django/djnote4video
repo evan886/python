@@ -633,9 +633,109 @@ mysql> desc blog_employee;
 
 
 == 08.在Django中使用数据库2-.mp4==
-02:00
+12:10
 
-ipython manage.py shell  #交互模式 
+python manage.py shell  #交互模式 
+not 
+ipython manage.py shell
+
+
+创建记录的第一种
+
+In [2]: from blog.models import Employee
+
+In [3]: Employee
+Out[3]: blog.models.Employee
+
+In [7]: emp=Employee()
+
+In [8]: emp.name= 'alen'
+
+In [9]: emp.save()
+
+#查看一下 
+mysql> select * from blog_employee;
++----+------+
+| id | name |
++----+------+
+|  1 | alen |
++----+------+
+
+
+创建记录的第二种  在构造方法中直接  
+In [11]: emp=Employee(name='tom')
+
+In [12]: emp.save()
+
+mysql> select * from blog_employee;
++----+------+
+| id | name |
++----+------+
+|  1 | alen |
+|  2 | tom  |
++----+------+
+
+
+创建记录的第三 种 
+
+In [13]: Employee.objects.create(name='max')
+Out[13]: <Employee: Employee object>
+
+mysql> select * from blog_employee;
++----+------+
+| id | name |
++----+------+
+|  1 | alen |
+|  2 | tom  |
+|  3 | max  |
++----+------+
+
+
+In [15]: Employee.objects.create(name='sumer')
+Out[15]: <Employee: Employee object>
+
+In [16]: emp
+Out[16]: <Employee: Employee object>
+
+
+In [17]: emps = Employee.objects.all()
+
+In [18]: emps
+Out[18]: [<Employee: Employee object>, <Employee: Employee object>, <Employee: Employee object>, <Employee: Employee object>, <Employee: Employee object>]
+
+In [19]: emps[0].id
+Out[19]: 1L
+
+In [20]: emps[0].name
+Out[20]: u'alen'
+
+vim models.py 
+#-*- coding:utf-8 -*-
+from django.db import models
+
+# Create your models here.
+#自己定义的类
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+    
+    def __unicode__(self):
+        return self.name 
+
+
+python manage.py shell
+In [1]: from blog.models import Employee
+In [3]: emps = Employee.objects.all()
+
+In [4]: emps
+Out[4]: [<Employee: alen>, <Employee: tom>, <Employee: max>, <Employee: max>, <Employee: sumer>]
+
+
+vim urls.py
+
+    url(r'^index/$','blog.views.index'),
+    
+vim views.py
+
 
 
 要注意 新老版本之间 db的不同之处 
@@ -643,9 +743,32 @@ ipython manage.py shell  #交互模式
 突然觉得看视频学习django 有点好玩呢 
 
 
+
+
+
+
+
+
+
 升级kali 2017 
 
 sudo apt-get install apt-transport-https 
+
+
+##这个完全重写，不是追加
+cat << EOF > /etc/apt/sources.list
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+EOF
+
+apt-get update
+apt-get dist-upgrade # get a coffee, or 10.
+reboot
+
+*****************
+
+
+
+http://blog.sina.com.cn/s/blog_7cd669720102vjaz.html
 
 
 

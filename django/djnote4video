@@ -575,7 +575,7 @@ hellow evan02
 
 
 == 07.在Django中使用数据库（1.mp4 ==
-07:00
+pass 20170529pm 
 
 /etc/init.d/mysql start 
 
@@ -584,8 +584,6 @@ rpm -qa | grep MySQL-python
 In [1]: import MySQLdb
 
 In [2]: 
-
-
 
 
  django-admin.py  startproject csvt03
@@ -610,7 +608,35 @@ DATABASES = {
 
 
 vim models.py
+from django.db import models
 
+# Create your models here.
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+
+同步一下数据库
+shell> python manage.py syncdb 
+
+
+#新版本一定用下面这些 不然没有 blog_employee 表哦 
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+
+mysql> desc blog_employee;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+== 08.在Django中使用数据库2-.mp4==
+
+
+
+要注意 新老版本之间 db的不同之处 
 
 突然觉得看视频学习django 有点好玩呢 
 

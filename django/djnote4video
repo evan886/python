@@ -633,13 +633,19 @@ mysql> desc blog_employee;
 
 
 == 08.在Django中使用数据库2-.mp4==
+02:00
 
+ipython manage.py shell  #交互模式 
 
 
 要注意 新老版本之间 db的不同之处 
 
 突然觉得看视频学习django 有点好玩呢 
 
+
+升级kali 2017 
+
+sudo apt-get install apt-transport-https 
 
 
 

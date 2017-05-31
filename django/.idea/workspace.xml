@@ -25,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="djnote4video" pinned="false" current-in-tab="true">
+      <file leaf-file-name="djnote4video" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/djnote4video">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="549">
@@ -69,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/csvt03/blog/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="221">
+              <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -103,8 +103,8 @@
         <option value="$PROJECT_DIR$/project/learn_models/people/models.py" />
         <option value="$PROJECT_DIR$/project/csvt03/csvt03/urls.py" />
         <option value="$PROJECT_DIR$/project/csvt03/blog/views.py" />
-        <option value="$PROJECT_DIR$/project/csvt03/blog/templates/index.html" />
         <option value="$PROJECT_DIR$/djnote4video" />
+        <option value="$PROJECT_DIR$/project/csvt03/blog/templates/index.html" />
       </list>
     </option>
   </component>
@@ -736,18 +736,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/csvt03/blog/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/djnote4video">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
           <caret line="817" column="0" lean-forward="true" selection-start-line="817" selection-start-column="0" selection-end-line="817" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/csvt03/blog/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding />
         </state>
       </provider>

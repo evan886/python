@@ -633,7 +633,13 @@ mysql> desc blog_employee;
 
 
 == 08.在Django中使用数据库2-.mp4==
-12:10
+
+Django 模型（数据库
+http://code.ziqiangxuetang.com/django/django-models.html
+对了 要结合一下自强学堂的相关知识一起学习更加有效果
+
+
+19:100
 
 python manage.py shell  #交互模式 
 not 
@@ -737,6 +743,80 @@ vim urls.py
 vim views.py
 
 
+****
+vim urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'csvt03.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^index/$','blog.views.index'),
+]
+
+vim models.py
+#-*- coding:utf-8 -*-
+from django.db import models
+
+# Create your models here.
+#自己定义的类
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+
+vim views.py
+#-*- coding:utf-8 -*-
+from django.shortcuts import render_to_response
+from  blog.models import Employee
+# Create your views here.
+
+def index(req):
+    emps = Employee.objects.all()
+    return render_to_response('index.html',{'emps':emps})
+
+#render_to_response
+
+
+vim index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{%for emp in emps%}
+<div>{{emp}}</div>
+{% endfor %}
+</body>
+</html>
+
+visa http://127.0.0.1:8000/index/
+
+alen
+tom
+
+
+vim index.hmtl
+<body>
+
+{%for emp in emps%}
+<div>{{forloop.counter}}  {{emp}}</div>
+{% endfor %}
+</body>
+
+visa http://127.0.0.1:8000/index/
+1 alen
+2 tom
+
+***
 
 要注意 新老版本之间 db的不同之处 
 

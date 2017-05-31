@@ -633,7 +633,7 @@ mysql> desc blog_employee;
 
 
 == 08.在Django中使用数据库2-.mp4==
-
+pass 20170531
 Django 模型（数据库
 http://code.ziqiangxuetang.com/django/django-models.html
 对了 要结合一下自强学堂的相关知识一起学习更加有效果
@@ -817,6 +817,9 @@ visa http://127.0.0.1:8000/index/
 2 tom
 
 ***
+
+
+== 09.Django数据库之多对一映射.mp4 ==
 
 要注意 新老版本之间 db的不同之处 
 

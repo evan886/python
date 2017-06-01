@@ -821,6 +821,36 @@ visa http://127.0.0.1:8000/index/
 
 == 09.Django数据库之多对一映射.mp4 ==
 
+06:10
+
+django-admin.py  startproject  csvt04
+cd csvt04
+django-admin.py startapp blog
+
+
+INSTALLED_APPS = (
+    'blog',
+
+
+
+vim models.py
+from django.db import models
+class Entry(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+
+class Blog(models.Model):
+    name = models.CharField(max_length=30)
+    entry = models.ForeignKey(Entry)
+
+    def __unicode__(self):
+        return self.name
+# Create your models here.
+
+
+
 要注意 新老版本之间 db的不同之处 
 
 突然觉得看视频学习django 有点好玩呢 

@@ -821,7 +821,7 @@ visa http://127.0.0.1:8000/index/
 
 == 09.Django数据库之多对一映射.mp4 ==
 
-06:10
+20170602 感觉不全明白 呢
 
 django-admin.py  startproject  csvt04
 cd csvt04
@@ -850,6 +850,140 @@ class Blog(models.Model):
 # Create your models here.
 
 
+
+#新版本一定用下面这些 不然没有 blog_employee 表哦
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+
+
+python  manage.py shell
+
+In [1]: from blog.models import Entry,Blog
+
+In [2]: entry1 =  Entry.objects.create(name='alen')
+
+In [3]: entry1
+Out[3]: <Entry: alen>
+
+In [4]: entry2 =  Entry.objects.create(name='max')
+
+In [5]: entry3 =  Entry.objects.create(name='carl')
+
+
+In [6]: blog1 = Blog.objects.create(name="alen_blog1", entry=entry1)
+
+In [7]: blog1
+Out[7]: <Blog: alen_blog1>
+
+
+
+In [8]: blog1.entry
+Out[8]: <Entry: alen>
+
+
+many to one
+
+In [9]: entry1.blog_set
+Out[9]: <django.db.models.fields.related.RelatedManager at 0x7f1058c1d390>
+
+In [10]: entry1.blog_set.all()
+Out[10]: [<Blog: alen_blog1>]
+
+检索
+
+
+== 10.Django管理界面.mp4 ==
+
+还是数据库的使用，其实
+
+13:00
+
+
+
+django-admin.py  startproject csvt05
+cd csvt05
+django-admin.py startapp  blog
+
+vim urls.py
+#by evan
+#admin.audodiscover()
+#	'module' object has no attribute 'audodiscover'
+
+
+
+vim models.py
+
+from django.db import models
+
+sex_choices=(
+    ('f','famale'),
+    ('m','male'),
+)
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    sex = models.CharField(max_length=1, choices=sex_choices)
+
+
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations #为这些修改创建迁移文件
+python manage.py migrate #将这些改变更新到数据库中
+
+
+# -*- coding: utf-8 -*-
+
+
+
+创建管理员
+
+=== 创建一个管理员用户===
+python manage.py createsuperuser
+为什么后台老是登录不了呢  我搞错了 因为 运行错项目了
+
+
+
+vim blog/admin.py
+
+
+from django.contrib import admin
+from blog.models import  User
+
+admin.site.register(User)
+
+# Register your models here.
+这样后台就有 User了
+
+
+
+创建users¶
+
+创建users最直接的方法是使用create_user()辅助函数：
+
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
+
+# At this point, user is a User object that has already been saved
+# to the database. You can continue to change its attributes
+# if you want to change other fields.
+>>> user.last_name = 'Lennon'
+>>> user.save()
+如果你已经安装了Django admin
+
+
+创建superusers¶
+
+使用createsuperuser命令创建superusers：
+
+$ python manage.py createsuperuser --username=nick --email=joe@example.com
+将会提示你输入一个密码。在你输入一个密码后，该user将会立即创建。如果不带--username和--email选项，将会提示你输入这些值。
+
+
+http://python.usyiyi.cn/translate/django_182/topics/auth/default.html
+
+
+
+admin admin
+sudo python manage.py runserver
 
 要注意 新老版本之间 db的不同之处 
 

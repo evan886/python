@@ -1072,8 +1072,78 @@ In [7]: authors
 Out[7]: [<Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
 
 
+In [8]: b1 = Book()
+
+In [9]: b1.name='python book1'
+
+In [10]: b1.save()
+
+12:12
+# err In [12]: alen = Author.objects.get(name__exact='alen')
+In [12]: alen = Author.objects.get(name='alen')
+
+In [13]: alen
+Out[13]: <Author: alen>
+
+In [14]: b1.authors.add(alen)
 
 
+In [15]: b1.authors.add(authors[1])
+
+In [16]: b1.authors.all()
+Out[16]: [<Author: alen>, <Author: ben>]
+
+In [17]: b1.authors.add(authors[2])
+
+In [18]: b1.authors.add(authors[3])
+
+
+In [20]: b1.authors.all()
+Out[20]: [<Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
+
+In [21]: b1.authors.remove(alen)
+
+In [22]: b1.authors.all()
+Out[22]: [<Author: ben>, <Author: carl>, <Author: dev>]
+
+search
+
+n [23]: b1.authors.filter(name__exact='carl')
+Out[23]: [<Author: carl>]
+
+In [24]: alen
+Out[24]: <Author: alen>
+
+In [25]: alen.book_set.all()
+Out[25]: []
+
+In [26]: alen.book_set.add(b1)
+
+In [27]: b1
+Out[27]: <Book: python book1>
+
+In [29]: alen.book_set.create(name="python book2")
+Out[29]: <Book: python book2>
+
+In [30]: alen.book_set.all()
+Out[30]: [<Book: python book1>, <Book: python book2>]
+
+In [31]: books = Book.objects.all()
+
+In [32]: books
+Out[32]: [<Book: python book1>, <Book: python book2>]
+
+In [33]: alen.book_set.remove(books[0])
+
+In [34]: alen.book_set.all()
+Out[34]: [<Book: python book2>]
+
+
+
+
+
+
+13:20
 
 
 

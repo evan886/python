@@ -1016,7 +1016,7 @@ sudo python manage.py runserver
 
 
 ==11.Django数据库之多对多映射   ==
-10:00
+
 
 django-admin.py  startproject csvt06
 cd csvt06
@@ -1073,14 +1073,12 @@ Out[7]: [<Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
 
 
 In [8]: b1 = Book()
-
 In [9]: b1.name='python book1'
-
 In [10]: b1.save()
 
 12:12
-# err In [12]: alen = Author.objects.get(name__exact='alen')
-In [12]: alen = Author.objects.get(name='alen')
+alen= Author.objects.get(name__exact='alen')
+#In [12]: alen = Author.objects.get(name='alen') #这个有时手工就好了 cp err 
 
 In [13]: alen
 Out[13]: <Author: alen>
@@ -1144,13 +1142,57 @@ Out[34]: [<Book: python book2>]
 
 == 12.Django数据库之显示 ==
 
-01:13
+
+In [46]: from blog.models import Author,Book
+
+In [47]: authors = Author.objects.all()
+
+In [48]: authors
+Out[48]: [<Author: ben>, <Author: carl>, <Author: dev>, <Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
+
+In [49]: a1=authors[0]
+
+In [50]: a1.book_set 
+Out[50]: <django.db.models.fields.related.ManyRelatedManager at 0x7fcba41d13d0>
 
 
 
+In [51]: a1.book_set.all()
+Out[51]: []
+为空 为什么的 02：28 后来又好了 我去 
+In [40]: a1.book_set.all()
+Out[40]: [<Book: python book2>]
+
+In [41]: a1.book_set.all()[0]
+Out[41]: <Book: python book2>
+
+In [42]: for author in Author.objects.all():
+    ...:     for book in author.book_set.all():
+    ...:         print book 
+    ...:         
+python book2
+python book1
+python book1
+python book1
 
 
 
+In [43]: Author.objects.all()
+Out[43]: [<Author: alen>, <Author: ben>, <Author: Carl>, <Author: Dev>]
+
+In [44]: author.book_set.all()
+Out[44]: [<Book: python book1>]
+
+
+mkdir templates
+
+vim views.py 
+
+07:00
+
+
+
+以后有数据库的要记得  python manage.py migrate 或者导出吧 
 
  创建一个管理员用户
 python manage.py createsuperuser

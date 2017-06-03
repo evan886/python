@@ -895,11 +895,9 @@ Out[10]: [<Blog: alen_blog1>]
 
 == 10.Django管理界面.mp4 ==
 
-还是数据库的使用，其实
+数据库的使用+后台管理界面
 
-13:00
-
-
+原作者用 sqlite3
 
 django-admin.py  startproject csvt05
 cd csvt05
@@ -934,9 +932,7 @@ python manage.py migrate #将这些改变更新到数据库中
 
 
 
-创建管理员
-
-=== 创建一个管理员用户===
+ 创建一个管理员用户
 python manage.py createsuperuser
 为什么后台老是登录不了呢  我搞错了 因为 运行错项目了
 
@@ -953,9 +949,42 @@ admin.site.register(User)
 # Register your models here.
 这样后台就有 User了
 
+vim models.py
+
+#-*- coding:utf-8 -*-
+
+from django.db import models
+
+sex_choices=(
+    ('f','famale'),
+    ('m','male'),
+)
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    sex = models.CharField(max_length=1, choices=sex_choices)
+
+# not display object
+    def __unicode__(self):
+        return  self.name
 
 
-创建users¶
+
+mysql> select * from  blog_user;
++----+------+-----+
+| id | name | sex |
++----+------+-----+
+|  1 | carl | f   |
+|  2 | tom  | f   |
+|  3 | eva  | f   |
++----+------+-----+
+
+
+
+厉害了  人家 13年就写django
+
+
+
+创建users
 
 创建users最直接的方法是使用create_user()辅助函数：
 
@@ -984,6 +1013,76 @@ http://python.usyiyi.cn/translate/django_182/topics/auth/default.html
 
 admin admin
 sudo python manage.py runserver
+
+
+==11.Django数据库之多对多映射   ==
+10:00
+
+django-admin.py  startproject csvt06
+cd csvt06
+django-admin.py startapp  blog
+
+vim models.py
+#-*- coding:utf-8 -*-
+from django.db import models
+
+class Author(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+class Book(models.Model):
+    name = models.CharField(max_length=30)
+    authors = models.ManyToManyField(Author)
+
+    def __unicode__(self):
+        return self.name
+
+# Create your models here.
+
+
+
+python manage.py makemigrations #为这些修改创建迁移文件
+python manage.py migrate #将这些改变更新到数据库中
+
+migrate
+英 [maɪ'greɪt; 'maɪgreɪt]  美 ['maɪɡret]
+vi. 移动；随季节而移居；移往
+vt. 使移居；使移植
+
+python manage.py shell
+
+In [1]: from blog.models import Author,Book
+
+In [2]: Author.objects.create(name='alen')
+Out[2]: <Author: alen>
+
+In [3]: Author.objects.create(name='ben')
+Out[3]: <Author: ben>
+
+In [4]: Author.objects.create(name='carl')
+Out[4]: <Author: carl>
+
+In [5]: Author.objects.create(name='dev')
+Out[5]: <Author: dev>
+
+n [6]: authors = Author.objects.all()
+
+In [7]: authors
+Out[7]: [<Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
+
+
+
+
+
+
+
+
+
+
+
+ 创建一个管理员用户
+python manage.py createsuperuser
 
 要注意 新老版本之间 db的不同之处 
 

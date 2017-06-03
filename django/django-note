@@ -996,8 +996,8 @@ ALLOWED_HOSTS 允许你设置哪些域名可以访问，即使在 Apache 或 Ngi
 
 
 
-
-
+==只用django 数据库  Django ORM ==
+pass  20100603
 
 
 

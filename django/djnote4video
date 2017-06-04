@@ -1186,9 +1186,211 @@ Out[44]: [<Book: python book1>]
 
 mkdir templates
 
-vim views.py 
+vim models.py
+#-*- coding:utf-8 -*-
+from django.db import models
 
-07:00
+# Create your models here.
+#自己定义的类
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+    
+    def __unicode__(self):
+        return self.name 
+
+vim views.py 
+from django.shortcuts import render, render_to_response
+from blog.models import  Author,Book
+
+def show_author(req):
+    authors = Author.objects.all()
+    return render_to_response('show_author.html',{'authors':authors})
+    
+# Create your views here.
+
+vim show_author.html
+{{authors}}
+
+vim urls.py 
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'csvt06.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/show_author/$', 'blog.views.show_author'),
+]
+
+
+
+http://127.0.0.1:8000/blog/show_author/
+
+
+[<Author: alen>, <Author: ben>, <Author: Carl>, <Author: Dev>]
+
+
+vim show_author.html
+{% for author in authors %}
+<li>{{author}}</li>
+
+{%endfor%}
+
+http://127.0.0.1:8000/blog/show_author/
+alen
+ben
+Carl
+Dev
+
+# book in author.book_set.all   一个object 管理对象 ？
+vim show_author.html
+{% for author in authors %}
+<div>
+    <h3>{{author.name}}</h3>
+    {%for book in author.book_set.all %}
+    <li>{{book}}</li>
+    {%endfor%}
+</div>
+{%endfor%}
+
+
+http://127.0.0.1:8000/blog/show_author/
+alen
+
+python book2
+ben
+
+python book1
+Carl
+
+python book1
+Dev
+
+python book1
+
+
+python manage.py shell
+
+In [1]: from blog.models import Author
+
+In [2]: alen= Author.objects.filter(name='alen')
+
+In [3]: alen
+Out[3]: [<Author: alen>]
+
+In [4]: alen= Author.objects.filter(name='alen')[0]
+
+In [5]: alen
+Out[5]: <Author: alen>
+
+n [6]: alen.book_set.create(name='web1 book');
+
+
+#visa 多了一下web1 book on alen 
+http://127.0.0.1:8000/blog/show_author/
+alen
+
+python book2
+web1 book
+
+ben
+
+python book1
+Carl
+
+python book1
+Dev
+
+python book1
+
+*****
+show book 
+
+vim urls.py 
+url(r'^blog/show_book/$', 'blog.views.show_book'),
+
+#? 为什么是 {'books':books}) 要显示么 明天看一下为什么 
+vim views.py
+def show_book(req):
+    authors = Book.objects.all()
+    return render_to_response('show_book.html',{'books':books})
+    
+
+vim show_book.html 
+
+{% for book  in books %}
+<div>
+<h1>{{book}}</h1>
+</div>
+{%endfor%}
+
+http://127.0.0.1:8000/blog/show_book/
+python book1
+
+python book2
+
+web1 book
+
+
+
+In [1]: from blog.models import Book
+
+In [2]: books = Book.objects.all()
+
+In [3]: books
+Out[3]: [<Book: python book1>, <Book: python book2>, <Book: web1 book>]
+
+In [4]: books[0]
+Out[4]: <Book: python book1>
+
+
+
+In [7]: books[0]
+Out[7]: <Book: python book1>
+
+In [8]: b1 = books[0]
+
+In [10]: b1.authors
+Out[10]: <django.db.models.fields.related.ManyRelatedManager at 0x7f2e2890e150>
+
+
+In [11]: b1.authors.all()
+Out[11]: [<Author: ben>, <Author: Carl>, <Author: Dev>]
+
+
+vim show_book.html
+{% for book  in books %}
+<div>
+<h1>{{book.name}}</h1>
+{% for author in book.authors.all%}
+<li>{{author}}</li>
+{%endfor%}
+</div>
+{%endfor%}
+
+
+http://127.0.0.1:8000/blog/show_book/
+
+python book1
+
+ben
+Carl
+Dev
+
+python book2
+
+alen
+
+
+web1 book
+
+alen
+
+
+== 13.Django表单基础.mp4==
+****
 
 
 

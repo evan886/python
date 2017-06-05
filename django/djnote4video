@@ -1390,7 +1390,86 @@ alen
 
 
 == 13.Django表单基础.mp4==
-****
+
+
+django-admin startproject csvt07
+cd csvt07
+django-admin startapp blog
+
+
+
+有一个表单
+
+[05/Jun/2017 05:56:48]"GET /blog/register/ HTTP/1.1" 200 296
+{'name': u'carl'}
+
+
+
+
+如果没有数据
+
+http://127.0.0.1:8000/blog/register/
+
+Name:
+This field is required.
+
+
+
+
+
+
+看过视频后 再看 其实教程比较容易和有是曾相似的感觉呢
+
+
+
+
+
+
+
+
+==问题==
+The view didn't return an HttpResponse object. It returned None instead
+
+原因  果真是缩进问题
+verify the indentation of your code
+https://stackoverflow.com/questions/3085028/django-the-view-didnt-return-an-httpresponse-object
+
+
+
+
+
+Forbidden (403)
+CSRF verification failed. Request aborted.
+Help
+Reason given for failure:
+    CSRF token missing or incorrect.
+
+In general, this can occur when there is a genuine Cross Site Request Forgery, or when Django's CSRF mechanism has not been used correctly. For POST forms, you need to ensure:
+Your browser is accepting cookies.
+The view function passes a request to the template's render method.
+In the template, there is a {% csrf_token %} template tag inside each POST form that targets an internal URL.
+If you are not using CsrfViewMiddleware, then you must use csrf_protect on any views that use the csrf_token template tag, as well as those that accept the POST data.
+You're seeing the help section of this page because you have DEBUG = True in your Django settings file. Change that to False, and only the initial error message will be displayed.
+You can customize this page using the CSRF_FAILURE_VIEW setting.
+
+暂时的解决办法
+vim settings.py
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
+
+
+解决Django 提交表单时403错误：CSRF verification failed. Request aborted
+http://liubeitai.com/slove-the-problem-when-the-django-form-submitted-occur-403-error-csrf-verification-failed-request-aborted.html
+
+http://blog.csdn.net/feng88724/article/details/7221449
+
+
+
+
+
+
 
 
 

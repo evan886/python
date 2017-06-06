@@ -1,0 +1,64 @@
+
+http://www.icoolxue.com/album/show/113
+
+== 01.走进Python==
+pass
+== 26.正则表达式(初识)==
+
+import re
+#"" 有错呢 哈哈 为什么 呢
+re.findall(s, 'aaaaa')
+Out[5]:
+[]
+re.findall(s, 'aaaaabc')
+Out[6]:
+['abc']
+
+st = "top ip tep "
+res = r"top"
+re.findall(res, st)
+Out[10]:
+['top']
+
+#使用元字符
+st = "top tip io "
+res= r"t[io]p"
+
+re.findall(res,st)
+Out[9]:
+['top', 'tip']
+
+反
+res= r"t[^io]p"
+re.findall(res,st)
+Out[11]:
+[]
+
+
+In [1]: s = "hello world, hello boy"
+In [2]: r = r"hello"
+
+In [4]: re.findall(r,s)
+Out[4]: ['hello', 'hello']
+
+In [5]: r = r"^hello"
+
+In [6]: re.findall(r,s)
+Out[6]: ['hello']
+
+In [7]: s = "world,hello boy"
+In [8]: re.findall(r,s)
+Out[8]: []
+
+
+***
+In [10]: s = "world,hello boy"
+
+In [11]: r=r"boy$"
+
+In [12]: re.findall(r,s)
+Out[12]: ['boy']
+
+****
+
+

@@ -5,6 +5,10 @@ http://www.icoolxue.com/album/show/113
 pass
 == 26.正则表达式(初识)==
 
+pass 20170606
+
+
+
 import re
 #"" 有错呢 哈哈 为什么 呢
 re.findall(s, 'aaaaa')
@@ -60,5 +64,44 @@ In [12]: re.findall(r,s)
 Out[12]: ['boy']
 
 ****
+
+[] 中  $不起效果
+
+In [13]: r = "t[abc$]"
+
+In [14]: re.findall(r,'ta')
+Out[14]: ['ta']
+
+In [15]: re.findall(r,'tb')
+Out[15]: ['tb']
+
+In [16]: re.findall(r,'tax')
+Out[16]: ['ta']
+
+***
+In [17]: re.findall(r,'t$')
+Out[17]: ['t$']
+
+In [18]: r = "t[abc^]"
+
+In [19]: re.findall(r,'t^')
+Out[19]: ['t^']
+
+***
+In [20]: r=r"x[0123456789]x"
+
+In [21]: re.findall(r,'x1x')
+Out[21]: ['x1x']
+
+In [22]: re.findall(r,'x1x x2x')
+Out[22]: ['x1x', 'x2x']
+
+**  优化
+In [23]: r = r"x[0-9]x"
+
+In [24]: re.findall(r,'x1x x2x')
+Out[24]: ['x1x', 'x2x']
+
+
 
 

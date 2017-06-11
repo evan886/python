@@ -10,7 +10,20 @@ pass
 
 == 05.数据类型(数字和字符串) ==
 
-05:00
+01:00
+
+标准数据类型
+Python3 中有六个标准的数据类型：
+Number（数字）
+String（字符串）
+List（列表）
+Tuple（元组）
+Sets（集合）
+Dictionary（字典）
+Number（数字）
+Python3 支持 int、float、bool、complex（复数）。
+在Python 3里，只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。
+http://www.runoob.com/python3/python3-data-type.html
 
 == 26.正则表达式(初识)==
 

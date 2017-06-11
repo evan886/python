@@ -1,3 +1,18 @@
+##copy line
+Ctrl-a 光标到行首
+Ctrl-Shift-Space 设置标记
+Ctrl-e 光标到行尾。如此这一行就被选为激活的区域了
+Alt-w 复制当前激活的区域
+
+选中某一块区域：CTRL+@（CTRL+SHIFT+2）或者CTRL+SPACE 移动光标到合适的位置（CTRL+p、CTRL+n、CTRL+f、CTRL+b分别是向上、下、前、后 来移动光标）。
+剪切快捷键：CTRL+k 删除当前位置到行末，CTRL+d相当于键盘上的DELETE键，
+删除前面的字符：BACKSPACE
+复制快捷键：ALT+w，将当前选中的文本复制到缓冲区。
+粘贴快捷键：CTRL+y
+保存快捷键：CTRL+x 然后按 CTRL+s
+退出快捷键:CTRL+x 然后: CTRL+c
+打开文件: CTRL+x 然后 : CTRL+f
+
 
 http://www.icoolxue.com/album/show/113
 

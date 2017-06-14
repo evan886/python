@@ -61,9 +61,19 @@ str , repr 和反引号 是将python值转换为字符串的3种方法. function
  pass
 
 == 07.列表==
+pass
+一
+[] 可作为列表，也可以是切片
 
 
+Help on built-in function append:
 
+help(list.append)
+append(...)
+    L.append(object) -- append object to end
+(END)
+
+== 08.字典  ==
 == 26.正则表达式(初识)==
 
 pass 20170606

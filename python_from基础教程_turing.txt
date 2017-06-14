@@ -38,7 +38,7 @@ In [5]: t3=(1,)
 In [6]: type(t3)
 Out[6]: tuple
 
-可见 tuple 要加个, 而list 是不用的 单个元素 也没关系 
+可见 tuple 要加个, 而list 是不用的 单个元素 也没关系
 In [9]: t3=[3]
 
 In [10]: type(t3)

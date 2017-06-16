@@ -6,18 +6,18 @@ http://www.apress.com/programming/python/9781590599822
 http://mirrors.sohu.com/python/
 里面不单单有 src 还有 chm的手册呢 
 wget -c http://mirrors.sohu.com/python/2.5/Python-2.5.tar.bz2
-tar xvf Python-2.5.tar.bz2  &&  cd Python-2.5
-./configure --prefix=/usr/local/python25
- make -j2 && make install
-  
-entos5 Python-2.5]# /usr/local/python25/bin/python
+  tar xvf Python-2.5.tar.bz2 
+  cd Python-2.5
+  ./configure --prefix=/usr/local/python25
+  make -j2 && make install
+[root@centos5 Python-2.5]# /usr/local/python25/bin/python
 Python 2.5 (r25:51908, Apr 26 2013, 21:54:19) 
 [GCC 4.1.2 20080704 (Red Hat 4.1.2-52)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
 
 #+-------------------------------------------------------+
 #|     第2章        | 列表和元组
 #+-------------------------------------------------------+
-
 最重要的序列是 列表和元组 ，还有字符串等一共6种内建的序列
 
 #列表用 []; 元组用 (); 字典用{}
@@ -40,7 +40,7 @@ Out[6]: tuple
 可见 tuple 要加个, 而list 是不用的 单个元素 也没关系
 In [9]: t3=[3]
 
-In [10]: type(t3)
+
 Out[10]: list
 
 ``````

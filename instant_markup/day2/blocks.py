@@ -6,6 +6,8 @@ strip()只删除字符串首尾的空白字符串，不会删除字符串中间�
 
 生成器
 http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/00138681965108490cb4c13182e472f8d87830f13be6e88000
+最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。
+而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
 '''
 
 def lines(file):
@@ -13,16 +15,16 @@ def lines(file):
     yield '\n'
 
 def blocks(file):
-
     block=[]
     for line in lines(file):
         if line.strip(): ##非空行 所以 为
-            block.append(line)
+            block.append(line)  ## 在列表末尾追加新的对象
         elif block:
             yield  ' '.join(block).strip()  #  if中的line.strip()返回的是False 遇到空白行时（即文本块末尾），且block非空，则连接里面的行，返回相关内容 并置空block
             block=[]
 
 test_input= ['hello\n', '\n', 'how are you\n', 'how do you do\n', '\n','fine']
+
 for i in blocks(test_input):
 
     if i:

@@ -214,5 +214,98 @@ r=r"^010-?\d{8}$"
 
 == 28.正则表达式（常用函数）==
 
+
+
+import re
+r1=r"\d{3,4}-?\d{8}"
+In [4]: re.findall(r1,"010-12345678")
+Out[4]: ['010-12345678']
+
+In [5]: re.findall(r1,"010-1234567")
+Out[5]: []
+
+In [6]: p_tel=re.compile(r1)
+
+In [7]: p_tel
+Out[7]: re.compile(r'\d{3,4}-?\d{8}')
+
+In [8]: p_tel.findall('010-223088198')
+Out[8]: ['010-22308819']
+
+In [9]: p_tel.findall('0101-223088198')
+Out[9]: ['0101-22308819']
+
+不区分大小写
+In [11]: csvt_re = re.compile(r'csvt',re.I)
+
+In [12]: csvt_re.findall('CSVT')
+Out[12]: ['CSVT']
+
+In [13]: csvt_re.findall('CSvt')
+Out[13]: ['CSvt']
+
+In [14]: csvt_re.match('csvt hello')
+Out[14]: <_sre.SRE_Match at 0x7fcaf94c3510>
+
+In [15]: csvt_re.match('hello')
+
+In [16]: csvt_re.match('hello csvt')
+
+In [17]: csvt_re.match('csvt')
+Out[17]: <_sre.SRE_Match at 0x7fcaf94c3780>
+
+In [18]: x = csvt_re.match('csvt')
+
+In [19]: if x :
+    ...:     pass
+    ...:
+
+
+In [20]: csvt_re.search('hello csvt')
+Out[20]: <_sre.SRE_Match at 0x7fcaf94c39f0>
+
+In [21]: csvt_re.search('csvt hello')
+Out[21]: <_sre.SRE_Match at 0x7fcaf94c3e68>
+
+
+    
+help(re.sub)
+
+In [22]: s = "hello csvt"
+
+In [24]: s.replace('csvt', 'python')
+Out[24]: 'hello python'
+
+更加好用的办法
+
+In [30]: import re
+
+In [31]: rs=r'c..t'
+
+In [32]: re.sub(rs,'python','csvt caat cvvt cccc')
+Out[32]: 'python python python cccc'
+
+In [33]: re.subn(rs,'python','csvt caat cvvt cccc')
+Out[33]: ('python python python cccc', 3)
+
+
+
+
+In [34]: ip = "1.2.3.4"
+
+In [35]: ip.split('.')
+Out[35]: ['1', '2', '3', '4']
+
+In [36]: s = "123+456-789*000"
+
+In [37]: re.split(r'[\+\-\*]',s)
+Out[37]: ['123', '456', '789', '000']
+
+
+dir(re)
+help(re.split)
+
+==29.正则表达式（re属性分组）.mp4==
+
 、Python正则表达式指南
 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html

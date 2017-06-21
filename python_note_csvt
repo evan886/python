@@ -305,7 +305,7 @@ Out[37]: ['123', '456', '789', '000']
 dir(re)
 help(re.split)
 
-==29.正则表达式（re属性分组）.mp4==
+==29.正则表达式（re属性分组）==
 
 . 除 \n 外的任意一个字符
 
@@ -322,9 +322,77 @@ In [5]: re.findall(r1,'csvtonet')
 Out[5]: ['csvtonet']
 
 
+电话号码也 
+In [3]: tel = r"""
+   ...: \d{3,4}
+   ...: -?
+   ...: \d{8}
+   ...: """
+
+In [4]: re.findall(tel,'010-12345678')
+Out[4]: []
+
+In [5]: tel
+Out[5]: '\n\\d{3,4}\n-?\n\\d{8}\n'
+
+In [6]: re.findall(tel,'010-12345678',re.X)
+Out[6]: ['010-12345678']
 
 
-02:00
+
+re 属性分组
+3个字母   \w+ 一个以上字母
+
+In [9]: email=r"\w{3}@\w+(\.com|\.cn)"
+
+In [10]: re.match(email,'zzz@csvt.com')
+    ...:
+    ...:
+Out[10]: <_sre.SRE_Match at 0x7efdb105ddc8>
+
+分组会 把相关的内容作为一个整体
+其实匹配整个email 地址
+有分组 findall 会优先返回分组中的数据
+In [11]: re.findall(email,'zzz@csvt.com')
+    ...:
+    ...:
+Out[11]: ['.com']
+
+
+分组好例子
+
+In [13]: s = """  
+    ...: hhsdj dskj hello src=csvt yes jdjsds
+    ...: djhsjk src=123 yes jdsa
+    ...: src=234 yes 
+    ...: hello  src=python yes ksa """
+
+In [14]: print s
+
+hhsdj dskj hello src=csvt yes jdjsds
+djhsjk src=123 yes jdsa
+src=234 yes
+hello  src=python yes ksa
+
+
+只要 =后面的东西 所以用分组 得到
+
+In [16]: r1=r"hello src=.+ yes"
+In [16]: r1=r"hello src=.+ yes"
+
+In [17]: re.findall(r1,s)
+Out[17]: ['hello src=csvt yes']
+
+In [18]: r1=r"hello src=(.+) yes"
+
+In [19]: re.findall(r1,s)
+Out[19]: ['csvt']
+
+==30.爬虫==
+
+
+
+
 、Python正则表达式指南
 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
 

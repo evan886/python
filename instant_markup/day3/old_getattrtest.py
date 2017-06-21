@@ -1,4 +1,5 @@
 #encoding: utf-8
+#pass
 class Test:
     def print_hello(self):
         print 'func print_hello work'

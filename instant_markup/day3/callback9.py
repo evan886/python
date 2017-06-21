@@ -12,6 +12,6 @@ class CalTest:
         
 a = CalTest();
 b = a.callback('print','Sum',1,2,3)
-print b  
-b = a.callback('print','Sum')  
 print b
+#b = a.callback('print','Sum')
+#print b

@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #--*-- coding:utf-8 --*--
+
 '''
 re.sub是正则表达式，将*XXX*替换为：<em>XXX</em>
 
@@ -19,13 +20,16 @@ Out[4]: ['9']
 In [5]: re.findall(r,'*97*')
 Out[5]: ['97']
 
+python util.py  < test_input.txt > out.html
 
+\1 is equivalent to re.search(...).group(1),
+the first parentheses-delimited expression inside of the regex.
 
-
+参考
+https://stackoverflow.com/questions/20802056/python-regular-expression-1
 
 '''
 import sys, re
-
 def lines(file):
     for line  in file: yield line
     yield '\n'
@@ -41,7 +45,11 @@ def blocks(file):
 
 print '<html><head><title>... </title><body>'
 title = True
-for block in blocks(sys.stdin):
+'''
+\1 is equivalent to re.search(...).group(1), 
+the first parentheses-delimited expression inside of the regex.
+'''
+for block in blocks(sys.stdin): # 为什么 \1,解说在上面
     block= re.sub(r'\*(.+?)\*', r'<em>\1</em>',block)
     if title:
         print '<h1>'

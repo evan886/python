@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
+#pass
 def func():
     print 'this is a func'
 a= func

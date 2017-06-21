@@ -309,3 +309,9 @@ help(re.split)
 
 、Python正则表达式指南
 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
+
+使用 Python 模块 re 实现解析小工具
+https://www.ibm.com/developerworks/cn/opensource/os-cn-pythonre/index.html
+
+整理】详解Python中re.sub
+https://www.crifan.com/python_re_sub_detailed_introduction/

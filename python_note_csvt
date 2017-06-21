@@ -307,6 +307,24 @@ help(re.split)
 
 ==29.正则表达式（re属性分组）.mp4==
 
+. 除 \n 外的任意一个字符
+
+
+In [2]: r1=r"csvt.net"
+
+In [3]: re.findall(r1,'csvt.net')
+Out[3]: ['csvt.net']
+
+In [4]: re.findall(r1,'csvtnet')
+Out[4]: []
+
+In [5]: re.findall(r1,'csvtonet')
+Out[5]: ['csvtonet']
+
+
+
+
+02:00
 、Python正则表达式指南
 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
 

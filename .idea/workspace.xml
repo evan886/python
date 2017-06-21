@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/instant_markup/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/instant_markup/day3/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/instant_markup/day3/old/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/1.py" afterPath="$PROJECT_DIR$/instant_markup/day3/old/1.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/2.py" afterPath="$PROJECT_DIR$/instant_markup/day3/old/2.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/Test.py" afterPath="$PROJECT_DIR$/instant_markup/day3/callback9.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/callback_test0.py" afterPath="$PROJECT_DIR$/instant_markup/day3/old/callback_test0.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/callback_test1.py" afterPath="$PROJECT_DIR$/instant_markup/day3/CalTest_callback.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/getattrtest.py" afterPath="$PROJECT_DIR$/instant_markup/day3/old_getattrtest.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/instant_markup/day3/test.py" afterPath="$PROJECT_DIR$/instant_markup/day3/kb_argc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day1/lines_generator.py" afterPath="$PROJECT_DIR$/instant_markup/day1/lines_generator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day2/util.py" afterPath="$PROJECT_DIR$/instant_markup/day2/util.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day3/callabletest.py" afterPath="$PROJECT_DIR$/instant_markup/day3/callabletest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day3/getattr_test.py" afterPath="$PROJECT_DIR$/instant_markup/day3/getattr_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python_note_csvt" afterPath="$PROJECT_DIR$/python_note_csvt" />
-    </list>
+    <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,9 +66,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1056" />
     <option name="y" value="21" />
-    <option name="width" value="864" />
+    <option name="width" value="1920" />
     <option name="height" value="1059" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -326,10 +308,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1056" y="21" width="864" height="1059" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="21" width="1920" height="1059" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20301624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.091240875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />

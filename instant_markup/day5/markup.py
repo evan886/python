@@ -49,7 +49,7 @@ class Parser:
 
 class BasicTextParser(Parser):
     def __init__(self,handler):
-        Parser.__init__(self,handler)
+        Parser.__init__(self,handler) # here 自动执行handler 也就是 HTMLRenderer() 20170628pm
         self.addRule(ListRule())
         self.addRule(ListItemRule())
         self.addRule(TitleRule())
@@ -60,9 +60,9 @@ class BasicTextParser(Parser):
         self.addFilter(r'(http://[\.a-zA-Z]+)','url')
         self.addFilter(r'([\.a-zA-Z]+@[\.a-zA-Z]+[a-zA-Z]+)','mail')
 
-handler = HTMLRenderer() ##handlers.py
-parser =BasicTextParser(handler)
-parser.parse(sys.stdin)
+handler = HTMLRenderer() ## on handlers.py here20170628
+parser =BasicTextParser(handler) # on markup.py ln 50
+parser.parse(sys.stdin) # parse ln 37
 
 #parser.parse(sys.stdin)
 

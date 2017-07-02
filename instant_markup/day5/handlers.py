@@ -1,14 +1,13 @@
 #!/usr/bin/python
 #--*-- coding:utf-8 --*--
 """
-  handlers.py 处理程序模块 20170209 base pass   处理从parser调用的方法的对象
+  handlers.py 被26  20.5.1  处理程序 模块 20170209 base pass   处理从parser调用的方法的对象
 执行 是 class Handler，然后再找到对应该的 class HTMLRenderer
  所以 那么调用 handler.callback('start_','paragraph') 就会调用不带参数的hander.start_paragraph。
 handlers.py 处理程序模块  处理从parser调用的方法的对象
 这个解析器会在每个块的开始部分调用start（）和恩典（）方法，使用合适的块名作为参数。
 sub（）方法会用于正则表达式替换中。当使用了'emphasis'
 这样的名字调用时，会返回合适的替换函数
-
     Handle类：
 　　1）callback方法负责在给定一个前缀（比如'start_'）和一个名字（比如'paragraph'）后查找正确的方法（比如start_paragraph）,而且使用以 None作为默认值的getattr　　　 方法来完成工作。如果从getattr返回的对象能被调用，那么对象就可以用提供的任意额外的参数调用。比如如果对应的对象是存在的，那么调用                                             handler.callback('start_','paragraph')就会调用不带参数的hander.start_paragraph。
 　　2）start和end方法使用各自的前缀start_和end_调用callback方法的助手方法
@@ -43,15 +42,16 @@ start，end是包装了callback的两个方法，不细表。
 
 sub:目的是返回一个函数作为re.sub的替换函数，这样re.sub就不是写死的了。其中定义了一个substitution方法，实际上调用后返回的就是这个方法。他也就是我们后面re.sub中需要用到的替换函数。
 这个程序堪称是整个“项目”的基石所在：提供了标签的输出，以及字符串的替换。理解起来也比较简单。
+
+当时在这了我完全就懵逼了，因为handler.sub('emphasis')返回的明明是一个方法，但是他没有match参数啊。
+　　然后仔细看书，书上在前面有这样一句话，re.sub函数可以将第一个函数作为第二个参数。至少笔者觉得这句话写的很奇怪，’第一个函数‘明明要写成第一个参数啊有木有。好吧，不吐槽这些。
+　　大概意思就是，re.sub的第二个参数可以是一个函数作为替换式，替换式的参数就是re.sub的第一个参数匹配后返回的正则对象。
+　　这下就可以看懂了，我们会去调用sub_emphasis(self,match)，然后match.group(1)表示的实际上是is。关于group(1)大家去看一下，re模块的内容，在这里我就直接告诉你他的内容，就是匹配式(.+?)中的内容。
 """
 class Handler:
     '调用方法的处理类 可参考data4 '
-
     #判断当前类是否有对应的方法，所有的话则根据提供的额外参数使用对应方法
-    '''
-     http://www.cnblogs.com/isuifeng/p/5839748.html
-     getAttr()用来判断类中是否存在prefix+name的方法，若存在返回prefix+name，否则返回None。
-    '''
+#     getAttr()用来判断类中是否存在prefix+name的方法，若存在返回prefix+name，否则返回None。http://www.cnblogs.com/isuifeng/p/5839748.html
     def calback(self,prefix,name,*args):
         method = getattr(self,prefix+name,None)
         if callable(method):return  method(*args)

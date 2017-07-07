@@ -27,3 +27,9 @@ print getImg(html)
 
 #参考如下 一开始出不来是各种空格问题呀
 # http://www.cnblogs.com/qscqesze/p/4225374.html
+
+
+http://blog.csdn.net/hk2291976/article/details/51188728
+
+
+http://www.cnblogs.com/mtTeam/p/4895089.html

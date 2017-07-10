@@ -83,8 +83,32 @@ pass
 
 
 ==  15.函数(定义和调用) ==
-06:00
+pass
 
+In [1]: def add():
+   ...:     c = a+b
+   ...:     print c
+   ...:  
+
+In [3]: a = 100
+
+In [4]: b = 200
+
+In [5]: add()
+300
+
+
+#!/usr/bin/python
+a = 100
+def fun():
+    if True:
+            print  "good"
+
+print a
+fun()
+
+== 16.函数(形参实参默认参数)==
+01:00
 
 == 26.正则表达式(初识)==
 

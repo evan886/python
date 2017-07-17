@@ -82,6 +82,15 @@ pass
 
 == 10.流程控制(逻辑) ==
 
+In [3]: True  and True 
+Out[3]: True
+
+In [4]: True  and False 
+Out[4]: False
+
+In [5]: 1 and 1 and 1
+Out[5]: 1
+
 ==  15.函数(定义和调用) ==
 pass
 

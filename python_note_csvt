@@ -78,11 +78,13 @@ append(...)
 pass
 
 == 09.流程控制（if语句==
-05:00
+pass
 if 1<2:
     print  "ok"
-== 10.流程控制(逻辑) ==
 
+if  else 之间不能用其实内容 空行可以
+== 10.流程控制(逻辑) ==
+pass 
 In [3]: True  and True 
 Out[3]: True
 
@@ -92,6 +94,7 @@ Out[4]: False
 In [5]: 1 and 1 and 1
 Out[5]: 1
 
+== 11流程控制（for语句）  ==
 ==  15.函数(定义和调用) ==
 pass
 

@@ -78,8 +78,9 @@ append(...)
 pass
 
 == 09.流程控制（if语句==
-01:00
-
+05:00
+if 1<2:
+    print  "ok"
 == 10.流程控制(逻辑) ==
 
 In [3]: True  and True 

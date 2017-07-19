@@ -96,7 +96,8 @@ Out[5]: 1
 
 
 == 11流程控制（for语句）  ==
-05:00
+range  xrange 
+14:00
 
 ==  15.函数(定义和调用) ==
 pass
@@ -441,7 +442,7 @@ Out[19]: ['csvt']
 
 、Python正则表达式指南
 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
-
+v
 使用 Python 模块 re 实现解析小工具
 https://www.ibm.com/developerworks/cn/opensource/os-cn-pythonre/index.html
 

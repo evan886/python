@@ -107,7 +107,96 @@ In [19]: print num
 5050
 
 == 12.流程控制(遍历序列及字典) ==
-08:00
+pass
+
+遍历字典
+
+evan@evankali:~/github/python/test$ cat 2.py
+#!/usr/bin/python
+s = "hello"
+l = [1,2,3,'a','b']
+t = (7,8,9,'x','y')
+d = {1:111,2:222,5:555,3:333}
+for x in l:
+    if x >=2:
+            print x
+
+
+for x in range(len(s)):
+    print s[x]
+    evan@evankali:~/github/python/test$ cat di.py
+    #!/usr/bin/python
+    s = "hello"
+    l = [1,2,3,'a','b']
+    t = (7,8,9,'x','y')
+    d = {1:111,2:222,5:555,3:333}
+
+
+for x in d:
+    print d[x]
+    
+evan@evankali:~/github/python/test$ cat  di.py
+#!/usr/bin/python
+s = "hello"
+l = [1,2,3,'a','b']
+t = (7,8,9,'x','y')
+d = {1:111,2:222,5:555,3:333}
+
+
+#for x in d:
+#    print d[x]
+
+for k,v in d.items():
+    print k
+        print v
+	evan@evankali:~/github/python/test$ python   di.py
+	1
+	111
+	2
+	222
+	3
+	333
+	5
+	555
+
+
+== 13.流程控制（循环控制） ==
+03:00
+evan@evankali:~/github/python/test$ cat di.py
+#!/usr/bin/python
+s = "hello"
+l = [1,2,3,'a','b']
+t = (7,8,9,'x','y')
+d = {1:111,2:222,5:555,3:333}
+
+
+for x in d:
+    print d[x]
+    else:
+        print "1ending"
+
+for k,v in d.items():
+    print k
+        print v
+	else:
+	    print "en"
+	    evan@evankali:~/github/python/test$ python di.py
+	    111
+	    222
+	    333
+	    555
+	    1ending
+	    1
+	    111
+	    2
+	    222
+	    3
+	    333
+	    5
+	    555
+	    en
+	    
+
 
 ==  15.函数(定义和调用) ==
 pass

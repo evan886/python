@@ -1,0 +1,7 @@
+#!/usr/bin/python
+
+while  True:
+    print "hey"
+    x =raw_input("ple input somethin, q for quit:")
+    if x == "q":
+        break

@@ -264,54 +264,22 @@ while  True:
     x =raw_input("ple input somethin, q for quit:")
     if x == "q":
          break
-  
-evan@evankali:~/github/python/test$ cat  while14_1.py 
+
+
+
+evan@evankali:~/github/python/test$ cat  while14_1.py
 #!/usr/bin/python
 x= ""
 while  True:
     print "hey"
-    x =raw_input("ple input somethin, q for quit:")
-    if x == "q":
-        break
-evan@evankali:~/github/python/test$ python while14_1.py 
-hey
-ple input somethin, q for quit:a
-hey
-ple input somethin, q for quit:q
-
-#改良  回车自动退出
-evan@evankali:~/github/python/test$ cat   while14_1.py 
-#!/usr/bin/python
-x= ""
-while  x != "q":
-    print "hey"
-    x =raw_input("ple input somethin, q for quit:")
-    if not x :
-        break
-evan@evankali:~/github/python/test$ python    while14_1.py 
-hey
-ple input somethin, q for quit:a
-hey
-ple input somethin, q for quit:
-
-#!/usr/bin/python
-x= ""
-while  x != "q":
-    print "hey"
-    x =raw_input("ple input somethin, q for quit:")
-    if not x :
-        break
-    
-else:
-    print "enddo"
-
-$ python  while14_1.py
-hey
-ple input somethin, q for quit:hey
-hey
-ple input somethin, q for quit:q
-enddo
-
+        x =raw_input("ple input somethin, q for quit:")
+	    if x == "q":
+	            break
+		    evan@evankali:~/github/python/test$ python while14_1.py
+		    hey
+		    ple input somethin, q for quit:a
+		    hey
+		    ple input somethin, q
 
 ==  15.函数(定义和调用) ==
 pass

@@ -4,4 +4,4 @@ def fun(x):
 
 
 s=raw_input("input some:")
-fun(x)        
+fun(s)        

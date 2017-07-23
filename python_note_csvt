@@ -367,7 +367,23 @@ print a
 fun()
 
 == 16.函数(形参实参默认参数)==
-02:00
+10:00
+
+****
+evan@evankali:~/github/python/test/16$ python 1.py 
+input some:x
+x
+evan@evankali:~/github/python/test/16$ cat  1.py
+def fun(x):
+#    if True:
+     print  x
+
+
+s=raw_input("input some:")
+fun(s)  
+*****
+
+
 
 == 26.正则表达式(初识)==
 

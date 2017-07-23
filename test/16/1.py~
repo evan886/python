@@ -1,0 +1,7 @@
+def fun(x):
+#    if True:
+     print  x
+
+
+s=raw_input("input some:")
+fun(100)        

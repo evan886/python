@@ -312,6 +312,34 @@ hey
 ple input somethin, q for quit:q
 enddo
 
+ emacs while14_1.py
+evan@evankali:~/github/python/test$ 
+evan@evankali:~/github/python/test$ cat  while14_1.py
+#!/usr/bin/python
+x= ""
+while  x != "q":
+    print "hey"
+    x =raw_input("ple input somethin, q for quit:")
+    if not x :
+        break
+    if x == "c":
+        continue
+    print "one more time"
+    
+else:
+    print "enddo"
+        
+
+        
+evan@evankali:~/github/python/test$ python  while14_1.py
+hey
+ple input somethin, q for quit:love
+one more time
+hey
+ple input somethin, q for quit:c
+hey
+ple input somethin, q for quit:
+
 
 ==  15.函数(定义和调用) ==
 pass

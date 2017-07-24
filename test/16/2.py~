@@ -1,0 +1,6 @@
+#!/usr/bin/python
+#coding:utf8
+def mashine(x,y):
+    print "生成一个",x,'元',y,'口味的冰'
+
+mashine(5,'巧克力')    

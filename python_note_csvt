@@ -382,8 +382,49 @@ def fun(x):
 s=raw_input("input some:")
 fun(s)  
 *****
+evan@evanpc:~/github/python/test/16$ cat  1.py
+def fun(x,y):
+    if x == y :
+        print  x,'=' , y
+    else:
+        print  x,'!=' , 
 
 
+
+s1 = raw_input("input some:")
+s2 = raw_input("input some:")
+fun(s1,s2)        
+evan@evanpc:~/github/python/test/16$ python 1.py 
+input some:hey 
+input some:hey 
+hey  = hey 
+evan@evanpc:~/github/python/test/16$ python 1.py 
+input some:hey 
+input some:he
+hey  !=
+
+******************
+
+evan@evanpc:~/github/python/test/16$ cat 2.py
+#!/usr/bin/python
+#coding:utf8
+def mashine(x=3,y='奶油'):
+    print "生成一个",x,'元',y,'口味的冰'
+
+#mashine(5,'巧克力')    
+mashine(5,)
+#mashine(x=5)
+evan@evanpc:~/github/python/test/16$ python 2.py 
+生成一个 5 元 奶油 口味的冰
+***
+设置默认参考是自右向左
+def mashine(x=3,y):
+不行 
+
+而
+def mashine(x,y=3):
+可以 
+总结 就是右边的是一定有值的
 
 == 26.正则表达式(初识)==
 

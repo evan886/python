@@ -427,7 +427,65 @@ def mashine(x,y=3):
 
 ==17.函数（变量作用域）==
 
-20170724
+evan@evanpc:~/github/python/test/17$ cat  fu.py
+#!/usr/bin/python
+x = 'I am global  var'
+
+def fun():
+    x = 100
+    global y
+    y = 200
+    print x
+
+fun()
+print x
+
+print y
+evan@evanpc:~/github/python/test/17$ python fu.py 
+100
+I am global  var
+200
+
+evan@evanpc:~/github/python/test/17$ cat  fu.py
+#!/usr/bin/python
+x = 'I am global  var'
+
+def fun():
+    x = 100
+    global y
+    y = 200
+    print x
+
+
+print y
+# fun 没有运行 所以报错
+evan@evanpc:~/github/python/test/17$ python fu.py 
+Traceback (most recent call last):
+  File "fu.py", line 11, in <module>
+    print y
+NameError: global name 'y' is not defined
+
+evan@evanpc:~/github/python/test/17$ cat  fu.py
+#!/usr/bin/python
+x = 'I am global  var'
+
+def fun():
+
+    global y
+    y = 200
+    
+    global x
+    x = 100
+
+fun()    
+print x
+evan@evanpc:~/github/python/test/17$ python fu.py 
+100
+
+== 18.函数及return返回值==
+
+
+
 == 26.正则表达式(初识)==
 
 pass 20170606

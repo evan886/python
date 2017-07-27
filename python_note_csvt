@@ -483,9 +483,52 @@ evan@evanpc:~/github/python/test/17$ python fu.py
 100
 
 == 18.函数及return返回值==
-04:00
+11:00
+
+In [1]: def f(x,y):
+   ...:     print "welcome"
+   ...:     return x+y
+   ...: 
+
+In [2]: f(2,3)
+welcome
+Out[2]: 5
+
+but  正常情况其实
+
+def f(x,y):
+    print "welcome"
+    return x+y
+
+f(2,3)
+evan@evanpc:~/github/python/test/17$ python f.py 
+welcome
+
+return 执行后 function 就结束了 
+In [1]: def f():
+   ...:     return "one"
+   ...:     return "two"
+   ...: 
+
+In [2]: f()
+Out[2]: 'one'
 
 
+evan@evanpc:~/github/python/test/17$ cat x.py
+def f(x,y):
+    if x>y:
+        return 1
+    if x <y:
+        return -1
+    return 0
+print f(1,2)
+evan@evanpc:~/github/python/test/17$ python x.py 
+-1
+
+== 19 19.函数冗余参数==
+
+
+Can’t guess python-indent-offset, using defaults: 4
 == 26.正则表达式(初识)==
 
 pass 20170606

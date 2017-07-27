@@ -1,0 +1,43 @@
+==python可变长参数*args **kwargs==
+
+<pre>
+在Python中，有两种变长参数，分别是元组（非关键字参数）和字典（关键字参数），其参数以一个*开头表示任意长度的元组[tuple]，可以接收连续一串参数，参数以两个*开头表示一个字典[dict]，即”key:value”，接受连续任意多个参数。
+
+evan@evanpc:~/test$ cat  arg.py 
+def variable(*args,**kwargs):
+    print args
+    print kwargs
+    print "\n"
+
+variable(1,2,3,4,5,"www","i-it","info")
+
+###执行输出tuple###
+evan@evanpc:~/test$ python arg.py
+(1, 2, 3, 4, 5, 'www', 'i-it', 'info')
+{}
+
+###执行输出dict###
+variable(www=1,it=2,info=3)
+evan@evanpc:~/test$ python arg.py
+()
+{'info': 3, 'www': 1, 'it': 2}
+
+
+##一起来##
+variable(1,2,3,www=1,it=2,info=3)
+evan@evanpc:~/test$ python arg.py
+(1, 2, 3)
+{'info': 3, 'www': 1, 'it': 2}
+
+
+呵呵，知道*args和**kwargs是什么了吧。还有一个很漂亮的用法，就是创建字典：
+
+    def kw_dict(**kwargs):
+        return kwargs
+    print kw_dict(a=1,b=2,c=3) == {'a':1, 'b':2, 'c':3}
+其实python中就带有dict类，使用dict(a=1,b=2,c=3)即可创建一个字典了
+</pre>
+
+==参考==
+http://blog.csdn.net/woshixiongjin/article/details/24406925
+http://www.cnblogs.com/kennyhr/articles/3534006.html

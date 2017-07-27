@@ -525,8 +525,8 @@ print f(1,2)
 evan@evanpc:~/github/python/test/17$ python x.py 
 -1
 
-== 19 19.函数冗余参数==
-
+== 19.函数冗余参数==
+03:00
 
 Can’t guess python-indent-offset, using defaults: 4
 == 26.正则表达式(初识)==

@@ -526,7 +526,7 @@ evan@evanpc:~/github/python/test/17$ python x.py
 -1
 
 == 19.函数冗余参数==
-11:00
+20:00
 元组 字典什么 的可以作实参
 
 
@@ -561,7 +561,66 @@ In [8]: def f(x,y):
    ...:  
 
 
+In [1]: def f(x,y):
+   ...:     print "%s : %s" % x ,y
+   ...:     
 
+In [2]: t=('name','milo')
+
+In [3]: f(t)
+---------------------------------------------------------------------------
+TypeError     
+
+正确
+In [5]: def f(x,y):
+   ...:     print "%s : %s" % (x,y)
+   ...:     
+
+In [6]: f(*t)
+name : milo
+
+怪死
+In [9]: def f(name="name", age=0):
+   ...:     print "name: %s"  %s name 
+  File "<ipython-input-9-781b124a7d57>", line 2
+    print "name: %s"  %s name
+                            ^
+SyntaxError: invalid syntax
+
+
+In [10]: def f(name="name", age=0):
+    ...:     print "name: %s" % name
+    ...:     print "age: %s" % age 
+    ...:  
+
+In [11]: f("evan",30)
+name: evan
+age: 30
+
+In [12]: f()
+name: name
+age: 0
+
+In [13]: t=(30,'evan')
+
+In [14]: f(*t)
+name: 30
+age: evan
+
+In [15]: d = {'age':30, 'name':'evan'}
+
+In [16]: f(name="evan",age=30)
+name: evan
+age: 30
+
+In [17]: f(age=30,name="evan")
+name: evan
+age: 30
+
+
+
+
+20:00
 
 Can’t guess python-indent-offset, using defaults: 4
 == 26.正则表达式(初识)==

@@ -619,8 +619,29 @@ age: 30
 
 
 
+In [1]:  d = {'age':30, 'name':'evan'}
 
-20:00
+In [2]: def f(name="name", age=0):
+   ...:     print "name: %s" % name
+   ...:     print "age: %s" % age
+   ...:     
+
+In [3]: f(**d)
+name: evan
+age: 30
+
+In [4]: d['age']=31
+
+In [5]: d 
+Out[5]: {'age': 31, 'name': 'evan'}
+
+In [6]: f(**d)
+name: evan
+age: 31
+
+
+
+22:00
 
 Can’t guess python-indent-offset, using defaults: 4
 == 26.正则表达式(初识)==

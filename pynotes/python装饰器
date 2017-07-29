@@ -1,0 +1,112 @@
+time 20170728
+
+1. 装饰器入门
+
+In [1]: def foo():
+   ...:     print 'in foo()'
+   ...:     
+
+In [2]: foo()
+in foo()
+
+In [3]: import time 
+
+In [4]: def foo():
+   ...:     start = time.clock()
+   ...:     print 'in foo()'
+   ...:     end = time.clock()
+   ...:     print 'used:', end - start 
+   ...:     
+
+In [5]: foo()
+in foo()
+used: 0.000305
+
+
+In [6]: import time 
+
+In [7]: def foo():
+   ...:     print 'in foo()'
+   ...:     
+
+In [8]: def timeit(func):
+   ...:     start = time.clock()
+   ...:     func()
+   ...:     end = time.clock()
+   ...:     print 'used:', end - start 
+   ...:     
+
+In [9]: timeit(foo)
+in foo()
+used: 5.00000000003e-06
+
+***********
+#-*- coding: utf-8 -*-
+import time 
+
+def foo():
+    print 'in foo()'
+
+# 定义一个计时器，传入一个，并返回另一个附加了计时功能的方法
+def timeit(func):
+
+    # 定义一个内嵌的包装函数，给传入的函数加上计时功能的包装
+    def wrapper():
+        start = time.clock()
+        print 'start time:' 
+        print start 
+        func()
+        end = time.clock()
+        print 'end time'
+        print end 
+        print 'used:', end - start
+
+    # 将包装后的函数返回
+    return wrapper
+
+foo = timeit(foo)
+foo()
+evan@evanpc:~/github/python/test$ python wr.py 
+start time:
+0.007331
+in foo()
+end time
+0.00735
+used: 1.9e-05
+
+
+
+这样，一个简易的计时器就做好了！我们只需要在定义foo以后调用foo之前，加上foo = timeit(foo)，就可以达到计时的目的，这也就是装饰器的概念，看起来像是foo被timeit装饰了。在在这个例子中，函数进入和退出时需要计时，这被称为一个横切面(Aspect)，这种编程方式被称为面向切面的编程(Aspect-Oriented Programming)。与传统编程习惯的从上往下执行方式相比较而言，像是在函数执行的流程中横向地插入了一段逻辑。在特定的业务领域里，能减少大量重复代码。
+
+
+2. Python的额外支持
+
+#-*- coding: utf-8 -*-
+import time 
+
+# 定义一个计时器，传入一个，并返回另一个附加了计时功能的方法
+def timeit(func):
+
+    # 定义一个内嵌的包装函数，给传入的函数加上计时功能的包装
+    def wrapper():
+        start = time.clock()
+        print 'start time:' 
+        print start 
+        func()
+        end = time.clock()
+        print 'end time'
+        print end 
+        print 'used:', end - start
+
+    # 将包装后的函数返回
+    return wrapper
+
+@timeit
+def foo():
+    print 'in foo()'
+
+@timeit，在定义上加上这一行与另外写foo = timeit(foo)完全等价，千万不要以为@有另外的魔力。除了字符输入少了一些，还有一个额外的好处：这样看上去更有装饰器的感觉。
+
+
+其实看到这里  20170728
+2.2. 内置的装饰器

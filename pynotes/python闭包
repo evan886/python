@@ -1,0 +1,22 @@
+
+
+==准备知识==
+
+
+js 的高价 
+高阶函数英文叫Higher-order function。那么什么是高阶函数？
+定义: 既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。
+
+编写高阶函数，就是让函数的参数能够接收别的函数
+
+[https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001434499355829ead974e550644e2ebd9fd8bb1b0dd721000 Higher-orde function]
+
+
+
+==闭包==
+
+是一个叫闭包的概念，有点抽象 
+
+返回值是一个函数
+
+http://www.suiyiwen.com/question/15818

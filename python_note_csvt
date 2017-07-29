@@ -526,8 +526,41 @@ evan@evanpc:~/github/python/test/17$ python x.py
 -1
 
 == 19.函数冗余参数==
-04:00
+11:00
 元组 字典什么 的可以作实参
+
+
+
+
+In [1]: def f(x,y):
+   ...:     print x,y
+   ...:     
+
+In [2]: f(1,2)
+1 2
+
+In [3]: t=('a','b')
+
+In [4]: f(t)
+-----------------------------------------------------------------
+TypeError      
+
+In [5]: type(t)
+Out[5]: tuple
+
+
+In [6]: f(t,'te')
+('a', 'b') te
+
+In [9]: print "%s : %s" %('name','milo')
+name : milo
+
+
+In [8]: def f(x,y):
+   ...:     print "%s : %s" % x,y
+   ...:  
+
+
 
 
 Can’t guess python-indent-offset, using defaults: 4

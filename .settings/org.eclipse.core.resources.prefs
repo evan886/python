@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//django/project/csvt03/blog/models.py=utf-8
 encoding//django/project/csvt03/blog/views.py=utf-8
 encoding//django/project/csvt06/blog/models.py=utf-8
+encoding//instant_markup/day5/handlers.py=utf-8
 encoding//instant_markup/day5/markup.py=utf-8
 encoding//py4ops/app.mysql.status.py=utf8
 encoding//py4ops/df.py=utf-8

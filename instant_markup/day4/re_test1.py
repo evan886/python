@@ -30,6 +30,7 @@ class Handler:
         return substitution     #  函数作为返回值   ?  http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0014186131194415d50558b7a1c424f9fb52b84dc9c965c000
 a = Handler() #pass
 b = re.sub(r'\*(.+?)\*', a.sub('emphasis'),r'This *is* a test')
+
 #把 * * 之间的换成 Handler.sub('emphasis') 也就是 <em></em>
 print b
 '''

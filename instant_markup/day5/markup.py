@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #--*-- coding:utf-8 --*--
 """
-start 程序运行从这里开始
+主程序 start 程序运行从这里开始
 同样先看基类Parser,构造函数需要一个handler对象作为参数，以供全局调用，同时初始化了两个列表。
 　　addRule和addFilter的目的是向规则和过滤器列表添加元素。
 　　parse方法，读取文本文件，循环出每一个文本块，先通过过滤器过滤，然后执行相应规则。
@@ -83,6 +83,9 @@ start 程序运行从这里开始
 
 
    ==>
+   
+这个讲解和课本一样 
+https://www.the5fire.com/python-practice-1.html   
 
 '''
 

@@ -772,7 +772,44 @@ Out[16]: 120
 
 
 == 38 oop==
-07:00
+
+
+类的方法中至少有一个参数self
+
+对象的属性和方法与类 中的成员变量和成员函数对应
+
+evan@evanpc:~/github/python/test/38$ cat class.py
+#!/usr/bin/python
+class myclass():
+    def fun(self):
+        print "i am function"
+
+if __name__ == "__main__":
+    myclass1 = myclass()
+    myclass1.fun()
+evan@evanpc:~/github/python/test/38$ python  class.py
+i am function
+evan@evanpc:~/gi
+
+evan@evanpc:~/github/python/test/38$ cat Test.py
+#!/usr/bin/python
+class myclass():
+    first = 123
+    second = 456
+    def fu(self):
+        return 'test'
+        #print "i am function"
+
+if __name__ == "__main__":
+    myclass1 = myclass()
+    print myclass1.fu()
+    print myclass1.first
+evan@evanpc:~/github/python/test/38$ python  Test.py
+test
+123
+
+
+12:00
 
 python的灵魂不在于语言本身，而在于其诸多优秀的库
 如果做web，学一下django, flask等框架，看看它们的文档; 如果做游戏，看看pygame
@@ -781,7 +818,13 @@ python的灵魂不在于语言本身，而在于其诸多优秀的库
 Can’t guess python-indent-offset, using defaults: 4
 
 
+python自动化运维开发【零基础】
+http://study.163.com/course/introduction.htm?courseId=1003686002#/courseDetail?tab=1
+
+
+
 链接：http://pan.baidu.com/s/1i4JidfB 密码：6tum
+
 == 26.正则表达式(初识)==
 
 pass 20170606

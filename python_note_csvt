@@ -766,8 +766,17 @@ Out[16]: 120
 
 
 == 21.Switch实现==
+04:00
 
 
+
+
+== 38 oop==
+07:00
+
+python的灵魂不在于语言本身，而在于其诸多优秀的库
+如果做web，学一下django, flask等框架，看看它们的文档; 如果做游戏，看看pygame
+总之，尝试做一个项目，在开发中和问题碰撞，并积累经验。光读书是没效果的。
 
 Can’t guess python-indent-offset, using defaults: 4
 

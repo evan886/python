@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#--*-- coding:utf-8 --*--
+#-*- coding:utf-8 -*-
 class Handler:
     '调用方法的处理类 可参考data4 '
     #判断当前类是否有对应的方法，所有的话则根据提供的额外参数使用对应方法

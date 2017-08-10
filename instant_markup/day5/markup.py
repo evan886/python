@@ -1,5 +1,6 @@
 #!/usr/bin/python
-#--*-- coding:utf-8 --*--
+#-*- coding:utf-8 -*-
+#https://docs.python.org/2/tutorial/interpreter.html#source-code-encoding
 """
 主程序 start 程序运行从这里开始
 同样先看基类Parser,构造函数需要一个handler对象作为参数，以供全局调用，同时初始化了两个列表。

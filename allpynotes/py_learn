@@ -174,8 +174,44 @@ In [25]: p._Person__name
 Out[25]: 'evan'
 
 ==38 ==
+类和对象：继承
+
+In [1]: class Parent:
+   ...:     def hello(self):
+   ...:         print("正在调用父类的方法")
+
+In [3]: class Child(Parent):
+   ...:     pass
 
 
+In [4]: p = Parent()
+
+In [5]: p.hello()
+正在调用父类的方法
+
+In [6]: c = Child()
+
+In [7]: c.hello()
+正在调用父类的方法
+
+
+同名的情况下 子类会覆盖父类
+
+In [8]: class  Child(Parent):
+   ...:     def hello(self):
+   ...:         print("正在调用子类的方法'''")
+   ...:         
+
+In [9]: c = Child()
+
+In [10]: c.hello()
+正在调用子类的方法'''
+
+In [11]: p.hello()
+正在调用父类的方法
+
+
+09:30
 
 
 ****************************************

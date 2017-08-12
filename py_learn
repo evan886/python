@@ -1,4 +1,9 @@
 
+有哪些适合新手练手的Python项目
+https://zhuanlan.zhihu.com/p/22164270
+
+https://www.zhihu.com/question/29372574/answer/88624507
+
 
 http://study.163.com/course/courseMain.htm?courseId=378003
 
@@ -47,10 +52,133 @@ In [13]: b.fun()
 
 
 ==37 类和对象：面向对象编程==
-02:00
+
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+class Ball:
+    def setName(self,name):
+        self.name = name
+    def kick(self):
+#        print("%s"  % self.name)
+#        pass
+        print("我叫%s,该死的谁踢我'''" % self.name)
+
+a = Ball()
+a.setName=('球a')
+a.name
+#b = Ball()
+#b.setName=('球b')
+#c = Ball()
+#c.setName=('土豆')
+a.kick()
+#pass
+
+
+
+Traceback (most recent call last):
+  File "ball.py", line 13, in <module>
+    a.name
+AttributeError: Ball instance has no attribute 'name'
+
+但是在ipython ok 
+
+
+n [2]: class Ball:
+   ...:     def setName(self,name):
+   ...:         self.name = name
+   ...:     def kick(self):
+   ...:         print("我叫%s,该死的谁踢我'''" % self.name)
+   ...:         
+
+In [3]: a = Ball()
+
+In [4]: a.setName('ball a')
+
+In [5]: a.kick()
+我叫ball a,该死的谁踢我'''
+
+In [6]: b = Ball()
+
+In [7]: b.setName('ball b')
+
+In [8]: c = Ball()
+
+In [9]: c.setName('土豆')
+
+In [10]: c.kick()
+我叫土豆,该死的谁踢我'''
 
 
 ******************
+魔术方法之__init__
+In [11]: class Ball:
+    ...:     def __init__(self,name):
+    ...:         self.name = name
+    ...:     def kick(self):
+    ...:         print("我叫%s,该死的谁踢我'''" % self.name)
+    ...:         
+
+In [12]: b = Ball('土豆')
+
+In [13]: b.kick()
+我叫土豆,该死的谁踢我'''
+
+In [14]: c = Ball()
+
+TypeError: __init__() takes exactly 2 arguments (1 given)
+
+*************
+公有 私有
+
+In [15]: class Person:
+    ...:     name = "evan"
+    ...:     
+In [16]: p=Person()
+
+In [17]: p.name
+Out[17]: 'evan'
+
+
+私有变量 
+
+In [18]: class Person:
+    ...:     __name = "evan"
+    ...:     
+    ...:     
+
+In [19]: p=Person()
+
+In [20]: p.__name
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-20-5fe22c1da0df> in <module>()
+----> 1 p.__name
+AttributeError: Person instance has no attribute '__name'
+
+怎么办呢 从内部
+
+In [21]: class Person:
+    ...:     __name = "evan"
+    ...:     def getName(self):
+    ...:         return self.__name
+    ...:      
+
+In [22]: p=Person()
+
+In [23]: p.getName()
+Out[23]: 'evan'
+
+p.__name 还是不能直接用
+但是可以作弊
+In [25]: p._Person__name
+Out[25]: 'evan'
+
+==38 ==
+
+
+
+
+****************************************
 
 Python资料推荐 + IDE推荐+经典练手项目（开源免费）~
 http://www.jianshu.com/p/d9fc43995fde

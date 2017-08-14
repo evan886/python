@@ -12,8 +12,8 @@ class Pool:
         self.fish = Fish(y)
 
     def print_num(self):
-        #print("the pool have turtle  %d , filsh %d " ) % (self.turtle.num, self.fish.num)
-        printf  %(self.turtle.num)
+        print("the pool have turtle  %d , filsh %d "  % (self.turtle.num, self.fish.num)
+        #print  %(self.turtle.num)
 
 pool = Pool(1,10)
 pool.print_num()

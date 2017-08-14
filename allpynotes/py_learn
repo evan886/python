@@ -211,8 +211,33 @@ In [11]: p.hello()
 正在调用父类的方法
 
 
-09:30
+对于 同名的情况下 子类会覆盖父类 处理办法
+1.调用未绑定的父类方法
 
+
+2.使用supper function(这个方法更加好)
+super().__init__()
+
+===多重继承===
+
+class Base1:
+    def foo1(self):
+        print("I am  foo1, I wei Base1 daiyan")
+
+class Base2:
+    def foo2(self):
+        print("I am foo2, I wei  Base2 daiyan")
+class C(Base1,Base2):
+    pass
+
+c = C()
+c.foo1()
+c.foo2()
+
+
+== 39 类和对象：拾遗==
+
+注意了 这是基于py3.3的
 
 ****************************************
 
@@ -233,6 +258,10 @@ https://blog.imdst.com/yun-wei-xue-pythontui-jian-shu-ji/
 
 http://www.chinaunix.net/ops/
 
+python
+https://taizilongxu.gitbooks.io/stackoverflow-about-python/content/
+
  Linux服务器如何自定义安装Redis
 http://blog.csdn.net/xiexieliuyi/article/details/51124215
+
 

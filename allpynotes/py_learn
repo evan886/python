@@ -372,7 +372,185 @@ In [43]: dd.printXY()
 
 ==40 类和对象：一些相关的BIF==
 
+In [44]: class A:
+    ...:     pass
+    ...: 
+In [47]: class B(A):
+    ...:     pass
+    ...: 
 
+In [48]: issubclass(B,A)
+Out[48]: True
+
+In [49]: issubclass(B,B)
+Out[49]: True
+
+#如果py3 为True
+In [50]: issubclass(B,object)
+Out[50]: False
+
+In [51]: class C:
+    ...:     pass
+    ...: 
+
+In [52]: issubclass(B,C)
+Out[52]: False
+
+
+
+isinstance(object,classinfo)
+
+In [53]: b1 = B()
+
+In [54]: isinstance(b1,B)
+Out[54]: True
+## B 类来自A类
+In [55]: isinstance(b1,A)
+Out[55]: True
+
+In [57]: isinstance(b1,C)
+Out[57]: False
+
+
+In [58]: isinstance(b1,(A,B,C))
+Out[58]: True
+
+*****
+hasattr(object,name)
+
+In [59]: class C:
+    ...:     def __init__(self,x=0):
+    ...:         self.x = x
+    ...:         
+
+In [60]: c1 = C()
+
+In [61]: hasattr(c1,'x')
+Out[61]: True
+
+In [62]: hasattr(c1,x)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-62-83051dc9a513> in <module>()
+----> 1 hasattr(c1,x)
+
+NameError: name 'x' is not defined
+
+
+***
+
+这个记得很久以前看py教程时有的
+getattr(object,name[,default])
+
+In [63]: getattr(c1,'x')
+Out[63]: 0
+
+In [64]: getattr(c1,'y')
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-64-9fc2adeb1eb0> in <module>()
+----> 1 getattr(c1,'y')
+
+AttributeError: C instance has no attribute 'y'
+
+In [65]: getattr(c1,'y','not attr is y')
+Out[65]: 'not attr is y'
+
+
+setattr(object,name, value)
+
+In [66]: setattr(c1,'y','evan')
+
+In [67]: getattr(c1,'y','not attr is y')
+Out[67]: 'evan'
+
+***
+delattr(objcect,name)
+
+In [68]: delattr(c1,'y')
+
+In [69]: delattr(c1,'y')
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-69-23149f9e774e> in <module>()
+----> 1 delattr(c1,'y')
+
+AttributeError: C instance has no attribute 'y'
+
+
+******
+属性设置属性？
+property(fget=None,fset=None, fdel=None,doc=None)
+
+In [70]: class c:
+    ...:     def __init__(self,size=10):
+    ...:         self.size = size
+    ...:     def getSize(self):
+    ...:         return self.size
+    ...:     def setSize(self):
+    ...:         self.size = value
+    ...:     def delSize(self):
+    ...:         del self.size
+    ...:     x = property(getSize,setSize,delSize)
+
+In [73]: c1 = c()
+
+In [74]: c1.getSize()
+Out[74]: 10
+
+In [75]: c1.x
+Out[75]: 10
+
+In [76]: c1.x = 18
+
+In [77]: c1.x
+Out[77]: 18
+
+20170815
+到12分出错没看下去 
+
+
+
+
+09
+
+
+==chatper 11 魔法方法==
+
+===魔法方法:构造和析构===
+
+魔法方法总是被双下划线包围 eg __init__
+
+__init__(self[,])   返回值得一定是None  其实就是 别的语言的构造方法
+
+
+In [83]: class Rectangle:
+    ...:     def __init__(self,x,y):
+    ...:         self.x = x
+    ...:         self.y = y
+    ...:     def getPeri(self):
+    ...:         return (self.x + self.y) *2
+    ...:     def getArea(self):
+    ...:         return self.x * self.y
+    ...:     
+
+In [84]: rect = Rectangle(3,4)
+
+In [85]: rect.getPeri()
+Out[85]: 14
+
+In [86]: rect.getArea()
+Out[86]: 12
+
+t.getArea()
+543Out[86]: 12
+
+
+
+
+
+
+02：00
 
 
 Python print函数用法，print 格式化输出

@@ -523,6 +523,7 @@ Out[77]: 18
 
 __init__(self[,])   返回值得一定是None  其实就是 别的语言的构造方法
 
+注意了 其实实例化时调用的第一个方法 是 __new__(cls[, ...]) 
 
 In [83]: class Rectangle:
     ...:     def __init__(self,x,y):
@@ -547,10 +548,47 @@ t.getArea()
 
 
 
+In [89]: class CapStr(str):
+    ...:     def __new__(cls,string):
+    ...:         string = string.upper()
+    ...:         return str.__new__(cls,string)
+
+In [90]: a = CapStr("I love evan.com")
+
+In [91]: a
+Out[91]: 'I LOVE EVAN.COM'
+
+由上可见 在改变一下不可变的对象 例如 str 时，就可以 改写一下 
+
+
+***
+__del__(self)
+
+In [92]: class C:
+    ...:     def __init__(self):
+    ...:         print ("I am __init__")
+    ...:     def __del__(self):
+    ...:         print ("I am __del__")
+    ...:         
+
+In [93]: c1 = C()
+I am __init__
+
+In [94]: c2 = c1
+In [95]: c3 = c2
+In [96]: del c3
+In [97]: del c2
+In [98]: del c1
+I am __del__
 
 
 
-02：00
+
+
+
+看看视频 再看书 真的理解得更加快快 
+
+10:00
 
 
 Python print函数用法，print 格式化输出

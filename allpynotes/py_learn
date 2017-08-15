@@ -237,8 +237,146 @@ c.foo2()
 注意了 这是基于py3.3的
 
 == 39 类和对象：拾遗==
+类 类对象和实例对象
 
-04
+In [1]: class C:
+   ...:     count = 0
+   ...:     
+
+In [2]: a = C()
+
+In [3]: b = C()
+
+In [4]: c = C()
+
+In [5]: a.count
+Out[5]: 0
+
+In [6]: b.count
+Out[6]: 0
+
+In [7]: c.count
+Out[7]: 0
+
+
+In [14]: c.count = 10
+
+In [15]: c.count
+Out[15]: 10
+
+In [16]: a.count
+Out[16]: 0
+
+In [17]: C.count
+Out[17]: 0
+
+In [18]: C.count += 100
+
+In [19]: a.count
+Out[19]: 100
+
+In [20]: c.count
+Out[20]: 10
+
+
+In [21]: class C:
+    ...:     def x(self):
+    ...:         print("x=man")
+    ...:         
+
+In [22]: c =C()
+
+In [23]: c.x()
+x=man
+
+In [24]: c.x =  1
+
+In [25]: c.x
+Out[25]: 1
+
+In [26]: c.x()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-26-54c1306e95b7> in <module>()
+----> 1 c.x()
+
+TypeError: 'int' object is not callable
+
+由上可以看到 如果属性和方法同名 属性会 覆盖方法
+****
+
+绑定 
+python 严格要求方法需要有实例才能被调用，这限制其实就是py所谓的绑定概念
+
+错误举例
+In [28]: class BB:
+    ...:     def printBB():
+    ...:         print("no zuo no die")
+    ...:         
+
+#有可能可以打印 
+In [29]: BB.printBB()
+
+In [31]: bb = BB()
+
+In [32]: BB.printBB()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-32-8541405c8d5c> in <module>()
+----> 1 BB.printBB()
+
+TypeError: unbound method printBB() must be called with BB instance as first argument (got nothing instead)
+
+
+In [33]: class CC:
+    ...:     def setXY(self, x,y):
+    ...:         self.x = x
+    ...:         self.y = y
+    ...:     def printXY(self):
+    ...:         print(self.x, self.y)
+    ...:         
+
+In [34]: dd = CC()
+In [36]: dd.__dict__
+Out[36]: {}
+
+In [37]: CC.__dict__
+Out[37]: 
+{'__doc__': None,
+ '__module__': '__main__',
+ 'printXY': <function __main__.printXY>,
+ 'setXY': <function __main__.setXY>}
+
+
+In [38]: dd.setXY(4,5)
+
+In [39]: dd.__dict__
+Out[39]: {'x': 4, 'y': 5}
+在dd里面有 而在 CC  __dict__ 里面没有 只属于实例对象dd
+
+In [40]: del CC
+
+In [41]: ee = CC()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-41-b626c5c9f95d> in <module>()
+----> 1 ee = CC()
+
+NameError: name 'CC' is not defined
+
+实例对象的还存在的 因为类属性和方法是静态的 一直在内存中 直到程序退出
+In [43]: dd.printXY()
+(4, 5)
+
+以上就是讲了绑定的概念  尽量不要类属性 而是使用实例属性
+
+==40 类和对象：一些相关的BIF==
+
+
+
+
+Python print函数用法，print 格式化输出
+http://www.pythonclub.org/python-basic/print#dokuwiki__top
 
 ****************************************
 

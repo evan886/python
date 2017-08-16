@@ -52,6 +52,10 @@ eg2
 #!/usr/bin/python
 import re
 line = "Cats are smarter than dogs"
+'''
+re.M	多行匹配，影响 ^ 和 $
+re.I	使匹配对大小写不敏感
+'''
 
 searchObj = re.search(r'(.*) are (.*?) than (.*).*', line ,re.M|re.I)
 
@@ -102,7 +106,36 @@ print "电话号码是:", num
 
 repl 参数是一个函数
 
+#-*- coding: utf-8 -*-
+'''
+\d   匹配数字，相当于[0-9]
+【总结】
+1. 一般多数是通过matched.group(name)的方式去获得对应所查找到的字符串的。
+2. 关于匹配之前已经出现的字符串，可以使用:
+（1）在re.search等中，使用(?P=name)；
+（2）在re.sub的被替换的字符串中，使用\g<name>的方式获得之前已命名的group的值
+'''
+import re
+#将匹配的数字乘于 2
+def double(matched):
+    value = int(matched.group('value'))
+    return str(value * 2)
 
+s = 'A23G4HFD567'
+print(re.sub('(?P<value>\d+)', double ,s))
+
+***
+A46G8HFD1134
+***
+知识点 命令组
+
+例子 re.sub('(?P<value>\d+)
+Python 新增了一个扩展语法到 Perl 扩展语法中。如果在问号后的第一个字符是 "P"，你就可以知道它是针对 Python 的扩展。目前有两个这样的扩展: (?P<name>...) 定义一个命名组，(?P=name) 则是对命名组的逆向引用。如果 Perl 5 的未来版本使用不同的语法增加了相同的功能，那么 re 模块也将改变以支持新的语法，与此同时为了兼容性的目的而继续保持的 Python 专用语法。
+
+命令组的语法是 Python 专用扩展之一： (?P<name>...)。名字很明显是组的名字。除了该组有个名字之外，命名组也同捕获组是相同的。`MatchObject` 的方法处理捕获组时接受的要么是表示组号的整数，要么是包含组名的字符串。命名组也可以是数字，所以你可以通过两种方式来得到一个组的信息：
+
+
+学习 group groups  ?P
 ==emacs==
 C-s搜索时是向前进行查找，我们还可以使用C-r (isearch-backward)向后进行查找，
 

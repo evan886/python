@@ -160,8 +160,7 @@ escape(string)	特殊字符转义
 ==参考==
 
 [http://wiki.ubuntu.org.cn/Python正则表达式操作指南 Python正则表达式操作指南]
-
-
+http://www.runoob.com/python/python-reg-expressions.html
 
 [http://www.runoob.com/python/python-reg-expressions.html Python正则表达式]
 
@@ -170,8 +169,6 @@ escape(string)	特殊字符转义
 [http://kling.blog.51cto.com/3320545/1268731 Python中re（正则表达式）模块详解]
 
 [http://blog.fantasy.codes/python/2013/07/02/py-re-module/  Python的re模塊]
-
-[http://www.cnblogs.com/zhoujinyi/p/3159903.html Python 之 【re模块的正则表达式学习】]
 
 [https://docs.python.org/2/howto/regex.html Regular Expression HOWTO]
 

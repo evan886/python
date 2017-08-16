@@ -48,6 +48,7 @@ class HTMLRenderer(Handler):
         print '<h1>'
     def end_title(self):
         print '</h1>'
+    ## 使用Match获得分组信息 http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
     def sub_emphasis(self,match):
         return '<em>  %s</em>' %match.group(1)
     def sub_url(self,match):

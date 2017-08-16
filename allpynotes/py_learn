@@ -517,7 +517,7 @@ Out[77]: 18
 
 ==chatper 11 魔法方法==
 
-===魔法方法:构造和析构===
+===41.魔法方法:构造和析构===
 
 魔法方法总是被双下划线包围 eg __init__
 
@@ -582,7 +582,48 @@ In [98]: del c1
 I am __del__
 
 
+== 42.魔法方法：算术运算==
 
+对于现在来说
+可见 所谓的工厂function 就是类对象
+
+>>> type(dir)
+<class 'builtin_function_or_method'>
+>>> type(int)
+<class 'type'>
+
+
+>>> class C:
+...     pass
+... 
+>>> type(C)
+<class 'type'>
+
+
+
+evan@evanpc:~/github/python/allpynotes$ cat sub.py
+class New_int(int):
+    def __add__(self,other):
+        return int.__sub__(self,other)
+    def __sub__(self,other):
+        return int.__add__(self,other)
+
+a = New_int(3)    
+b = New_int(5)
+print a+b
+print a - b
+
+"""
+
+
+-2
+8
+
+a --> self  b -->other
+故意a +b  其实是a 减去b
+"""
+
+== 43.魔法方法：算术运算2==
 
 
 

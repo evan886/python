@@ -39,7 +39,7 @@ match:emphasis
 This <em>is</em> a test
 
 
-
+include /data/apps/nginx/conf/fastcgi.conf;
 
 
 当时在这了我完全就懵逼了，因为handler.sub('emphasis')返回的明明是一个方法，但是他没有match参数啊。

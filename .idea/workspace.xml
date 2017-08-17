@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/allpynotes/re/.re.txt.swp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allpynotes/re/re.txt" afterPath="$PROJECT_DIR$/allpynotes/re/re.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day5/handlers.py" afterPath="$PROJECT_DIR$/instant_markup/day5/handlers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day5/readme.txt" afterPath="$PROJECT_DIR$/instant_markup/day5/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day4/re_test1.py" afterPath="$PROJECT_DIR$/instant_markup/day4/re_test1.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,10 +33,10 @@
       <file leaf-file-name="nginx_conf.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/dkm/ops/pyops/ConfigParser/nginx_conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="6" />
+            <state relative-caret-position="427">
+              <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding>
-                <element signature="e#29#39#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,8 +67,8 @@
       <file leaf-file-name="re_test1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instant_markup/day4/re_test1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="20" />
+            <state relative-caret-position="493">
+              <caret line="41" column="43" lean-forward="false" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
               <folding>
                 <element signature="e#41#50#0" expanded="true" />
               </folding>
@@ -132,13 +129,13 @@
         <option value="$PROJECT_DIR$/python_note_csvt" />
         <option value="$PROJECT_DIR$/jpg/test.py" />
         <option value="$PROJECT_DIR$/jpg/getjpg.py" />
-        <option value="$PROJECT_DIR$/instant_markup/day4/re_test1.py" />
         <option value="$PROJECT_DIR$/instant_markup/day5/markup.py" />
         <option value="$PROJECT_DIR$/py4ops/ziplog.py" />
         <option value="$PROJECT_DIR$/py4ops/ziptest.py" />
         <option value="$USER_HOME$/test/walk.py" />
         <option value="$PROJECT_DIR$/instant_markup/day5/handlers.py" />
         <option value="$PROJECT_DIR$/instant_markup/day5/readme.txt" />
+        <option value="$PROJECT_DIR$/instant_markup/day4/re_test1.py" />
         <option value="$USER_HOME$/dkm/ops/pyops/ConfigParser/nginx_conf.py" />
       </list>
     </option>
@@ -372,14 +369,14 @@
     <frame x="0" y="21" width="1920" height="1059" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12606838" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.013354701" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09573361" sideWeight="0.5020855" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36567163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2260128" sideWeight="0.4979145" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.013859275" sideWeight="0.4979145" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123931624" sideWeight="0.50472814" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -718,16 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instant_markup/day4/re_test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#41#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instant_markup/day5/markup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -754,12 +741,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/instant_markup/day4/re_test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="43" lean-forward="false" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding>
+            <element signature="e#41#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/dkm/ops/pyops/ConfigParser/nginx_conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="6" />
+        <state relative-caret-position="427">
+          <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
           <folding>
-            <element signature="e#29#39#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

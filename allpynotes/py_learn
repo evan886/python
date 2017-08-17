@@ -625,6 +625,39 @@ a --> self  b -->other
 
 == 43.魔法方法：算术运算2==
 
+In [1]: class int(int):
+   ...:     def __add__(self,other):
+   ...:         return int.__sub__(self,other)
+   ...:     
+
+In [2]: a = int('5')
+In [3]: a
+Out[3]: 5
+
+In [4]: b = int(3)
+In [5]: a + b 
+Out[5]: 2
+
+反运算 
+
+06:00
+
+
+奇怪的
+In [6]: class Nint(int):
+   ...:     def __radd__(self,other):
+   ...:         return int.__sub__(self,other)
+   ...:     
+
+In [7]: a = Nint(5)
+
+In [8]: b = Nint(3)
+
+In [9]: a+b
+Out[9]: 2
+
+In [10]: a + b 
+Out[10]: 2
 
 
 看看视频 再看书 真的理解得更加快快 

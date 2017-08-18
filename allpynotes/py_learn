@@ -638,6 +638,11 @@ In [4]: b = int(3)
 In [5]: a + b 
 Out[5]: 2
 
+
+此时 self is a  other is  b 
+那只有一个参数的 a 呢 
+
+
 反运算 
 
 06:00

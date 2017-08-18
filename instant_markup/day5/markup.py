@@ -67,7 +67,6 @@ parser.parse(sys.stdin) # parse ln 37
 
 #parser.parse(sys.stdin)
 
-
 '''
 start 程序运行从这里开始
 前面是实例 . 后面是方法/属性
@@ -79,9 +78,6 @@ start 程序运行从这里开始
   BasicTextParser(handler).parse( test_input.txt )   ==>
   BasicTextParser(handler).parse( test_input.txt )   ==>
   BasicTextParser(HTMLRenderer()).parse( test_input.txt )   ==>
-
-
-
 
    ==>
    

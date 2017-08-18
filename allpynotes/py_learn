@@ -642,13 +642,17 @@ Out[5]: 2
 此时 self is a  other is  b 
 那只有一个参数的 a 呢 
 
+反运算
 
-反运算 
-
-06:00
+当第一个参数没有动作时 就触发了反运行 
 
 
-奇怪的
+
+
+******反运算 有怪现象
+
+
+奇怪的 和写在文件的运行的不一样
 In [6]: class Nint(int):
    ...:     def __radd__(self,other):
    ...:         return int.__sub__(self,other)
@@ -664,10 +668,40 @@ Out[9]: 2
 In [10]: a + b 
 Out[10]: 2
 
+******反运算 有怪现象
+
+
+In [1]: class Nint(int):
+   ...:     def __rsub__(self,other):
+   ...:         return int.__sub__(self,other)
+   ...:     
+
+In [2]: a = Nint(5)
+
+In [3]: 3 - a
+Out[3]: 2
+
+
+可见上面顺序不太对 反了呢
+
+
+注重操作数顺序的减法 位  等等 在重写反运算时要注意了
+
+return int.__sub__(other, self )
+
+
+==44. 魔法方法：简单定制==
+
 
 看看视频 再看书 真的理解得更加快快 
 
-10:00
+06
+08:00
+
+
+
+  
+
 
 
 Python print函数用法，print 格式化输出

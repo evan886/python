@@ -7,6 +7,14 @@ https://www.zhihu.com/question/29372574/answer/88624507
 
 http://study.163.com/course/courseMain.htm?courseId=378003
 
+
+==1 我和Python的第一次亲密接触==
+
+
+==课时2我和Python的第一次亲密接触==
+
+
+
 课时34  丰富的else语句及简洁的with语句
 with 可以在异常时很好用 不用关闭
 
@@ -691,12 +699,41 @@ return int.__sub__(other, self )
 
 
 ==44. 魔法方法：简单定制==
+做一下定时器
+
+04:00  后面的还没看 暂时跳过
+
+
+
+==45  魔法方法：属性访问 ==
+
+n [2]: class C:
+   ...:     def __init__(self):
+   ...:         self.x = 'x-man'
+   ...:         
+
+In [3]: c = C()
+
+In [4]: c.x
+Out[4]: 'x-man'
+
+In [5]: getattr(c,'x','没有这个属性')
+Out[5]: 'x-man'
+
+In [6]: getattr(c,'y','没有这个属性')
+
+
+
+
+
+02:00
+
+
 
 
 看看视频 再看书 真的理解得更加快快 
 
-06
-08:00
+
 
 
 

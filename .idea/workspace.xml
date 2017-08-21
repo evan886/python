@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allpynotes/py_learn" afterPath="$PROJECT_DIR$/allpynotes/py_learn" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day4/re_test1.py" afterPath="$PROJECT_DIR$/instant_markup/day4/re_test1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instant_markup/day5/markup.py" afterPath="$PROJECT_DIR$/instant_markup/day5/markup.py" />
-    </list>
+    <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +31,8 @@
       <file leaf-file-name="markup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instant_markup/day5/markup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="476">
+              <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
               <folding>
                 <element signature="e#479#494#0" expanded="true" />
               </folding>
@@ -370,7 +366,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="43" width="1918" height="1036" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.113247864" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -736,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instant_markup/day5/markup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state relative-caret-position="476">
+          <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
           <folding>
             <element signature="e#479#494#0" expanded="true" />
           </folding>

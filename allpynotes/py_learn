@@ -7,17 +7,36 @@ https://www.zhihu.com/question/29372574/answer/88624507
 
 http://study.163.com/course/courseMain.htm?courseId=378003
 
+chapter  1 
 
 ==1 我和Python的第一次亲密接触==
 
 
-==课时2我和Python的第一次亲密接触==
+==课时2 用Python设计第一个游戏==
+
+小写的就是BIF
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', ''InterruptedError', 'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'NameError', 'None', 'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'PermissionError', 'ProcessLookupError', 'RecursionError', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs',
+
+
+help(int)
+
+
+chapter 2
+
+== 03 小插曲之变量和字符串   ===
+
+有引号才是字符串:w
+
+
+12:00
+
 
 
 课后题 0基础课入门学习python 
 
 
-课时34  丰富的else语句及简洁的with语句
+== 课时34  丰富的else语句及简洁的with语句==
 with 可以在异常时很好用 不用关闭
 
 == 36 ==

@@ -1,0 +1,111 @@
+
+原作者网站
+http://hophd.com
+
+/home/evan/python/django/src
+
+==chapter 1 ==
+源码下载
+http://pan.baidu.com/s/1pLIuFXp
+
+apt install python-pip  virtualenv
+
+==chapter 2  mblog ==
+
+django-admin.py startproject mblog
+cd  mblog
+django-admin.py  startapp mainsite  # INSTLLED_APPS 里面的对应 上
+
+sudo python manage.py runserver 0.0.0.0:80
+
+TIME_ZONE='Asia/Shanghai' 
+LANGUAGE_COOD='zh-hans'
+LANGUAGE_COOD='zh-cn'
+
+or 
+sudo vim /usr/local/lib/python2.7/dist-packages/django/conf/global_settings.py
+
+
+mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'mblog',                      
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                    
+        'PORT': '3306',                      
+    }
+}
+
+创建数据库和django间的中介文件
+python manage.py  makemigrations  mainsite 
+
+同步更新数据到数据库
+python manage.py  migrate 
+
+===创建博客数据表===
+
+pip install pyz
+
+vi mainsite/models.py
+
+from django.db import models
+from  django.utils import timezone
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('-pub_date',)
+
+    def __unicode__(self):
+        return self.title
+
+
+
+让上面的模型生效
+python manage.py  makemigrations mainsite
+python manage.py migrate
+#不然报错如下 
+1146, "Table 'mblog.mainsite_post' doesn't exist"
+
+2.2.3 admin
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+vi mainsite/admin.py
+from django.contrib import admin
+from  .models import Post
+admin.site.register(Post)
+
+
+
+
+自定义显示方式
+
+vim  mainsite/admin.py
+#-*- coding:utf-8 -*-
+from django.contrib import admin
+from	.models	import Post
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title','slug','pub_date')
+
+admin.site.register(Post,PostAdmin)
+
+
+2.2.4 读取数据库中的内容
+dj把数据的存取和显示区分为 model template and view 
+
+
+Django i18n国际化
+http://www.cnblogs.com/oubo/archive/2012/04/05/2433690.html
+
+
+
+create database mblog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+不然后面发现文章中文乱码

@@ -8,6 +8,7 @@ class Base2:
 class C(Base1,Base2):
     pass
 
+###
 c = C()
 c.foo1()
 c.foo2()

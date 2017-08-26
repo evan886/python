@@ -1,0 +1,335 @@
+
+原作者网站
+http://hophd.com
+
+/home/evan/python/django/src
+
+==chapter 1 ==
+源码下载
+http://pan.baidu.com/s/1pLIuFXp
+
+apt install python-pip  virtualenv
+
+==chapter 2  mblog ==
+
+django-admin.py startproject mblog
+cd  mblog
+django-admin.py  startapp mainsite  # INSTLLED_APPS 里面的对应 上
+
+sudo python manage.py runserver 0.0.0.0:80
+
+TIME_ZONE='Asia/Shanghai' 
+LANGUAGE_COOD='zh-hans'
+LANGUAGE_COOD='zh-cn'
+
+or 
+sudo vim /usr/local/lib/python2.7/dist-packages/django/conf/global_settings.py
+
+
+mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'mblog',                      
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                    
+        'PORT': '3306',                      
+    }
+}
+
+创建数据库和django间的中介文件
+python manage.py  makemigrations  mainsite 
+
+同步更新数据到数据库
+python manage.py  migrate 
+
+===2.2创建博客数据表===
+
+pip install pyz
+
+vi mainsite/models.py
+
+from django.db import models
+from  django.utils import timezone
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('-pub_date',)
+
+    def __unicode__(self):
+        return self.title
+
+
+
+让上面的模型生效
+python manage.py  makemigrations mainsite
+python manage.py migrate
+#不然报错如下 
+1146, "Table 'mblog.mainsite_post' doesn't exist"
+
+2.2.3 admin
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+vi mainsite/admin.py
+from django.contrib import admin
+from  .models import Post
+admin.site.register(Post)
+
+
+
+
+自定义显示方式
+
+vim  mainsite/admin.py
+#-*- coding:utf-8 -*-
+from django.contrib import admin
+from	.models	import Post
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title','slug','pub_date')
+
+admin.site.register(Post,PostAdmin)
+
+
+2.2.4 读取数据库中的内容
+dj把数据的存取和显示区分为 model template and view  分别对应到models.py  template dir and views.py 这些文件
+
+models.py 定义要存取的数据模型
+
+view 取出数据 或者 存进去等等程序逻辑
+template.py
+
+
+vim mainsite/views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Post
+
+def homepage(request):
+    posts = Post.objects.all()
+    post_lists = list()
+    for count, post in enumerate(posts):
+        post_lists.append("No.{}:".format(str(count)) + str(post) + "<br>")
+    return HttpResponse(post_lists)
+
+
+vi  mblog/urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+from mainsite.views import homepage
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'mblog.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', homepage),
+    #^ 表示字符串开头 $ 表示字符串结尾  …^$ 是指当用户浏览网址却没有加上任何字符串时 就去调用homepage function  
+
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+
+
+#这个把所有显示在首页 少用 但知道就行 
+ cat    mainsite/views.py
+
+
+def homepage(request):
+    posts = Post.objects.all()
+    post_lists = list()
+    for count, post in enumerate(posts):
+        post_lists.append("No.{}:".format(str(count)) + str(post) + "<br>")
+        post_lists.append("<small>" + str(post.body.encode('utf-8'))+"</small><br><br>")
+    return HttpResponse(post_lists)
+
+
+===2.3 网址对应与页面输出===
+
+project/mblog$ mkdir  templates
+
+
+vim  mblog/settings.py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+
+
+
+$ vi  mainsite/views.py
+from django.template.loader import get_template
+from django.shortcuts import render
+from django.http import HttpResponse
+from datetime import datetime
+from .models import Post
+
+def homepage(request):
+    template = get_template('index.html')
+    posts = Post.objects.all()
+    now = datetime.now()
+    html = template.render(locals()) 
+    return HttpResponse(html)
+
+
+问题 一开始老是提示什么  get_template 没定义 后来又说 template 又说没定义 ，但是后来manage.py shell 测试一下是可以 老想不明白时，刷新一下 居然就好了 哪来的呢果真许久自然好 ？
+
+
+vi templates/index.html
+
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      welcome my blog
+    </title>
+  </head>
+  <body>
+    <h1> welcome to my blog </h1>
+    <hr>
+    {{posts}}
+    <hr>
+    <h3> now is : {{ now }}</h3>
+  </body>
+</html>
+
+
+
+cat    templates/index.html 
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      welcome my blog
+    </title>
+  </head>
+  <body>
+    <h1> welcome to my blog </h1>
+    <hr>
+    {% for post in posts %}
+    <p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+        {{post.title}}
+    </p>
+    <p style='font-family:微软雅黑;font-size:10pt;letter-spacing:1pt;'>
+    {{post.body}}
+    </p>
+       {% endfor %}
+    <hr>
+    <h3> now is : {{ now }}</h3>
+  </body>
+</html>
+
+
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      welcome my blog
+    </title>
+  </head>
+  <body>
+    <h1> welcome to my blog </h1>
+    <hr>
+    {% for post in posts %}
+    <p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+     <a href='/post/{{post.slug}}'>{{ post.title }} </a> 
+    </p>
+       {% endfor %}
+    <hr>
+    <h3> now is : {{ now }}</h3>
+  </body>
+</html>
+
+
+
+2.3.2 urls.py
+
+ cat mblog/urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+from mainsite.views import homepage,showpost
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'mblog.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', homepage),
+    url(r'^post/(\w+)$', showpost),
+
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+
+
+cat mainsite/views.py
+from django.template.loader import get_template
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from datetime import datetime
+from .models import Post
+
+def homepage(request):
+    template = get_template('index.html')
+    posts = Post.objects.all()
+    now = datetime.now()
+    html = template.render(locals()) 
+    return HttpResponse(html)
+
+def showpost(request,slug):
+    template = get_template('post.html')
+    try:
+        post = Post.objects.get(slug=slug)
+        if post != None:
+            html = template.render(locals()) 
+            return HttpResponse(html)
+    except:
+        return redirect('/')
+
+
+cat templates/post.html 
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      欢迎光临我的博客
+    </title>
+  </head>
+  <body>
+	  <h1>{{post.title}}</h1>
+    <hr>
+    <p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+      {{post.body}}'  
+    </p>
+    <hr>
+    <h3> <a href='/'>返回首页</h3>
+  </body>
+</html>
+
+
+
+2.3.3 共享模板
+
+
+
+
+
+python manage.py shell
+
+这个教程有书本差不多呀
+http://blog.csdn.net/qq_23348071/article/details/77164561
+
+
+Django i18n国际化
+http://www.cnblogs.com/oubo/archive/2012/04/05/2433690.html
+
+
+
+create database mblog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+不然后面发现文章中文乱码

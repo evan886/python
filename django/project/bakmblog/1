@@ -1,0 +1,4 @@
+for loop in `seq a z`
+do
+echo $loop
+done

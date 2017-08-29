@@ -315,14 +315,151 @@ cat templates/post.html
 
 2.3.3 共享模板
 
+变量两个大括号？ 单个 的呢
 
 
+不然有错
+{ % endblock %} -->{% endblock %}
 
+TemplateSyntaxError
+Exception Value:	
+Unclosed tag 'block'. Looking for one of: endblock 
+Exception Location:	/usr/local/lib/python2.7/dist-packages/django/template/debug.py in unclosed_block_tag, line 65
+Python Executable:	/usr/bin/python
+
+
+{ % endblock %} 注意 语句不能有空格
 
 python manage.py shell
 
+
+http://getbootstrap.com/docs/4.0/getting-started/download/
+还是建议用稳定的3.3 版本
+双击 copy
+
+2.4.2 图像文件的应用
+
+static 也在网站的文件夹中，位置和templates 是平行的
+
+
+2.4.3 主页显示文章摘要
+第一种 直接在数据库定义的时候，也就是在建立model的时候把摘要数据项目加进入 ，让在创建文章的时候就可以输入摘要
+第二种 根据文章的内容直接摘取前面固定字数的字符 并显示  如本节 p71
+
+
+2.4.4 文章的HTML内容处理
+
+2.4.5 markdown
+
+
+
+
+pip install django-markdown-deux
+pip freeze > requirements.txt
+
+add INSTALLED_APP
+'markdown_deux'
+
+
+Django-markdown使用实例
+http://yongyuan.name/blog/django-markdown.html
+http://www.cnblogs.com/cacique/archive/2012/10/07/2713703.html
+
+django 简易博客开发 1 安装、创建、配置、admin使用
+http://www.cnblogs.com/cacique/archive/2012/09/29/2707976.html
+
+chapter 3 让网站上线
+
+heroku  p89
+
+
+==chapter4  mvc --mtv==
+
+django-template
+http://www.runoob.com/django/django-template.html
+
+
+M-->model.py
+T-->templates
+V-->views.py (控制如何处理数据程序逻辑)
+
+
+4.2 module 简介
+
+django-admin startproject mynewsite
+cd mynewsite/
+python manage.py startapp  myapp
+
+tree  mynewsite/
+mynewsite/
+├── manage.py
+├── myapp
+│   ├── admin.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── mynewsite
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── settings.py
+│   ├── settings.pyc
+│   ├── urls.py
+│   └── wsgi.py
+├── static
+└── templates
+
+#CREATE DATABASE my_database CHARACTER SET utf8;
+
+python manage.py  makemigrations
+python manage.py  migrate
+
+
+
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+
+4.2.3 python shell 操作数表
+
+python manage.py shell
+In [1]: from myapp.models import Product
+In [2]: p = Product.objects.create(sku=0001,name='ebox',price=100,size='S')
+In [3]: p.save()
+exit()
+
+显示记录的内容  objects.all()
+In [4]: allp = Product.objects.all()
+
+In [5]: allp[0]
+Out[5]: <Product: Product object>
+
+
+====4.2.4 数据的查询与编辑 ====
+没动手呢
+
+===4.3 view 简介===
+
+====4.3.1 httpresponse ====
+
+直接显示数据到网页，最简单就是 先到urls.py 设置一个网址的对应，然后在views.py  中编写一个func ,通过 httpresponse 传送出想要显示的
+数据。如果建立一个简单显示个人信息的网页，这个页面希望 放在 /about 路径 中，那么可以 在views.py 中编写一个about func
+
+
+
+
+http://blog.csdn.net/qq_23348071/article/details/77164561
+
 这个教程有书本差不多呀
 http://blog.csdn.net/qq_23348071/article/details/77164561
+
+
+virtualenv
+https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000
+http://pythonguidecn.readthedocs.io/zh/latest/dev/virtualenvs.html
+
+
 
 
 Django i18n国际化

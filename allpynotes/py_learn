@@ -34,6 +34,52 @@ chapter 2
 
 20170823
 
+=== 5 闲聊之Python的数据类型===
+
+In [1]: True + True 
+Out[1]: 2
+
+In [2]: True + False
+Out[2]: 1
+
+不要在线上用 
+
+直接K掉小数点后面的
+In [3]: int(5.99)
+Out[3]: 5
+
+int() str()  float()
+
+注意 导致了 str 不是我们bif的str了 
+
+In [4]: str = "I love you"
+
+In [5]: str
+Out[5]: 'I love you'
+
+In [6]: c = str(5e19)
+-----------------------------------------------------------------
+TypeError                       Traceback (most recent call last)
+<ipython-input-6-49a656b321ee> in <module>()
+----> 1 c = str(5e19)
+
+TypeError: 'str' object is not callable
+
+
+type()
+isinstance()
+
+在py2 中好像不能这样用
+>>> a = '我'
+>>> isinstance(a,str)
+True
+
+=== 6 Pyhon之常用操作符  ===
+01:00
+
+http://study.163.com/course/courseLearn.htm?courseId=378003#/learn/video?lessonId=493031&courseId=378003
+
+
 课后题 0基础课入门学习python 
 
 

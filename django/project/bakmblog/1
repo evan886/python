@@ -2,3 +2,10 @@ for loop in `seq a z`
 do
 echo $loop
 done
+
+
+
+https://docs.python.org/3/download.html
+
+国内有得下载
+http://mirrors.sohu.com/python/doc/2.7.9/

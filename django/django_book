@@ -437,6 +437,9 @@ Out[5]: <Product: Product object>
 
 
 ====4.2.4 数据的查询与编辑 ====
+python manage.py shell
+
+在后台自己添加产品就行了
 没动手呢
 
 ===4.3 view 简介===
@@ -447,12 +450,49 @@ Out[5]: <Product: Product object>
 数据。如果建立一个简单显示个人信息的网页，这个页面希望 放在 /about 路径 中，那么可以 在views.py 中编写一个about func
 
 
+====4.3.2 ===
+
+vews.py  有些代码不太明白 p 130
+
+
+vews.py  中
+#随便一个str作为形参就行了 其实
+def listing(r):
+
+记得自己在model  中添加少了的 qty 字段
+
+python manage.py  makemigrations
+You are trying to add a non-nullable field 'qty' to product without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now()
+>>> 0
+Migrations for 'myapp':
+  0004_product_qty.py:
+    - Add field qty to product
+
+
+
+===4.3.3 网址栏参数处理的方式 ===
 
 
 http://blog.csdn.net/qq_23348071/article/details/77164561
 
-这个教程有书本差不多呀
+这个教程有书本差不多呀 mblog
 http://blog.csdn.net/qq_23348071/article/details/77164561
+
+
+
+
+===4.4 template 简介===
+
+
+
+
+
 
 
 virtualenv
@@ -470,3 +510,6 @@ http://www.cnblogs.com/oubo/archive/2012/04/05/2433690.html
 create database mblog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 不然后面发现文章中文乱码
+
+
+==chapter 05 网址的对应和委派==

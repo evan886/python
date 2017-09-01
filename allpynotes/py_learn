@@ -75,13 +75,31 @@ isinstance()
 True
 
 === 6 Pyhon之常用操作符  ===
-01:00
+
+a a+=3
+b= c = d = e  =10
+
+3 < 4 <5
+
+
+=== 7 了不起的分支和循环1  ===
+08:18
+
+
+
+
+
+
+
+print on python3
+
+
 
 http://study.163.com/course/courseLearn.htm?courseId=378003#/learn/video?lessonId=493031&courseId=378003
 
 
 课后题 0基础课入门学习python 
-
+http://bbs.fishc.com/forum-243-1.html
 
 == 课时34  丰富的else语句及简洁的with语句==
 with 可以在异常时很好用 不用关闭

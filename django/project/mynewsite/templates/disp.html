@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>about myself</title>
+    <title>{{product.name}}</title>
 </head>
 <body>
-<h2> evan lai </h2>
+<h2> {{product.name}} </h2>
 <hr>
-<p>
-HI I am evan lai  . nice to meet you
-</p>
-<em> 今日佳句： {{ quote }}</em>
+
+<table width=400 border=1 bgcolor='#ccffcc'>
+    <tr><td>产品编号</td><td>{{product.sku}}</tr>
+    <tr><td>产品名字</td><td>{{product.name}}</td></tr>
+    <tr><td>二手售价</td><td>{{product.price}}</td></tr>
+    <tr><td>库存数量</td><td>{{product.qty}}</td></tr>
+</table>
+
+<a href="/list">返回列表</a>
 </body>
 </html>

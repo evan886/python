@@ -13,6 +13,14 @@ def index(request):
     return HttpResponse(html)
 
 def about(request):
+    #template = get_template('about.html')
+    #quotes = [ '今日事，今日毕','you are good ','go go go ']
+    html =  "<h2> here is author:{}'s about page!</h2><hr>".format(author_no)
+    return HttpResponse(html)
+
+
+
+def about1(request):
     template = get_template('about.html')
     quotes = [ '今日事，今日毕','you are good ','go go go ']
     html = template.render({'quote':random.choice(quotes)})

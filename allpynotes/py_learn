@@ -97,12 +97,40 @@ In [3]:
 
 
 === 9 了不起的分支和循环3  ===
+while
+
+In [1]: fav = 'evan'
+In [4]: for i in fav:
+   ...:     print i
+   ...:
+e
+v
+a
+n
+
+cat 1.py
+a = 'evan'
+for i in a:
+    print(i, end=' ')
+python3  1.py
+e v a n e
+
+
+range()
+
+for i in range(2,9):
+
+
+continue
+
+break
 
 
 
+12:00
 
 
-
+=== 10 列表：一个打了激素的数组1 ===
 
 
 print on python3

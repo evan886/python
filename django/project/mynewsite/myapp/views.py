@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,Http404
 from django.template.loader import get_template
 import random
-from myapp.models import Product
+from myapp.models import Product , Author
 
 def index(request):
     template = get_template('index.html')
@@ -12,12 +12,14 @@ def index(request):
     html = template.render({'quote':random.choice(quotes)})
     return HttpResponse(html)
 
-def about(request):
+def about(no):
+    author_nos = Author.objects.all()
+    for author_no in author_nos:
+
     #template = get_template('about.html')
     #quotes = [ '今日事，今日毕','you are good ','go go go ']
-    html =  "<h2> here is author:{}'s about page!</h2><hr>".format(author_no)
+        html =  "<h2> here is author:{}'s about page!</h2><hr>".format(author_no)
     return HttpResponse(html)
-
 
 
 def about1(request):
@@ -42,7 +44,6 @@ def about0(request):
     '''
     return HttpResponse(html)
 
-
 def listing(r):
 
     products = Product.objects.all()
@@ -50,7 +51,6 @@ def listing(r):
     html = template.render({'products':products})
 
     return HttpResponse(html)
-
 
 #随便一个str作为形参就行了 其实
 def listing0(r):

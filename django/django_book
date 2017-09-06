@@ -491,10 +491,6 @@ http://blog.csdn.net/qq_23348071/article/details/77164561
 
 
 
-
-
-
-
 virtualenv
 https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000
 http://pythonguidecn.readthedocs.io/zh/latest/dev/virtualenvs.html
@@ -513,3 +509,122 @@ create database mblog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
 ==chapter 05 网址的对应和委派==
+
+5.1.2  p145  其实有些还不太明白
+
+5.1.3  验证RE 设计URL的正确性
+
+https://pythex.org
+
+未看明白
+
+==chapter 06 Template 深入探讨==
+
+新建django project的基本步骤
+
+
+django-admin startproject ch06www
+cd ch06www/
+python manage.py startapp  mysite
+
+# 1. 创建更改的文件
+python manage.py  makemigrations
+
+# 2. 将生成的py文件应用到数据库
+python manage.py  migrate
+
+
+#CREATE DATABASE ch06www CHARACTER SET utf8;
+
+
+
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+
+配置 settings.py
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'mysite',
+)
+
+
+
+TIME_ZONE='Asia/Shanghai'
+
+#这个有时会失效
+LANGUAGE_COOD='zh-hans'
+LANGUAGE_COOD='zh-cn'
+
+
+
+
+清空数据库
+python manage.py flush
+
+两对大括号为 要显示的变量
+大括号加上% 的是模板的控制命令
+
+以前看csvt时有哦 忘记了呢
+
+
+6.1.2 create templates file
+
+views.py
+from django.shortcuts import render
+from datetime import datetime
+from django.template.loader import get_template
+from django.http import HttpResponse
+
+
+def index(request):
+    template = get_template('index.html')
+    now = datetime.now()
+    html = template.render(locals())
+
+    return HttpResponse(html)
+
+
+urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+from  mysite.views import index
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'ch06www.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^$',index),
+
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+
+templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+</head>
+<body>
+    <h2> hellow evan</h2>
+<hr>
+<em>
+    {{ now }}
+</em>
+
+</body>
+</html>
+
+
+6.1.3 在templates 文件 中使用现有的网页框架
+
+http://getbootstrap.com/docs/3.3/getting-started/#download
+
+
+
+
+Python Django 快速Web开发入门
+http://study.163.com/course/introduction.htm?courseId=320022#/courseDetail?tab=1

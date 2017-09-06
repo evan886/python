@@ -11,6 +11,11 @@ class NewTable(models.Model):
     int_f = models.IntegerField(default=2010)
     text_f = models.TextField()
 
+class  Author(models.Model):
+    author_no= models.CharField(max_length=5)
+    def __unicode__(self):
+        return self.author_no
+
 class Product(models.Model):
     SIZES = (
         ('S', 'Small'),

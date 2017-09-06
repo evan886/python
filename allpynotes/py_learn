@@ -1,4 +1,6 @@
 
+
+
 有哪些适合新手练手的Python项目
 https://zhuanlan.zhihu.com/p/22164270
 
@@ -131,6 +133,41 @@ break
 
 
 === 10 列表：一个打了激素的数组1 ===
+
+append()
+
+ |  append(...)
+ |      L.append(object) -- append object to end
+ |
+
+In [2]: L=[1,2,5]
+In [3]: L.append(6)
+In [4]: L
+Out[4]: [1, 2, 5, 6]
+
+In [6]: L.extend(['7','8'])
+
+In [7]: L
+Out[7]: [1, 2, 5, 6, '7', '8']
+
+insert()
+
+
+In [8]: L.insert(1,'my')
+
+In [9]: L.insert(0,'my0')
+
+In [10]: L
+Out[10]: ['my0', 1, 'my', 2, 5, 6, '7', '8']
+
+
+===  11 列表：一个打了激素的数组2 ===
+01:00
+
+
+
+
+
 
 
 print on python3

@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^about/', about),
-    url(r'^about/[0|2|3]/$', about),
+    url(r'^about/[0|1|2|3]/$', about),
 
     url(r'^list/([0-9a-zA-Z]+)/$', disp_detail),
     #url(r'^/([0-9a-zA-Z]+)/$', disp_detail),

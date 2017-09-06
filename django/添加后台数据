@@ -1,0 +1,31 @@
+1.admin.py 添加 注册
+admin.site.register(Product)
+admin.site.register(Author)
+
+2.models.py
+
+class  Author(models.Model):
+    author_no= models.CharField(max_length=5)
+    def __unicode__(self):
+        return self.author_no
+
+3.
+def about(no):
+    author_nos = Author.objects.all()
+    for author_no in author_nos:
+        html =  "<h2> here is author:{}'s about page!</h2><hr>".format(author_no)
+    return HttpResponse(html)
+
+
+4.
+python manage.py  makemigrations
+python manage.py  migrate
+
+
+5. urls.py
+    url(r'^about/', about),
+    url(r'^about/[0|1|2|3]/$', about),
+
+
+6.  http://192.168.10.225/about/2/
+here is author:2's about page!

@@ -625,6 +625,71 @@ http://getbootstrap.com/docs/3.3/getting-started/#download
 
 
 
+6.1.4
+
+分享下面的嵌入
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c5ZGQoK16QM" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mOUYiBsccVc" frameborder="0" allowfullscreen></iframe>
+
+
+
+6.1.5 在template 中使用static 文件
+p161  这里还没看呢
+
+
+chapter 7  models 与数据库
+
+==7.1 网站与数据库==
+
+
+==7.3 在django中使用mysql ==
+
+===7.3.1  install mysql on ubuntu ===
+
+apt-get update  && apt-get upgrade
+apt-get install mysql-server mysql-client
+mysql_secure_installation
+
+#安装python的mysql 驱动程序 mysql-python
+
+apt-get install python-dev libmysqlclient-dev
+pip install mysql-python
+
+配置好 settings.py mysql
+
+makemigrations   migrate
+
+
+
+
+===7.2 活用model 制作网站===
+
+
+
+
+http://python.usyiyi.cn/translate/django_182/intro/tutorial01.html
+
+
+
+[http://www.cnblogs.com/lhj588/archive/2012/05/24/2516040.html Django model字段类型清单]
+
+
+
+
+[http://www.runoob.com/django/django-model.html  Django 模型]
+
+
+Model field reference
+https://docs.djangoproject.com/en/1.8/ref/models/fields/
+
 
 Python Django 快速Web开发入门
 http://study.163.com/course/introduction.htm?courseId=320022#/courseDetail?tab=1
+
+python自动化运维开发
+http://study.163.com/course/courseMain.htm?courseId=1003686002
+
+手把手带你学Django实战-视频版-课程介绍
+https://www.the5fire.com/925.html
+

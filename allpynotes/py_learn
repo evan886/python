@@ -192,16 +192,44 @@ Out[17]:
 
 in   not in
 
-
 列表中的列表  访问 eg  list[1][2]
 
 dir(list)
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
 
 
-09：00
+reverse
+count  index
 
+==13 元组：戴上了枷锁的列表 ==
+逗号是关键
+逗号隔开的一组数据的集合就是元组
 
+>>> temp2= 2,3
+>>> type(temp2)
+<class 'tuple'>
+>>> 
+>>> temp=()
+>>> type(temp)
+<class 'tuple'>
 
+>>> temp=(1,)
+>>> type(temp)
+<class 'tuple'>
+
+>>> 8 * (8,)
+(8, 8, 8, 8, 8, 8, 8, 8)
+
+>>> temp = (1,2,4,5)
+>>> temp = temp[:2] + ('3',) + temp[2:]
+>>> temp 
+(1, 2, '3', 4, 5)
+
+del temp 
+
+==14 字符串：各种奇葩的内置方法==
+02:00
 
 
 
@@ -214,6 +242,9 @@ print on python3
 
 
 http://study.163.com/course/courseLearn.htm?courseId=378003#/learn/video?lessonId=493031&courseId=378003
+
+
+数据结构和算法  小甲鱼
 
 
 课后题 0基础课入门学习python 

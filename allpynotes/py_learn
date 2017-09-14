@@ -290,9 +290,19 @@ upper()
 
 ==15 字符串：格式化==
 
-05:00
+位置参数
+>>> "{0} love {1}.{2}".format("I","evan","com")
+'I love evan.com'
+
+关键参数
+>>> "{a} love {b}.{c}".format(a="I",b="evan",c="com")
+'I love evan.com'
+
+位置参数必需在关键参数之前
+
 
 一边看视频  一边看相对应的书 
+05:00
 
 
 

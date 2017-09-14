@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allpynotes/py_learn" afterPath="$PROJECT_DIR$/allpynotes/py_learn" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/添加后台数据" afterPath="$PROJECT_DIR$/django/添加后台数据" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="添加后台数据" pinned="false" current-in-tab="false">
+      <file leaf-file-name="添加后台数据" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/django/添加后台数据">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+            <state relative-caret-position="544">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,85 +47,18 @@
       <file leaf-file-name="django_book" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django/django_book">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11339">
+            <state relative-caret-position="634">
               <caret line="667" column="0" lean-forward="false" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="py_learn" pinned="false" current-in-tab="true">
+      <file leaf-file-name="py_learn" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/allpynotes/py_learn">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ssdb-cli.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/dkm/ssdb/ssdb-cli.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="e#398#421#0" expanded="false" />
-                <element signature="e#615#638#0" expanded="false" />
-                <element signature="e#832#855#0" expanded="false" />
-                <element signature="e#1048#1071#0" expanded="false" />
-                <element signature="e#1266#1289#0" expanded="false" />
-                <element signature="e#1899#2126#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ssdb-cli.cpy.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/dkm/ssdb/ssdb-cli.cpy.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="103" column="22" lean-forward="false" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
-              <folding>
-                <element signature="e#305#366#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ssdb-cli.cpy" pinned="false" current-in-tab="false">
-        <entry file="file:///data/apps/ssdb/tools/ssdb-cli.cpy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SSDB.py" pinned="false" current-in-tab="false">
-        <entry file="file:///data/apps/ssdb/api/python/SSDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="214" column="50" lean-forward="false" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
-              <folding>
-                <element signature="e#65#79#0" expanded="true" />
-                <element signature="e#1187#1428#0" expanded="false" />
-                <element signature="e#1459#1826#0" expanded="false" />
-                <element signature="e#1859#2228#0" expanded="false" />
-                <element signature="e#2260#2331#0" expanded="false" />
-                <element signature="e#2366#2899#0" expanded="false" />
-                <element signature="e#2934#3375#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.py" pinned="false" current-in-tab="false">
-        <entry file="file:///data/apps/ssdb/api/python/demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <caret line="302" column="0" lean-forward="false" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -199,7 +132,6 @@
         <option value="$PROJECT_DIR$/allpynotes/re/ttt.py" />
         <option value="$PROJECT_DIR$/django/project/mynewsite/myapp/admin.py" />
         <option value="$PROJECT_DIR$/django/project/mynewsite/myapp/models.py" />
-        <option value="$PROJECT_DIR$/django/添加后台数据" />
         <option value="$PROJECT_DIR$/django/project/mynewsite/mynewsite/urls.py" />
         <option value="$PROJECT_DIR$/django/project/mynewsite/myapp/views.py" />
         <option value="$PROJECT_DIR$/django/project/ch06www/ch06www/settings.py" />
@@ -218,14 +150,14 @@
         <option value="/data/apps/ssdb/api/python/SSDB.py" />
         <option value="/data/apps/ssdb/api/python/demo.py" />
         <option value="$PROJECT_DIR$/allpynotes/py_learn" />
+        <option value="$PROJECT_DIR$/django/添加后台数据" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="47" />
-    <option name="width" value="862" />
-    <option name="height" value="1032" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -267,6 +199,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -476,7 +409,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -647,18 +579,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="47" width="862" height="1032" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05147059" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05181624" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09573361" sideWeight="0.5020855" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.617773" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2633833" sideWeight="0.4979145" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25588864" sideWeight="0.4979145" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.123931624" sideWeight="0.50472814" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -974,22 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django/django_book">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11339">
-          <caret line="667" column="0" lean-forward="false" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django/添加后台数据">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django/project/bakmblog/1">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1057,21 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/dkm/ssdb/ssdb-cli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#398#421#0" expanded="false" />
-            <element signature="e#615#638#0" expanded="false" />
-            <element signature="e#832#855#0" expanded="false" />
-            <element signature="e#1048#1071#0" expanded="false" />
-            <element signature="e#1266#1289#0" expanded="false" />
-            <element signature="e#1899#2126#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django/project/ch07www/mysite/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -1101,7 +1003,7 @@
     </entry>
     <entry file="file://$USER_HOME$/dkm/ssdb/ssdb-cli.cpy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
+        <state relative-caret-position="608">
           <caret line="103" column="22" lean-forward="false" selection-start-line="103" selection-start-column="22" selection-end-line="103" selection-end-column="22" />
           <folding>
             <element signature="e#305#366#0" expanded="false" />
@@ -1111,7 +1013,7 @@
     </entry>
     <entry file="file:///data/apps/ssdb/tools/ssdb-cli.cpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
+        <state relative-caret-position="634">
           <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
           <folding />
         </state>
@@ -1119,7 +1021,7 @@
     </entry>
     <entry file="file:///data/apps/ssdb/api/python/SSDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
+        <state relative-caret-position="608">
           <caret line="214" column="50" lean-forward="false" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
           <folding>
             <element signature="e#65#79#0" expanded="true" />
@@ -1141,10 +1043,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/dkm/ssdb/ssdb-cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#398#421#0" expanded="false" />
+            <element signature="e#615#638#0" expanded="false" />
+            <element signature="e#832#855#0" expanded="false" />
+            <element signature="e#1048#1071#0" expanded="false" />
+            <element signature="e#1266#1289#0" expanded="false" />
+            <element signature="e#1899#2126#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/allpynotes/py_learn">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="210" column="0" lean-forward="true" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+          <caret line="302" column="0" lean-forward="false" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django/django_book">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="667" column="0" lean-forward="false" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django/添加后台数据">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>

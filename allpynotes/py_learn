@@ -229,7 +229,73 @@ count  index
 del temp 
 
 ==14 字符串：各种奇葩的内置方法==
-02:00
+
+>>> dir(str)
+
+capitalize()  第一个字符改为大写     
+str2.capitalize 
+
+casefold
+
+center()
+In [2]: str='sdfj '
+
+In [3]: str.center(30)
+Out[3]: '            sdfj              '
+
+
+count()
+encode()
+
+endswith()
+
+find()
+
+
+
+index()
+
+isalnum()
+isalpha()
+isdecimal()
+isdigit()
+islower()
+isnumeric()
+isspace()
+istitle()
+issupper()
+issupper()
+join()
+
+ljust()
+lower()
+lstrip()
+
+partition(sub)
+
+replace()
+rfind()
+replace()
+rindex()
+split()
+
+translate()
+>>> str='sssaaass'
+>>> str.translate(str.maketrans('s','b'))
+'bbbaaabb'
+>>> str.maketrans('s','b')
+{115: 98}
+
+upper()
+
+==15 字符串：格式化==
+
+05:00
+
+一边看视频  一边看相对应的书 
+
+
+
 
 
 

@@ -29,3 +29,4 @@ python manage.py  migrate
 
 6.  http://192.168.10.225/about/2/
 here is author:2's about page!
+

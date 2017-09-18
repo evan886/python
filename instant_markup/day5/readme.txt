@@ -1,5 +1,20 @@
 
 
+python基础教程总结15——1.即时标记
+http://www.cnblogs.com/zxqstrong/p/4676001.html
+
+http://www.jb51.net/article/55337.htm
+
+https://www.the5fire.com/python-practice-1.html
+
+
+
+
+
+
+
+
+
 
 感觉 个说得不错
 http://blog.csdn.net/finethere/article/details/26503029

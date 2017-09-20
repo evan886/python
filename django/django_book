@@ -642,6 +642,13 @@ chapter 7  models 与数据库
 
 ==7.1 网站与数据库==
 
+===7.2.2 ===
+
+
+又不太明白这个语法了  20170920
+{% include "header.html" %}
+{% block content %}{% endblock %}
+{% include "footer.html" %}
 
 ==7.3 在django中使用mysql ==
 

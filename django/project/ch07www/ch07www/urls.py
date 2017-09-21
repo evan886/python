@@ -10,5 +10,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
     # 'module' object has no attribute 'index'  views.py 中要有index 方法
     url(r'^$', views.index),
+    url(r'^$', views.index),
     url(r'^admin/', include(admin.site.urls)),
 ]

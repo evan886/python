@@ -315,6 +315,8 @@ cat templates/post.html
 
 2.3.3 共享模板
 
+p62
+
 变量两个大括号？ 单个 的呢
 
 
@@ -634,11 +636,28 @@ http://getbootstrap.com/docs/3.3/getting-started/#download
 
 
 
-6.1.5 在template 中使用static 文件
-p161  这里还没看呢
+===6.1.5 在template 中使用static 文件===
+
+上次觉得很难看的 这次居然一看就明白了 哈哈
+static/images/logo.png
+
+代码一般正式情景放在 footer.html
+例子见ch07www
+
+<!-- footer.html (ch07www project) -->
+<hr>
+{% load staticfiles %}
+<img src="{% static "images/logo.png" %}" width=100>
+<em>Copyright 2017 <a href='http://linuxchina.net'>http://linuxchina.net</a>. All rights reserved.</em>
 
 
-chapter 7  models 与数据库
+
+==6.2 高级template 技巧 ==
+
+
+
+
+=chapter 7  models 与数据库=
 
 ==7.1 网站与数据库==
 
@@ -672,7 +691,20 @@ makemigrations   migrate
 
 ===7.2 活用model 制作网站===
 
+====7.2.2 制作网站模板====
 
+20170922 终于明白了 block  和共享模板什么 的，原来是 base.html 里面的 block是没内容在，别人 extends 他时，才自己填充哦
+ 果真多动手 才能明白得突然，当然  多看也是要的 ，要认真的看
+
+
+
+
+locals()
+可以直接将函数中所有的变量全部传给模板，自动拼接成字典，很方便。但是它会多传递一些没用的变量，有点浪费
+
+
+[http://www.cnblogs.com/xiaozhiqi/p/5851360.html Python自动化运维之27、Django(一)]
+        <!--<td><a href='{% "detail-url" p.id %}'> {{ p.nickname }}</a></td> -->
 
 
 http://python.usyiyi.cn/translate/django_182/intro/tutorial01.html
@@ -700,3 +732,5 @@ http://study.163.com/course/courseMain.htm?courseId=1003686002
 手把手带你学Django实战-视频版-课程介绍
 https://www.the5fire.com/925.html
 
+
+[ 都说Djnago框架重，那就让哥用15行代码写个Django Web程序！]

@@ -5,7 +5,12 @@ from django.http import HttpResponse
 from mysite import models
 
 def index(request):
+    """
+    又不在明白这些句子了 有空再细品哦
+    """
 
+    '''
+    '''
     products = models.Product.objects.all()
     template = get_template('index.html')
     html = template.render(locals())

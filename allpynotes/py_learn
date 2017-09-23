@@ -399,7 +399,15 @@ function.__doc__
 
 ==19 函数：我的地盘听我的 ==
 
-01：00
+默认返回元组
+
+
+变量作用域
+局部变量 全局变量
+
+
+==20  函数：内嵌函数和闭包 ==
+
 
 
 
@@ -1194,6 +1202,10 @@ https://www.zhihu.com/question/25955197
 
 运维人员学习python 推荐资料
 https://blog.imdst.com/yun-wei-xue-pythontui-jian-shu-ji/
+
+[http://www.cnblogs.com/xiaowuyi/archive/2012/08/06/2625509.html python网络编程学习笔记（3）：socket网络服务器]
+
+[http://yangrong.blog.51cto.com/6945369/1339593  python socket编程详细介绍]
 
 http://www.chinaunix.net/ops/
 

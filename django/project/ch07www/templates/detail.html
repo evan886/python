@@ -1,6 +1,6 @@
 <!-- index.html (ch07www project) -->
 {% extends "base.html" %}
-{% block title %} {{product.nickname | default:"找不到指定的手机"}} {% endblock %}
+{% block title %}{{product.nickname | default:"找不到指定的手机"}}{% endblock %}
 {% block content %}
 <div  class='container' align="center">
 {% if product %}
@@ -9,12 +9,6 @@
     <tr> <td align="center">{{ product.description }}</td></tr>
     <tr> <td align="center">公元{{ product.year }}年出厂</h3></td></tr>
     <tr> <td align="center">售价： RMB${{ product.price }}元</td></tr>
-    {% for image in images %}
-
-</table>
-
-
-
     {% for image in images %}
         {% if forloop.first %}
             <tr><td align=center>
@@ -30,6 +24,7 @@
 {% else %}
 <h2>找不到指定的手机</h2>
 {% endif %}
+
 
 </div>
 {% endblock %}

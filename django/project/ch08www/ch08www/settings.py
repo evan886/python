@@ -20,8 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g_ydgsa01xw*erc4$f+*7oi-w+prop$_(taa8c4l4xg(=93b60'
 
+SECRET_KEY = '2m)xraf#)u_hhl=8z7voey8gm5&czn%qzopv!al%$z@i@a+01$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'mysite',
 )
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-]
+)
 
-ROOT_URLCONF = 'ch07www.urls'
+ROOT_URLCONF = 'ch08www.urls'
 #'DIRS': [os.path.join(BASE_DIR, 'templates')],
 TEMPLATES = [
     {
@@ -69,14 +69,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ch07www.wsgi.application'
+WSGI_APPLICATION = 'ch08www.wsgi.application'
 
 
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 DATABASES = {
             'default': {
                         'ENGINE': 'django.db.backends.mysql',
-                         'NAME': 'ch07www',
+                         'NAME': 'ch08www',
                         'USER': 'root',
                         'PASSWORD': '',
                         'HOST': '127.0.0.1',

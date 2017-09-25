@@ -408,11 +408,37 @@ function.__doc__
 
 ==20  函数：内嵌函数和闭包 ==
 
+global
+
+闭包
+
+In [1]: def funx(x):
+   ...:     def funy(y):
+   ...:         return x * y
+   ...:     return funy
+   ...:
+
+In [2]: i = funx(8)
+
+In [3]: type(i)
+Out[3]: function
+
+In [4]: i(5)
+Out[4]: 40
+
+In [5]: funx(8)(5)
+Out[5]: 40
+
+
+
+12:00
 
 
 
 
 
+
+[http://study.163.com/course/courseMain.htm?courseId=1003686002 python自动化运维开发]
 
 
 

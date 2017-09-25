@@ -693,8 +693,29 @@ makemigrations   migrate
 
 ====7.2.2 制作网站模板====
 
+
+其实 admin evan2240881
+登录不了 在后面直接 改密码就行了
+
+
+
+
 20170922 终于明白了 block  和共享模板什么 的，原来是 base.html 里面的 block是没内容在，别人 extends 他时，才自己填充哦
  果真多动手 才能明白得突然，当然  多看也是要的 ，要认真的看
+
+
+
+
+
+
+后台列表标题显示中文 models.py
+verbose_name
+是该对象的一个可读性更好的唯一名字:
+
+
+[http://www.cnblogs.com/walkerwang/archive/2011/04/28/2031298.html django Meta 选项]
+
+[http://python.usyiyi.cn/documents/django_182/ref/models/options.html 模型元选项]
 
 
 
@@ -734,3 +755,85 @@ https://www.the5fire.com/925.html
 
 
 [ 都说Djnago框架重，那就让哥用15行代码写个Django Web程序！]
+
+
+=== 7.3 use mysql on django ===
+
+[[Django 配置MySQL数据库]]
+
+apt install mysql-server mysql-client
+mysql_secure_installation
+
+
+
+apt-get install python-dev libmysqld-dev libmysqlclient-dev
+
+pip install mysql-python
+
+
+Django(Python)操作MySQL依赖第三方包，所以要先安装MySQL for Python。
+
+$ wget https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-1.2.5.zip
+$ unzip MySQL-python-1.2.5.zip
+$ sudo python setup.py install
+
+
+https://docs.djangoproject.com/en/1.11/ref/databases/#mysql-notes
+
+[http://dmyz.org/archives/110 DJANGO+MYSQL安装配置详解(LINUX)[更新为1.8.2版]]
+
+
+
+
+==chapter 8  HTML ==
+
+
+
+现在是ch07www 用户 密码不对
+
+登录后台用户有错 为什么 呢
+
+我用ch07的配置文件改一下就可以了 为什么 呢
+
+难道和今天安装的两个包有关系
+sudo pip install captcha
+
+ pip install django-recaptcha #我试过 不是这个
+
+
+ImportError: No module named captcha
+
+
+
+
+[http://www.cnblogs.com/xiaozhiqi/p/5829076.html Python自动化运维之20、HTML]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5830033.html Python自动化运维之21、CSS]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5836665.html Python自动化运维之22、JavaScript]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5841037.html Python自动化运维之23、Dom]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5841500.html Python自动化运维之24、JQuery]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5843998.html Python自动化运维之25、Ajax]
+
+
+django文档
+
+
+
+
+
+
+sys.argv
+
+sys.argv
+传递给Python脚本的命令行参数列表。argv[0]是脚本的名称（是否是完整的路径名这要取决于操作系统）。如果执行命令时解释器使用了-c命令行选项， argv [0]设置为字符串'-c'。如果无脚本名称传递给 Python 解释器， argv [0]是空字符串。
+
+
+execute_from_command_line(sys.argv)
+
+
+[http://blog.csdn.net/vivilorne/article/details/3863545 sys.argv[]用法]
+[http://usyiyi.cn/translate/python_278/library/sys.html sys — 系统相关的参数和函数]

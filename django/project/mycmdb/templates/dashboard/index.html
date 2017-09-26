@@ -1,0 +1,209 @@
+{% extends 'default/base.html' %}
+{% block content %}
+<div class="row wrapper wrapper-content animated fadeInRight">
+    <div class="col-md-5 col-sm-5 col-xs-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5> 设备统计 </h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user"></ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+              	<div id="dataCenter_pie" style="height:350px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-sm-5 col-xs-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5> 应用设备统计 </h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user"></ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div id="type_pie" style="height:350px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var dataCenter_pie = echarts.init(document.getElementById('dataCenter_pie'));
+    option = {
+        //提示框，鼠标悬浮交互时的信息提示。
+        tooltip: {
+            //触发类型，默认数据触发，可选为：'item' | 'axis'
+            trigger: 'item',
+            //提示内容格式
+            formatter: "{b} : {c} ({d}%)"
+        },
+        //图例，每个图表最多仅有一个图例
+        legend: {
+            //水平安放位置，默认为全图居中，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）
+            x: 'center',
+            //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）
+            y: 'bottom',
+            //图例内容
+            data: {{ DCName|safe }}
+        },
+        //工具箱，每个图表最多仅有一个工具箱。
+        toolbox: {
+            //show: true,
+            show: false,
+            //工具箱自定义回调处理
+            feature: {
+                //动态类型切换，支持直角系下的折线图、柱状图、堆积、平铺转换.....
+                magicType: {
+                    show: true,
+                    title : {
+                        pie: '饼图切换',
+                        bar: '漏斗图切换'
+                    },
+                    // type ['line', 'bar', 'stack', 'tiled', 'force', 'chord', 'pie', 'funnel']
+                    type: ['pie', 'bar'],
+                    //可选，可传入切换是动态修改的配置，将复写series内的数组项
+                    //option: {
+                    //    funnel: {
+                    //        x: '25%',
+                    //        width: '50%',
+                    //        funnelAlign: 'left',
+                    //        max: 1548
+                    //    }
+                    //}
+                },
+                //还原，复位原始图表
+                restore: {
+                    show: true,
+                    title: "还原"
+                },
+                //保存为图片
+                saveAsImage: {
+                    show: true,
+                    title: "保存为图片"
+                }
+            }
+        },
+        //是否支持拖拽计算
+        //calculable: true,
+        //驱动图表生成的数据内容
+        series: [{
+            name: '数据中心服务器统计',
+            type: 'pie',
+            //半径，支持绝对值（px）和百分比(大小)
+            radius: '50%',
+            //圆心坐标（px or %）
+            center: ['50%', '48%'],
+            data: {{ DCCount|safe }}
+        }]
+    }
+    dataCenter_pie.setOption(option);
+
+    function dataCenterPieClick(param){
+     if(param.seriesIndex==0){
+        var url = '/assets/assetList/?change_idc=' + param.data.id + '&change_type=all&change_project=all&change_role=all'
+        window.open (url,'_parent','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+        } 
+     }
+
+    function dataCenterConsole(param) {
+        //console.log(param.data.id)
+        if (typeof param.seriesIndex != 'undefined') {
+            if (param.type == 'click') {
+                dataCenterPieClick(param)
+            }
+        }
+    }
+     
+    dataCenter_pie.on("click", dataCenterConsole);
+    dataCenter_pie.on("hover", dataCenterConsole);
+
+    var type_pie = echarts.init(document.getElementById('type_pie'));
+    option = {
+        tooltip: {
+            trigger: 'item',
+            //formatter: "{a} <br/>{b} : {c} ({d}%)"
+            formatter: "{b} : {c} ({d}%)"
+        },
+        legend: {
+            x: 'center',
+            y: 'bottom',
+            data: {{ projectName|safe }}
+        },
+        toolbox: {
+            show: false,
+            feature: {
+                magicType: {
+                    show: true,
+                    type: ['pie', 'funnel'],
+                    option: {
+                        funnel: {
+                            x: '25%',
+                            width: '50%',
+                            funnelAlign: 'left',
+                            max: 1548
+                        }
+                    }
+                },
+                restore: {
+                    show: true,
+                    title: "Restore"
+                },
+                saveAsImage: {
+                    show: true,
+                    title: "Save Image"
+                }
+            }
+        },
+        calculable: true,
+        series: [{
+            name: '项目服务器统计',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '48%'],
+            data: {{ projectCount|safe }}
+        }]
+    }
+    type_pie.setOption(option);
+
+    function typePieClick(param){
+     if(param.seriesIndex==0){
+        var url = '/assets/assetList/?change_idc=all&change_type=all&change_project=' + param.data.id + '&change_role=all'
+        window.open (url,'_parent','height=100,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+        } 
+     }
+
+    function typePieConsole(param) {
+        //console.log(param.data.id)
+        if (typeof param.seriesIndex != 'undefined') {
+            if (param.type == 'click') {
+                typePieClick(param)
+            }
+        }
+    }
+
+    type_pie.on("click", typePieConsole);
+    type_pie.on("hover", typePieConsole);
+</script>
+
+{% endblock  %}
+

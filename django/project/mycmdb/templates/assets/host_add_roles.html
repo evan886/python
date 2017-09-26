@@ -1,0 +1,23 @@
+<div class="hr-line-dashed"></div>
+<div class="form-group">
+    <label for="roles" class="col-lg-2 control-label">关联角色</label>
+    <div class="col-sm-3">
+        <select id="roles" size="10" class="form-control m-b" multiple>
+        {% for i in roleList %}
+            <option value="{{ i.id }}">{{ i }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-1">
+        <div class="btn-group" style="margin-top: 50px;">
+            <button type="button" class="btn btn-white" onclick="move_right('roles', 'roles_selected')"><i class="fa fa-chevron-right"></i></button>
+            <button type="button" class="btn btn-white" onclick="move_left('roles_selected', 'roles')"><i class="fa fa-chevron-left"></i> </button>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <select id="roles_selected" name="role_name" class="form-control m-b" size="10"  multiple>
+            </select>
+        </div>
+    </div>
+</div>

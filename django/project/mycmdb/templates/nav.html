@@ -1,0 +1,40 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            {% include 'nav_li_profile.html' %}
+            {% for f in request.session.menuAuth %}
+                {% if f.fields.fatherID == 0 %}
+                <li class="{{ f.fields.htmlClass }}">
+                    <a href="{{f.fields.url}}"><i class="fa {{f.fields.icon}}"></i> <span class="nav-label">{{f.fields.name}}</span><span class="fa arrow"></span></a>
+                    {% for s in request.session.menuAuth %}
+                        {% if s.fields.fatherID == f.pk %}
+                            <ul class="nav nav-second-level">
+                                <li class="{{s.fields.htmlClass}}"><a href="{{s.fields.url}}">{{s.fields.name}}</a></li>
+                </ul>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+<!-- 右侧菜单栏控制 -->
+<script type="text/javascript">
+    var str = document.location.pathname.split("/")[1];
+    var two = document.location.pathname.split("/")[2];
+    if (str == "" && two == undefined){
+        $(".dashboard").addClass('active');
+    }
+    else {
+        try {
+            console.log(str)
+            console.log(two)
+             $("." + str).addClass('active');
+             $("." + two).addClass('active');
+        }
+        catch(err) {
+
+            }
+    }
+</script>

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+
+<style type="text/css">
+    #login_box{
+      top:60%;
+    }
+</style>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>运维自动化 | Login</title>
+
+    {% include 'link_css.html' %}
+    {% include 'script.html' %}
+
+</head>
+
+<body class="gray-bg">
+        <div class="middle-box text-center loginscreen  animated fadeInDown" id = "login_box">
+            <div>
+                <div>
+                    <div class="col-md-12 column">
+                        <img  src="/static/img/logo1.png" width="114" height="114" class="img-circle" />
+                    </div>
+
+                </div>
+                <div class="col-md-12 column">
+                    <h3>欢迎使用运维自动化管理系统</h3>
+                    <form class="m-t" role="form" method="post" action="">
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="用户名" id="id_username" name='username' required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="id_password" name="password"  placeholder="密码" required="">
+                        </div>
+                        <button type="submit" class="btn btn-primary block full-width m-b">登陆</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        <a href="/accounts/resetpass/"><small>忘记密码？</small></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

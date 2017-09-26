@@ -430,8 +430,63 @@ In [5]: funx(8)(5)
 Out[5]: 40
 
 
+def Fun1():
+    x = 5
+    def Fun2():
+        x *= x
+        return x
+    return Fun2()
+print Fun1()
+'''
+Traceback (most recent call last):
+  File "fun1.py", line 7, in <module>
+    print Fun1()
+  File "fun1.py", line 6, in Fun1
+    return Fun2()
+  File "fun1.py", line 4, in Fun2
+    x *= x
+UnboundLocalError: local variable 'x' referenced before assignment
 
-12:00
+'''
+
+
+
+#在2中的解决办法 通过容器来解决 ，不会屏蔽掉原来的变量  例如如下 列表不是存放在 栈里面
+def Fun1():
+    x = [5]
+    def Fun2():
+        x[0] *= x[0]
+        return x[0]
+    return Fun2()
+print print Fun1()
+
+'''
+25
+'''
+
+nonlocal  py3 中的实现方式 
+
+
+==21函数：lambda表达式==
+
+In [1]: def ds(x):
+   ...:     return 2 * x +1
+   ...: 
+
+In [2]: ds(5)
+Out[2]: 11
+
+In [3]: lambda x : 2 * x + 1
+Out[3]: <function __main__.<lambda>>
+
+In [4]: g= lambda x : 2 * x + 1
+
+In [5]: g(5)
+Out[5]: 11
+
+
+
+02:00
 
 
 

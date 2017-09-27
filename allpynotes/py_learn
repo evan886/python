@@ -485,10 +485,68 @@ In [5]: g(5)
 Out[5]: 11
 
 
+In [1]: def add(x,y):
+   ...:     return x + y
+   ...: 
+
+In [2]: add(3,4)
+Out[2]: 7
+
+In [3]: lambda x , y : x + y 
+Out[3]: <function __main__.<lambda>>
+
+In [4]: g = lambda x , y : x + y 
+
+In [5]: g(3,4)
+Out[5]: 7
+
+
+BIF
+
+filter 
+help()
+
+In [7]: filter(None,[1,0,False, True])
+Out[7]: [1, True]
+默认非True 的 去掉
+
+
+In [8]: def odd(x):
+   ...:     return x % 2
+   ...: 
+
+In [9]: tmp = range(10)
+In [11]: show = filter(odd,tmp)
+
+In [12]: list(show)
+Out[12]: [1, 3, 5, 7, 9]
+
+use filter to  实现 简洁 
+
+In [13]: list(filter(lambda x : x % 2, range(10)))
+Out[13]: [1, 3, 5, 7, 9]
 
 
 
-03:00
+map() 映射 
+
+In [14]: list(map(lambda x : x * 2, range(10)))
+Out[14]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+==22 函数：递归是神马 ==
+
+01:00
+
+
+
+
+
+
+
+
+
+
+06:00
 
 
 

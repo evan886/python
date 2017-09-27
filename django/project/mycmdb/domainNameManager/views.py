@@ -16,6 +16,8 @@ from django.contrib.auth.decorators import login_required
 from models import domainName
 from forms import domainForm
 
+import os
+
 
 from lib.lib import pages
 
@@ -74,7 +76,9 @@ def domainName_add(request):
     if request.method == 'POST':
         emg = ''
         smg = ''
+
         post = request.POST
+
         df = domainForm(post)
         DName = post.get('name')
         if domainName.objects.filter(name=DName, availabity=1):
@@ -82,10 +86,33 @@ def domainName_add(request):
         if df.is_valid():
             df.save()
             smg = u'域名%s添加成功!' % DName
-            if not updateInfo(DName):
-                emg = u'获取信息失败!'
+            #if not updateInfo(DName):
+            #    emg = u'获取信息失败!'
         return HttpResponse(json.dumps({'emg':emg, 'smg':smg}))
     return render_to_response('domainNameManger/domainName_add.html', locals(), context_instance=RequestContext(request))
+
+'''
+"""asset 操作"""
+@login_required
+def asset_add(request):
+    """ 添加主机 """
+    listOrAddTag = ['asset','assets', 'assetAdd']
+    af = assetForm()
+    projectList = app.objects.filter(availabity=1)
+    #roleList = appRole.objects.filter(availabity=1)
+    configList = config.objects.filter(availabity=1)
+
+    if request.method == 'POST':
+        af = assetForm(request.POST)
+        ip = request.POST.get('ip')
+        if asset.objects.filter(ip=ip, availabity=1):
+            emg = u'添加失败, 该IP %s 已存在!' % ip
+        elif af.is_valid():
+            af.save()
+            smg = u'主机%s添加成功!' % ip
+        return render_to_response('assets/host_add.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('assets/host_add.html', locals(), context_instance=RequestContext(request))
+'''
 
 
 @login_required

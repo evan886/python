@@ -26,7 +26,8 @@ class dataCenter(models.Model):
 class asset(models.Model):
     group = models.ForeignKey(dataCenter, verbose_name=u'所属数据中心')
     server_type = models.CharField(max_length=30, choices=ASSET_TYPE, verbose_name=u'设备类型')
-    ip = models.CharField(max_length=32, verbose_name=u'管理IP')
+    ip = models.CharField(max_length=32, verbose_name=u'公网IP')
+    #ip = models.CharField(max_length=32, verbose_name=u'管理IP')
     intraip = models.CharField(max_length=32, verbose_name=u'内网IP')
     other_ip = models.CharField(max_length=255, blank=True, null=True, verbose_name=u'其他IP')
     port = models.IntegerField(default=22, verbose_name=u'端口号')

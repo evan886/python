@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
+<!-- eric6 tasks file for project mycmdb -->
+<!-- Saved: 2017-09-28, 14:57:20 -->
+<Tasks version="6.0">
+  <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="2" uid="{6cb06d8b-f49e-4a16-8006-1469b10e8e7d}">
+    <Summary>WARNING: keep the secret key used in production secret!</Summary>
+    <Description></Description>
+    <Created>2017-09-28, 14:50:16</Created>
+    <Resource>
+      <Filename>ht_cmdb/settings.py</Filename>
+      <Linenumber>31</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="2" uid="{e5871bf1-66e6-42c8-a621-2772c64d6e0b}">
+    <Summary>WARNING: don't run with debug turned on in production!</Summary>
+    <Description></Description>
+    <Created>2017-09-28, 14:50:16</Created>
+    <Resource>
+      <Filename>ht_cmdb/settings.py</Filename>
+      <Linenumber>34</Linenumber>
+    </Resource>
+  </Task>
+</Tasks>

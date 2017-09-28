@@ -1,0 +1,108 @@
+{% extends 'default/base.html' %}
+{% load bootstrap %}
+{% block content %}
+<style>
+.voilet-top{margin-top:8px;}
+#websocket_rest{margin-top:12px;}
+#content-block{margin-top:10px;}
+.voilet{margin-left:12px;}
+.voilet-left{margin-left:16px;}
+.voilet a{margin-left:2px;}
+</style>
+
+<div class="splash">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>  
+        <div class="rect3"></div>  
+        <div class="rect4"></div>  
+        <div class="rect5"></div>        
+    </div>
+</div>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>后端更新 | Erlang Update.</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+
+<div id="content-block">
+    <div id="result">
+        <form class="form-inline" id="erlang_form" >
+        {% csrf_token %}
+            <div class="row">
+                <div class="input-group col-lg-12 voilet-left">
+                    <div class="input-group">
+                        <select id="project_name" class="form-control select_business" name="project_name">
+                            <option value="" selected="selected">选择环境</option>
+                            {% for app in appList %}
+                                <option value="{{ app.another_name }}">{{ app.another_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="input-group voilet-left voilet-margin">
+                        <div id="result_Parameters">
+                            <select id="node_name" class="form-control" name="node_name">
+                                <option value="" selected="selected">选择节点</option>
+                            </select>
+                         </div>
+                     </div>
+                    <div class="input-group voilet-left voilet-margin">
+                        <select id="action" class="form-control" name="action">
+                            <option value="" selected="selected">请选择操作</option>
+                            <option value="update">重启更新</option>
+                            <option value="hotup">热更新</option>
+                            <option value="restart">重启</option>
+                            <option value="start">启动</option>
+                            <option value="stop">停止</option>
+                        </select>
+                     </div>
+                    <div class="input-group voilet">
+                        <span class="input-group-btn">
+                           <a class="btn btn-primary update_push monitor" href="#" onclick="return false">发布</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="row">
+            <div class="col-lg-12" id="return_result">
+            </div>
+        </div>
+      </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#project_name").change(function(){
+            $("#node_name option:gt(1)").remove();
+            var url = "/auto/getNode/"
+            var appAnotherName = $(this).val();
+            var args = {"anotherName":appAnotherName,"time":new Date()};
+            $.getJSON(url, args, function(data){
+                for (i in data) {
+                    $("#node_name").append("<option value =" + data[i] + ">" + data[i] + "</option>")
+                }
+            });
+        });
+        $(".update_push").bind('click',function(){
+            var project_name = $("#project_name").val();
+            var node_name = $("#node_name").val();
+            var action = $("#action").val();
+            var args = {"project_name":project_name,"node_name":node_name,"action":action,"csrfmiddlewaretoken":"{{ request.COOKIES.csrftoken }}"}
+            $(".splash").show();
+            $.post("",args,function(data){
+                //console.log(data)
+                //$("#return_result").html("<div class=\"alert alert-dismissable alert-danger\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button><strong>Warning! </strong>" + data + "</div>");
+
+                $("#return_result").html("<textarea class=\"form-control\" cols=\"100\" rows=\"30\">" + data + "</textarea>");
+                $(".splash").fadeOut(300);
+            },"json");
+        });
+    });
+</script>
+{% endblock %}

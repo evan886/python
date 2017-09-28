@@ -1,0 +1,114 @@
+{% extends 'default/base.html' %}
+{% block content %}
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="text text-primary"><b>{{ host.ip }}</b></span>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content ibox-heading">
+                    <h3>主机基本信息</h3>
+                    <small><i class="fa fa-map-marker"></i> 此主机基本信息.</small>
+                </div>
+                <div class="ibox-content">
+                    <div>
+                        <div class="text-left">
+                            <table class="table">
+                                <tr>
+                                    <td class="text-navy">所属数据中心</td>
+                                    <td>{{ host.group }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">机器类型</td>
+                                    <td>{{ host.get_server_type_display }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">IP</td>
+                                    <td>{{ host.ip }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">内网IP</td>
+                                    <td>{{ host.intraip }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">其他IP</td>
+                                    <td>{{ host.other_ip }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">端口</td>
+                                    <td>{{ host.port}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">配置文件</td>
+                                    <td>
+                                         <table class="table">
+                                             {% for c in host.config.all %}
+                                                <tr>
+                                                    <td>{{ c.config_name }}</td>
+                                                </tr>
+                                             {% endfor %}
+                                         </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">所属应用</td>
+                                    <td>
+                                         <table class="table">
+                                             {% for s in host.app_name.all %}
+                                                <tr>
+                                                    <td>{{ s.name }}</td>
+                                                </tr>
+                                             {% endfor %}
+                                         </table>
+                                    </td>
+                                </tr>
+                               <tr>
+                                    <td class="text-navy">角色</td>
+                                    <td>
+                                         <table class="table">
+                                             {% for s in host.role_name.all %}
+                                                <tr>
+                                                    <td>{{ s }}</td>
+                                                </tr>
+                                             {% endfor %}
+                                         </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">是否备份</td>
+                                    <td>{{ host.is_backup}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">是否监控</td>
+                                    <td>{{ host.is_monitoring }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-navy">备注</td>
+                                    <td>{{ host.editor }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-5">
+                        <a href="/assets/host_edit/?id={{ host.id }}" class="btn btn-primary"> 修改 </a>
+                        <a href="/assets/assetList" class="btn btn-white"> 返回 </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

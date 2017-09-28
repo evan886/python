@@ -1,0 +1,94 @@
+{% include 'link_css.html' %}
+{% include 'script.html' %}
+{% block content %}
+{% load bootstrap %}
+<style>
+.voilet_backgroup{background: #FFFFFF}
+</style>
+<div class="voilet_backgroup">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <form class="form-horizontal" id="auth_group_from" method="post"  role="form">{% csrf_token %}
+                    {% if m == 'myUser' %}
+                    <div class="form-group"><label class="col-sm-2 control-label"> 用户 </label>
+                        <div class="col-sm-8"><li class="form-control" >{{ obj.first_name }} </li></div>
+                    {%else%}
+                    <div class="form-group"><label class="col-sm-2 control-label"> 部门 </label>
+                        <div class="col-sm-8"><li class="form-control" >{{ obj.departmentName }} </li></div>
+                    {% endif %}
+                        <div class="col-sm-8" hidden="hidden"><input type="text" class="form-control" readonly="readonly"></div>
+                    </div>
+                    {% for f in menuInfo %}
+                        {% if f.fatherID == 0 %}
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group"><label class="col-sm-2 control-label">{{ f.name }} </label>
+                                <div class="col-sm-3">
+                                    {% for s in menuInfo %}
+                                        {% if s.fatherID == f.id %}
+                                            <div class=" col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        {% if s in obj.auth.all %}
+                                                            <input id="id_delete_host" name="{{ f.id }}" type="checkbox" checked="checked" value="{{ s.id }}" > <span>{{ s.name }}</span>
+                                                        {% else %}
+                                                            <input id="id_delete_host" name="{{ f.id }}" type="checkbox" value="{{ s.id }}" > <span>{{ s.name }}</span>
+                                                        {%endif%}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            {% for ss in menuInfo %}
+                                                {% if ss.fatherID == s.id %}
+                                                    <div class=" col-sm-offset-2 col-sm-10 col-lg-offset-2 col-lg-10">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                {% if ss in obj.auth.all %}
+                                                                    <input id="id_delete_host" name="{{ f.id }}" type="checkbox" checked="checked" value="{{ ss.id }}" > <span>{{ ss.name }}</span>
+                                                                {% else %}
+                                                                    <input id="id_delete_host" name="{{ f.id }}" type="checkbox" value="{{ ss.id }}" > <span>{{ ss.name }}</span>
+                                                                {%endif%}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                {%endif%}
+                                            {%endfor%}
+                                        {% endif %}
+                                    {%endfor%}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="hr-line-dashed"></div>
+
+
+                    <div class="form-group">
+                       <div class="col-sm-4 col-sm-offset-5">
+                           <!--<button class="btn btn-white" type="submit"> 重置 </button>-->
+                           <a class="btn btn-primary" href="/accounts/auth/?id={{ obj.id }}&m={{ m }}" onclick="return false" > 提交 </a>
+                       </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+          $('.btn-primary').click(function(){
+            jQuery.ajax({
+              url: $(this).attr('href'),                  // 提交的页面
+              data: $('#auth_group_from').serialize(), // 从表单中获取数据
+              type: "POST",                       // 设置请求类型为"POST"，默认为"GET"
+              dataType:'text',
+              success: function(msg){
+                  var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+                              parent.layer.close(index); //执行关闭
+              }
+            });
+          });
+          return false;
+    });
+ </script>
+{% endblock content %}

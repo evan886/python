@@ -1,0 +1,78 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            {% include 'nav_li_profile.html' %}
+            <li class="dashboard">
+                <a href="/dashboard/index/"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">仪表盘</span></a>
+            </li>
+            <li class="assets">
+                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">资产管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="assetList assetAdd"><a href="/assets/assetList/">设备管理 </a></li>
+                    <li class="idcList idcAdd"><a href="/assets/idcList/">数据中心管理 </a></li>
+                </ul>
+            </li>
+            <li class="app">
+                <a href="#"><i class="fa fa-money"></i> <span class="nav-label">应用管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="appList appAdd"><a href="/app/appList/">应用列表</a></li>
+                    <li class="roleList roleAdd"><a href="/app/roleList/">应用角色</a></li>
+                </ul>
+            </li>
+            <li class="auto">
+                <a href="#"><i class="fa fa-wheelchair"></i> <span class="nav-label">自动化管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="auto_erlang"><a href="/auto/erlang/">后端更新</a></li>
+                </ul>
+            </li>
+            <li class="domainNameManager">
+                <a href="#"><i class="fa fa-font"></i> <span class="nav-label">域名管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="domainNameList domainNameAdd"><a href="/domainNameManager/domainNameList/">域名列表</a></li>
+                </ul>
+            </li>
+            <li class="configManager">
+                <a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">配置管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="configList configAdd"><a href="/configManager/configList/">配置列表</a></li>
+                </ul>
+            </li>
+            <li class="accounts departmentList departmentAdd userList userAdd">
+                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">用户管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="departmentList departmentAdd"><a href="/accounts/departmentList/">部门列表</a></li>
+                    <li class="userList userAdd"><a href="/accounts/userList/">用户列表</a></li>
+                </ul>
+            </li>
+            <li class="auth">
+                <a href="#"><i class="fa fa-ban"></i> <span class="nav-label">权限管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="menuAdminList menuAdminAdd"><a href="/auth/menuAdminList/">菜单列表</a></li>
+                </ul>
+            </li>
+            <li class="alarm alarmList alarmAdd">
+                <a href="#"><i class="fa fa-bullhorn"></i> <span class="nav-label">告警管理</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li class="alarmList alarmAdd"><a href="/alarm/alarmList/">规则列表</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- 右侧菜单栏控制 -->
+<script type="text/javascript">
+    var str = document.location.pathname.split("/")[1];
+    var two = document.location.pathname.split("/")[2];
+    if (str == "" && two == undefined){
+        $(".dashboard").addClass('active');
+    }
+    else {
+        try {
+             $("." + str).addClass('active');
+             $("." + two).addClass('active');
+        }
+        catch(err) {
+
+            }
+    }
+</script>

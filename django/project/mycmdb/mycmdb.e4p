@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project mycmdb -->
+<!-- Saved: 2017-09-28, 10:39:44 -->
+<!-- Copyright (C) 2017 evan, evan886@gmail.com -->
+<Project version="5.1">
+  <Language>en_US</Language>
+  <Hash>59ac7353f43c14b994cc8919bfa6895a797b9be1</Hash>
+  <ProgLanguage mixed="0">Python2</ProgLanguage>
+  <ProjectType>PyQt5</ProjectType>
+  <Description>linuxsa.org</Description>
+  <Version>0.1</Version>
+  <Author>evan</Author>
+  <Email>evan886@gmail.com</Email>
+  <Eol index="0"/>
+  <Sources>
+    <Source>__init__.py</Source>
+    <Source>accounts/__init__.py</Source>
+    <Source>accounts/admin.py</Source>
+    <Source>accounts/forms.py</Source>
+    <Source>accounts/migrations/0001_initial.py</Source>
+    <Source>accounts/migrations/__init__.py</Source>
+    <Source>accounts/models.py</Source>
+    <Source>accounts/tests.py</Source>
+    <Source>accounts/urls.py</Source>
+    <Source>accounts/views.py</Source>
+    <Source>alarm/__init__.py</Source>
+    <Source>alarm/admin.py</Source>
+    <Source>alarm/api.py</Source>
+    <Source>alarm/forms.py</Source>
+    <Source>alarm/models.py</Source>
+    <Source>alarm/tests.py</Source>
+    <Source>alarm/urls.py</Source>
+    <Source>alarm/views.py</Source>
+    <Source>assets/__init__.py</Source>
+    <Source>assets/admin.py</Source>
+    <Source>assets/forms.py</Source>
+    <Source>assets/migrations/0001_initial.py</Source>
+    <Source>assets/migrations/0002_auto_20170926_1502.py</Source>
+    <Source>assets/migrations/__init__.py</Source>
+    <Source>assets/models.py</Source>
+    <Source>assets/tests.py</Source>
+    <Source>assets/urls.py</Source>
+    <Source>assets/views.py</Source>
+    <Source>configManager/__init__.py</Source>
+    <Source>configManager/admin.py</Source>
+    <Source>configManager/forms.py</Source>
+    <Source>configManager/migrations/0001_initial.py</Source>
+    <Source>configManager/migrations/__init__.py</Source>
+    <Source>configManager/models.py</Source>
+    <Source>configManager/tests.py</Source>
+    <Source>configManager/urls.py</Source>
+    <Source>configManager/views.py</Source>
+    <Source>dashboard/__init__.py</Source>
+    <Source>dashboard/admin.py</Source>
+    <Source>dashboard/models.py</Source>
+    <Source>dashboard/tests.py</Source>
+    <Source>dashboard/views.py</Source>
+    <Source>domainNameManager/__init__.py</Source>
+    <Source>domainNameManager/admin.py</Source>
+    <Source>domainNameManager/forms.py</Source>
+    <Source>domainNameManager/migrations/0001_initial.py</Source>
+    <Source>domainNameManager/migrations/__init__.py</Source>
+    <Source>domainNameManager/models.py</Source>
+    <Source>domainNameManager/tests.py</Source>
+    <Source>domainNameManager/urls.py</Source>
+    <Source>domainNameManager/views.py</Source>
+    <Source>ht_cmdb/__init__.py</Source>
+    <Source>ht_cmdb/settings.py</Source>
+    <Source>ht_cmdb/urls.py</Source>
+    <Source>ht_cmdb/wsgi.py</Source>
+    <Source>lib/__init__.py</Source>
+    <Source>lib/check_domainName.py</Source>
+    <Source>lib/export_excel.py</Source>
+    <Source>lib/lib.py</Source>
+    <Source>lib/send.py</Source>
+    <Source>lib/templatetags/__init__.py</Source>
+    <Source>lib/templatetags/business_tag.py</Source>
+    <Source>manage.py</Source>
+    <Source>menuAuth/__init__.py</Source>
+    <Source>menuAuth/admin.py</Source>
+    <Source>menuAuth/forms.py</Source>
+    <Source>menuAuth/migrations/0001_initial.py</Source>
+    <Source>menuAuth/migrations/__init__.py</Source>
+    <Source>menuAuth/models.py</Source>
+    <Source>menuAuth/tests.py</Source>
+    <Source>menuAuth/urls.py</Source>
+    <Source>menuAuth/views.py</Source>
+    <Source>project/__init__.py</Source>
+    <Source>project/admin.py</Source>
+    <Source>project/forms.py</Source>
+    <Source>project/migrations/0001_initial.py</Source>
+    <Source>project/migrations/__init__.py</Source>
+    <Source>project/models.py</Source>
+    <Source>project/tests.py</Source>
+    <Source>project/urls.py</Source>
+    <Source>project/views.py</Source>
+  </Sources>
+  <Forms/>
+  <Translations/>
+  <Resources/>
+  <Interfaces/>
+  <Others>
+    <Other>README.md</Other>
+    <Other>loginsn.txt</Other>
+    <Other>requirements.txt</Other>
+  </Others>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.e4p" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.md" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py2" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw2" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.rst" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.txt" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+    <FiletypeAssociation pattern="README" type="OTHERS"/>
+    <FiletypeAssociation pattern="README.*" type="OTHERS"/>
+  </FiletypeAssociations>
+</Project>

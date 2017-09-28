@@ -1,7 +1,7 @@
 {% extends 'default/base.html' %}
 {% load bootstrap %}
 {% block content %}
-<!-- 现在是可以 添加域名和删除  但是添加成功的返回信息不友好，是一对 json  -->
+<!-- 打字  现在是可以 添加域名和删除  但是添加成功的返回信息不友好，是一对 json   -->
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <h2>添加域名 | Add Domain Name.</h2>
@@ -49,21 +49,7 @@
 
                     {{ df.name|bootstrap_horizontal }}
 
-                    <div class="hr-line-dashed"></div>
-                    {{df.nameDistributor|bootstrap_horizontal }} <!-- nameDistributor 为models.py 的字段哦  -->
 
-                    <div class="hr-line-dashed"></div>
-                    {{df.exptresDate|bootstrap_horizontal }}
-
-                    <div class="hr-line-dashed"></div>
-                    {{df.user|bootstrap_horizontal }}
-
-
-                    <div class="hr-line-dashed"></div>
-                    {{df.email|bootstrap_horizontal }}
-
-                    <div class="hr-line-dashed"></div>
-                    {{df.organization|bootstrap_horizontal }}
 
 
 
@@ -71,7 +57,8 @@
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-5">
                            <button class="btn btn-white" type="reset"> 重置 </button>
-                           <button id="bu" class="btn btn-primary" type="submit"> 提交 </button>
+                          <!--  <input  type="button" id="bu" class="btn btn-primary" > 提交 -->
+                          <button id="bu" class="btn btn-primary" type="submit"> 提交 </button>
 
                         </div>
                     </div>

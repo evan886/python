@@ -1,0 +1,20 @@
+api示例
+#coding: utf-8
+import json
+import urllib2
+
+def alarmApi():
+    user = ''
+    key = ''
+    post_url = 'http://192.168.40.181:9001/api/v1/alarmSend/?username=%s&api_key=%s' % (user,key)
+    headers = {'content-type': 'application/json'}
+
+    post_data = {'level':1, 'group':'0001', 'message':'爆炸啦！！！！'}
+    r = urllib2.Request(post_url, headers=headers, data=json.dumps(post_data))
+    a = urllib2.urlopen(r).read()
+    a = re.sub('"','',a)
+    print a
+
+
+if __name__ == '__main__':
+    alarmApi()

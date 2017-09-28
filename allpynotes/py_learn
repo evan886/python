@@ -582,26 +582,30 @@ In [5]: for i in range(1,4):
 
 递归版本
 
+#!/usr/bin/python
+#-*-coding:utf-8 -*-
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return  n * factorial(n-1)
+
+number = int(input('please:'))
+result = factorial(number)
+print("%d 的阶乘是: %d" %(number,result))
+
+
+==23 递归：这帮小兔崽子 ==
+
+01：00
+
+
+
+终于在上节喜欢上了递归
 
 
 
 
-
-
-
-
-16:00
-
-
-
-
-
-
-
-
-
-
-06:00
 
 
 

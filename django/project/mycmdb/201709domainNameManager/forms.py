@@ -5,4 +5,5 @@ from domainNameManager.models import domainName
 class domainForm(forms.ModelForm):
     class Meta:
         model = domainName
-        fields = ('name',)
+        #fields = ('name', 'nameDistributor','exptresDate','user','email','organization','availabity',)
+        fields = ('name', 'availabity',)

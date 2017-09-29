@@ -520,6 +520,9 @@ wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目
 == note from 自强学堂 start ==
 
 ==Django 简介==
+除了 urls.py 和settings.py 其实都是属于各自app的配置
+
+
 http://www.ziqiangxuetang.com/django/django-intro.html
 
 urls.py
@@ -544,10 +547,35 @@ settings.py
 Django 的设置，配置文件，比如 DEBUG 的开关，静态文件的位置等。
 
 
+==Django 基本命令==
+
+
+清空数据库
+ python manage.py flush
+
+
+Django 项目环境终端
+ python manage.py shell
+
+数据库命令行
+ python manage.py dbshell
+
+help
+python manage.py
+
+
+
+
 
 on the zqxt_views dir
 
 
+
+
+
+==Django 视图与网址==
+
+20190929pm
 
 注意 很多时候有中文的要注意哦
 
@@ -555,7 +583,13 @@ Non-ASCII character '\xe6' in file
 
 解决办法   #-*- coding:utf-8 -*-
 
-Django 视图与网址进阶
+
+
+
+==Django 视图与网址进阶==
+
+20170929pm
+
 
 #再生成 一个项目
 django-admin.py startproject zqxt_views
@@ -563,9 +597,25 @@ cd zqxt_views
 python manage.py startapp calc
 
 
+注：request.GET 类似于一个字典，更好的办法是用 request.GET.get('a', 0) 当没有传递 a 的时候默认 a 为 0
 
 
-Django URL name详解
+http://192.168.10.225/add/?a=4&b=5
+
+2. 采用 /add/3/4/ 这样的网址的方式
+
+
+#突然不太明白这个了  特别是name  是views 中的 function 各么  为什么 有些地方不用呢 
+urlpatterns = [
+    url(r'^add/$',calc_views.add, name='add'),
+    url(r'^add/(\d+)/(\d+)/$', calc_views.add2, name='add2'),
+    url(r'^admin/', admin.site.urls),
+]
+
+http://192.168.10.225/add/4/5/
+
+
+==Django URL name详解==
 http://www.ziqiangxuetang.com/django/django-url-name.html
 
 

@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/bak/hcmdb" afterPath="$PROJECT_DIR$/django/project/mycmdb/bak/hcmdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mysite/db.sqlite3" afterPath="$PROJECT_DIR$/django/project/mysite/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allpynotes/py_learn" afterPath="$PROJECT_DIR$/allpynotes/py_learn" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/django-note" afterPath="$PROJECT_DIR$/django/django-note" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mysite/mysite/settings.py" afterPath="$PROJECT_DIR$/django/project/mysite/mysite/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mysite/mysite/urls.py" afterPath="$PROJECT_DIR$/django/project/mysite/mysite/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/.spyproject/workspace.ini" afterPath="$PROJECT_DIR$/django/project/mycmdb/.spyproject/workspace.ini" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="py_learn" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/allpynotes/py_learn">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="610" column="0" lean-forward="false" selection-start-line="610" selection-start-column="0" selection-end-line="610" selection-end-column="0" />
+            <state relative-caret-position="470">
+              <caret line="603" column="0" lean-forward="true" selection-start-line="603" selection-start-column="0" selection-end-line="603" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -64,8 +63,8 @@
       <file leaf-file-name="django-note" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/django/django-note">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="607" column="56" lean-forward="false" selection-start-line="607" selection-start-column="56" selection-end-line="607" selection-end-column="56" />
+            <state relative-caret-position="353">
+              <caret line="607" column="55" lean-forward="false" selection-start-line="607" selection-start-column="55" selection-end-line="607" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -175,20 +174,19 @@
         <option value="$PROJECT_DIR$/django/project/mycmdb/templates/domainNameManger/domainName_add.html" />
         <option value="$PROJECT_DIR$/django/project/mycmdb/ht_cmdb/settings.py" />
         <option value="$PROJECT_DIR$/allpynotes/eg/factorial-0.py" />
-        <option value="$PROJECT_DIR$/allpynotes/py_learn" />
         <option value="$PROJECT_DIR$/django/project/mysite/mysite/settings.py" />
         <option value="$PROJECT_DIR$/django/project/mysite/learn/views.py" />
         <option value="$PROJECT_DIR$/django/project/mysite/mysite/urls.py" />
         <option value="$PROJECT_DIR$/django/project/zqxt_views/calc/views.py" />
         <option value="$PROJECT_DIR$/django/project/zqxt_views/zqxt_views/urls.py" />
         <option value="$PROJECT_DIR$/django/django-note" />
+        <option value="$PROJECT_DIR$/allpynotes/py_learn" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="768" />
     <option name="y" value="46" />
-    <option name="width" value="1152" />
+    <option name="width" value="1920" />
     <option name="height" value="1034" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -565,10 +563,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="768" y="46" width="1152" height="1034" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="46" width="1920" height="1034" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20343581" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.120064035" sideWeight="0.49527186" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09573361" sideWeight="0.5020855" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.75490195" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1034,7 +1031,7 @@
         <state relative-caret-position="119">
           <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1044,16 +1041,8 @@
         <state relative-caret-position="102">
           <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
           <folding>
-            <element signature="e#24#63#0" expanded="true" />
+            <element signature="e#24#63#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/allpynotes/py_learn">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="610" column="0" lean-forward="false" selection-start-line="610" selection-start-column="0" selection-end-line="610" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,10 +1066,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/allpynotes/py_learn">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="603" column="0" lean-forward="true" selection-start-line="603" selection-start-column="0" selection-end-line="603" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/django/django-note">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="607" column="56" lean-forward="false" selection-start-line="607" selection-start-column="56" selection-end-line="607" selection-end-column="56" />
+        <state relative-caret-position="353">
+          <caret line="607" column="55" lean-forward="false" selection-start-line="607" selection-start-column="55" selection-end-line="607" selection-end-column="55" />
           <folding />
         </state>
       </provider>

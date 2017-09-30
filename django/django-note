@@ -605,7 +605,7 @@ http://192.168.10.225/add/?a=4&b=5
 2. 采用 /add/3/4/ 这样的网址的方式
 
 
-#突然不太明白这个了  特别是name  是views 中的 function 各么  为什么 有些地方不用呢 
+#突然不太明白这个了  特别是name  是views 中的 function 各么  为什么 有些地方不用呢
 urlpatterns = [
     url(r'^add/$',calc_views.add, name='add'),
     url(r'^add/(\d+)/(\d+)/$', calc_views.add2, name='add2'),

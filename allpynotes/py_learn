@@ -595,6 +595,9 @@ result = factorial(number)
 print("%d 的阶乘是: %d" %(number,result))
 
 
+
+[https://www.zhihu.com/question/22545138 请教python递归求阶乘的问题？]
+
 ==23 递归：这帮小兔崽子 ==
 
 01：00

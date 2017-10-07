@@ -1,3 +1,10 @@
+安装
+
+sudo pip install django-bootstrap3  django-bootstrap-form django-tastypie
+
+
+
+
 #HCMDB
 ### 目前拥有功能有：
 ####资产管理
@@ -22,7 +29,7 @@
 ##初始化
 ###初始数据库
 ####创建数据库(进入数据库操作)
-    * create database hcmdb;
+    * create database hcmdb CHARACTER SET utf8;
     * grant all on hcmdb.* to HCmdbAdmin@'localhost' identified by 'nDrDyXd#dnoMqH2'; (根据settings.py中设定修改)
 ####初始化数据表
     * python2.7 manage.py makemigrations
@@ -31,9 +38,17 @@
 ####初始化数据
     * mysql -uHCmdbAdmin -p hcmdb < init.sql
 
-##运行
+##运行 为什么 有一次用 80 和sudo 不行呢 
    * python2.7 manage.py runserver 0.0.0.0:9003
 
 ##登陆
    * 用户名: cmdbAdmin
 	 密码: cmdbAdmin
+
+#err
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+django.db.utils.OperationalError: (1005, 'Can\'t create table `hcmdb`.`#sql-19cb_39` (errno: 150 "Foreign key constraint is incorrectly formed")')
+
+
+用了 9003  可以打开登录界面 但是其实登录不了的

@@ -99,14 +99,25 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hcmdb',
+        'USER': 'root', 
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hcmdb',
         'USER': 'HCmdbAdmin', 
         'PASSWORD': 'nDrDyXd#dnoMqH2',
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
-
-
+"""
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 

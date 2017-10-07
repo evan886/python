@@ -684,8 +684,45 @@ if result != -1:
 
 ==26 字典：当索引不好用时2==
 
+essential-hp1 python_ide rosnote
 
-11：00
+工厂函数 ？ 是一个类型 会产生一个实例？
+
+copy    而= 是同一个ID的
+
+pop 
+popitem 
+update 
+
+fromkeys 
+
+
+==27 集合(set)：在我的世界里，你就是唯一 ==
+
+set function 
+
+去重
+num1=[1,2,2,4,5,5,7]
+temp=[]
+for  each in num1:
+    if each not in temp:
+        temp.append(each)
+
+
+
+07：00
+
+
+任天堂 SWITCH 游戏机 
+
+
+[http://www.cnblogs.com/louwqtc/p/fibonacci.html c语言求解斐波那契数列的第n项]
+
+[http://www.jianshu.com/p/fd4a3348ea8c python中的迭代器（以斐波那契数列为主讲解）1]
+
+
+
+[http://study.163.com/course/courseMain.htm?courseId=1003907006 2017最新版Python零基础入门]
 
 去潮州的人多不  回来时怎么办 
 

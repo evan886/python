@@ -1,7 +1,16 @@
-安装
 
-sudo pip install django-bootstrap3  django-bootstrap-form django-tastypie
+http://192.168.30.56
+use dkm
+password dkm123456
 
+
+
+注意  
+sudo python manage.py  runserver 0.0.0.0:80 运行 可能会 
+AttributeError at /
+class Meta has no attribute 'object_class'
+
+怎么样才能搞成可以用 80端口的呢  
 
 
 
@@ -35,20 +44,20 @@ sudo pip install django-bootstrap3  django-bootstrap-form django-tastypie
     * python2.7 manage.py makemigrations
     * python2.7 manage.py migrate
 
-####初始化数据
+####初始化数据  我一般 是导入为自己的 hcmdb201780926.sql 
     * mysql -uHCmdbAdmin -p hcmdb < init.sql
 
 ##运行 为什么 有一次用 80 和sudo 不行呢 
-   * python2.7 manage.py runserver 0.0.0.0:9003
+   * python2.7 manage.py runserver 0.0.0.0:8888
 
 ##登陆
    * 用户名: cmdbAdmin
 	 密码: cmdbAdmin
 
-#err
+#err 395292
+
   File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
     raise errorvalue
 django.db.utils.OperationalError: (1005, 'Can\'t create table `hcmdb`.`#sql-19cb_39` (errno: 150 "Foreign key constraint is incorrectly formed")')
 
 
-用了 9003  可以打开登录界面 但是其实登录不了的

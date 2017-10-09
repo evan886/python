@@ -21,4 +21,3 @@ class domainName(models.Model):
     class Meta:
         db_table = 'domainName'
         unique_together = (('name', 'availabity'),)
-        #unique_together = (('name', 'nameDistributor ', 'exptresDate', 'user', 'email', 'organization',   'availabity'),)

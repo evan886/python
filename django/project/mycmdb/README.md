@@ -32,6 +32,37 @@ class Meta has no attribute 'object_class'
     * 接口使用请看alarm/readme
 
 ##安装环境
+
+
+
+
+
+
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+
+yum install  python-devel
+
+
+ImportError No module named MySQLdb解决方法
+pip install mysql-python
+
+[root@localhost hcmdb]# pip install MySQL-python
+Collecting MySQL-python
+  Using cached MySQL-python-1.2.5.zip
+    Complete output from command python setup.py egg_info:
+    sh: mysql_config: 未找到命令
+
+source  /etc/profile #就可以了 哈哈
+
+
+
+
+
+
+清空数据库
+python manage.py flush
+
 * python2.7
 * pip install -r requirements.txt
 

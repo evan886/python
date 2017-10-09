@@ -49,6 +49,7 @@
 
                    {{ df.name|bootstrap_horizontal }}
 
+
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-5">
@@ -80,7 +81,7 @@
             },"json");
             //倒计时
             var t = $("#bu").text();
-            var s = 60;
+            var s = 3;
             $("#bu").prop("disabled",true).text(s+"s")
             var inID = setInterval(function () {
                 s--;

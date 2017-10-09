@@ -1,0 +1,257 @@
+{% extends 'default/base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>修改主机 | Edit Host.</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> 填写主机详细信息 </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user"></ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal" id="host_edit" method="post" name="horizontal" role="form" autocomplete="off">
+                    {% csrf_token %}
+                   {{ af.group|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{ af.server_type|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{ af.ip|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{ af.intraip|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{ af.other_ip|bootstrap_horizontal }}
+                    <p class="col-sm-offset-2">Tips: 多个IP使用,号隔开</p>
+
+
+                    <div class="hr-line-dashed"></div>
+                    {{ af.port|bootstrap_horizontal }}
+
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label for="apps" class="col-lg-2 control-label">关联应用</label>
+                        <div class="col-sm-3">
+                            <select id="apps" size="10" class="form-control m-b" multiple>
+                            {% for i in projects %}
+                                <option value="{{ i.id }}">{{ i }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="btn-group" style="margin-top: 50px;">
+                                <button type="button" class="btn btn-white" onclick="move_right('apps', 'apps_selected')"><i class="fa fa-chevron-right"></i></button>
+                                <button type="button" class="btn btn-white" onclick="move_left('apps_selected', 'apps')"><i class="fa fa-chevron-left"></i> </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div>
+                                <select id="apps_selected" name="app_name" class="form-control m-b" size="10"  multiple>
+                                    {% for i in hostProjectList %}
+                                        <option selected value="{{ i.id }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="roles" class="col-lg-2 control-label">关联角色</label>
+                        <div class="col-sm-3" id="replace">
+                            <select id="roles" size="10" class="form-control m-b" multiple>
+                            {% for i in roles %}
+                                <option value="{{ i.id }}">{{ i }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="btn-group" style="margin-top: 50px;">
+                                <button type="button" class="btn btn-white" onclick="move_right('roles', 'roles_selected')"><i class="fa fa-chevron-right"></i></button>
+                                <button type="button" class="btn btn-white" onclick="move_left('roles_selected', 'roles')"><i class="fa fa-chevron-left"></i> </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div>
+                                <select id="roles_selected" name="role_name" class="form-control m-b" size="10"  multiple>
+                                    {% for i in hostRoleList %}
+                                        <option selected value="{{ i.id }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label for="config" class="col-lg-2 control-label">配置</label>
+
+                        <div class="col-sm-3">
+                            <select id="config" size="10" class="form-control m-b" multiple>
+                            {% for i in configs %}
+                                    <option value="{{ i.id }}">{{ i }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="btn-group" style="margin-top: 50px;">
+                                <button type="button" class="btn btn-white" onclick="move_right('config', 'config_selected')"><i class="fa fa-chevron-right"></i></button>
+                                <button type="button" class="btn btn-white" onclick="move_left('config_selected', 'config')"><i class="fa fa-chevron-left"></i> </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div>
+                                <select id="config_selected" name="config" class="form-control m-b" size="10"  multiple>
+                                    {% for c in hostConfigList %}
+                                        <option selected value="{{ c.id }}">{{ c }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    {{ af.is_monitoring|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{ af.is_backup|bootstrap_horizontal }}
+                    <div class="hr-line-dashed"></div>
+                    {{ af.editor|bootstrap_horizontal }}
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                       <div class="col-sm-4 col-sm-offset-5">
+                          <button href="/assets/assetList" class="btn btn-white"> 返回 </button>
+                           <button id="postButton" class="btn btn-primary" type="button"> 提交 </button>
+                       </div>
+                   </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.$ && $(function(){
+        $("#postButton").click(function(){
+
+            $("#apps option").each(function(){
+                $(this).removeAttr("selected");
+            });
+            $("#config option").each(function(){
+                $(this).removeAttr("selected");
+            });
+            $("#roles option").each(function(){
+                $(this).removeAttr("selected");
+            });
+            $("#roles_selected option").each(function(){
+                $(this).prop("selected",true);
+            });
+            $("#apps_selected option").each(function(){
+                $(this).prop("selected",true);
+            });
+            $("#config_selected option").each(function(){
+                $(this).prop("selected",true);
+            });
+            $("#host_edit").submit();
+        });
+    //验证初始化
+        $('#host_edit').validator({
+            //stopOnError:true,
+            //timely: 2,
+            theme: "yellow_right_effect",
+            showOk: "",
+            //自定义规则（PS：建议尽量在全局配置中定义规则，统一管理）
+            rules: {
+
+                check_ip: [/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])(\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])){3}$/, 'ip不正确']
+            },
+            fields: {
+    
+                "ip":{
+                    rule: "required;check_ip",
+                    tip: "输入ip地址",
+                    ok:"",
+                    msg:{required: "必须填写!"}
+                },
+                "group":{
+                    rule: "required;",
+                    tip: "",
+                    ok:"",
+                    msg:{required: "必选!"}
+                },
+                "server_type":{
+                    rule: "required;",
+                    tip: "",
+                    ok:"",
+                    msg:{required: "必选!"}
+                }
+            },
+            valid: function(form) {
+                form.submit();
+            }
+        });
+    });
+
+    function move_left(from, to) {
+        $("#"+from+" option").each(function(){
+            if ( $(this).prop("selected") == true ) {
+                $("#"+to).append(this);
+                $(this).attr("selected",'false');
+            }
+            $(this).attr("selected",'true');
+        });
+        if(from == "apps_selected"){
+            var appIdList = $("#"+from).val();
+            if(appIdList != ""){
+                var url = "/app/getRoles/";
+                var args = {"type":"edit","appIdList":appIdList,"time":new Date()};
+                $.get(url, args, function(data){
+                    $("#replace").html(data);
+                });
+            }
+        }
+    }
+    function move_right(from, to) {
+        $("#"+from+" option").each(function(){
+            if ( $(this).prop("selected") == true ) {
+                $("#"+to).append(this);
+            }
+        });
+        if(to == "apps_selected"){
+            var appIdList = $("#"+to).val();
+            if(appIdList != ""){
+                var url = "/app/getRoles/";
+                var args = {"type":"edit","appIdList":appIdList,"time":new Date()};
+                $.get(url, args, function(data){
+                    $("#replace").html(data);
+                });
+            }
+        }
+    }
+
+</script>
+{% endblock content %}
+
+
+

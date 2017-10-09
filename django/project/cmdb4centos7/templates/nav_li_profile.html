@@ -1,0 +1,24 @@
+<li class="nav-header">
+    <div class="dropdown profile-element"> <span>
+        <!-- <img alt="image" class="img-circle" src="/static/img/profile_small.jpg" /> -->
+        <img alt="image" class="img-circle" src="/static/img/profile_small.png" />
+         </span>
+        <a  class="dropdown-toggle" href="/accounts/password/">
+        <span class="clear">
+            <span class="block m-t-xs">
+                <strong class="font-bold">
+                {% if request.user.first_name %}
+                欢迎， {{  request.user.first_name }}
+                {% else %}
+                欢迎， {{  request.user.username }}
+                {% endif %}
+                </strong>
+             </span>
+
+        </span> </a>
+    运维管理系统
+    </div>
+    <div class="logo-element">
+        HT
+    </div>
+</li>

@@ -1,0 +1,126 @@
+{% extends 'default/base.html' %}
+{% load bootstrap %}
+{% block content %}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>修改应用 | App Edit.</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> 填写应用信息 </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user"></ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <form class="form-horizontal"  method="post" role="form" >
+                        {% csrf_token %}
+                        {% if emg %}
+                            <div class="alert alert-warning text-center">{{ emg }}</div>
+                        {% endif %}
+                        {% if smg %}
+                            <div class="alert alert-success text-center">{{ smg }}</div>
+                        {% endif %}
+                        {{ af.name|bootstrap_horizontal }}
+                        <div class="hr-line-dashed"></div>
+                        {{ af.another_name|bootstrap_horizontal }}
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label for="roles" class="col-lg-2 control-label">关联角色</label>
+                            <div class="col-sm-3">
+                                <select id="roles" size="10" class="form-control m-b" multiple>
+                                {% for i in roleList %}
+                                    <option value="{{ i.id }}">{{ i }}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="btn-group" style="margin-top: 50px;">
+                                    <button type="button" class="btn btn-white" onclick="move_right('roles', 'roles_selected')"><i class="fa fa-chevron-right"></i></button>
+                                    <button type="button" class="btn btn-white" onclick="move_left('roles_selected', 'roles')"><i class="fa fa-chevron-left"></i> </button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div>
+                                    <select id="roles_selected" name="roles" class="form-control m-b" size="10"  multiple>
+                                    {% for i in appRoleList %}
+                                        <option selected value="{{ i.id }}">{{i}}</option>>
+                                    {% endfor %}
+                                    </select>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        {{ af.architecture|bootstrap_horizontal }}
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                           <div class="col-sm-4 col-sm-offset-5">
+                               <a href="/app/appList" class="btn btn-white"> 返回 </a>
+                               <button id="postButton" class="btn btn-primary" type="submit"> 提交 </button>
+                           </div>
+                       </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.$ && $(function(){
+        $("#postButton").click(function(){
+
+            $("#roles option").each(function(){
+                $(this).removeAttr("selected");
+            });
+            $("#roles_selected option").each(function(){
+                $(this).prop("selected",true);
+            });
+            $("#host_edit").submit();
+        });
+    });
+    function move_left(from, to) {
+        $("#"+from+" option").each(function(){
+            if ( $(this).prop("selected") == true ) {
+                $("#"+to).append(this);
+                $(this).attr("selected",'false');
+            }
+            $(this).attr("selected",'true');
+        });
+    }
+    function move_right(from, to) {
+        $("#"+from+" option").each(function(){
+            if ( $(this).prop("selected") == true ) {
+                $("#"+to).append(this);
+            }
+
+        });
+    }
+
+    function move_all(from, to){
+        $("#"+from).children().each(function(){
+            $("#"+to).append(this);
+        });
+    }
+</script>
+
+{% endblock content %}

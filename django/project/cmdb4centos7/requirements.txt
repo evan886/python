@@ -1,0 +1,5 @@
+Django==1.8.17
+django-bootstrap-form==3.2.1
+django-bootstrap3==8.2.1
+django-tastypie==0.13.3
+xlwt==1.2.0

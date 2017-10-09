@@ -1,0 +1,109 @@
+{% extends 'default/base.html' %}
+{% block content %}
+
+<div class="splash">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>域名列表 | List Domain Name.</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            {% include "listOrAdd.html" %}
+            <div class="ibox-title">
+                <h5> 域名列表 </h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user"></ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ibox-content">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">域名</th>
+                            <th class="text-center">域名供应商</th>
+                            <th class="text-center">到期时间</th>
+                            <th class="text-center">注册用户</th>
+                            <th class="text-center">注册邮箱</th>
+                            <th class="text-center">注册公司</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in domainNameList %}
+                            <tr>
+                                <td class="text-center">{{ i.name }}</td>
+                                <td class="text-center">{{ i.nameDistributor }}</td>
+                                <td class="text-center">{{ i.exptresDate }}</td>
+                                <td class="text-center">{{ i.user }}</td>
+                                <td class="text-center">{{ i.email }}</td>
+                                <td class="text-center">{{ i.organization }}</td>
+                                <td class="text-center">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <a href="#" Dname="{{i.name}}" class="btn btn-xs btn-success" data-toggle="modal">更新</a>
+                                        <a href="#" Dname="{{i.name}}" class="btn btn-xs btn-danger" data-toggle="modal">删除</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".btn-success").click(function(){
+            var name=$(this).attr("Dname");
+            var args={"action":"update","name":name,"csrfmiddlewaretoken":"{{ request.COOKIES.csrftoken }}"}
+            $(".splash").show();
+            $.post("",args,function(data){
+                if (data.status){
+                    $(".splash").fadeOut(0);
+                    alert('更新成功');
+                    location.reload();
+                }else{
+                    $(".splash").fadeOut(0);
+                    alert('更新失败');
+                }
+            },"json");
+        });
+        $(".btn-danger").click(function(){
+            var name=$(this).attr("Dname");
+            var args={"action":"del","name":name,"csrfmiddlewaretoken":"{{ request.COOKIES.csrftoken }}"}
+            $.post("",args,function(data){
+                if (data.status){
+                    alert('删除成功');
+                    location.reload();
+                }else{
+                    alert('删除失败');
+                }
+            },"json");
+        });
+    });
+</script>
+{% endblock content %}

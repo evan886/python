@@ -1,0 +1,5 @@
+<select id="roles" size="10" class="form-control m-b" multiple>
+{% for i in roleList %}
+    <option value="{{ i.id }}">{{ i }}</option>
+{% endfor %}
+</select>

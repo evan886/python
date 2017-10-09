@@ -1,0 +1,99 @@
+{% extends 'default/base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="splash">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>  
+        <div class="rect3"></div>  
+        <div class="rect4"></div>  
+        <div class="rect5"></div>        
+    </div>
+</div>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>添加域名 | Add Domain Name.</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                {% include "listOrAdd.html" %}
+                <div class="ibox-title">
+                    <h5> 填写信息 </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user"></ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div id="emg" class="alert alert-warning text-center" style="display:none"></div>
+                <div id="smg" class="alert alert-success text-center" style="display:none"></div>
+                <div class="ibox-content">
+                <form class="form-horizontal" action="" id="host_add"  method="post" name="horizontal" role="form" autocomplete="off">
+                {% csrf_token %}
+
+                   {{ df.name|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-5">
+                           <button class="btn btn-white" type="reset"> 重置 </button>
+                           <button id="bu" class="btn btn-primary" type="submit"> 提交 </button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //$("form").submit(function(e){
+        $("#bu").bind("click",function(){
+            $(".splash").show();
+            var args = $("#host_add").serialize()
+            $.post("",args,function(data){
+                if(data.smg != ""){
+                    $("#smg").empty().append(data.smg).css("display","block")
+                }
+                if(data.emg != ""){
+                    $("#emg").empty().append(data.emg).css("display","block")
+                }
+            $(".splash").fadeOut(300);
+            },"json");
+            //倒计时
+            var t = $("#bu").text();
+            var s = 60;
+            $("#bu").prop("disabled",true).text(s+"s")
+            var inID = setInterval(function () {
+                s--;
+                if(s == 0){
+                    clearInterval(inID)
+                    $("#bu").prop("disabled",false).text(t)
+                }else{
+                    $("#bu").text(s+"s")
+                }
+            },1000)
+            ///倒计时end
+        });
+    });
+</script>
+
+{% endblock content %}

@@ -721,9 +721,14 @@ frozen
 打开模式 
 r  w  x  a  b  t  + U
 
-07：37
+文件对象方法
+f.close  f.read  f.reaedline   f.write  f.witerlines    f.seek   f.tell()
+10：37
 
 
+==29 文件：一个任务==
+
+01:00
 
 server information --> settings --> Change Plan --》
 

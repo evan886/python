@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/migrations/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bakdomainNameManager/views.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/django/project/cmdb4centos7/domainNameManager/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/django/project/mycmdb/.eric6project/mycmdb.e4q" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/django/project/mycmdb/.eric6project/mycmdb.e6t" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/django/project/mycmdb/domainNameManager/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/django/project/mycmdb/domainNameManager/tests.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/cmdb4centos7/bak/hcmdb" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/bak/hcmdb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/bak/hcmdb" afterPath="$PROJECT_DIR$/django/project/mycmdb/bak/hcmdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/cmdb4centos7/domainNameManager/forms.py" afterPath="$PROJECT_DIR$/django/project/cmdb4centos7/domainNameManager/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/.spyproject/workspace.ini" afterPath="$PROJECT_DIR$/django/project/mycmdb/.spyproject/workspace.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/README.md" afterPath="$PROJECT_DIR$/django/project/mycmdb/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/domainNameManager/forms.py" afterPath="$PROJECT_DIR$/django/project/mycmdb/domainNameManager/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/domainNameManager/models.py" afterPath="$PROJECT_DIR$/django/project/mycmdb/domainNameManager/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/templates/2017domainNameManger/bakdomainName_add.html" afterPath="$PROJECT_DIR$/django/project/mycmdb/templates/2017domainNameManger/bakdomainName_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/templates/domainNameManger/domainName_add.html" afterPath="$PROJECT_DIR$/django/project/mycmdb/templates/domainNameManger/domainName_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django/project/mycmdb/to56" afterPath="$PROJECT_DIR$/django/project/mycmdb/to56" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

@@ -99,8 +99,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hcmdb',
-        'USER': 'HCmdbAdmin', 
-        'PASSWORD': 'nDrDyXd#dnoMqH2',
+        'USER': 'root',
+        #'USER': 'HCmdbAdmin',
+        'PASSWORD': '',
+        #'PASSWORD': 'nDrDyXd#dnoMqH2',
         'HOST': 'localhost',
         'PORT': '3306',
     }

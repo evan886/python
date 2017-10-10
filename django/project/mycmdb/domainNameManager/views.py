@@ -22,7 +22,6 @@ from lib.lib import pages
 import json
 import urllib2
 import time
-# Create your views here.
 
 def updateInfo(dName):
     post_url = 'http://api.freedomainapi.com/?r=whois&apikey=be44837ce806eb803e4b55a433cef288&domain=%s' % dName

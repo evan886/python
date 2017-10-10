@@ -14,7 +14,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>添加域名 | Add Domain Name.</h2>
+        <h2>添加域名 | Add Domain Name </h2>
     </div>
     <div class="col-lg-2">
     </div>
@@ -48,8 +48,26 @@
                 {% csrf_token %}
 
                    {{ df.name|bootstrap_horizontal }}
+<!-- evan  这个df 是哪来的呢-->
+                    <div class="hr-line-dashed"></div>
+                    {%comment%}  {%endcomment%}
+                    {{df.nameDistributor|bootstrap_horizontal }} <!-- nameDistributor 为models.py 的字段哦  -->
+
+                    <div class="hr-line-dashed"></div>
+                    {{df.exptresDate|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{df.user|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{df.email|bootstrap_horizontal }}
+
+                    <div class="hr-line-dashed"></div>
+                    {{df.organization|bootstrap_horizontal }}
 
 
+
+<!-- evan-->
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-5">
@@ -64,7 +82,9 @@
     </div>
 </div>
 
+
 <script type="text/javascript">
+/*  20171010 注释掉的      */
     $(document).ready(function(){
         //$("form").submit(function(e){
         $("#bu").bind("click",function(){
@@ -95,6 +115,8 @@
             ///倒计时end
         });
     });
+
 </script>
+
 
 {% endblock content %}

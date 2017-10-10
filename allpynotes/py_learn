@@ -727,8 +727,11 @@ f.close  f.read  f.reaedline   f.write  f.witerlines    f.seek   f.tell()
 
 
 ==29 文件：一个任务==
+eg 里面的 file1.py file2.py 
 
-01:00
+==30 文件系统：介绍一个高大上的东西==
+02:00
+
 
 server information --> settings --> Change Plan --》
 

@@ -730,9 +730,20 @@ f.close  f.read  f.reaedline   f.write  f.witerlines    f.seek   f.tell()
 eg 里面的 file1.py file2.py 
 
 ==30 文件系统：介绍一个高大上的东西==
-02:00
+
+os 模块
 
 
+
+08:00
+
+
+
+
+
+
+
+vulrt 免费升级
 server information --> settings --> Change Plan --》
 
 20171008 bsd 又重启一次

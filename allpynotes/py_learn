@@ -733,9 +733,20 @@ eg 里面的 file1.py file2.py
 
 os 模块
 
+os.curdir
+
+os.linesep 行终止符 win为 '\\' linux为'/'
 
 
-08:00
+os.path  模块
+
+basename(path) 去掉目录路径，单独返回文件名
+
+dirname(path) 去掉文件名，单独返回目录路径
+
+
+==31  永久存储 ==
+01:00
 
 
 

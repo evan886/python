@@ -45,5 +45,5 @@ boy_file.close()
 girl_file.close()
 
 
-f.close()
+f.close()0
 

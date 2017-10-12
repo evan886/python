@@ -10,7 +10,7 @@ tar xvf Python-2.5.tar.bz2  &&  cd Python-2.5
 ./configure --prefix=/usr/local/python25
  make -j2 && make install
   
-entos5 Python-2.5]# /usr/local/python25/bin/python
+centos5 Python-2.5]# /usr/local/python25/bin/python
 Python 2.5 (r25:51908, Apr 26 2013, 21:54:19) 
 [GCC 4.1.2 20080704 (Red Hat 4.1.2-52)] on linux2
 
@@ -1321,7 +1321,7 @@ n.争论，争吵； 论据； [数]幅
 
 
 #+-------------------------------------------------------+
-#|     第11 章              | 文件和素材
+#|     第11章              | 文件和素材
 #+-------------------------------------------------------+
 11.1 打开文件
 open(...)
@@ -1361,13 +1361,63 @@ Out[9]: 'o,world'
 11.2.2 管道输出 看了,但没上机
 cat file | python file.py |sort
 
+11.2.3  读写行
+20171012am
+
+11.2.4 关闭文件
+
+
 11.2.5使用基本文件方法
 
 read(n):
 read():
 readline():
-readlines():
+readlines(): 读取所有内容
 writelines():
+
+11.3  对文件内容进行迭代
+
+11.3.4
+
+readlines 会占用太多的内存
+
+11.3.5  文件 迭代器
+f = open(filename)
+for line in f:
+    process(line)
+f.close()
+
+
+
+In [1]: f=open('some.txt','w')
+
+In [2]: f.write('firest line\n')
+
+In [3]: f.write('second line\n')
+
+In [4]: f.write('third line\n')
+
+In [5]: f.close()
+
+In [8]: lines=list(open('some.txt'))
+
+In [18]: lines #不明白为什么 一开始是空的 再执行一次又好了呢
+Out[18]: ['firest line\n', 'second line\n', 'third line\n']
+
+In [19]: first,second,third=open('some.txt')
+
+In [20]: first
+Out[20]: 'firest line\n'
+
+In [21]: second
+Out[21]: 'second line\n'
+
+
+
+
+
+
+
 
 
 

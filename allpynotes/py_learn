@@ -746,9 +746,48 @@ dirname(path) 去掉文件名，单独返回目录路径
 
 
 ==31  永久存储 ==
-01:00
+
+pickle
+
+In [1]: import pickle
+
+In [2]: my_list = [123,3.14]
+
+In [3]: pickle_file= open('my_list.pkl','wb')
+
+In [4]: pickle.dump(my_list,pickle_file)
+In [6]: pickle_file.close()
+
+In [7]: pwd
+Out[7]: '/home/evan/github/python'
+
+In [8]: pickle_file= open('my_list.pkl','rb')
+
+#有时把数据放到这个文件进去 代码就可以 漂亮点了喽
+In [9]: my_list2 = pickle.load(pickle_file)
+
+In [10]: print(my_list2)
+[123, 3.14]
 
 
+evan@evanpc:~/github/python$ xxd  my_list.pkl
+00000000: 8003 5d71 0028 4b7b 4740 091e b851 eb85  ..]q.(K{G@...Q..
+00000010: 1f65 2e                                  .e.
+
+
+
+
+20171012
+输入和输出 文件操作
+http://usyiyi.cn/translate/python_278/tutorial/inputoutput.html
+
+
+
+==32 异常处理：你不可能总是对的 ==
+
+
+
+01：00
 
 
 

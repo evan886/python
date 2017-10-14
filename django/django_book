@@ -720,8 +720,7 @@ verbose_name
 
 
 
-locals()
-可以直接将函数中所有的变量全部传给模板，自动拼接成字典，很方便。但是它会多传递一些没用的变量，有点浪费
+0
 
 
 [http://www.cnblogs.com/xiaozhiqi/p/5851360.html Python自动化运维之27、Django(一)]

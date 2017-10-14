@@ -99,6 +99,7 @@ sudo apt-get install python-pip
 sudo  pip install Django
 sudo pip install Django==1.8 或者 pip install Django==1.7.6
 
+运行下面的命令来查看你的Django版本号 还是这个比较好用 爽
 python -c "import django; print(django.get_version())"
 
 #kali 2016  这个太新了 不要 

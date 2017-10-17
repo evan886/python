@@ -785,9 +785,34 @@ http://usyiyi.cn/translate/python_278/tutorial/inputoutput.html
 
 ==32 异常处理：你不可能总是对的 ==
 
+#-*- coding:utf-8 -*-
+file_name = input('输入打开的文件名:')
+f = open(file_name)
+print('文件的内容是:')
+for each_line in f:
+    print(each_line)
+
+#记住 不能和python2 
+python3 ri.py 
+输入打开的文件名:fab1.py
+文件的内容是:
 
 
-01：00
+#python3
+>>> print 'love'
+  File "<stdin>", line 1
+    print 'love'
+               ^
+SyntaxError: Missing parentheses in call to 'print'
+>>> print ('love')
+love
+
+
+
+参考
+http://bbs.fishc.com/thread-45814-1-1.html
+
+04：00
 
 
 

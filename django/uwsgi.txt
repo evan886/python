@@ -1,6 +1,6 @@
 == install uwsgi==
 
-前几天 yum 的结果是不能和nignx 合作成功，而pip 又出错 ，其实直接源码就好了嘛  我那么笨 
+前几天 yum 的结果是不能和nignx 合作成功，而pip 又出错 ，其实直接源码就好了嘛  我那么笨 ,20171014 上个星期试了一下 也是yum的不能和，而pip的又没启动脚本，不过还好，启动是会自动放到后台的，倒是没多大影响
 
 wget -c https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz
 tar zxvf uwsgi-0.9.9.2.tar.gz

@@ -1,3 +1,40 @@
+
+日常遇到知识点 20171016
+
+==models 相关==
+
+有个models.py
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('-pub_date',)
+
+    def __unicode__(self):
+        return self.title
+
+
+pub_date是发表的时间
+class Meta 内的设置则要指定以文章显示的顺序以 pub_date为依据，
+__unicode__  提供此类产生的数据项目   一个以文章标题作为显示的内容，增加操作过程中的 可读性(在管理界面或shell)，使用unicode 而不是str,让这个标题可以正确地支持中文标题
+
+
+db_table
+
+
+unique_together
+
+
+[http://python.usyiyi.cn/translate/django_182/ref/models/options.html 模型元选项]
+
+
+
+
+####*****************
 《Django企业开发实战》
 
 https://www.the5fire.com/django-practice-book-catalog-draft.html

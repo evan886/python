@@ -720,8 +720,6 @@ verbose_name
 
 
 
-0
-
 
 [http://www.cnblogs.com/xiaozhiqi/p/5851360.html Python自动化运维之27、Django(一)]
         <!--<td><a href='{% "detail-url" p.id %}'> {{ p.nickname }}</a></td> -->
@@ -836,3 +834,5 @@ execute_from_command_line(sys.argv)
 
 [http://blog.csdn.net/vivilorne/article/details/3863545 sys.argv[]用法]
 [http://usyiyi.cn/translate/python_278/library/sys.html sys — 系统相关的参数和函数]
+
+[http://djangosuit.com/ Django Suit]

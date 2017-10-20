@@ -1,0 +1,2 @@
+rsync -avz --delete  /home/evan/github/python/django/project/tutorial/mysite/  root@192.168.30.112:/data/tu/
+

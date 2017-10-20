@@ -812,7 +812,65 @@ love
 参考
 http://bbs.fishc.com/thread-45814-1-1.html
 
-04：00
+== 异常处理：你不可能总是对的2 ==
+try:
+    检测范围
+except Exception[as reason]:
+    出现异常(exception) 后的处理代码
+finally:
+    无论如何都会被执行的代码
+
+
+
+try:
+    f = open('whyfile.txt')
+    print(f.read())
+    f.close()
+except OSError:
+    print("文件出错喽")
+
+
+try:
+    f = open('whyfile.txt')
+    print(f.read())
+    f.close()
+except OSError as reason:
+    print("文件出错喽:" + str(reason))
+
+#文件出错喽:[Errno 2] No such file or directory: 'whyfile.txt'
+
+
+#类型出错喽:unsupported operand type(s) for +: 'int' and 'str'
+try:
+    sum = 1 + '1'
+    f = open('whyfile.txt')
+    print(f.read())
+    f.close()
+except OSError as reason:
+    print("文件出错喽:" + str(reason))
+except TypeError as reason:
+    print("类型出错喽:" + str(reason))
+
+
+#这个会导致 有写放但是没保存 因为 sum 那一行出错了 
+# 所以要加finally 
+try:
+    f = open('whyfile.txt')
+    print(f.read())
+    sum = 1 + '1'
+    f.close()
+except (OSError ,TypeError):
+    print("类型出错喽:" + str(reason))
+#is good now 
+finally:
+    f.close()
+
+
+raise 语句 
+
+
+== 34 丰富的else语句及简洁的with语句  ==
+01：00
 
 
 

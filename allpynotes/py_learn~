@@ -872,61 +872,14 @@ raise 语句
 
 
 == 课时34  丰富的else语句及简洁的with语句==
- 
-这个计算约数的不太懂呢 还没看 
-eg$ vim  fac.py
+with 可以在异常时很好用 不用关闭
 
 
-evan@evanpc:~/github/python/allpynotes/eg$ python tes.py
-Traceback (most recent call last):
-  File "tes.py", line 5, in <module>
-    for each_line  in f:
-IOError: File not open for reading
-evan@evanpc:~/github/python/allpynotes/eg$ cat tes.py 
-#!/usr/bin/python
-#-*- coding:utf-8 -*-
-try:
-    f = open('data.txt','w')
-    for each_line  in f:
-        print(each_line)
-except OSError as reason:
-    print('出错喽:' + str(reason))
-finally:
-    f.close()
-
-改为
-evan@evanpc:~/github/python/allpynotes/eg$ python3  tes.py
-出错喽:not readable
-evan@evanpc:~/github/python/allpynotes/eg$ cat tes.py 
-#!/usr/bin/python
-#-*- coding:utf-8 -*-
-import os
-try:
-    with open('data.txt','w')  as f:
-        for each_line  in f:
-            print(each_line)
-except OSError as reason:
-    print('出错喽:' + str(reason))
-finally:
-    f.close()
-
-with 可以在异常时很好用 不用关闭  如上
 
 ==35 GUI==
-其实没有看 反正暂时没作用呢
-easygui
-http://blog.fishc.com/3310.html#prettyPhoto
 
-== 36 类和对象：给大家介绍对==
-
-20171025
-
-09:00
-
-tt = Turtle()
- Turtle() #但是这样写完 py会自己回收他，白写了呢 
-
-
+== 36 ==
+36 类和对象：给大家介绍对
 
 继chen
 In [1]: class Mylist(list):

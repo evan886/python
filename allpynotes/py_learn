@@ -919,16 +919,12 @@ http://blog.fishc.com/3310.html#prettyPhoto
 
 == 36 类和对象：给大家介绍对==
 
-20171025
-
-09:00
+封装  继承
 
 tt = Turtle()
  Turtle() #但是这样写完 py会自己回收他，白写了呢 
 
-
-
-继chen
+继承eg
 In [1]: class Mylist(list):
    ...:     pass
    ...: 
@@ -946,8 +942,10 @@ In [6]: list2.sort()
 In [7]: list2
 Out[7]: [3, 5]
 
+因为Mylist 继承自 list 所以有 实例 list2 有append 方法
 
-多态
+
+多态:不同对象 对同一方法响应不同的行动
 In [8]: class A:
    ...:     def fun(self):
    ...:         print ("我是 小a'''")
@@ -967,6 +965,16 @@ In [13]: b.fun()
 
 
 ==37 类和对象：面向对象编程==
+
+20171027
+
+01：00
+
+what is  self
+
+
+
+
 
 #!/usr/bin/python
 #-*- coding:utf-8 -*-

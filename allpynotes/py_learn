@@ -1096,86 +1096,11 @@ In [25]: p._Person__name
 Out[25]: 'evan'
 
 
-== 38==
+==38 类和对象：继承==
 
-20171030
+20171031
 
-
-vulrt 免费升级
-server information --> settings --> Change Plan --》
-
-20171008 bsd 又重启一次
-
-任天堂 SWITCH 游戏机 
-
-
-[http://www.cnblogs.com/louwqtc/p/fibonacci.html c语言求解斐波那契数列的第n项]
-
-[http://www.jianshu.com/p/fd4a3348ea8c python中的迭代器（以斐波那契数列为主讲解）1]
-
-
-
-[http://study.163.com/course/courseMain.htm?courseId=1003907006 2017最新版Python零基础入门]
-
-
-
-
-
-
-
-
-
-
-
-[http://study.163.com/course/courseMain.htm?courseId=1003686002 python自动化运维开发]
-
-
-
-一边看视频  一边看相对应的书 
-
-
-
-以前觉得基础教程2  好多内容 现在 终于觉得其实不多呢
- 20170919
-
-
-
-
-Sending env LANG = zh_CN.utf8
-
-
-Linux书籍
-http://www.linuxprobe.com/books/page/2
-
-
-一个全栈增长工程师的练手项目集
-https://github.com/phodal/ideabook
-
-Python任务调度模块 – APScheduler
-http://debugo.com/apscheduler/
-
-
-
-
-
-
-print on python3
-
-
-
-http://study.163.com/course/courseLearn.htm?courseId=378003#/learn/video?lessonId=493031&courseId=378003
-
-
-数据结构和算法  小甲鱼
-
-
-课后题 0基础课入门学习python 
-http://bbs.fishc.com/forum-243-1.html
-
-
-
-==38 ==
-类和对象：继承
+05:00
 
 In [1]: class Parent:
    ...:     def hello(self):
@@ -1201,7 +1126,7 @@ In [7]: c.hello()
 In [8]: class  Child(Parent):
    ...:     def hello(self):
    ...:         print("正在调用子类的方法'''")
-   ...:         
+   ...:
 
 In [9]: c = Child()
 
@@ -1236,6 +1161,14 @@ c.foo1()
 c.foo2()
 
 注意了 这是基于py3.3的
+
+
+
+
+
+
+
+
 
 == 39 类和对象：拾遗==
 类 类对象和实例对象
@@ -1513,7 +1446,7 @@ Out[77]: 18
 
 
 
-09
+
 
 
 ==chatper 11 魔法方法==
@@ -1720,6 +1653,84 @@ In [6]: getattr(c,'y','没有这个属性')
 
 
 02:00
+
+
+
+
+
+
+vulrt 免费升级
+server information --> settings --> Change Plan --》
+
+20171008 bsd 又重启一次
+
+
+
+[http://www.cnblogs.com/louwqtc/p/fibonacci.html c语言求解斐波那契数列的第n项]
+
+[http://www.jianshu.com/p/fd4a3348ea8c python中的迭代器（以斐波那契数列为主讲解）1]
+
+
+
+[http://study.163.com/course/courseMain.htm?courseId=1003907006 2017最新版Python零基础入门]
+
+
+
+
+
+
+
+
+
+
+
+[http://study.163.com/course/courseMain.htm?courseId=1003686002 python自动化运维开发]
+
+
+
+一边看视频  一边看相对应的书
+
+
+
+以前觉得基础教程2  好多内容 现在 终于觉得其实不多呢
+ 20170919
+
+
+
+
+Sending env LANG = zh_CN.utf8
+
+
+Linux书籍
+http://www.linuxprobe.com/books/page/2
+
+
+一个全栈增长工程师的练手项目集
+https://github.com/phodal/ideabook
+
+Python任务调度模块 – APScheduler
+http://debugo.com/apscheduler/
+
+
+
+
+
+
+print on python3
+
+
+
+http://study.163.com/course/courseLearn.htm?courseId=378003#/learn/video?lessonId=493031&courseId=378003
+
+
+数据结构和算法  小甲鱼
+
+
+课后题 0基础课入门学习python
+http://bbs.fishc.com/forum-243-1.html
+
+
+
 
 
 

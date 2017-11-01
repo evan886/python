@@ -28,6 +28,7 @@ class Shark(Fish):
 
         #这是3.0的写法哦
         super().__init__()
+        #1.调用未绑定的父类方法
         #Fish.__init__(self)
         self.hungry = True
 
@@ -38,7 +39,7 @@ class Shark(Fish):
         else:
             print("太撑了吃不下")
 
-#fish =Fish()
+fish =Fish()
 #fish.move()
 #goldfish = Goldfish()
 #goldfish.move()

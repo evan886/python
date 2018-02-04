@@ -11,10 +11,6 @@ wget -c http://mirrors.sohu.com/python/2.5/Python-2.5.tar.bz2
   ./configure --prefix=/usr/local/python25
   make -j2 && make install
   
-  [root@centos5 Python-2.5]# /usr/local/python25/bin/python
-Python 2.5 (r25:51908, Apr 26 2013, 21:54:19) 
-[GCC 4.1.2 20080704 (Red Hat 4.1.2-52)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
 
 #+-------------------------------------------------------+
 #|     第2章        | 列表和元组

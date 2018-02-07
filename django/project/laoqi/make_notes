@@ -1,0 +1,5 @@
+两个相同的命令
+python manage.py startapp blog
+django-admin startapp blog
+
+

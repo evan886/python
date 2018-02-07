@@ -1,0 +1,23 @@
+
+安装WMI
+https://pypi.python.org/pypi/WMI/#downloads
+
+
+=参考＝
+http://blog.51cto.com/future/831816
+
+
+help -->eclipse Marketplace  
+
+
+
+grep "^real memory" /var/run/dmesg.boot
+
+
+
+
+
+digitalocean --> resize -->Disk, CPU and RAM
+
+
+

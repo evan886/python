@@ -4,8 +4,8 @@ from  django.contrib.auth.models import User
 
 class BlogArticles(models.Model):
     title = models.CharField(max_length=300)
-    auth = models.ForeignKey(User, related_name="blog_posts")
-    boy = models.TextField()
+    author = models.ForeignKey(User, related_name="blog_posts")
+    body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
 
     class Meta:
@@ -14,4 +14,9 @@ class BlogArticles(models.Model):
     def __str__(self):
         return  self.title
 
+''' 
 
+from django.contrib.auth.models import User
+
+ from blog.models import BlogArticles
+'''

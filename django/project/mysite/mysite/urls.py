@@ -4,7 +4,7 @@ from learn import  views  as learn_views
 
 urlpatterns = [
     # Examples:
-    # url(r'^$', 'mysite.views.home', name='home'),
+    # url(r'^$', 'bbmysite.views.home', name='home'),
     url(r'^$',learn_views.index),
     # url(r'^blog/', include('blog.urls')),
 

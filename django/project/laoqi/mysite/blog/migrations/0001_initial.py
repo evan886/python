@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
             name='BlogArticles',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(max_length=30)),
-                ('boy', models.TextField()),
+                ('title', models.CharField(max_length=300)),
+                ('body', models.TextField()),
                 ('publish', models.DateTimeField(default=django.utils.timezone.now)),
                 ('auth', models.ForeignKey(related_name='blog_posts', to=settings.AUTH_USER_MODEL)),
             ],

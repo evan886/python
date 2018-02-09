@@ -2,7 +2,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from mysite import views
-#from  mysite.views import index
+#from  bbmysite.views import index
 
 urlpatterns = [
     # Examples:

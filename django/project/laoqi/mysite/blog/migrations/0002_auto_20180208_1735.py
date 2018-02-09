@@ -11,9 +11,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RenameField(
             model_name='blogarticles',
-            name='title',
-            field=models.CharField(max_length=300),
+            old_name='auth',
+            new_name='author',
         ),
     ]

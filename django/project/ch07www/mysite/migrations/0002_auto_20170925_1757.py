@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mysite', '0001_initial'),
+        ('bakmysite', '0001_initial'),
     ]
 
     operations = [
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='pmodel',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mysite.PModel', verbose_name=b'\xe5\x9e\x8b\xe5\x8f\xb7'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bakmysite.PModel', verbose_name=b'\xe5\x9e\x8b\xe5\x8f\xb7'),
         ),
         migrations.AlterField(
             model_name='product',

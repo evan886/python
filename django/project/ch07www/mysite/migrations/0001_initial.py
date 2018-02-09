@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=20)),
                 ('url', models.URLField(default=b'http://i.imgur.com/Ous4iGB.png')),
-                ('maker', models.ForeignKey(to='mysite.Maker')),
+                ('maker', models.ForeignKey(to='bakmysite.Maker')),
             ],
         ),
         migrations.CreateModel(
@@ -43,12 +43,12 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(default=b'\xe6\x9a\x82\xe6\x97\xa0\xe8\xaf\xb4\xe6\x98\x8e')),
                 ('year', models.PositiveIntegerField(default=2016)),
                 ('price', models.PositiveIntegerField(default=0)),
-                ('pmodel', models.ForeignKey(to='mysite.PModel')),
+                ('pmodel', models.ForeignKey(to='bakmysite.PModel')),
             ],
         ),
         migrations.AddField(
             model_name='pphoto',
             name='produce',
-            field=models.ForeignKey(to='mysite.Product'),
+            field=models.ForeignKey(to='bakmysite.Product'),
         ),
     ]

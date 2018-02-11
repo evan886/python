@@ -1,15 +1,25 @@
+
+passsrc 记录着自己手工成功了的代码　
+
+#+-------------------------------------------------------+
+#|     Chapter1            |
+#+-------------------------------------------------------+
+
+
+
 kali  django 1.8.18
 
 src
 https://github.com/qiwsir/DjangoPracticeProject.git
 
 django-admin startproject mysite
+cd myiste
  python manage.py  startapp blog
 
 
 
 python manage.py  makemigrations
-python manage.py migrate
+python manage.py migrate  #Updates database schema.
 
 
 两个相同的命令
@@ -50,3 +60,30 @@ In [12]:  for  blog in blogs:
     ...:     print(blog.title)
     ...:
 You raise me up
+
+url(r'(?P<article_id>\d)/$',
+
+python P
+
+https://zhidao.baidu.com/question/559412763.html
+
+教程】详解Python正则表达式之： (?P<name>…) named group 带命名的组
+https://www.crifan.com/detailed_explanation_about_python_regular_express_named_group/
+
+https://www.zhihu.com/question/27448499
+
+
+#+-------------------------------------------------------+
+#|     Chapter2           | 用户管理
+#+-------------------------------------------------------+
+
+
+
+
+
+
+
+
+
+
+

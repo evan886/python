@@ -1,10 +1,8 @@
-
 passsrc 记录着自己手工成功了的代码　
 
 #+-------------------------------------------------------+
 #|     Chapter1            |
 #+-------------------------------------------------------+
-
 
 
 kali  django 1.8.18
@@ -15,7 +13,6 @@ https://github.com/qiwsir/DjangoPracticeProject.git
 django-admin startproject mysite
 cd myiste
  python manage.py  startapp blog
-
 
 
 python manage.py  makemigrations
@@ -76,7 +73,9 @@ https://www.zhihu.com/question/27448499
 #+-------------------------------------------------------+
 #|     Chapter2           | 用户管理
 #+-------------------------------------------------------+
+2018年 02月 17日 星期六 12:43:37 CST
 
+http://192.168.201.95/static/xx.png
 
 
 

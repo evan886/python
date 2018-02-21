@@ -77,8 +77,24 @@ https://www.zhihu.com/question/27448499
 
 http://192.168.201.95/static/xx.png
 
+2.2.1
+python  manage.py   startapp account
 
-p38
+In [2]: from account.forms import LoginForm
+
+In [3]: login_form  = LoginForm()
+
+
+In [4]: print(login_form)
+<tr><th><label for="id_username">Username:</label></th><td><input id="id_username" name="username" type="text" /></td></tr>
+<tr><th><label for="id_password">Password:</label></th><td><input id="id_password" name="password" type="password" /></td></tr>
+
+
+In [5]: dir(login_form)
+Out[5]: 
+['__class__',
+ '__delattr__
+p45
 
 
 

@@ -94,9 +94,30 @@ In [5]: dir(login_form)
 Out[5]: 
 ['__class__',
  '__delattr__
+
+
+as_p 
+as_url 
+as_table
+
+
+as_p()¶
+Form.as_p()¶
+as_p() 渲染表单为一系列的<p> 标签，每个<p> 标签包含一个字段
+
+http://python.usyiyi.cn/translate/django_182/ref/forms/api.html
+
+
 p45
 
 
+#p49
+In [1]: from django.contrib.auth import authenticate, login
+
+In [2]: user = authenticate(username="evan",password="22481")
+
+In [3]: user
+Out[3]: <User: evan>
 
 
 

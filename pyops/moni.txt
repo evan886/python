@@ -1,4 +1,16 @@
 
+把要用的东西　cp 到本本　　
+
+myops 
+
+cmdb  死搞　django  加不至是nginx 的配置方法　　
+
+
+
+
+
+
+
 安装WMI
 https://pypi.python.org/pypi/WMI/#downloads
 

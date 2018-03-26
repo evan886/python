@@ -16,7 +16,8 @@ def get_filesize(filename="note"):
     return round(mysize,2)
 
 #版本1 　可以的
-#print get_filesize("/home/evan/iso/windows10.iso")
+print get_filesize("/home/evan/iso/windows10.iso")
 
 #版本2  还有问题
-print get_filesize(str(sys.argv[1:]))
+#print get_filesize(str(sys.argv[1:]))
+

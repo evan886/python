@@ -150,3 +150,12 @@ evan@kalipc:~/github/python/eg$ python  weather.py
 
 最后的解决办法是换成 qq smtp 
 '''
+'''
+
+https://blog.csdn.net/drdairen/article/details/51134816
+https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
+http://www.runoob.com/python/python-reg-expressions.html
+https://www.ibm.com/developerworks/cn/opensource/os-cn-pythonre/index.html
+
+
+'''

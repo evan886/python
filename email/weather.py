@@ -44,7 +44,7 @@ def sendMailr(body):
     from_mail = '563497988@qq.com'
      
     #密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'evandfdfdff'
+    mail_pass = 'uvvnqwlcerktbejb'
     to_mail = ['evan886@gmail.com','piestion@126.com']
     from_name = 'Weather Monitor'
     subject = 'Raining Today!'

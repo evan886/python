@@ -70,7 +70,7 @@ def sendMails(body):
     from_mail = '563497988@qq.com'
 
     # 密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'uvvnqwlcerktbejb'
+    mail_pass = 'dfsf'
     to_mail = ['evan886@gmail.com', 'linuxops@126.com']
     from_name = 'Weather Monitor'
     subject = 'Sunny Today!'
@@ -103,8 +103,9 @@ if __name__ == "__main__":
     except Exception as e:
         raise e
      
-    #抓取关键字正则表达式    
-    re_page = re.compile(r'<dd class="name">.*?<h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
+    #抓取关键字正则表达式  看到这里 2018 03 28 改了好像收不到了　
+    #re_page = re.compile(r'<dd class="name">.*?<h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
+    re_page = re.compile(r'<dd class="name"><h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
      
     items = re_page.findall(urlhtml)
     dic = {}

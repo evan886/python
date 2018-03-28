@@ -31,6 +31,14 @@ def mail():
 
 
 #ret = mail()
+'''
+天气预报 
+
+linuxops
+
+发送至 我 
+天气晴朗
+'''
 
 #is me
 
@@ -39,13 +47,13 @@ import urllib,urllib2
 import re
  
 #定义函数，发送邮件
-def sendMailr(body):
-    smtp_server = 'smtp.qq.com'
-    from_mail = '563497988@qq.com'
+def sendMail(body):
+    smtp_server = 'smtp.126.com'
+    from_mail = 'linuxops@126.com'
      
     #密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'evandfdfdff'
-    to_mail = ['evan886@gmail.com','piestion@126.com']
+    mail_pass = 'evan2240'
+    to_mail = ['evan886@qq.com']
     from_name = 'Weather Monitor'
     subject = 'Raining Today!'
     mail = [
@@ -57,39 +65,13 @@ def sendMailr(body):
         ]
     msg = '\n'.join(mail)
     try:
-        s = smtplib.SMTP_SSL('smtp.qq.com',465)
+        s = smtplib.SMTP_SSL('smtp.126.com',465)
         s.login(from_mail, mail_pass)
         s.sendmail(from_mail, to_mail, msg)
         s.quit()
     except smtplib.SMTPException as e:
         raise e
-
-
-def sendMails(body):
-    smtp_server = 'smtp.qq.com'
-    from_mail = '563497988@qq.com'
-
-    # 密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'uvvnqwlcerktbejb'
-    to_mail = ['evan886@gmail.com', 'linuxops@126.com']
-    from_name = 'Weather Monitor'
-    subject = 'Sunny Today!'
-    mail = [
-        "From: %s <%s>" % (from_name, from_mail),
-        "To: %s" % ','.join(to_mail),
-        "Subject: %s" % subject,
-        "",
-        body
-    ]
-    msg = '\n'.join(mail)
-    try:
-        s = smtplib.SMTP_SSL('smtp.qq.com', 465)
-        s.login(from_mail, mail_pass)
-        s.sendmail(from_mail, to_mail, msg)
-        s.quit()
-    except smtplib.SMTPException as e:
-        raise e
-
+         
 if __name__ == "__main__":
     headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
      
@@ -115,20 +97,10 @@ if __name__ == "__main__":
      
     #判断天气是否含有“雨”关键字
     if "晴" in dic["天气"]:
-        sendMails("It's Sunny today. Don't  bring your umbrella!" +"\n" +"城市: " +dic["城市"] +"\n" +"日期: " +dic["日期"] +"\n" +"天气: " +dic["天气"] +"\n" +"温度: " +dic["温度"])
-    if "雨" in dic["天气"]:
-        #ret = mail()
-        sendMailr("It's rainy today. Remember to bring your umbrella!" + "\n" + "城市: " + dic["城市"] + "\n" + "日期: " + dic[
-            "日期"] + "\n" + "天气: " + dic["天气"] + "\n" + "温度: " + dic["温度"])
+        #sendMail("It's rainy today. Remember to bring your umbrella!" +"\n" +"城市: " +dic["城市"] +"\n" +"日期: " +dic["日期"] +"\n" +"天气: " +dic["天气"] +"\n" +"温度: " +dic["温度"])
+        ret = mail()
+        sendMail("It's rainy today. Remember to bring your umbrella!")
 
-
-'''
-It's rainy today. Remember to bring your umbrella!
-城市: 广州天河区
-日期: 2018年03月28日　星期三　戊戌年二月十二
-天气: 晴
-温度: 17 ~ 27℃
-'''
 
 # http://blog.51cto.com/huangzp/2072702
 
@@ -146,7 +118,5 @@ smtplib.SMTPDataError: (554, 'DT:SPM 126 smtp7,DsmowADn_+Q2B7tatPL_AA--.42125S2 
 evan@kalipc:~/github/python/eg$ python  weather.py 
 
 打开url 得知　
-　•554 DT:SPM 发送的邮件内容包含了未被许可的信息，或被系统识别为垃圾邮件。请检查是否有用户发送病毒或者垃圾邮件；  
-
-最后的解决办法是换成 qq smtp 
+　•554 DT:SPM 发送的邮件内容包含了未被许可的信息，或被系统识别为垃圾邮件。请检查是否有用户发送病毒或者垃圾邮件；
 '''

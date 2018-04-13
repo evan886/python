@@ -1,51 +1,19 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 ''' 证明正则没问题　是sendMail func有问题'''
-
-##is me
-
 import smtplib
-from email.mime.text import MIMEText
-from email.utils import formataddr
-
-my_sender = 'linuxops@126.com'  # 发件人邮箱账号
-my_pass = 'evan2240'  # 发件人邮箱密码
-my_user = 'evan886@gmail.com'  # 收件人邮箱账号，我这边发送给自己
-
-
-def mail():
-    ret = True
-    try:
-        msg = MIMEText('天气晴朗', 'plain', 'utf-8')
-        msg['From'] = formataddr(["linuxops", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
-        msg['To'] = formataddr(["FK", my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
-        msg['Subject'] = "天气预报"  # 邮件的主题，也可以说是标题
-
-        server = smtplib.SMTP_SSL("smtp.126.com", 465)  # 发件人邮箱中的SMTP服务器，端口是25
-        server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码
-        server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
-        server.quit()  # 关闭连接
-    except Exception:  # 如果 try 中的语句没有执行，则会执行下面的 ret=False
-        ret = False
-    return ret
-
-
-#ret = mail()
-
-#is me
-
-import smtplib
-import urllib,urllib2
+import urllib #这个模块根本没用
+import urllib2
 import re
  
-#定义函数，发送邮件
+#定义函数，发送邮件　
 def sendMailr(body):
     smtp_server = 'smtp.qq.com'
-    from_mail = '563497988@qq.com'
+    from_mail = '5634979@qq.com'
      
     #密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'uvvnqwlcerktbejb'
-    to_mail = ['evan886@gmail.com','piestion@126.com']
+    mail_pass = '××××'
+    to_mail = ['evan@gmail.com','piestion@126.com']
     from_name = 'Weather Monitor'
     subject = 'Raining Today!'
     mail = [
@@ -58,6 +26,7 @@ def sendMailr(body):
     msg = '\n'.join(mail)
     try:
         s = smtplib.SMTP_SSL('smtp.qq.com',465)
+        s.set_debuglevel(1) #
         s.login(from_mail, mail_pass)
         s.sendmail(from_mail, to_mail, msg)
         s.quit()
@@ -67,11 +36,11 @@ def sendMailr(body):
 
 def sendMails(body):
     smtp_server = 'smtp.qq.com'
-    from_mail = '563497988@qq.com'
+    from_mail = '5634979@qq.com'
 
     # 密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'uvvnqwlcerktbejb'
-    to_mail = ['evan886@gmail.com', 'linuxops@126.com']
+    mail_pass = '×××'
+    to_mail = ['evan@gmail.com', 'linuxops@126.com']
     from_name = 'Weather Monitor'
     subject = 'Sunny Today!'
     mail = [
@@ -84,6 +53,7 @@ def sendMails(body):
     msg = '\n'.join(mail)
     try:
         s = smtplib.SMTP_SSL('smtp.qq.com', 465)
+        s.set_debuglevel(1) #打印出和SMTP服务器交互的所有信息
         s.login(from_mail, mail_pass)
         s.sendmail(from_mail, to_mail, msg)
         s.quit()
@@ -102,8 +72,14 @@ if __name__ == "__main__":
      
     except Exception as e:
         raise e
-     
-    #抓取关键字正则表达式    
+    ''' 
+    #抓取关键字正则表达式　　.*?　
+    　. 　　匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符
+　　re*   匹配0个或多个的表达式。
+　　'?'  表示后面可跟 0 个或多个字符
+
+        第一个　.*?　其实可以去掉
+    '''
     re_page = re.compile(r'<dd class="name">.*?<h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
      
     items = re_page.findall(urlhtml)
@@ -115,17 +91,25 @@ if __name__ == "__main__":
      
     #判断天气是否含有“雨”关键字
     if "晴" in dic["天气"]:
-        sendMails("It's Sunny today. Don't  bring your umbrella!" +"\n" +"城市: " +dic["城市"] +"\n" +"日期: " +dic["日期"] +"\n" +"天气: " +dic["天气"] +"\n" +"温度: " +dic["温度"])
+        sendMails("It's Sunny today. Don't      bring your umbrella!"  + "\n" +"城市: " +dic["城市"] +"\n" +"日期: " +dic["日期"] +"\n" +"天气: " +dic["天气"] +"\n" +"温度: " +dic["温度"])
     if "雨" in dic["天气"]:
         #ret = mail()
-        sendMailr("It's rainy today. Remember to bring your umbrella!" + "\n" + "城市: " + dic["城市"] + "\n" + "日期: " + dic[
-            "日期"] + "\n" + "天气: " + dic["天气"] + "\n" + "温度: " + dic["温度"])
+        sendMailr("It's rainy today. Remember to bring your umbrella!" + "\n" + "城市: " + dic["城市"] + "\n" + "日期: " + dic["日期"] + "\n" + "天气: " + dic["天气"] + "\n" + "温度: " + dic["温度"])
 
 
 '''
-It's rainy today. Remember to bring your umbrella!
+在ipython是这样的哦　怎么出来就是汉字了呢　　一时不明白的地方呢　
+In [64]: dic["城市"]
+Out[64]: '\xe5\xb9\xbf\xe5\xb7\x9e\xe5\xa4\xa9\xe6\xb2\xb3\xe5\x8c\xba'
+
+Sunny Today!
+发件人：Weather Monitor<563497988@qq.com> +
+收件人：evan886<evan886@gmail.com> +我<linuxops@126.com> +
+时   间：2018年03月28日 12:13 (星期三)
+
+It's Sunny today. Don't  bring your umbrella!
 城市: 广州天河区
-日期: 2018年03月28日　星期三　戊戌年二月十二
+日期: 2018年03月28日　星期三　戊戌年二月十二 
 天气: 晴
 温度: 17 ~ 27℃
 '''
@@ -158,4 +142,38 @@ http://www.runoob.com/python/python-reg-expressions.html
 https://www.ibm.com/developerworks/cn/opensource/os-cn-pythonre/index.html
 
 
+
+
+
+##is me
+
+import smtplib
+from email.mime.text import MIMEText
+from email.utils import formataddr
+
+my_sender = 'linuxops@126.com'  # 发件人邮箱账号
+my_pass = 'evan2240'  # 发件人邮箱密码
+my_user = 'evan886@gmail.com'  # 收件人邮箱账号，我这边发送给自己
+
+
+def mail():
+    ret = True
+    try:
+        msg = MIMEText('天气晴朗', 'plain', 'utf-8')
+        msg['From'] = formataddr(["linuxops", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
+        msg['To'] = formataddr(["FK", my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
+        msg['Subject'] = "天气预报"  # 邮件的主题，也可以说是标题
+
+        server = smtplib.SMTP_SSL("smtp.126.com", 465)  # 发件人邮箱中的SMTP服务器，端口是25
+        server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码
+        server.sendmail(my_sender, [my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
+        server.quit()  # 关闭连接
+    except Exception:  # 如果 try 中的语句没有执行，则会执行下面的 ret=False
+        ret = False
+    return ret
+
+
+#ret = mail()
+
+#is me
 '''

@@ -44,8 +44,8 @@ def sendMailr(body):
     from_mail = '563497988@qq.com'
      
     #密码使用授权码替代，否则会报535等认证错误
-    mail_pass = 'evandfdfdff'
-    to_mail = ['evan886@gmail.com','piestion@126.com']
+    mail_pass = 'evanevan'
+    to_mail = ['evan886@gmail.com','piestion@126.com','linuxops@126.com']
     from_name = 'Weather Monitor'
     subject = 'Raining Today!'
     mail = [
@@ -104,12 +104,11 @@ if __name__ == "__main__":
         raise e
      
     #抓取关键字正则表达式  看到这里 2018 03 28 改了好像收不到了　
-    #re_page = re.compile(r'<dd class="name">.*?<h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
-    re_page = re.compile(r'<dd class="name"><h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
-     
+    re_page = re.compile(r'<dd class="name">.*?<h2>(.*?)</h2>.*?<dd class="week">(.*?)</dd>.*?<span>.*?<b>(.*?)</b>(.*?)</span>',re.S)
+
     items = re_page.findall(urlhtml)
     dic = {}
-    dic["城市"] = items[0][0]
+    #dic["城市"] = items[0][0]
     dic["日期"] = items[0][1]
     dic["天气"] = items[0][2]
     dic["温度"] = items[0][3]

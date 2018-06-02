@@ -72,3 +72,5 @@ squares = [x**2 for x in range(10)]
 
 5.1.4.1. 嵌套的列表推导式
 
+lock here
+https://yiyibooks.cn/yy/python_278/tutorial/controlflow.html

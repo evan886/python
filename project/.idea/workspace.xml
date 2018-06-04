@@ -16,23 +16,39 @@
         <entry file="file://$PROJECT_DIR$/plane/note">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="10-敌机发射子弹.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="10-敌机发射子弹.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plane/10-敌机发射子弹.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+            <state relative-caret-position="360">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
                 <element signature="e#43#56#0" expanded="true" />
                 <element signature="e#141#805#0" expanded="false" />
                 <element signature="e#1782#2199#0" expanded="false" />
                 <element signature="e#2233#2654#0" expanded="false" />
-                <marker date="1527911601695" expanded="false" signature="2699:3350" ph="..." />
+                <element signature="e#2705#3350#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="11-代码优化抽取基类.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plane/11-代码优化抽取基类.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="82" column="50" lean-forward="false" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
+              <folding>
+                <element signature="e#141#623#0" expanded="false" />
+                <element signature="e#657#1016#0" expanded="false" />
+                <element signature="e#1051#1986#0" expanded="false" />
+                <element signature="e#3134#3779#0" expanded="false" />
+                <element signature="e#3799#4258#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,11 +70,12 @@
         <option value="$PROJECT_DIR$/plane/09-代码优化删除越界的子弹.py" />
         <option value="$PROJECT_DIR$/plane/note" />
         <option value="$PROJECT_DIR$/plane/10-敌机发射子弹.py" />
+        <option value="$PROJECT_DIR$/plane/11-代码优化抽取基类.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="386" />
+    <option name="x" value="886" />
     <option name="y" value="98" />
     <option name="width" value="1348" />
     <option name="height" value="947" />
@@ -78,7 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -95,27 +111,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/plane" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/plane/" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/plane" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,25 +137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.10-敌机发射子弹">
-    <configuration default="false" name="06-飞机大战-玩家飞机发射子弹" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plane" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plane/06-飞机大战-玩家飞机发射子弹.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.11-代码优化抽取基类">
     <configuration default="false" name="07-显示敌机" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -221,6 +210,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="11-代码优化抽取基类" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plane" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plane/11-代码优化抽取基类.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -287,19 +294,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.06-飞机大战-玩家飞机发射子弹" />
-      <item index="1" class="java.lang.String" itemvalue="Python.07-显示敌机" />
-      <item index="2" class="java.lang.String" itemvalue="Python.08-控制敌机左右移动" />
-      <item index="3" class="java.lang.String" itemvalue="Python.09-代码优化删除越界的子弹" />
-      <item index="4" class="java.lang.String" itemvalue="Python.10-敌机发射子弹" />
+      <item index="0" class="java.lang.String" itemvalue="Python.07-显示敌机" />
+      <item index="1" class="java.lang.String" itemvalue="Python.08-控制敌机左右移动" />
+      <item index="2" class="java.lang.String" itemvalue="Python.09-代码优化删除越界的子弹" />
+      <item index="3" class="java.lang.String" itemvalue="Python.10-敌机发射子弹" />
+      <item index="4" class="java.lang.String" itemvalue="Python.11-代码优化抽取基类" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.10-敌机发射子弹" />
-        <item index="1" class="java.lang.String" itemvalue="Python.09-代码优化删除越界的子弹" />
-        <item index="2" class="java.lang.String" itemvalue="Python.08-控制敌机左右移动" />
-        <item index="3" class="java.lang.String" itemvalue="Python.07-显示敌机" />
-        <item index="4" class="java.lang.String" itemvalue="Python.06-飞机大战-玩家飞机发射子弹" />
+        <item index="0" class="java.lang.String" itemvalue="Python.11-代码优化抽取基类" />
+        <item index="1" class="java.lang.String" itemvalue="Python.10-敌机发射子弹" />
+        <item index="2" class="java.lang.String" itemvalue="Python.09-代码优化删除越界的子弹" />
+        <item index="3" class="java.lang.String" itemvalue="Python.08-控制敌机左右移动" />
+        <item index="4" class="java.lang.String" itemvalue="Python.07-显示敌机" />
       </list>
     </recent_temporary>
   </component>
@@ -317,10 +324,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="386" y="98" width="1348" height="947" extended-state="1" />
+    <frame x="886" y="98" width="1348" height="947" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17964073" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14071856" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24787363" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -350,6 +357,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/plane/note">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane/10-敌机发射子弹.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+          <folding>
+            <element signature="e#43#56#0" expanded="true" />
+            <element signature="e#141#805#0" expanded="false" />
+            <element signature="e#1782#2199#0" expanded="false" />
+            <element signature="e#2233#2654#0" expanded="false" />
+            <element signature="e#2705#3350#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane/note">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="34" column="14" lean-forward="false" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
           <folding />
@@ -365,7 +394,7 @@
             <element signature="e#141#805#0" expanded="false" />
             <element signature="e#1782#2199#0" expanded="false" />
             <element signature="e#2233#2654#0" expanded="false" />
-            <marker date="1527911601695" expanded="false" signature="2699:3350" ph="..." />
+            <element signature="e#2705#3350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -394,7 +423,7 @@
             <element signature="e#141#805#0" expanded="false" />
             <element signature="e#1782#2199#0" expanded="false" />
             <element signature="e#2233#2654#0" expanded="false" />
-            <marker date="1527911601695" expanded="false" signature="2699:3350" ph="..." />
+            <element signature="e#2705#3350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -493,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plane/05-飞机大战-控制飞机左右移动-3-面向对象.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="68" column="3" lean-forward="true" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plane/06-飞机大战-玩家飞机发射子弹.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -531,21 +553,45 @@
     <entry file="file://$PROJECT_DIR$/plane/note">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plane/10-敌机发射子弹.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+        <state relative-caret-position="360">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding>
             <element signature="e#43#56#0" expanded="true" />
             <element signature="e#141#805#0" expanded="false" />
             <element signature="e#1782#2199#0" expanded="false" />
             <element signature="e#2233#2654#0" expanded="false" />
-            <marker date="1527911601695" expanded="false" signature="2699:3350" ph="..." />
+            <element signature="e#2705#3350#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane/05-飞机大战-控制飞机左右移动-3-面向对象.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#501#1113#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plane/11-代码优化抽取基类.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="82" column="50" lean-forward="false" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
+          <folding>
+            <element signature="e#141#623#0" expanded="false" />
+            <element signature="e#657#1016#0" expanded="false" />
+            <element signature="e#1051#1986#0" expanded="false" />
+            <element signature="e#3134#3779#0" expanded="false" />
+            <element signature="e#3799#4258#0" expanded="false" />
           </folding>
         </state>
       </provider>

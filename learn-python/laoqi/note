@@ -83,3 +83,33 @@ Out[23]: ''
 ===1.7.3===
 reversed 
 
+==1.7.5==
+
+hasattr() 有没有 iter 
+
+In [1]: new = [1,2,3]
+
+In [2]: lst = ['py','php']
+
+In [3]: r= lst.extend(new)
+
+In [4]: r
+
+#没有返回值的方法，就不要使用赋值语句了 用也白用 :
+In [5]: print(r)
+None
+
+In [6]: print (r)
+None
+
+apend()  extend()
+
+
+count  
+
+index 
+
+
+insert 
+
+

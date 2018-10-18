@@ -1,0 +1,9 @@
+In [1]: from SimpleXMLRPCServer import SimpleXMLRPCServer
+
+In [2]: s = SimpleXMLRPCServer(("",4242)) #use localhost
+
+In [3]: def twice(x):
+   ...:     return x*2
+   ...: 
+
+In [4]: s.register_function(twice)

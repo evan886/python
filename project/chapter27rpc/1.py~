@@ -1,0 +1,11 @@
+#!/usr/bin/python
+from xmrpclib import ServerProxy
+from os.path import join, isfile
+from SimpleXMLRPCServer import SimpleXMLRPCServer
+from urlparse import urlparse
+import sys
+MAX_HISTORY_LENGTH = 6
+
+OK = 1
+
+

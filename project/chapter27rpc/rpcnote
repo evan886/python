@@ -1,0 +1,24 @@
+In [1]: from SimpleXMLRPCServer import SimpleXMLRPCServer
+
+In [2]: s = SimpleXMLRPCServer(("",4242)) #use localhost
+
+In [3]: def twice(x):
+   ...:     return x*2
+   ...: 
+
+In [4]: s.register_function(twice)
+In [6]: s.serve_forever()
+
+
+##waite
+
+另外一个窗口
+In [1]: from xmlrpclib import ServerProxy
+
+In [2]: s = ServerProxy('http://localhost:4242')
+
+In [3]: s.twice(2)
+Out[3]: 4
+
+In [4]: s.twice(8)
+Out[4]: 16

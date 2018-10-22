@@ -19,6 +19,21 @@ def getPort(url):
 
 
 class Node:
+     """ 
+     """
+     def __init__(self,url,dirname,srcret):
+		 self.url = url
+		 self.dirname = dirname
+		 self.secret = secret
+		 self.know = set()
+		 
+		 def query(self,quer,history=[]):
+			 
+			 try:
+				 return self._handle(query)
+			except UnhandledQuery:
+				history = history + [self.url]   	  
+
     
 
 

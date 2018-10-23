@@ -1,4 +1,4 @@
-#!/usr/bin/python
+:#!/usr/bin/python
 from xmrpclib import ServerProxy
 from os.path import join, isfile
 from SimpleXMLRPCServer import SimpleXMLRPCServer
@@ -53,13 +53,6 @@ class Node:
         code, data = self.query(query)
         if code == OK:
             f = open(join(self.dirname,query),'w')
-            f.write(data)
-            f.close()
-            return OK
-        else:
-            return FAIL
-
-    def _start(self):
 
 
         

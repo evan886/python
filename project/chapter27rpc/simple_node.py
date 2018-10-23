@@ -60,6 +60,8 @@ class Node:
             return FAIL
 
     def _start(self):
+        s= SimpleXMLRPCServer("",getPort(self.url)),logRequest=False)
+        s.register_
 
 
         

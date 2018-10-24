@@ -61,7 +61,22 @@ class Node:
 
     def _start(self):
         s= SimpleXMLRPCServer("",getPort(self.url)),logRequest=False)
-        s.register_
+        s.register_instance(self)
+        s.serve_forever()
+        
+    def _handle(self, query):
+        """
+        """
+        dir = self.dirname
+        mane = join(dir,query)
+
+        def _broadcast(self.query, history):
+            """
+            """
+
+        
+
+            
 
 
         

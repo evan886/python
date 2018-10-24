@@ -70,9 +70,18 @@ class Node:
         dir = self.dirname
         mane = join(dir,query)
 
-        def _broadcast(self.query, history):
+    def test():        
+
+    def _broadcast(self.query, history):
             """
             """
+            for other in self.known.copy():
+                if other in history: continue
+                try:
+                    s = ServerProxy(other)
+                    code, data
+
+    def main():                    
 
         
 

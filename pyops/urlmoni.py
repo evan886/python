@@ -21,7 +21,9 @@ def format_msg(s):
     #type : (object) ->object
     msg = MIMEText(s,_subtype='html',_charset='utf-8')
     msg['From'] = _format_add(from_addr)
-    msg['To'] = _format_add
+    msg['To'] = _format_add(to_addr)
+    msg['Subject'] = Header(u'来自evan的监控','utf-8').encode()
+    return msg.as_string()
 
 
 def send_email(s):

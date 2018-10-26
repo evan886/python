@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
-from xmrpclib import ServerProxy
+from xmlrpclib import ServerProxy
 from os.path import join, isfile
 from SimpleXMLRPCServer import SimpleXMLRPCServer
 from urlparse import urlparse
@@ -78,22 +78,20 @@ class Node:
              if other in history: continue
              try:
                  s = ServerProxy(other)
-                 code, data
+                 code, data = s.query(query,history)
+                 if code == OK:
+                     return code,data
+             except:
+                 self.known.remove(other)
+         return FAIL, EMPTY
+def main():
+    url,directory, secret = sys.argv[1:]
+    n = Node(url,directory,secret)
+    n._start()
 
-     def main():
-         url.directory, secret = sys.argv[1:]
-         n = Node(url,directory,secret)
-         n._start()
-
-     if __name__ == '__main__':main()
-   
-            
-
-
-        
-    
-  
-
-    
+#if __name__ == '__main__':
+#    main()
 
 
+if __name__ == "__main__":
+    main()

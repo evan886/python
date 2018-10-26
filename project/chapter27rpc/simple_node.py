@@ -60,7 +60,7 @@ class Node:
      def _start(self):
          """
          """
-         s = SimpleXMLRPCServer(("",getPort(self.url)),logRequest=False)
+         s = SimpleXMLRPCServer(("",getPort(self.url)),logRequests=False)
          s.register_instance(self)
          s.serve_forever()
         
@@ -89,9 +89,27 @@ def main():
     n = Node(url,directory,secret)
     n._start()
 
-#if __name__ == '__main__':
-#    main()
-
 
 if __name__ == "__main__":
     main()
+
+'''
+python simple_node.py  http://localhost:4242 files1 secret1
+
+python simple_node.py  http://localhost:4243 files2 secret2
+
+
+In [1]: from xmlrpclib import *
+
+In [2]: mypeer = ServerProxy('http://localhost:4242')
+
+In [3]: code , date = mypeer.query('test.txt')
+
+
+Fault: <Fault 1: "<type 'exceptions.NameError'>:global name 'query' is not defined">
+
+
+
+
+
+'''

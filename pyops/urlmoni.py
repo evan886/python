@@ -27,8 +27,10 @@ def format_msg(s):
 
 
 def send_email(s):
-    
-    server=
+    server = smtplib.SMTP(smtp_server,25)
+    server.set_debuglevel(0)
+    server.login(from_addr,password)
+    server.sendmail(from_addr,to_addr,s)
 
 list_of_sites = []
 

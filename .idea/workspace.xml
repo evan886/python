@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/django/project/mynewsite/myapp/views.py" line="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/project/chapter27rpc/simple_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/chapter27rpc/simple_node.py" afterDir="false" />
-    </list>
+    <list default="true" id="9d36e675-1a32-4003-bb50-dc145acfff61" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +18,7 @@
     <session id="890997412">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.opened" value="2" />
         </counts>
@@ -64,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/chapter27rpc/simple_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
+            <state relative-caret-position="235">
+              <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
               <folding>
                 <element signature="e#41#73#0" expanded="true" />
               </folding>
@@ -387,7 +385,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="46" width="960" height="1034" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49527186" visible="true" weight="0.18676628" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -772,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/chapter27rpc/simple_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
+        <state relative-caret-position="235">
+          <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
           <folding>
             <element signature="e#41#73#0" expanded="true" />
           </folding>

@@ -6,12 +6,10 @@ from SimpleXMLRPCServer import SimpleXMLRPCServer
 from urlparse import urlparse
 import sys
 MAX_HISTORY_LENGTH = 6
-
+#要看一下 27.4.1 分析一下代码  11月 13日 星期二 23:06:55 C
 OK = 1
 FAIL = 2
 EMPTY = ''
-
-def
 
 def getPort(url):
     'extracts the port from a URL 用URL中提取端口'
@@ -34,7 +32,7 @@ class Node:
          """
          code, data = self._handle(query)
          if code == OK:
-             return code, data
+             return code, data #这是一对元组
          else:
              history = history + [self.url]
              if len(history) >= MAX_HISTORY_LENGTH:

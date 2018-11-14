@@ -10,7 +10,7 @@ MAX_HISTORY_LENGTH = 6
 OK = 1
 FAIL = 2
 EMPTY = ''
-
+# python client.py http://localhost:4242 files1 secre1
 def getPort(url):
     'extracts the port from a URL 用URL中提取端口'
     name = urlparse(url)[1]

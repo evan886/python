@@ -22,3 +22,6 @@ Out[3]: 4
 
 In [4]: s.twice(8)
 Out[4]: 16
+
+
+https://blog.csdn.net/ranky2009/article/details/47059245  Python项目8：使用XML-RPC进行文件共享

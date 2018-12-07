@@ -10,15 +10,15 @@ class  SweetPotato:
         """ 不然打印出来是类的内存地址"""
         return "地瓜的状态:(%s)(%d)" %(self.cookedString,self.cookedLevel)
 #        return "地瓜的状态:(%s)(%d),添加的作料有:(%s)" %(self.cookedString,self.cookedLevel,str(self.condiments))
-
+    self.cookedLevel +=cooked_time
     def cook(self,cooked_time):
-        if cooked_time >=0 and cooked_time<3:
+        if self.cookedLevel >=0 and self.cookedLevel<3:
             self.cookedString ="生的"
-        elif cooked_time >=3 and cooked_time<5:
+        elif self.cookedLevel >=3 and self.cookedLevel<5:
             self.cookedString ="半成不熟"
-        elif cooked_time >=5 and cooked_time<8:
+        elif self.cookedLevel >=5 and self.cookedLevel<8:
             self.cookedString ="熟"
-        elif cooked_time >=8:
+        elif self.cookedLevel >=8:
             self.cookedString ="糊了"            
         
 
@@ -28,3 +28,13 @@ print(di_gua)
 
 di_gua.cook(1)
 print(di_gua)
+
+"""
+cooked_time 没有保存起来时 会这样 
+地瓜的状态:(生的)(0)
+地瓜的状态:(生的)(0)
+
+  if cooked_time >=0 and cooked_time<3:
+16            self.cookedString ="生的" 换成self.cookedLevel
+
+"""

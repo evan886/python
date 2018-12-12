@@ -1,0 +1,3 @@
+#!/usr/bin/python
+#-*- coding:utf-8 -*-
+old_file_name= input(" 输入要复制的文件名 ")

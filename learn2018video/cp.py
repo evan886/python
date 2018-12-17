@@ -10,7 +10,7 @@ position = old_file_name.rfind(".")
 new_file_name = old_file_name[0:position] + "[复件]" + old_file_name[position:]
 
 new_file = open(new_file_name,"w")
-
+#1024 == 1k
 while True:
     content = old_file.read(1024)
 

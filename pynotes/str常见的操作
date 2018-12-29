@@ -1,0 +1,14 @@
+str常见的操作
+from py2018 video
+
+In [1]: dir(str)
+Out[1]: 
+['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+''''''
+
+count 
+
+replace 

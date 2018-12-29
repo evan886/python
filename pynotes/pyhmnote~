@@ -1,0 +1,16 @@
+==09列表的增删改查 ==
+In [1]: names= ['老王','老李','老刘']
+
+In [2]: names.append("老赵")
+
+In [3]: names.append("悟空")
+
+In [3]: names 
+Out[3]: ['老王', '老李', '老刘', '老赵']
+#得是py3  ipython3  不然出来不一定是中文
+
+insert
+In [4]: names.insert(0,"八戒")
+
+In [5]: names
+Out[5]: ['八戒', '老王', '老李', '老刘', '老赵']

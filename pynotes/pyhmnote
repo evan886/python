@@ -1,0 +1,61 @@
+==09列表的增删改查 ==
+In [1]: names= ['老王','老李','老刘']
+
+In [2]: names.append("老赵")
+
+In [3]: names.append("悟空")
+
+In [3]: names 
+Out[3]: ['老王', '老李', '老刘', '老赵']
+#得是py3  ipython3  不然出来不一定是中文
+
+insert
+In [4]: names.insert(0,"八戒")
+
+In [5]: names
+Out[5]: ['八戒', '老王', '老李', '老刘', '老赵']
+
+str1 + str2
+
+str1.extend(str2)
+
+ pop  删除最后面的那个
+
+栈zhan
+remove("老王") #只删除一次
+
+In [7]: names
+Out[7]: ['八戒', '老王', '老李', '老刘', '老赵']
+
+In [8]: names[2:5]
+Out[8]: ['老李', '老刘', '老赵']
+没有最后那个
+
+ 添加新元素
+ append  insert   extend
+
+删除元素
+pop  删除最后那个
+remove
+del  xxx[下标]
+
+修改 如下
+
+
+In [9]: names 
+Out[9]: ['八戒', '老王', '老李', '老刘', '老赵']
+
+In [10]: names[0]="8界"
+
+In [11]: names 
+Out[11]: ['8界', '老王', '老李', '老刘', '老赵']
+
+
+in
+not in
+
+In [13]: if  "老李" in names:
+    ...:     print("find it")
+    ...:     
+find it
+

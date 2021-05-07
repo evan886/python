@@ -1,0 +1,124 @@
+
+* =chapter 1=
+
+
+1.1.1 num
+
+id(); help(id); type()
+
+>>> type(3)
+<class 'int'>
+>>> type(3.3)
+<class 'float'>
+
+1.1.2 var
+
+1.1.4 big integer
+In [10]: 7.8** -7.9
+Out[10]: 8.962984363005433e-08
+
+1.1.5 float
+
+
+
+** 1.2 除法
+
+** 1.5 str
+p32
+
+===1.6.3===
+py2 
+
+In [1]: import sys 
+
+In [2]: sys.getdefaultencoding()
+Out[2]: 'ascii'
+
+In [1]: import sys
+
+In [2]: sys.getdefaultencoding()
+Out[2]: 'utf-8'
+
+
+==1.7 list==
+
+n [10]: a = ['2',3,'qiwsit.github.io']
+
+In [11]: a[0]
+Out[11]: '2'
+
+In [12]: a[1]
+Out[12]: 3
+
+In [13]: a[:2]
+Out[13]: ['2', 3]
+
+In [14]: a[1:]
+Out[14]: [3, 'qiwsit.github.io']
+
+In [15]: a[1:2]
+Out[15]: [3]
+
+In [16]: a[2]
+Out[16]: 'qiwsit.github.io'
+
+In [17]: a[2][3:4]   #a[2] 中的 [3:4]
+Out[17]: 's'
+
+In [18]: a[2][7:13]
+Out[18]: 'github'
+
+-
+
+In [19]: lang = "python"
+
+In [20]: lang[-1]
+Out[20]: 'n'
+
+In [21]: lst = ['python','java','c++']
+
+In [22]: lst[-1]
+Out[22]: 'c++'
+
+In [23]: lang[-1:-3]
+Out[23]: ''
+
+lang[-1:-3] ===  lang[(6-1):(6-3)] = lang[5:3]
+ 序列都是从左向右读取  这里却是 反过来 所以 为空 
+
+In [23]: lang[-1:-3]
+Out[23]: ''
+
+===1.7.3===
+reversed 
+
+==1.7.5==
+
+hasattr() 有没有 iter 
+
+In [1]: new = [1,2,3]
+
+In [2]: lst = ['py','php']
+
+In [3]: r= lst.extend(new)
+
+In [4]: r
+
+#没有返回值的方法，就不要使用赋值语句了 用也白用 :
+In [5]: print(r)
+None
+
+In [6]: print (r)
+None
+
+apend()  extend()
+
+
+count  
+
+index 
+
+
+insert 
+
+

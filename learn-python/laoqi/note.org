@@ -323,7 +323,229 @@ Out[13]: ['mei', 'you', 'love', 'I']
 
 ** 1.8 tuple
 
-   
+In [1]: t=123,'evan',["love","you"]
+
+In [2]: t
+Out[2]: (123, 'evan', ['love', 'you'])
+
+In [3]: type(t)
+Out[3]: tuple
+
+In [4]: s="evan"
+
+In [5]: s
+Out[5]: 'evan'
+
+In [6]: type(s)
+Out[6]: str
+
+
+*** 1.8.2  索引和切片   
+
+In [7]: t=(1,'23',[123,'abc'],('python'),'evan')
+
+In [8]: t[2]
+Out[8]: [123, 'abc']
+
+In [9]: t[1:]
+Out[9]: ('23', [123, 'abc'], 'python', 'evan')
+
+In [10]: t[2][1]
+Out[10]: 'abc'
+
+
+Note 当元组中只有一个元素时,元素后面要加, 不然是int  
+
+
+** 1.9 dict
+
+*** 创建字典 
+mydict={}
+
+
+
+In [1]: name=(["1","google"],["2","bing"])
+
+In [2]: type(name)
+Out[2]: tuple
+
+In [3]: website=dict(name)
+
+In [4]: website
+Out[4]: {'1': 'google', '2': 'bing'}
+
+In [5]: type(website)
+Out[5]: dict
+
+*** 1.9.2 访问字典的值
+
+In [1]: person={'name2': 'mei','name':'evan','language':'py','site':'linuxsa.org'}
+
+In [2]: person['name']
+Out[2]: 'evan'
+
+
+*** 基本操作
+
+In [3]: city_code={'suzhou':'0512','beijin':'011','shanghai':'012','tangshan':'0315'}
+
+In [4]: city_code
+Out[4]: {'suzhou': '0512', 'beijin': '011', 'shanghai': '012', 'tangshan': '0315'}
+
+In [5]: city_code['beijin']="010"
+
+In [6]: city_code
+Out[6]: {'suzhou': '0512', 'beijin': '010', 'shanghai': '012', 'tangshan': '0315'}
+
+
+In [9]: city_code
+Out[9]: 
+{'suzhou': '0512',
+ 'beijin': '010',
+ 'shanghai': '012',
+ 'tangshan': '0315',
+ 'nanjing': '025'}
+
+In [10]: del city_code["shanghai"]
+
+In [11]: city_code
+Out[11]: {'suzhou': '0512', 'beijin': '010', 'tangshan': '0315', 'nanjing': '025'}
+
+
+in 
+
+In [12]: shanghai in city_code
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-12-bd1f040640ee> in <module>
+----> 1 shanghai in city_code
+
+NameError: name 'shanghai' is not defined
+
+In [13]: "shanghai" in city_code
+Out[13]: False
+
+
+***  字符串格式化输出 
+
+In [14]: "suzhou is a  beautiful city, its area cdode is {suzhou}".format(**city_code)
+Out[14]: 'suzhou is a  beautiful city, its area cdode is 0512'
+
+
+*** 1.9.5 字典的方法
+
+1.copy 
+
+In [15]: ad={"name":"evan","lang":"python"}
+
+In [16]: bd=ad
+
+In [17]: bd
+Out[17]: {'name': 'evan', 'lang': 'python'}
+
+In [18]: id(ad)
+Out[18]: 139725632610816
+
+In [19]: id(bd)
+Out[19]: 139725632610816
+
+
+In [20]: cd =ad.copy()
+
+In [21]: cd
+Out[21]: {'name': 'evan', 'lang': 'python'}
+
+In [22]: id(cd)
+Out[22]: 139725632878336
+
+
+In [23]: cd["name"]="linuxsa.org"
+
+In [24]: cd
+Out[24]: {'name': 'linuxsa.org', 'lang': 'python'}
+
+In [25]: ad
+Out[25]: {'name': 'evan', 'lang': 'python'}
+
+
+In [26]: bd
+Out[26]: {'name': 'evan', 'lang': 'python'}
+
+In [27]: bd["name"]="mei"
+
+In [28]: ad
+Out[28]: {'name': 'mei', 'lang': 'python'}
+
+In [29]: bd
+Out[29]: {'name': 'mei', 'lang': 'python'}
+
+bd=ad 得到是引用同一个对象
+
+
+In [30]: x={"name":"qi","lang":["py","java","c"]}
+
+In [31]: y=x.copy()
+
+In [32]: y
+Out[32]: {'name': 'qi', 'lang': ['py', 'java', 'c']}
+
+In [33]: id(x)
+Out[33]: 139725630257984
+
+In [34]: id(y)
+Out[34]: 139725631495744
+
+
+删除 y 影响了x呀 
+
+In [35]: y["lang"].remove("c")
+
+In [36]: y
+Out[36]: {'name': 'qi', 'lang': ['py', 'java']}
+
+In [37]: x
+Out[37]: {'name': 'qi', 'lang': ['py', 'java']}
+
+
+
+但是改变name 又不影响哦 
+In [38]: y["name"]="laoqi"
+
+In [39]: y
+Out[39]: {'name': 'laoqi', 'lang': ['py', 'java']}
+
+In [40]: x
+Out[40]: {'name': 'qi', 'lang': ['py', 'java']}
+
+原因  
+可见 列表是同一个对象 , 另外一个str 不是  同一个对象 
+
+一般是列表这些str num 复合而成的是复制了引用 
+In [41]: id(x["lang"])
+Out[41]: 139725629544448
+
+In [42]: id(y["lang"])
+Out[42]: 139725629544448
+
+In [43]: 
+
+In [43]: id(x["name"])
+Out[43]: 139725630511472
+
+
+
+deep copy  解决这个可能是引用的问题 
+import coy 
+z=copy.deepcopy(x)
+
+In [44]: id(y["name"])
+Out[44]: 139725630720176
+
+
+
+不错 坚持看完了copy  后面的理解部分
+
+2. clear 
 
  
 

@@ -1,0 +1,18 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import random
+i=0
+while i < 4:
+    print("***********************")
+    num = input('请输入0 -9')
+    xnum = random.randint(0,9)
+    x = 3 -i
+    if num == int(xnum):
+        print("运气真好 中了")
+        break
+    elif  int(num) > int(xnum):
+        print('''猜大了 ,正确答案是%s\n 你还有%s次机会 ''' %(xnum,x))
+    elif num <int(xnum):
+        print('''猜小了 ,正确答案是%s\n 你还有%s次机会 ''' %(xnum,x))
+    print('****************8')
+    i+=1

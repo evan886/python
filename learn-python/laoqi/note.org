@@ -1230,8 +1230,138 @@ In [7]: id(y)
 Out[7]: 140692691548352
 
 
+***  参数收集
 
 
+*args  元组形式
+**kargs  dict 形式 
+
+
+**  func对象 
+
+*** 3.3.1 递归 
+
+***  传递func 
+
+In [1]: def  bar():
+   ...:     print("I am in bar()")
+   ...: 
+In [2]: bar
+Out[2]: <function __main__.bar()>
+In [3]: bar()
+I am in bar()
+传递的是func 
+
+In [6]: foo(bar)
+I am in bar()
+
+***  嵌套func 
+
+ cat   p165.py 
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+def foo():
+    a =1
+    def bar():
+        b = a +1
+        print("b=",b)
+    bar()
+    print("a=",a)
+foo()
+
+''' b= 2
+a= 1
+'''
+
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+def foo():
+    a =1
+    def bar():
+        nonlocal a 
+        a = a +1
+        print("bar()a=",a)
+    bar()
+    print("foo()a=",a)
+foo()
+
+''' 
+bar()a= 2
+foo()a= 2
+
+'''
+
+
+ cat gmg.py 
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+def weight(g):
+    def cal_mg(m):
+        return m * g
+    return cal_mg
+w = weight(10)
+print("w=",w)
+mg = w(10)
+print("mg=",mg)
+
+g0=9.78046
+w0=weight(g0)
+mg0=w0(10)
+print(mg0)
+'''
+w= <function weight.<locals>.cal_mg at 0x7f1f2b538e50>
+mg= 100
+
+97.8046
+
+所说说run w=weight(10) ,w所引用的是一个func对象(cal_mg) ,而w(10) 则是所引用的func对象cal_mg 传递了一个参数10 也就是m =10, 和原来的g=10 ,算出m*g 并返回结果
+不用每次传递两个参数呀
+
+
+'''
+
+*** 3.3.4 初衷头饰器 
+
+*** 3.3.5 闭包 回头再看吧 p168
+
+
+
+
+
+
+
+** 3.4 特殊函数 
+
+*** lambda
+In [1]: lam=lambda x: x+3                                                        
+
+In [2]: n2=[] 
+In [4]: numbers = range(10)                                                      
+
+In [5]: for i in numbers: 
+   ...:     n2.append(lam(i)) 
+   ...:                                                                          
+
+In [6]: n2                                                                       
+Out[6]: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+
+*** 3.4.2 map 
+
+In [17]: lst1=[1,2,3]                                                            
+
+In [18]: lst2=[6,7,8]                                                            
+
+In [19]: list(map(lambda x,y:x + y,lst1,lst2))                                   
+Out[19]: [7, 9, 11]
+
+
+*** 3.5.3 reduce 
+
+
+
+
+闭包先不不看 p168
 
 前进 后退 up or donw 什么的和emacs一样的呀 
 
@@ -1245,3 +1375,221 @@ Out[7]: 140692691548352
 
 
 
+In [1]: from functools import reduce                                                                                                                                         
+
+In [2]: reduce(lambda x,y: x+y,[1,2,3,4,5])                                                                                                                                  
+Out[2]: 15
+
+加起来 
+
+In [3]: lis1=[1,2,3]                                                                                                                                                         
+
+In [4]: lis2=[6,5,4]                                                                                                                                                         
+
+In [5]: map(lambda x,y: lis1,lis2)                                                                                                                                           
+Out[5]: <map at 0x7f557a93bdf0>
+
+In [8]: list(map(lambda x,y:x+y, lis1,lis2))                                                                                                                                 
+Out[8]: [7, 7, 7]
+
+
+可见  map 上下计算 ,reduce 横着元素计算
+
+*** 3.4.4 filter 
+n [9]: numbers = range(-5,5)                                                                                                                                                
+
+In [10]: list(filter(lambda x: x>0,numbers))                                                                                                                                 
+Out[10]: [1, 2, 3, 4]
+
+In [11]: [x for x in numbers if x>0 ]                                                                                                                                        
+Out[11]: [1, 2, 3, 4]
+
+In [12]: list(filter(lambda c: c!='e','evan'))                                                                                                                               
+Out[12]: ['v', 'a', 'n']
+
+*** 3.4.5 zip()补充
+
+In [13]: colors=["red","green","blue"]                                                                                                                                       
+
+In [14]: values=["234",12,89,65]                                                                                                                                             
+
+In [15]: for col, val in zip(colors,values): 
+    ...:     print((col,val)) 
+    ...:                                                                                                                                                                     
+('red', '234')
+('green', 12)
+('blue', 89)
+
+zip 自动匹配还抛弃了不对应的项
+
+2.参数*iterables
+
+In [18]: dots =[(1,2),(3,4),(5,6)]                                                                                                                                           
+
+In [19]: x,y = zip(*dots)                                                                                                                                                    
+
+In [20]: x                                                                                                                                                                   
+Out[20]: (1, 3, 5)
+
+In [21]: y                                                                                                                                                                   
+Out[21]: (2, 4, 6)
+
+#矩阵转置
+In [22]: list(zip(*dots))                                                                                                                                                    
+Out[22]: [(1, 3, 5), (2, 4, 6)]
+
+
+** 3.5命名空间
+In [23]: import this                                                                                                                                                         
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit
+
+* TODO chpater 4  classes 
+
+*** 4.2.2 实例
+here 
+* chapter 5 Errors and Exceptions
+** 5.2 exceptions 
+** 5.3 Handling Exceptions
+
+#记得要先input  c 
+python3  eg/try_exc.py 
+this is a dvivsion program.
+input 'c' continue, otherwise loguot:c
+first num2
+second no.2
+1.0
+**********************
+this is a dvivsion program.
+input 'c' continue, otherwise loguot:c
+first num7
+second no.0
+This second num can't be zero
+**************
+this is a dvivsion program.
+input 'c' continue, otherwise loguot:
+
+
+ cat  try_exc.py
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+while 1:
+    print("this is a dvivsion program.")
+    c=input("input 'c' continue, otherwise loguot:")
+    if c == 'c':
+        a = input("first num")
+        b=input("second no.")
+        try:
+            print(float(a)/float(b))
+            print("**********************")
+        except ZeroDivisionError:
+            print("This second num can't be zero")
+            print("**************")
+    else:
+        break
+
+
+try...except 
+
+
+python3  eg/calcu.py 
+zero cat not be division.
+
+ cat  calcu.py
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+class Calculator(object):
+    #is_raise = False
+    is_raise =True
+    def calc(self,express):
+        try:
+            return eval(express)
+        except ZeroDivisionError:
+            if self.is_raise:
+                return "zero cat not be division."
+            else:
+                raise
+if __name__ == "__main__":
+    c=Calculator()
+    print(c.calc("8/0"))
+
+
+2.处理多个异常
+
+
+
+3. else 子句 
+
+ python3 try_else.py 
+firest  no.1
+second no.4
+0.25
+evan@myxps:~/github/python/learn-python/laoqi/eg$ python3 try_else.py 
+firest  no.2
+second no.a
+could not convert string to float: 'a'
+try again
+firest  no.4
+second no.2
+2.0
+
+'
+
+ cat try_else.py 
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+while 1:
+        try:
+            a=input("firest  no.")
+            b=input("second no.")
+            r=(float(a)/float(b))
+            print(r)
+        except Exception as e:
+            print(e)
+            print("try again")
+        else:
+            break
+
+
+4. finally 
+
+In [3]: x=10                                                                  
+
+In [4]: try: 
+   ...:     x=1/0 
+   ...: except Exception as e: 
+   ...:     print(e)     
+   ...: finally: 
+   ...:     print(e)     
+   ...:     del x 
+   ...:                                                                       
+division by zero
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-4-c90b45b30120> in <module>
+      4     print(e)
+      5 finally:
+----> 6     print(e)
+      7     del x
+      8 
+
+NameError: name 'e' is not defined
+
+总的来说 
+
+try:
+    do sth
+except:
+    do sth
+else:
+    do sth 
+finally:
+    do sth 
+
+* chapter 6 Modules 
+
+
+
+5.assert 

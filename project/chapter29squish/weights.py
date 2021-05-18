@@ -27,7 +27,7 @@ class Weight(pygame.sprite.Sprite):
         if self.rect.top > screen_size[1]:
             self.reset()
 
-#初始化
+#初始化 pass 
 pygame.init()
 screen_size = 800, 600
 pygame.display.set_mode(screen_size,FULLSCREEN)
@@ -35,13 +35,13 @@ pygame.mouse.set_visible(0)
 
 #load秤砣图像
 weight_image = pygame.image.load('weights.png')
-weight_image = weight_image.convert()
+weight_image = weight_image.convert()   # ? to match the display
 
 #创建一个子图形组
 sprites = pygame.sprite.RenderUpdates()
 sprites.add(Weight())
 
-#取屏表面 填充
+#取屏表面 全白填充
 screen =pygame.display.get_surface()
 bg =(255,255,255) # while
 screen.fill(bg)

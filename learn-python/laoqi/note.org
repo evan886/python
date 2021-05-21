@@ -1449,7 +1449,220 @@ Explicit is better than implicit
 * TODO chpater 4  classes 
 
 *** 4.2.2 实例
+self 就是实例对象本身 
+
+** 4.3 属性和数据
+
+In [1]: class A: 
+   ...:     x = 7 
+   ...:                                                                              
+
+In [2]: A.x                                                                          
+Out[2]: 7
+
+In [3]: A.y = 9                                                                      
+
+In [4]: A.y                                                                          
+Out[4]: 9
+
+*** 创建实例 
+
+In [5]: class  Girl: 
+   ...:     breast = 90 
+   ...:                                                                              
+
+In [6]: xi = Girl()                                                                  
+
+In [7]: xi                                                                           
+Out[7]: <__main__.Girl at 0x7f265a842ee0>
+
+
+其实上节就是啦  
+
+***  4.3.3 实例属性 
+
+n [9]: foo = A()                                                                    
+
+In [10]: foo.x                                                                       
+Out[10]: 7
+
+
+实例属性修改
+
+In [12]: foo.x +=1                                                                   
+
+In [13]: foo.x                                                                       
+Out[13]: 8
+
+In [14]: A.x                                                                         
+Out[14]: 7
+类属性还是 7 
+
+注意  当类中的变量 引用是可变对象时 类属性和实例属性都能直接修改这个对象,从而影响另外一方的值
+
+***  4.3.4 self 的作用 
+
+类里面的任何方法 第一个参数都是self  
+
+In [15]: class Person: 
+    ...:     def __init__(self,name): 
+    ...:         self.name = name  
+    ...:         print(self) 
+    ...:         print(type(self)) 
+    ...:                                                                             
+
+In [16]: girl = Person("xi")                                                         
+<__main__.Person object at 0x7f265a8593a0>
+<class '__main__.Person'>
+
+可见 self就是类Person的实例,再来看盾 实例girl 
+
+In [17]: girl                                                                        
+Out[17]: <__main__.Person at 0x7f265a8593a0>
+
+In [18]: type(girl)                                                                  
+Out[18]: __main__.Person
+
+
+self ande  girl 所引用的实例对象一样 
+
+
+当创建实例的时候 实例变量作为第一个参数 ,被 py 解释器悄悄传给了self ,所以我们说在
+初始化func中的self.name 就是实例的属性 
+
+In [19]: girl.name                                                                   
+Out[19]: 'xi'
+
+这就是我们得到的实例属性 
+
+*** 4.3.5 数据流转 
+
+#!/usr/bin/python3
+class Person:
+    """
+    This is a sample of class.
+    """
+
+    def __init__(self, name):
+        self.name = name
+
+    def get_name(self):
+        return self.name
+
+    def breast(self, n):
+        self.breast = n
+
+    def color(self, color):
+        print("{0} is {1}".format(self.name, color))
+
+    def how(self):
+        print("{0} is {1}".format(self.name, self.breast))
+
+
+if __name__ == "__main__":
+    girl = Person("canglaoshi")
+    girl.breast(90)
+
+    girl.color("white")
+    girl.how()
+"""
+python3  eg/person2.py
+canglaoshi is white
+canglaoshi is 90
+
+"""
+
+
+** 4.4 方法
+
+*** 绑定方法和非绑定方法
+
+以前的书也有 不过看了 没怎么用又不记得了 可惜 
+
+In [1]: class Foo: 
+   ...:     def bar(self): 
+   ...:         print("this is a normal method of class") 
+   ...:                                                                                                                                                                      
+
+In [2]: f=Foo()                                                                                                                                                              
+
+In [3]: f.bar()                                                                                                                                                              
+this is a normal method of class
+
+
+用实例调用这个方法的时候,因为 PY 解析器把实例已作为第一个参数隐式传给该方法,所以不用显式写出 self 参数了, 强调这个是为了理解self就是实例 
+
+
+实例显式的传给方法 可用如下
+In [6]: Foo.bar(f)                                                                                                                                                           
+this is a normal method of class
+
+err 如下 
+---> 1 Foo.bar()
+
+TypeError: bar() missing 1 required positional argument: 'self'
+
+
+
+知识点来了 
+
+In [7]: Foo.bar                                                                                                                                                              
+Out[7]: <function __main__.Foo.bar(self)>
+
+通过类的名字来调用方法对象的 这方法就叫非绑定方法unbound method 
+
+
+In [8]: f.bar                                                                                                                                                                
+Out[8]: <bound method Foo.bar of <__main__.Foo object at 0x7fd472a86220>>
+
+用实例来得到这个方法对象 就是绑定方法bound method 
+
+p197-198 有空再回看 
+
+*** TODO 4.4.2 类方法和静态方法 
 here 
+
+** 4.5 继承 
+
+*** 4.5.2 单继承
+
+cat  person3.py 
+#!/usr/bin/python3
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def height(self, m):
+        h = dict((["height", m],))
+        return h
+
+    def breast(self, n):
+        b = dict((["breast", n],))
+        return b
+
+
+class Girl(Person):
+    def get_name(self):
+        return self.name
+
+
+if __name__ == "__main__":
+    xi = Girl("xime")
+    print(xi.get_name)
+    print(xi.get_name())
+    print(xi.height(163))
+    print(xi.breast(90))
+
+"""
+<bound method Girl.get_name of <__main__.Girl object at 0x7f77eedbe100>>
+xime
+{'height': 163}
+{'breast': 90}
+
+
+"""
+
+
 * chapter 5 Errors and Exceptions
 ** 5.2 exceptions 
 ** 5.3 Handling Exceptions

@@ -1,0 +1,11 @@
+print('Content-Type: text/html\n\n')
+
+print('<!doctype html>')
+print('<head>')
+print('<title>Hello World</title>')
+print('<meta charset="utf-8">')
+print('</head>')
+print('<body>')
+print('<h2>Hello World, CGI!</h2>')
+print('</body>')
+print('</html>')

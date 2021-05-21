@@ -9,12 +9,16 @@
 banana_image = 'banana.png'
 weight_image = 'weight.png'
 splash_image = 'weight.png'
+#splash_image = 'banana.png'
+
  
 # Change these to affect the general appearance:
 screen_size = 800, 600
 background_color = 255, 255, 255
 margin = 30
 full_screen = 0
+#full_screen = 1
+#font_size = 68
 font_size = 48
  
 # These affect the behavior of the game:

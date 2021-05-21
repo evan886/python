@@ -1,0 +1,81 @@
+
+= ins httpd=
+ sudo apt-get install apache2
+=config=
+<pre>
+理论上只动这两个配置
+/etc/apache2/apache2.conf
+/etc/apache2/conf-available/serve-cgi-bin.conf
+
+
+mkdir /var/www/cgi-bin
+cd /var/www/cgi-bin/
+
+sudo vi  /etc/apache2/apache2.conf
+
+并在末尾添加以下内容
+
+###################################################################
+#########     Adding capaility to run CGI-scripts #################
+ServerName localhost
+ScriptAlias /cgi-bin/ /var/www/cgi-bin/
+Options +ExecCGI
+AddHandler cgi-script .cgi .pl .py
+
+
+sudo vi  /etc/apache2/conf-available/serve-cgi-bin.conf
+
+#修改成如下所示： 原来的最好backup
+<IfModule mod_alias.c>
+	<IfModule mod_cgi.c>
+		Define ENABLE_USR_LIB_CGI_BIN
+	</IfModule>
+
+	<IfModule mod_cgid.c>
+		Define ENABLE_USR_LIB_CGI_BIN
+	</IfModule>
+
+	<IfDefine ENABLE_USR_LIB_CGI_BIN>
+		#ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+		#<Directory "/usr/lib/cgi-bin">
+		#	AllowOverride None
+		#	Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+		#	Require all granted
+		#</Directory>
+
+		## cgi-bin config
+		ScriptAlias /cgi-bin/ /var/www/cgi-bin/
+	    <Directory "/var/www/cgi-bin/">
+	        AllowOverride None
+	        Options +ExecCGI
+	    </Directory>
+
+	</IfDefine>
+</IfModule>
+
+
+使用以下命令启用CGI模块。此命令创建模块配置文件到/etc/apache2/mod-enabled/ 目录下的软链接。
+
+sudo a2enmod cgi
+
+udo service apache2 restart
+
+cd /var/www/cgi-bin
+touch hello.py
+chmod o+x hello.py
+
+sudo vi  hello.py  #cgi等等文件名也行 
+
+#!/usr/bin/python3
+
+print("Content-Type: text/html;charset=utf-8")
+print ()
+print ("你好啊，evan")
+
+打开浏览器 IP/cgi-bin/hello.py
+
+</pre>
+
+
+=see also=
+[https://zhuanlan.zhihu.com/p/144602086 Kali配置Python版cgi环境，并运行第一个程序。]

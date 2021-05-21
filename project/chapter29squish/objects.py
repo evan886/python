@@ -4,7 +4,7 @@ import pygame, config,os
 from random import randrange
 
 
-class SquishSprite(pygame.sprites.Sprite):
+class SquishSprite(pygame.sprite.Sprite):
 
 
 
@@ -19,8 +19,8 @@ class SquishSprite(pygame.sprites.Sprite):
         self.rect = self.image.get_rect()
         screen =pygame.display.get_surface()
         shrink = -config.margin *2 # ?
-        size = screen.get_rect(); # ?
-        self.area = screen.get_rect.inflate(shrink,shrink) # ?
+        #size = screen.get_rect(); # ?
+        self.area = screen.get_rect().inflate(shrink,shrink) # ?
 
 
 
@@ -46,7 +46,7 @@ class Weight(SquishSprite):
  根据它的速度将秤砣垂直移动(下落)一段距离,并根据它是否触及屏幕底端来设置landed属性
         """
         self.rect.top += self.speed
-        self.landed = self.rect.otp >=self.area.bottom
+        self.landed = self.rect.top >=self.area.bottom
 
 
 
@@ -71,11 +71,11 @@ class  Banana(SquishSprite):
 
     def update(self):
         """  """
-        self.rect.centerx = pygame.mouse.get_post()[]
+        self.rect.centerx = pygame.mouse.get_pos()[0]
         self.rect = self.rect.clamp(self.area)
 
     def  touches(self,other):
-        """  ""
+         #"""  ""
         bounds = self.rect.inflate(-self.pad_side,-self.pad_top)
         bounds.bottom = self.rect.bottom
         return bounds.colliderect(other.rect)

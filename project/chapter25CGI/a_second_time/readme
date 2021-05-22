@@ -1,0 +1,13 @@
+再次实现
+全py3  
+html 不能放在cgi-bin  目录的 亲 
+
+在cgi目录下要建立一个data文件夹，里面放一个test.txt文件。
+
+ mkdir  data
+root@myxps:/var/www/cgi-bin# chmod -R 0777 data/
+root@myxps:/var/www/cgi-bin# touch  data/test.txt
+root@myxps:/var/www/cgi-bin# chmod -R 0777 data/
+
+
+然后这个 data/test.txt 里面要写些内容  才能打开  

@@ -1,0 +1,7 @@
+In [2]: import hashlib                                                               
+
+In [3]: sha = hashlib.sha1(b'foobar').hexdigest() 
+   ...:                                                                              
+
+In [4]: sha                                                                          
+Out[4]: '8843d7f92416211de9ebb963ff4ce28125932878'

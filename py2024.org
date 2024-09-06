@@ -1,0 +1,38 @@
+* chapter  15
+
+** 15.2  CGI
+使用模块http.server 在kali中不成功
+
+** 15.3 web
+
+* chapter 23
+
+
+>>> from nntplib import NNTP
+>>> 
+>>> with NNTP('news.gmane.io') as n:
+...    n.group('gmane.comp.python.committers')
+... 
+('211 7299 1 7300 gmane.comp.python.committers', 7299, 1, 7300, 'gmane.comp.python.committers')
+>>>
+
+
+* chapter  25
+
+vi /var/www/html/index.html
+<html>
+<head>
+<title>File Editor</title>
+</head>
+<body>
+<form action='cgi-bin/edit.cgi' method='POST'>
+<b>File name:</b><br />
+<input type='text' name='filename' />
+<input type='submit' value='Open' />
+</form>
+</body>
+</html>
+
+
+foofile.txt 为什么是这个文件  没看明白
+

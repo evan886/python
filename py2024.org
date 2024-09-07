@@ -17,6 +17,7 @@
 >>>
 
 
+
 * chapter  25
 
 vi /var/www/html/index.html
@@ -35,4 +36,58 @@ vi /var/www/html/index.html
 
 
 foofile.txt 为什么是这个文件  没看明白
+
+
+
+
+
+* chapter 27 XML RPC
+
+** 27.4.2
+
+  rpc# python3  simple_node.py http://localhost:4242 files1 secret1
+
+  #听说要在不同目录的 明天再试一下
+  python3  simple_node.py http://localhost:4243 files2 secret2
+
+
+  
+  In [5]: from xmlrpc.client import *
+
+In [6]: mypeer = ServerProxy('http://localhost:4242')
+
+In [7]: code, data = mypeer.query('test.txt')
+
+In [8]: code
+Out[8]: 2
+
+In [9]: data
+Out[9]: ''
+
+In [10]: 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

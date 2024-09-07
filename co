@@ -3,8 +3,8 @@ git pull
 git add .  #添加当前目录下的所有文件和子目录
 #git add  -A # in git 2.0
 git commit -m  "`date`"  #"dbbak and cutnglog"
-git push  origin main 
-#git push  origin master 
+#git push  origin main 
+git push  origin master 
 #git push 
 #有时记得要删除
 #   （使用 "git add/rm <file>..." 更新要提交的内容）

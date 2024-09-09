@@ -47,12 +47,12 @@ foofile.txt 为什么是这个文件  没看明白
 
   rpc# python3  simple_node.py http://localhost:4242 files1 secret1
 
-  #听说要在不同目录的 明天再试一下
-  python3  simple_node.py http://localhost:4243 files2 secret2
+  In [5]: from xmlrpc.client import *
 
 
   
-  In [5]: from xmlrpc.client import *
+  #听说要在不同目录的 明天再试一下
+  python3  simple_node.py http://localhost:4243 files2 secret2
 
 In [6]: mypeer = ServerProxy('http://localhost:4242')
 
@@ -66,8 +66,55 @@ Out[9]: ''
 
 In [10]: 
 
+
+
+run
+
+➜  rpc ls
+files1  files2  simple_node.py
+➜  rpc 
+
+
+ rpc python3  simple_node.py http://localhost:4242 files1 secret1
+ rpc python3  simple_node.py http://localhost:4243 files2 secret2
   
 
+ In [1]: from xmlrpc.client import *
+
+In [2]: mypeer = ServerProxy('http://localhost:4242')
+
+In [3]: code, data = mypeer.query('test.txt')
+
+In [4]: code
+Out[4]: 2
+
+In [5]: data
+Out[5]: ''
+
+In [6]: otherpeer = ServerProxy('http://localhost:4243')
+
+In [7]: code, data = otherpeer.query('test.txt')
+
+In [8]: code   应该是1 ?
+Out[8]: 2
+
+向otherpeer 介绍mypeer 
+In [15]: mypeer.hello('http://localhost:4243')
+Out[15]: 1
+
+In [15]: mypeer.hello('http://localhost:4243')
+Out[15]: 1
+
+In [16]: mypeer.query('test.txt')
+Out[16]: [1, 'i love  2\n']
+
+下载 
+n [17]: mypeer.fetch('test.txt','secret1')
+Out[17]: 1
+
+➜  rpc ls files1
+➜  rpc ls files1
+test.txt
 
 
 

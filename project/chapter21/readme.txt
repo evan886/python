@@ -1,3 +1,14 @@
+
+Oct 31  2024  base pass 
+
+
+# Chapter 21: Generating PDF Reports with Python
+
+
+p335  21.4.2  
+21.5.1 获取数据
+
+
 pip install reportlab
 全改成py3 代码了  要先启动apache2  txt文件我改了一下  哈哈 这样就行了  
 

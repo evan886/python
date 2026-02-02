@@ -1,0 +1,50 @@
+字典里的数是怎么随着 Excel 一行一行变化的
+
+products_per_supplier = {}
+
+Supplier = "Apple"
+
+if "Apple" in products_per_supplier:
+❌ 不在（字典是空的）
+于是走 else：
+roducts_per_supplier["Apple"] = 1
+
+字典现在变成
+{
+  "Apple": 1
+}
+
+第二轮循环（第 3 行）
+
+supplier_name = "Apple"
+
+if "Apple" in products_per_supplier:
+在字典里
+
+
+current_num_products = products_per_supplier[supplier_name]
+
+等价于：
+current_num_products = products_per_supplier["Apple"]
+
+此时字典是：
+so
+current_num_products = 1
+
+products_per_supplier[supplier_name] = current_num_products + 1
+ 等价于： products_per_supplier["Apple"] = 1 + 1
+
+
+current_num_products = products_per_supplier[supplier_name]
+products_per_supplier[supplier_name] = current_num_products + 1
+
+👉 “去字典里看看这个 supplier 现在有几个产品，再给它加 1”
+“之前记了几次？拿出来 → 加一次 → 再记回去”
+
+为什么一定要「取出来再加 1」？
+本身只是一个数字（比如 2），
+你不能直接在脑子里改，必须：
+
+1️⃣ 取出来
+2️⃣ 计算新值
+3️⃣ 再放回字典

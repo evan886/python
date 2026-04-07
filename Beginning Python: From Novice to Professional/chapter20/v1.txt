@@ -1,0 +1,72 @@
+cat test.txt
+Line 1
+Line 2
+
+Line 4
+
+
+cat -A test.txt
+Line 1$
+Line 2$
+$
+Line 4$
+
+
+Line 1$     ← 行尾有 \n
+Line 2$     ← 行尾有 \n
+$           ← 空行，但本身也有 \n（所以显示为单独一个 $）
+Line 4$     ← 行尾有 \n
+
+
+
+不会！yield line 原样产出，不会添加 \n。
+
+最简版（只看内容）
+
+
+with open('test.txt', 'r') as f:
+    for line in lines(f):
+        print(line)  # 直接打印，看不见 \n
+
+
+➜  chapter20 git:(master) ✗ py 1.py 
+Line 1
+
+Line 2
+
+
+
+Line 4
+
+
+
+➜  chapter20 git:(master) ✗ cat  1.py 
+def lines(file):
+    for line in file:
+        yield line
+    yield '\n'
+
+with open('test.txt','r') as f:
+    for line in lines(f):
+        print(line)
+
+
+
+调试版（看清内部）
+
+➜  chapter20 git:(master) ✗ py  1.1.py
+1: 'Line 1\n'
+2: 'Line 2\n'
+3: '\n'
+4: 'Line 4\n'
+5: '\n'
+➜  chapter20 git:(master) ✗ cat  1.1.py
+def lines(file):
+    for line in file:
+        yield line 
+    yield '\n'
+
+with open('test.txt','r') as f:
+    for i,line in enumerate(lines(f),1):
+        print(f"{i}: {repr(line)}")
+

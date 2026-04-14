@@ -70,3 +70,6 @@ with open('test.txt','r') as f:
     for i,line in enumerate(lines(f),1):
         print(f"{i}: {repr(line)}")
 
+
+
+The   frantic pacing--scene changed every 11 seconds on average-- often  leads kids zoned out and spun up; unable to concentrate.

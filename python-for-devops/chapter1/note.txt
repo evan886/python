@@ -1,0 +1,16 @@
+In [1]: class FancyCar():
+   ...:     wheels = 4
+   ...:     def deiveFast(self):
+   ...:         print("Driving so fast")
+   ...: 
+
+In [2]: my_car = FancyCar()
+
+In [3]: my_car.wheels
+Out[3]: 4
+
+In [8]: my_car.deiveFast()
+Driving so fast
+
+
+p48

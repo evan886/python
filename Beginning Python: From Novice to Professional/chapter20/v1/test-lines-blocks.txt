@@ -1,0 +1,92 @@
+ python test-lines-blocks.py
+=== 方法1：直接打开文件 ===
+'Welcome to World Wide Spam, Inc.\n'
+'\n'
+'These are the corporate web pages of *World Wide Spam*, Inc. We hope\n'
+'you find your stay enjoyable, and that you will sample many of our\n'
+'products.\n'
+'\n'
+'==A short history of the company\n'
+'\n'
+'World Wide Spam was started in the summer of 2000. The business\n'
+'concept was to ride the dot-com wave and to make money both through\n'
+'bulk email and by selling canned meat online.\n'
+'\n'
+'Destinations\n'
+'\n'
+'From this page you may visit several of our interesting web pages:\n'
+'\n'
+'* What is SPAM? (http://wwspam.fu/whatisspam)\n'
+'* How do they make it? (http://wwspam.fu/howtomakeit)\n'
+'* Why should I eat it? (http://wwspam.fu/whyeatit)\n'
+'\n'
+'How to get in touch with us\n'
+'\n'
+'You can get in touch with us in *many* ways: By phone (555-1234), by\n'
+'email (wwspam@wwspam.fu) or by visiting our customer feedback page\n'
+'(http://wwspam.fu/feedback).'
+'\n'
+
+=== 方法2：模拟 blocks 的调用过程 ===
+  lines() 产出: 'Welcome to World Wide Spam, Inc.\n'
+    → 加入当前块，block现在: ['Welcome to World Wide Spam, Inc.\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'Welcome to World Wide Spam, Inc.'
+    → 清空block
+  lines() 产出: 'These are the corporate web pages of *World Wide Spam*, Inc. We hope\n'
+    → 加入当前块，block现在: ['These are the corporate web pages of *World Wide Spam*, Inc. We hope\n']
+  lines() 产出: 'you find your stay enjoyable, and that you will sample many of our\n'
+    → 加入当前块，block现在: ['These are the corporate web pages of *World Wide Spam*, Inc. We hopeu find your stay enjoyable, and that you will sample many of our\n']
+  lines() 产出: 'products.\n'
+    → 加入当前块，block现在: ['These are the corporate web pages of *World Wide Spam*, Inc. We hopeu find your stay enjoyable, and that you will sample many of our\n', 'products.\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'These are the corporate web pages of *World Wide Spam*, Inc. We hope\nyou r stay enjoyable, and that you will sample many of our\nproducts.'
+    → 清空block
+  lines() 产出: '==A short history of the company\n'
+    → 加入当前块，block现在: ['==A short history of the company\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: '==A short history of the company'
+    → 清空block
+  lines() 产出: 'World Wide Spam was started in the summer of 2000. The business\n'
+    → 加入当前块，block现在: ['World Wide Spam was started in the summer of 2000. The business\n']
+  lines() 产出: 'concept was to ride the dot-com wave and to make money both through\n'
+    → 加入当前块，block现在: ['World Wide Spam was started in the summer of 2000. The business\n',  was to ride the dot-com wave and to make money both through\n']
+  lines() 产出: 'bulk email and by selling canned meat online.\n'
+    → 加入当前块，block现在: ['World Wide Spam was started in the summer of 2000. The business\n',  was to ride the dot-com wave and to make money both through\n', 'bulk email and by selling canned meat online.\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'World Wide Spam was started in the summer of 2000. The business\nconcept wde the dot-com wave and to make money both through\nbulk email and by selling canned meat online.'
+    → 清空block
+  lines() 产出: 'Destinations\n'
+    → 加入当前块，block现在: ['Destinations\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'Destinations'
+    → 清空block
+  lines() 产出: 'From this page you may visit several of our interesting web pages:\n'
+    → 加入当前块，block现在: ['From this page you may visit several of our interesting web pages:\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'From this page you may visit several of our interesting web pages:'
+    → 清空block
+  lines() 产出: '* What is SPAM? (http://wwspam.fu/whatisspam)\n'
+    → 加入当前块，block现在: ['* What is SPAM? (http://wwspam.fu/whatisspam)\n']
+  lines() 产出: '* How do they make it? (http://wwspam.fu/howtomakeit)\n'
+    → 加入当前块，block现在: ['* What is SPAM? (http://wwspam.fu/whatisspam)\n', '* How do they make it? (http://wwspam.fu/howtomakeit)\n']
+  lines() 产出: '* Why should I eat it? (http://wwspam.fu/whyeatit)\n'
+    → 加入当前块，block现在: ['* What is SPAM? (http://wwspam.fu/whatisspam)\n', '* How do they makttp://wwspam.fu/howtomakeit)\n', '* Why should I eat it? (http://wwspam.fu/whyeatit)\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: '* What is SPAM? (http://wwspam.fu/whatisspam)\n* How do they make it? (httam.fu/howtomakeit)\n* Why should I eat it? (http://wwspam.fu/whyeatit)'
+    → 清空block
+  lines() 产出: 'How to get in touch with us\n'
+    → 加入当前块，block现在: ['How to get in touch with us\n']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'How to get in touch with us'
+    → 清空block
+  lines() 产出: 'You can get in touch with us in *many* ways: By phone (555-1234), by\n'
+    → 加入当前块，block现在: ['You can get in touch with us in *many* ways: By phone (555-1234), by\n']
+  lines() 产出: 'email (wwspam@wwspam.fu) or by visiting our customer feedback page\n'
+    → 加入当前块，block现在: ['You can get in touch with us in *many* ways: By phone (555-1234), by\n', 'email (wwspam@wwspam.fu) or by visiting our customer feedback page\n']
+  lines() 产出: '(http://wwspam.fu/feedback).'
+    → 加入当前块，block现在: ['You can get in touch with us in *many* ways: By phone (555-1234), byail (wwspam@wwspam.fu) or by visiting our customer feedback page\n', '(http://wwspam.fu/feedback).']
+  lines() 产出: '\n'
+    → 遇到空行，产出块: 'You can get in touch with us in *many* ways: By phone (555-1234), by\nemaim@wwspam.fu) or by visiting our customer feedback page\n(http://wwspam.fu/feedback).'
+    → 清空block
+  循环结束，block剩余: []
